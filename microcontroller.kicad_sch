@@ -12,8 +12,41 @@
 		(comment 2 "WB7NAB")
 	)
 	(lib_symbols)
+	(hierarchical_label "TxTuneSCL"
+		(shape bidirectional)
+		(at 248.92 96.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2dfa9b65-fc77-452b-bd19-bcf8c6c9eaf6")
+	)
+	(hierarchical_label "TxI"
+		(shape output)
+		(at 248.92 86.36 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3ab61747-f1a0-4c11-a267-023f009b568c")
+	)
+	(hierarchical_label "TxEnable"
+		(shape output)
+		(at 251.46 72.39 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3c135c4f-9a81-4931-8919-c31d4e931681")
+	)
 	(hierarchical_label "RxTuneLDAC-"
-		(shape input)
+		(shape output)
 		(at 248.92 58.42 0)
 		(effects
 			(font
@@ -22,6 +55,17 @@
 			(justify left)
 		)
 		(uuid "4c042783-3748-4565-8f1a-0e3936fe377d")
+	)
+	(hierarchical_label "TxTuneSDA"
+		(shape bidirectional)
+		(at 248.92 100.33 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "55c81a1b-d8e3-4b64-966e-c722596128fc")
 	)
 	(hierarchical_label "RxI"
 		(shape input)
@@ -34,6 +78,28 @@
 		)
 		(uuid "653ad257-d18c-4781-8235-c300c5fddb31")
 	)
+	(hierarchical_label "TxQ"
+		(shape output)
+		(at 248.92 90.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "69312f5e-864d-47d5-a98f-fcbc5b111cd9")
+	)
+	(hierarchical_label "TxTuneRDY"
+		(shape input)
+		(at 248.92 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7091c08b-5bec-4566-8170-22d5f59cb51a")
+	)
 	(hierarchical_label "RxTuneRDY"
 		(shape input)
 		(at 248.92 62.23 0)
@@ -44,6 +110,39 @@
 			(justify left)
 		)
 		(uuid "73459724-88b6-453e-b7c4-aefbd3cec8c6")
+	)
+	(hierarchical_label "VFOSCL"
+		(shape bidirectional)
+		(at 245.11 121.92 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7f8c4cd0-4048-435f-a885-054558a22868")
+	)
+	(hierarchical_label "VFOSDA"
+		(shape bidirectional)
+		(at 245.11 127 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "97710696-2da0-44a7-8010-1ed8c0ed4820")
+	)
+	(hierarchical_label "TxTuneLDAC-"
+		(shape output)
+		(at 248.92 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a5098e60-f9f2-4552-bf06-3bbb0d73fe08")
 	)
 	(hierarchical_label "RxQ"
 		(shape input)
@@ -57,7 +156,7 @@
 		(uuid "e5f9c08a-5419-49ea-aacd-7721d1f1e95c")
 	)
 	(hierarchical_label "RxTuneSDA"
-		(shape input)
+		(shape bidirectional)
 		(at 248.92 53.34 0)
 		(effects
 			(font
@@ -68,7 +167,7 @@
 		(uuid "f3faba12-2883-458d-b942-13ea20aa2ce1")
 	)
 	(hierarchical_label "RxTuneSCL"
-		(shape input)
+		(shape bidirectional)
 		(at 248.92 49.53 0)
 		(effects
 			(font
