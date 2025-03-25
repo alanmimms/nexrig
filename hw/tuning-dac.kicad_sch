@@ -1288,13 +1288,14 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Varactor tuning range is 30..435pF in 0..7V.\nNeed to multiply DAC value by 3.5 (x2 in DAC gain and x1.75 in buffer amp)"
+	(text "Varactor tuning range is 30..435pF in 0..7V.\n\nMultiply DAC output by 3.5:\n  x2 in DAC gain\n  x1.75 in buffer amp."
 		(exclude_from_sim no)
 		(at 76.708 22.352 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left)
 		)
 		(uuid "1349ac21-c30f-427e-9c1e-6ae91ed9af0a")
 	)
@@ -2197,7 +2198,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "01b71b82-5d43-41fb-b067-a153eee18381")
-		(property "Reference" "C?"
+		(property "Reference" "C701"
 			(at 58.42 60.706 90)
 			(effects
 				(font
@@ -2249,11 +2250,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "C?")
+					(reference "C701")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "C4")
+					(reference "C801")
 					(unit 1)
 				)
 			)
@@ -2269,7 +2270,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "02df7282-1c64-4435-8ea8-f455ee83d73e")
-		(property "Reference" "R6"
+		(property "Reference" "R706"
 			(at 113.284 66.04 90)
 			(effects
 				(font
@@ -2321,11 +2322,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "R6")
+					(reference "R706")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "R14")
+					(reference "R806")
 					(unit 1)
 				)
 			)
@@ -2341,7 +2342,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "03a3c33d-1be8-4c8e-8a91-8ed79468556e")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR0705"
 			(at 104.14 83.82 0)
 			(effects
 				(font
@@ -2392,11 +2393,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "#PWR02")
+					(reference "#PWR0705")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "#PWR015")
+					(reference "#PWR0805")
 					(unit 1)
 				)
 			)
@@ -2412,7 +2413,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0edc2968-77ab-4909-88da-efff290a08f4")
-		(property "Reference" "R7"
+		(property "Reference" "R707"
 			(at 114.554 90.17 90)
 			(effects
 				(font
@@ -2464,11 +2465,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "R7")
+					(reference "R707")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "R15")
+					(reference "R807")
 					(unit 1)
 				)
 			)
@@ -2484,7 +2485,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "192212a4-7613-4e17-a3f5-8da6dac82ac9")
-		(property "Reference" "R4"
+		(property "Reference" "R704"
 			(at 106.68 123.1899 0)
 			(effects
 				(font
@@ -2538,11 +2539,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "R4")
+					(reference "R704")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "R12")
+					(reference "R804")
 					(unit 1)
 				)
 			)
@@ -2558,7 +2559,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "46549d3f-184c-4fff-b1c4-ae46fc864afd")
-		(property "Reference" "R3"
+		(property "Reference" "R703"
 			(at 106.68 96.5199 0)
 			(effects
 				(font
@@ -2612,11 +2613,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "R3")
+					(reference "R703")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "R11")
+					(reference "R803")
 					(unit 1)
 				)
 			)
@@ -2631,7 +2632,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5dd7e218-3351-40d6-a472-5f0f71ecac60")
-		(property "Reference" "U?"
+		(property "Reference" "U702"
 			(at 132.588 38.862 0)
 			(effects
 				(font
@@ -2719,11 +2720,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "U?")
+					(reference "U702")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "U4")
+					(reference "U802")
 					(unit 1)
 				)
 			)
@@ -2739,7 +2740,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "621feca6-ac26-496e-93b0-c1d19ed89aec")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR0710"
 			(at 147.32 39.37 0)
 			(effects
 				(font
@@ -2790,11 +2791,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "#PWR07")
+					(reference "#PWR0710")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "#PWR020")
+					(reference "#PWR0810")
 					(unit 1)
 				)
 			)
@@ -2810,7 +2811,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "63fe3201-a626-4220-b8f8-db81c8fbf225")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0704"
 			(at 104.14 59.69 0)
 			(effects
 				(font
@@ -2861,11 +2862,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "#PWR?")
+					(reference "#PWR0704")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "#PWR014")
+					(reference "#PWR0804")
 					(unit 1)
 				)
 			)
@@ -2880,7 +2881,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6f8ab23f-4fc2-4b18-a17d-b89724388877")
-		(property "Reference" "U?"
+		(property "Reference" "U704"
 			(at 132.08 89.154 0)
 			(effects
 				(font
@@ -2968,11 +2969,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "U?")
+					(reference "U704")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "U4")
+					(reference "U802")
 					(unit 3)
 				)
 			)
@@ -2988,7 +2989,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "729cb37b-40e0-43fe-803e-d4e4d00e1b05")
-		(property "Reference" "R8"
+		(property "Reference" "R708"
 			(at 115.062 117.094 90)
 			(effects
 				(font
@@ -3040,11 +3041,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "R8")
+					(reference "R708")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "R16")
+					(reference "R808")
 					(unit 1)
 				)
 			)
@@ -3060,7 +3061,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7d03548a-c93f-4cfb-85a5-97d3a5ea0d09")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR0707"
 			(at 104.14 135.89 0)
 			(effects
 				(font
@@ -3111,11 +3112,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "#PWR04")
+					(reference "#PWR0707")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "#PWR017")
+					(reference "#PWR0807")
 					(unit 1)
 				)
 			)
@@ -3131,7 +3132,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7e70df7d-556d-4a05-a656-bf7f8837a4a8")
-		(property "Reference" "U?"
+		(property "Reference" "U701"
 			(at 69.4533 72.39 0)
 			(effects
 				(font
@@ -3209,11 +3210,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "U?")
+					(reference "U701")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "U2")
+					(reference "U801")
 					(unit 1)
 				)
 			)
@@ -3229,7 +3230,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8b6c9109-d8d0-4baa-9b90-b6d2cceb2311")
-		(property "Reference" "R?"
+		(property "Reference" "R701"
 			(at 106.68 46.9899 0)
 			(effects
 				(font
@@ -3283,11 +3284,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "R?")
+					(reference "R701")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "R9")
+					(reference "R801")
 					(unit 1)
 				)
 			)
@@ -3303,7 +3304,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "947ac340-0484-49f0-aeed-6add22aa1960")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0708"
 			(at 127 34.29 0)
 			(effects
 				(font
@@ -3353,11 +3354,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "#PWR?")
+					(reference "#PWR0708")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "#PWR018")
+					(reference "#PWR0808")
 					(unit 1)
 				)
 			)
@@ -3372,7 +3373,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9b0aa307-6b58-4595-b540-545f382ef907")
-		(property "Reference" "U?"
+		(property "Reference" "U703"
 			(at 131.572 63.754 0)
 			(effects
 				(font
@@ -3460,11 +3461,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "U?")
+					(reference "U703")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "U4")
+					(reference "U802")
 					(unit 2)
 				)
 			)
@@ -3480,7 +3481,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9f6a34e9-eba5-42fc-898d-f23c4533b81a")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0703"
 			(at 67.31 102.87 0)
 			(effects
 				(font
@@ -3531,11 +3532,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "#PWR?")
+					(reference "#PWR0703")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "#PWR013")
+					(reference "#PWR0803")
 					(unit 1)
 				)
 			)
@@ -3551,7 +3552,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "aa10944f-f34b-432a-ac6d-aad4e469feee")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR0709"
 			(at 127 59.69 0)
 			(effects
 				(font
@@ -3602,11 +3603,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "#PWR06")
+					(reference "#PWR0709")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "#PWR019")
+					(reference "#PWR0809")
 					(unit 1)
 				)
 			)
@@ -3622,7 +3623,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b7ebc6e0-ccf4-4717-92a7-68beefd87b78")
-		(property "Reference" "R?"
+		(property "Reference" "R705"
 			(at 113.538 39.37 90)
 			(effects
 				(font
@@ -3674,11 +3675,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "R?")
+					(reference "R705")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "R13")
+					(reference "R805")
 					(unit 1)
 				)
 			)
@@ -3694,7 +3695,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bd82d217-3ea4-43a3-a73e-4c9e2984a676")
-		(property "Reference" "R2"
+		(property "Reference" "R702"
 			(at 106.68 71.1199 0)
 			(effects
 				(font
@@ -3748,11 +3749,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "R2")
+					(reference "R702")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "R10")
+					(reference "R802")
 					(unit 1)
 				)
 			)
@@ -3768,7 +3769,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c39c08d5-1dfc-43b5-971f-5ed2d4f31919")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR0706"
 			(at 104.14 109.22 0)
 			(effects
 				(font
@@ -3819,11 +3820,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "#PWR03")
+					(reference "#PWR0706")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "#PWR016")
+					(reference "#PWR0806")
 					(unit 1)
 				)
 			)
@@ -3838,7 +3839,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "cc7fad41-dec6-4933-8405-28050c07a6aa")
-		(property "Reference" "U?"
+		(property "Reference" "U705"
 			(at 131.826 115.57 0)
 			(effects
 				(font
@@ -3926,11 +3927,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "U?")
+					(reference "U705")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "U4")
+					(reference "U802")
 					(unit 4)
 				)
 			)
@@ -3946,7 +3947,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d7ca9f08-d9e4-42cb-bd96-e413f0bdb335")
-		(property "Reference" "C?"
+		(property "Reference" "C702"
 			(at 58.42 72.898 90)
 			(effects
 				(font
@@ -3998,11 +3999,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "C?")
+					(reference "C702")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "C5")
+					(reference "C802")
 					(unit 1)
 				)
 			)
@@ -4018,7 +4019,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "df994364-3631-4918-8803-6e76e22459c9")
-		(property "Reference" "#PWR010"
+		(property "Reference" "#PWR0701"
 			(at 49.53 78.74 0)
 			(effects
 				(font
@@ -4069,11 +4070,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "#PWR010")
+					(reference "#PWR0701")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "#PWR011")
+					(reference "#PWR0801")
 					(unit 1)
 				)
 			)
@@ -4089,7 +4090,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e537657d-99f7-4325-9a54-0a7e9d1c2433")
-		(property "Reference" "C?"
+		(property "Reference" "C703"
 			(at 143.51 24.13 90)
 			(effects
 				(font
@@ -4141,11 +4142,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "C?")
+					(reference "C703")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "C6")
+					(reference "C803")
 					(unit 1)
 				)
 			)
@@ -4161,7 +4162,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f40d52d5-bd93-49d5-9ea8-3b51321ff5ee")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0702"
 			(at 67.31 67.31 0)
 			(effects
 				(font
@@ -4211,11 +4212,11 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/7524cfda-e705-452d-9e61-66a72b8681fc"
-					(reference "#PWR?")
+					(reference "#PWR0702")
 					(unit 1)
 				)
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/e8a2384d-df7d-4975-be8d-24327b6dea81"
-					(reference "#PWR012")
+					(reference "#PWR0802")
 					(unit 1)
 				)
 			)
