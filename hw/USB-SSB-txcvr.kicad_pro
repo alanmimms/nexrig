@@ -273,31 +273,52 @@
         "wire_width": 6
       },
       {
+        "bus_width": 12,
         "line_style": 0,
         "name": "GND",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 2,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "wire_width": 12
+      },
+      {
+        "bus_width": 12,
+        "line_style": 0,
+        "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "wire_width": 12
       },
       {
+        "bus_width": 12,
         "line_style": 0,
-        "name": "Power",
+        "name": "USB2 Data",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "wire_width": 12
+        "wire_width": 6
       }
     ],
     "meta": {
       "version": 4
     },
     "net_colors": null,
-    "netclass_assignments": null,
+    "netclass_assignments": {
+      "/USB/C-USBVBUS": [
+        "Power"
+      ],
+      "Net-(U1001-SW)": [
+        "Power"
+      ],
+      "Net-(U1004-SW)": [
+        "Power"
+      ]
+    },
     "netclass_patterns": [
       {
         "netclass": "GND",
-        "pattern": "/GND*"
+        "pattern": "GND*"
       },
       {
         "netclass": "Power",
@@ -306,6 +327,22 @@
       {
         "netclass": "Power",
         "pattern": "+5V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "-5V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "VBUS"
+      },
+      {
+        "netclass": "USB2 Data",
+        "pattern": "*USBDP"
+      },
+      {
+        "netclass": "USB2 Data",
+        "pattern": "*USBDN"
       }
     ]
   },
@@ -474,8 +511,8 @@
       "Rx Demod"
     ],
     [
-      "ca485d55-d48c-45fe-900e-babf44f30081",
-      "power"
+      "989674b0-a935-4352-9502-d92e0c9bb54e",
+      "USB"
     ]
   ],
   "text_variables": {}
