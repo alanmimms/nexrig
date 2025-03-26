@@ -271,6 +271,22 @@
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "line_style": 0,
+        "name": "GND",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 1,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "wire_width": 12
+      },
+      {
+        "line_style": 0,
+        "name": "Power",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "wire_width": 12
       }
     ],
     "meta": {
@@ -278,7 +294,20 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "GND",
+        "pattern": "/GND*"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+3.3V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+5V"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
@@ -418,7 +447,7 @@
     ],
     [
       "dab9d1f1-a255-4db5-bc55-08fa1f9f2738",
-      "VFO"
+      "VFO Clocks"
     ],
     [
       "0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f",
@@ -426,7 +455,7 @@
     ],
     [
       "2406d03c-531b-4eaf-8b4b-4b266b9d0f2b",
-      "Tx Power Chain"
+      "Tx Chain"
     ],
     [
       "1ffb1160-1891-4fab-821d-83a4f4ddba5b",
@@ -443,6 +472,10 @@
     [
       "c13518bb-0e7c-473e-8559-6d3997e37ee0",
       "Rx Demod"
+    ],
+    [
+      "ca485d55-d48c-45fe-900e-babf44f30081",
+      "power"
     ]
   ],
   "text_variables": {}
