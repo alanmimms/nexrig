@@ -28,8 +28,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32h7xx_hal.h"
-#include "stm32h7xx_nucleo.h"
-#include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -91,10 +89,6 @@ void Error_Handler(void);
 #define VFOSDA_GPIO_Port GPIOC
 #define VFOSCL_Pin GPIO_PIN_8
 #define VFOSCL_GPIO_Port GPIOA
-#define DbgUARTTX_Pin GPIO_PIN_9
-#define DbgUARTTX_GPIO_Port GPIOA
-#define DbgUARTRX_Pin GPIO_PIN_10
-#define DbgUARTRX_GPIO_Port GPIOA
 #define TxNSS_Pin GPIO_PIN_15
 #define TxNSS_GPIO_Port GPIOA
 #define TxSCK_Pin GPIO_PIN_10
@@ -109,8 +103,12 @@ void Error_Handler(void);
 #define RxNSS_GPIO_Port GPIOG
 #define RxSCK_Pin GPIO_PIN_11
 #define RxSCK_GPIO_Port GPIOG
-#define LD2_Pin GPIO_PIN_1
-#define LD2_GPIO_Port GPIOE
+#define DbgUARTTX_Pin GPIO_PIN_6
+#define DbgUARTTX_GPIO_Port GPIOB
+#define DbgUARTRX_Pin GPIO_PIN_7
+#define DbgUARTRX_GPIO_Port GPIOB
+#define YellowLED_Pin GPIO_PIN_1
+#define YellowLED_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
 

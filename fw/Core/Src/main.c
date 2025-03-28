@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,9 +42,6 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-
-COM_InitTypeDef BspCOMInit;
-__IO uint32_t BspButtonState = BUTTON_RELEASED;
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
 DMA_HandleTypeDef hdma_adc1;
@@ -69,7 +66,7 @@ DMA_HandleTypeDef hdma_spi4_rx;
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .stack_size = 128 * 4,
+  .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
@@ -96,6 +93,22 @@ void StartDefaultTask(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+
+// Redirect stdout to LPUART1. This is rather brute force...
+int __io_putchar(int ch) {
+  uint8_t buf = (uint8_t) ch;
+  HAL_UART_Transmit(&hlpuart1, &buf, 1, HAL_MAX_DELAY);
+  return 0;
+}
+
+
+int __io_getchar(void) {
+  uint8_t buf;
+  HAL_StatusTypeDef st = HAL_UART_Receive(&hlpuart1, &buf, 1, HAL_MAX_DELAY);
+  return st == HAL_OK ? buf : -1;
+}
+
 
 /* USER CODE END 0 */
 
@@ -182,41 +195,6 @@ int main(void)
   /* add events, ... */
   /* USER CODE END RTOS_EVENTS */
 
-  /* Initialize leds */
-  BSP_LED_Init(LED_GREEN);
-  BSP_LED_Init(LED_BLUE);
-  BSP_LED_Init(LED_RED);
-
-  /* Initialize User push-button without interrupt mode. */
-  BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
-
-  /* Initialize COM1 port (115200, 8 bits (7-bit data + 1 stop bit), no parity */
-  BspCOMInit.BaudRate   = 115200;
-  BspCOMInit.WordLength = COM_WORDLENGTH_8B;
-  BspCOMInit.StopBits   = COM_STOPBITS_1;
-  BspCOMInit.Parity     = COM_PARITY_NONE;
-  BspCOMInit.HwFlowCtl  = COM_HWCONTROL_NONE;
-  if (BSP_COM_Init(COM1, &BspCOMInit) != BSP_ERROR_NONE)
-  {
-    Error_Handler();
-  }
-
-  /* USER CODE BEGIN BSP */
-
-  /* -- Sample board code to send message over COM1 port ---- */
-  printf("Welcome to STM32 hello world !\n\r");
-  {
-    static const uint8_t msg[] = "\r\nHello world!\r\n";
-    HAL_UART_Transmit(&hlpuart1, msg, sizeof(msg), 99999);
-  }
-
-  /* -- Sample board code to switch on leds ---- */
-  BSP_LED_On(LED_GREEN);
-  BSP_LED_On(LED_BLUE);
-  BSP_LED_On(LED_RED);
-
-  /* USER CODE END BSP */
-
   /* Start scheduler */
   osKernelStart();
 
@@ -226,17 +204,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1) {
 
-    /* -- Sample board code for User push-button in interrupt mode ---- */
-    if (BspButtonState == BUTTON_PRESSED) {
-      /* Update button state */
-      BspButtonState = BUTTON_RELEASED;
-      /* -- Sample board code to toggle leds ---- */
-      BSP_LED_Toggle(LED_GREEN);
-      BSP_LED_Toggle(LED_BLUE);
-      BSP_LED_Toggle(LED_RED);
-
-      /* ..... Perform your action ..... */
-    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -769,7 +736,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(TxTuneLDAC__GPIO_Port, TxTuneLDAC__Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(YellowLED_GPIO_Port, YellowLED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : USBFault__Pin */
   GPIO_InitStruct.Pin = USBFault__Pin;
@@ -783,6 +750,32 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(TxEnable_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PC0 PC2 PC3 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_2|GPIO_PIN_3;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  GPIO_InitStruct.Alternate = GPIO_AF10_OTG2_HS;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PA3 PA5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_3|GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  GPIO_InitStruct.Alternate = GPIO_AF10_OTG2_HS;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB1 PB10 PB11 PB12
+                           PB13 PB5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12
+                          |GPIO_PIN_13|GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  GPIO_InitStruct.Alternate = GPIO_AF10_OTG2_HS;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : RxTuneLDAC__Pin TxIQLDAC__Pin */
   GPIO_InitStruct.Pin = RxTuneLDAC__Pin|TxIQLDAC__Pin;
@@ -804,12 +797,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(TxTuneLDAC__GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LD2_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin;
+  /*Configure GPIO pin : YellowLED_Pin */
+  GPIO_InitStruct.Pin = YellowLED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(YellowLED_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
@@ -832,9 +825,30 @@ void StartDefaultTask(void *argument)
   /* init code for USB_DEVICE */
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 5 */
+
+  printf("[USB device has been initialized]\r\n");
   /* Infinite loop */
+
+  static int yellowState = 0;
+
   for (;;) {
-    osDelay(10);
+    osDelay(100);
+    yellowState ^= 1;
+    HAL_GPIO_WritePin(YellowLED_GPIO_Port, YellowLED_Pin, yellowState ? GPIO_PIN_SET : GPIO_PIN_RESET);
+
+#if 0
+    static const uint8_t msg[] = "Hello world!\r\n";
+    HAL_UART_Transmit(&hlpuart1, msg, sizeof(msg), 9999);
+
+    printf("Hello printf world!\r\n");
+
+    uint8_t buf;
+    HAL_StatusTypeDef st = HAL_UART_Receive(&hlpuart1, &buf, 1, 0);
+
+    if (st != HAL_TIMEOUT) {
+      printf("Same to you buddy! 0x%02X '%c'\r\n", (int) buf, (buf >= ' ' && buf < 127) ? (int) buf : '?');
+    }
+#endif
   }
   /* USER CODE END 5 */
 }

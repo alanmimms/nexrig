@@ -24,7 +24,6 @@ C_DEPS :=
 SUBDIRS := \
 Core/Src \
 Core/Startup \
-Drivers/BSP/STM32H7xx_Nucleo \
 Drivers/STM32H7xx_HAL_Driver/Src \
 Middlewares/ST/STM32_USB_Device_Library/Class/AUDIO/Src \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src \
