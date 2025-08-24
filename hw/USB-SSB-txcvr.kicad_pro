@@ -239,6 +239,7 @@
       "single_global_label": "ignore",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
+      "undefined_netclass": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
       "wire_dangling": "error"
@@ -315,6 +316,24 @@
         "Power"
       ],
       "Net-(U1005-SW)": [
+        "Power"
+      ],
+      "Net-(U1104-SW)": [
+        "Power"
+      ],
+      "Net-(U1105-SW)": [
+        "Power"
+      ],
+      "Net-(U1204-SW)": [
+        "Power"
+      ],
+      "Net-(U1205-SW)": [
+        "Power"
+      ],
+      "Net-(U7709-SW)": [
+        "Power"
+      ],
+      "Net-(U7710-SW)": [
         "Power"
       ]
     },
@@ -427,12 +446,156 @@
           "label": "Datasheet",
           "name": "Datasheet",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Check_prices",
+          "name": "Check_prices",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description_1",
+          "name": "Description_1",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DigiKey_Part_Number",
+          "name": "DigiKey_Part_Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Display",
+          "name": "Display",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Display 2",
+          "name": "Display 2",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MF",
+          "name": "MF",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MP",
+          "name": "MP",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer",
+          "name": "Manufacturer",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Mfg",
+          "name": "Mfg",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MfgPart",
+          "name": "MfgPart",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Package",
+          "name": "Package",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Part Number",
+          "name": "Part Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Price",
+          "name": "Price",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "SnapEDA_Link",
+          "name": "SnapEDA_Link",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Specifications",
+          "name": "Specifications",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Availability",
+          "name": "Availability",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Params",
+          "name": "Sim.Params",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "cap-type",
+          "name": "cap-type",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pins",
+          "name": "Sim.Pins",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Type",
+          "name": "Sim.Type",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Device",
+          "name": "Sim.Device",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "r-power",
+          "name": "r-power",
+          "show": true
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
-      "name": "Default Editing",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -442,7 +605,18 @@
       "dashed_lines_gap_length_ratio": 3.0,
       "default_line_thickness": 6.0,
       "default_text_size": 50.0,
-      "field_names": [],
+      "field_names": [
+        {
+          "name": "cap-type",
+          "url": false,
+          "visible": true
+        },
+        {
+          "name": "r-power",
+          "url": false,
+          "visible": true
+        }
+      ],
       "intersheets_ref_own_page": false,
       "intersheets_ref_prefix": "",
       "intersheets_ref_short": false,
@@ -463,16 +637,16 @@
     "meta": {
       "version": 1
     },
-    "net_format_name": "",
+    "net_format_name": "SPICE Model",
     "ngspice": {
       "fix_include_paths": true,
       "meta": {
         "version": 0
       },
       "model_mode": 4,
-      "workbook_filename": ""
+      "workbook_filename": "USB-SSB-txcvr.wbk"
     },
-    "page_layout_descr_file": "",
+    "page_layout_descr_file": "antenna-tuner",
     "plot_directory": "",
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
@@ -502,6 +676,38 @@
       "Rx Front End"
     ],
     [
+      "f9f00abd-b220-4a52-9485-101b2c3406f9",
+      "BPF1"
+    ],
+    [
+      "496f0119-00f7-4b81-83e3-f4536e4d8c03",
+      "BPF2"
+    ],
+    [
+      "36f07c6b-32c2-4884-a95b-9395935f3898",
+      "BPF3"
+    ],
+    [
+      "2043c43f-256d-4363-a50b-132e4bb0daca",
+      "BPF4"
+    ],
+    [
+      "558a87ca-f89d-42b7-8f5f-8395f67d0136",
+      "BPF5"
+    ],
+    [
+      "c073b70a-9f89-402d-bb40-3a5661cabf57",
+      "BPF6"
+    ],
+    [
+      "d9531079-1c0a-461d-b1eb-6f33fc280992",
+      "BPF7"
+    ],
+    [
+      "989674b0-a935-4352-9502-d92e0c9bb54e",
+      "USB"
+    ],
+    [
       "2406d03c-531b-4eaf-8b4b-4b266b9d0f2b",
       "Tx Chain"
     ],
@@ -510,24 +716,32 @@
       "Antenna Tuner, TR Relay"
     ],
     [
-      "7524cfda-e705-452d-9e61-66a72b8681fc",
-      "Rx Tuning DAC"
+      "6fcf4881-e316-4628-8cae-7653c0ab384c",
+      "Rx Front End"
     ],
     [
-      "e8a2384d-df7d-4975-be8d-24327b6dea81",
-      "Tx Tuning DAC"
+      "44a476c9-16ac-4ab0-a649-e1ffe63a50dd",
+      "frontend-sim"
     ],
     [
-      "c13518bb-0e7c-473e-8559-6d3997e37ee0",
-      "Rx Demod AD8333"
+      "36f07c6b-32c2-4884-a95b-9395935f3898",
+      "BPF3"
+    ],
+    [
+      "496f0119-00f7-4b81-83e3-f4536e4d8c03",
+      "BPF2"
+    ],
+    [
+      "f9f00abd-b220-4a52-9485-101b2c3406f9",
+      "BPF1"
+    ],
+    [
+      "558a87ca-f89d-42b7-8f5f-8395f67d0136",
+      "BPF5"
     ],
     [
       "c073b70a-9f89-402d-bb40-3a5661cabf57",
       "BPF6"
-    ],
-    [
-      "989674b0-a935-4352-9502-d92e0c9bb54e",
-      "USB"
     ],
     [
       "d9531079-1c0a-461d-b1eb-6f33fc280992",
@@ -538,24 +752,8 @@
       "BPF4"
     ],
     [
-      "36f07c6b-32c2-4884-a95b-9395935f3898",
-      "BPF3"
-    ],
-    [
-      "558a87ca-f89d-42b7-8f5f-8395f67d0136",
-      "BPF5"
-    ],
-    [
-      "496f0119-00f7-4b81-83e3-f4536e4d8c03",
-      "BPF2"
-    ],
-    [
-      "365c4f46-bd27-4ce1-b58e-b445a332322d",
-      "BPF9"
-    ],
-    [
-      "f9f00abd-b220-4a52-9485-101b2c3406f9",
-      "BPF1"
+      "9db3dbba-7a37-434f-bd89-db248cf84169",
+      "test"
     ]
   ],
   "text_variables": {}
