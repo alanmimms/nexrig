@@ -1,0 +1,67 @@
+CALCULATED CHEBYSHEV BANDPASS FILTER TOPOLOGY
+=====================================================
+
+This is the exact circuit topology that the Python script calculates for:
+
+INPUT                                                                OUTPUT
+ 50Ω                                                                  50Ω
+  |                                                                    |
+  |     INPUT MATCHING          TANK 1      COUPLING    TANK 2      COUPLING    TANK 3          OUTPUT MATCHING
+  |    (Tapped Capacitor)                                                                       (Tapped Capacitor)
+  |                                                                                                    |
+  o----[Rin]----*----||----*----+----||----*----+----||----*----+----||----*----||----*----[Rload]----o
+       50Ω      |   C_hot  |    |   C12     |    |   C23     |    |   C3      |   C_hot  |     50Ω
+                |  202.4pF |    |  20.1pF   |    |  20.1pF   |    |  101.4pF  |  202.4pF |
+                ||         |   ===          |   ===          |   ===          |          ||
+             C_cold        |   C1           |   C2           |   C3           |       C_cold
+             101.2pF       |  101.4pF       |  101.4pF       |  101.4pF       |       101.2pF
+                |          |                |                |                |          |
+               GND        L1               L2               L3               |         GND
+                          1000nH           1000nH           1000nH            |
+                           |                |                |                |
+                          GND              GND              GND               |
+                                                                              |
+                                                                             GND
+
+COMPONENT FUNCTIONS:
+===================
+
+1. INPUT MATCHING (Tapped Capacitor Network):
+   - C_hot (202.4pF): Series capacitor providing impedance transformation and external coupling
+   - C_cold (101.2pF): Shunt capacitor to ground, completes the impedance matching
+   - Ratio C_hot/C_cold ≈ 2:1 provides 50Ω to ~100Ω transformation
+
+2. TANK RESONATORS (3x identical):
+   - L1,L2,L3 (1000nH each): Tank inductors
+   - C1,C2,C3 (101.4pF each): Tank capacitors, all resonate at f₀ = 15.8MHz
+   - Each tank has impedance ≈ 99Ω at resonance
+
+3. INTER-RESONATOR COUPLING:
+   - C12, C23 (20.1pF each): Coupling capacitors between adjacent resonators
+   - Provide the required coupling coefficient k ≈ 0.199 for Chebyshev response
+
+4. OUTPUT MATCHING (Mirror of Input):
+   - Same tapped-capacitor configuration as input
+   - Provides 50Ω matching and proper termination
+
+KEY DESIGN POINTS:
+==================
+
+• All tank resonators tuned to same frequency (15.8 MHz)
+• Coupling strength determined by C12, C23 values
+• Input/output matching uses tapped-C topology (NOT simple L-networks)
+• Impedance transformation AND external coupling done simultaneously
+• 2:1 capacitor ratio in matching networks is critical
+
+COMPARISON WITH YOUR SCHEMATIC:
+===============================
+
+Check if your KiCad schematic has:
+1. ✓ Three identical LC tanks (L=1000nH, C≈101pF)
+2. ✓ Small coupling caps between tanks (≈20pF)  
+3. ✓ Tapped capacitor input/output matching
+4. ✓ 2:1 ratio in matching capacitors (≈202pF and ≈101pF)
+5. ? Are both matching caps in SERIES path or is one shunt to ground?
+
+The most common error is having the wrong matching network topology.
+The Python script assumes TAPPED capacitors, not L-networks.

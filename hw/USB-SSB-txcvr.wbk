@@ -4,13 +4,17 @@
     {
       "analysis": "AC",
       "commands": [
-        ".ac dec 5000 10Meg 18Meg",
+        ".ac dec 5000 8Meg 22Meg",
         ".kicad adjustpaths",
         ".save all",
         ".probe alli",
         ".probe allp"
       ],
       "dottedSecondary": true,
+      "fixedY1scale": {
+        "max": 0.0,
+        "min": -40.0
+      },
       "margins": {
         "bottom": 45,
         "left": 70,
@@ -21,13 +25,22 @@
       "showGrid": true,
       "traces": [
         {
-          "color": "rgb(228, 26, 28)",
-          "signal": "V(/frontend-sim/Rx_Front_End/RxRFFiltered) (gain)",
-          "trace_type": 521
-        },
-        {
-          "color": "rgb(77, 175, 74)",
-          "signal": "V(/frontend-sim/test/acOut) (gain)",
+          "color": "rgb(255, 255, 51)",
+          "cursor1": {
+            "position": 13526827.876537107,
+            "x_format": "3~Hz",
+            "y_format": "3~dB"
+          },
+          "cursor2": {
+            "position": 18526754.77065561,
+            "x_format": "3~Hz",
+            "y_format": "3~dB"
+          },
+          "cursorD": {
+            "x_format": "3~Hz",
+            "y_format": "3~dB"
+          },
+          "signal": "V(/frontend-sim/test/vACOut) (gain)",
           "trace_type": 521
         }
       ]
