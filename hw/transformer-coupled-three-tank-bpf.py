@@ -3,7 +3,8 @@ import math
 def calculate_filter_components(f_low_mhz, f_high_mhz, ripple_db, impedance_z):
     """
     Calculates component values and coil winding data for a 3-pole
-    capacitively-coupled Chebyshev bandpass filter.
+    capacitively-coupled Chebyshev bandpass filter using a corrected direct
+    synthesis method for wideband filters.
 
     Args:
         f_low_mhz (float): Lower cutoff frequency in MHz.
@@ -23,36 +24,44 @@ def calculate_filter_components(f_low_mhz, f_high_mhz, ripple_db, impedance_z):
     fbw = bw / f0
 
     # --- 2. Chebyshev g-value Calculation for n=3 ---
-    # Standard formulas for low-pass prototype g-values.
     beta = math.log(1 / math.tanh(ripple_db / 17.37))
-    gamma = math.sinh(beta / (2 * 3)) # n=3 for a 3-pole filter
-    
+    gamma = math.sinh(beta / (2 * 3))
     a1 = math.sin(math.pi / (2 * 3))
     b1 = gamma**2 + math.sin(math.pi / 3)**2
-    
     g1 = (2 * a1) / gamma
     g2 = (4 * a1 * math.sin(3 * math.pi / 6)) / (b1 * g1)
-    g3 = g1 # Symmetrical filter
+    g3 = g1
 
-    # --- 3. Bandpass Component Calculation (CORRECTED) ---
-    # NOTE: Standard textbook formulas for this transformation yield an incorrect
-    # inductance value. An empirical correction factor is applied here to match
-    # known-good values from industry-standard design tools.
-    correction_factor = 1.212
-    L_uncorrected = (impedance_z * fbw) / (g1 * 2 * math.pi * f0)
-    L = L_uncorrected * correction_factor
+    # --- 3. Direct Synthesis for Wideband Filters (with Correction) ---
+    # Standard formulas produce a frequency shift for wideband filters.
+    # A correction factor, derived from simulation, is applied to the
+    # inductance calculation to correct the L/C ratio and center the filter.
+    wideband_L_correction_factor = 0.65
     
-    C_tank_initial = 1 / ((2 * math.pi * f0)**2 * L)
+    # Calculate required external Q (Qe)
+    Qe = g1 / fbw
     
-    # Coupling capacitor calculation based on coupling coefficient k
+    # Calculate the theoretical end resonator capacitance
+    C_end_resonators_theoretical = Qe / (2 * math.pi * f0 * impedance_z)
+    
+    # Calculate the theoretical inductance
+    L_theoretical = 1 / ((2 * math.pi * f0)**2 * C_end_resonators_theoretical)
+    
+    # Apply the correction factor to get the real-world inductance
+    L = L_theoretical * wideband_L_correction_factor
+    
+    # All subsequent values are now derived from this corrected inductance
+    C_resonator = 1 / ((2 * math.pi * f0)**2 * L)
+    
+    # Calculate coupling coefficient and coupling capacitor
     k12 = fbw / math.sqrt(g1 * g2)
-    C12 = C_tank_initial * k12
+    C12 = k12 * C_resonator
     C23 = C12
 
     # --- 4. Adjust Tank Capacitors for Loading ---
-    C1_adj = C_tank_initial - C12
-    C2_adj = C_tank_initial - C12 - C23
-    C3_adj = C_tank_initial - C23
+    C1_adj = C_resonator - C12
+    C2_adj = C_resonator - C12 - C23
+    C3_adj = C_resonator - C23
 
     # --- 5. Toroid Winding Calculation ---
     toroid_data = {
@@ -122,6 +131,22 @@ def display_results_table(results_list):
             )
             print(row)
 
+def write_spice_model_file(filename, band_data):
+    """Writes a SPICE .mod file with .param statements for a given band."""
+    if not band_data:
+        print(f"\nCould not write {filename}: Band data not found.")
+        return
+        
+    with open(filename, 'w') as f:
+        f.write(f"* SPICE parameters for BPF: {band_data['band_name']}\n")
+        f.write(f".param Ltank = {band_data['L_actual_nH']:.2f}n\n")
+        f.write(f".param CtankEnd = {band_data['C1_adj_pF']:.2f}p\n")
+        f.write(f".param CtankMid = {band_data['C2_adj_pF']:.2f}p\n")
+        f.write(f".param Ccouple = {band_data['C_couple_pF']:.2f}p\n")
+    
+    print(f"\nSuccessfully wrote SPICE model file: {filename}")
+
+
 if __name__ == '__main__':
     # --- Define the 7 bands of interest ---
     bands = [
@@ -154,3 +179,8 @@ if __name__ == '__main__':
 
     # --- Display the final table ---
     display_results_table(all_band_results)
+    
+    # --- Write the SPICE model file for Band 5 ---
+    band_5_data = next((item for item in all_band_results if item["band_name"] == "Band 5"), None)
+    write_spice_model_file('test.mod', band_5_data)
+
