@@ -772,7 +772,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text ".param Ccouple = 47.8p"
+	(text ".param Ccouple = 39.39p"
 		(exclude_from_sim no)
 		(at 158.75 102.616 0)
 		(effects
@@ -782,7 +782,7 @@
 		)
 		(uuid "20c03322-747c-46e8-afae-21b87e8d259f")
 	)
-	(text ".param CtankEnd = 116.6p"
+	(text ".param CtankEnd = 96.07p"
 		(exclude_from_sim no)
 		(at 139.192 109.982 0)
 		(effects
@@ -792,7 +792,17 @@
 		)
 		(uuid "339d135e-646f-4514-9d4e-f7826930db2a")
 	)
-	(text ".param CtankMid = 68.8p"
+	(text ".param Ltank = 784n"
+		(exclude_from_sim no)
+		(at 138.176 116.586 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8234bc4f-0940-4268-b28f-edcb2229b3d0")
+	)
+	(text ".param CtankMid = 56.68p"
 		(exclude_from_sim no)
 		(at 178.054 109.728 0)
 		(effects
@@ -801,16 +811,6 @@
 			)
 		)
 		(uuid "bcd6e764-4fc0-4011-a8c5-0db5ac9d6a6e")
-	)
-	(text ".step param CtankEnd 80p 150p 10p"
-		(exclude_from_sim no)
-		(at 137.16 115.316 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "c0d28dac-a4d2-4487-b234-8ab59949e606")
 	)
 	(junction
 		(at 81.28 172.72)
@@ -1572,7 +1572,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "617nH"
+		(property "Value" "{Ltank}"
 			(at 131.826 69.85 0)
 			(effects
 				(font
@@ -1622,6 +1622,24 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "Sim.Device" "L"
+			(at 276.86 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 276.86 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -2486,7 +2504,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "617nH"
+		(property "Value" "{Ltank}"
 			(at 167.386 69.85 0)
 			(effects
 				(font
@@ -2538,6 +2556,24 @@
 				)
 			)
 		)
+		(property "Sim.Device" "L"
+			(at 347.98 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 347.98 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3cd5aed7-24ff-4a0f-9fa5-c60fbeacad1f")
 		)
@@ -2572,7 +2608,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "617nH"
+		(property "Value" "{Ltank}"
 			(at 201.676 69.85 0)
 			(effects
 				(font
@@ -2622,6 +2658,24 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "Sim.Device" "L"
+			(at 416.56 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 416.56 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
