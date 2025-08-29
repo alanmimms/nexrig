@@ -1,0 +1,42 @@
+* Simple 40m 3-Pole BPF Debug
+* Using transformer-coupled hybrid topology
+
+* Component values (from working design)
+.param L1=100n
+.param L2=133n  
+.param L3=100n
+.param C1a=4p
+.param C1b=1p
+.param C2=2425p
+.param C3a=4p
+.param C3b=1p
+
+* === SOURCE ===
+V1 in 0 AC 1 0
+Rs in n1 50
+
+* === HYBRID TAPPED-CAPACITOR TOPOLOGY ===
+* Tank 1: Tapped capacitor for input matching
+L1 n1 n2 {L1}
+C1a n2 0 {C1a}
+C1b n1 0 {C1b}
+
+* Tank 2: Standard parallel tank
+L2 n2 n3 {L2}
+C2 n3 0 {C2}
+
+* Tank 3: Tapped capacitor for output matching
+L3 n3 n4 {L3}  
+C3a n4 0 {C3a}
+C3b n3 0 {C3b}
+
+* === LOAD ===
+RL n4 0 50
+
+* === ANALYSIS ===
+.ac dec 100 1meg 100meg
+.control
+run
+print frequency vdb(n4)
+.endc
+.end

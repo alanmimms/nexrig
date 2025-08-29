@@ -1,0 +1,10 @@
+* Simple test - Band 1
+V1 in 0 AC 1 0
+Rs in n1 50
+R1 n1 0 50
+.ac dec 10 1meg 10meg
+.control
+run
+print frequency vdb(n1)
+.endc
+.end

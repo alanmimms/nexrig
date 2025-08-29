@@ -1,0 +1,91 @@
+* Three-Tank BPF Simulation Template
+* Transformer-coupled Chebyshev filter
+* 50-ohm input/output impedance
+
+.title BPF Simulation - BAND_NAME
+
+* Include the band-specific parameters
+.include BAND_FILE
+
+* Input source - 1V AC for frequency sweep
+Vin in 0 AC 1
+
+* Input matching transformer (1:2 impedance ratio, 1:sqrt(2) turns)
+* Primary (50 ohm side)
+Lpri in 0 {Ltank/4}
+* Secondary (200 ohm side) - coupled with k=0.98
+Lsec1 tank1 0 {Ltank}
+K1 Lpri Lsec1 0.98
+
+* Tank 1 (end resonator)
+C1 tank1 0 {CtankEnd}
+
+* Coupling capacitor C12
+C12 tank1 tank2 {Ccouple}
+
+* Tank 2 (center resonator)
+L2 tank2 0 {Ltank}
+C2 tank2 0 {CtankMid}
+
+* Coupling capacitor C23
+C23 tank2 tank3 {Ccouple}
+
+* Tank 3 (end resonator)
+C3 tank3 0 {CtankEnd}
+
+* Output matching transformer (2:1 impedance ratio, sqrt(2):1 turns)
+* Secondary (200 ohm side)
+Lsec3 tank3 0 {Ltank}
+* Primary (50 ohm side) - coupled with k=0.98
+Lpri_out out 0 {Ltank/4}
+K2 Lsec3 Lpri_out 0.98
+
+* Output load
+Rload out 0 50
+
+* Analysis commands
+.control
+* AC analysis from 1MHz to 50MHz with 1000 points
+ac dec 100 1MEG 50MEG
+
+* Calculate gain in dB (V(out)/V(in))
+let gain = db(v(out)/v(in))
+
+* Find the passband limits and center frequency
+meas ac flo when gain=-3 rise=1
+meas ac fhi when gain=-3 fall=last
+let fc = sqrt(flo*fhi)
+let bw = fhi - flo
+
+* Print measurements
+echo
+echo "BAND_NAME Filter Response:"
+echo "=========================="
+print fc
+print flo
+print fhi
+print bw
+
+* Create the plot
+set hcopydevtype=png
+set hcopywidth=1200
+set hcopyheight=800
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=green
+
+* Plot with grid and labels
+plot gain xlabel 'Frequency (Hz)' ylabel 'Gain (dB)' title 'BAND_NAME BPF Response'
+
+* Save the plot to PNG file
+hardcopy OUTPUT_FILE gain
+
+* Also create a CSV file with the data
+set wr_vecnames
+wrdata CSV_FILE frequency gain
+
+.endc
+
+.end
