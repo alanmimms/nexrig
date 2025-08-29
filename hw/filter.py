@@ -58,33 +58,39 @@ def design_chebyshev_lowpass_prototypes(order, ripple_db):
 def transform_to_bandpass(g_values, f_center, bw):
     """
     Transforms lowpass prototype values to capacitively-coupled bandpass component values.
-    Returns a dictionary of component values.
+    This revised method first chooses a practical L/C ratio for the resonators
+    and then calculates the coupling and final component values. This is more
+    numerically stable for narrow bandwidth filters.
     """
     w0 = 2 * np.pi * f_center
     FBW = bw / f_center # Fractional Bandwidth
 
-    # This design makes all resonators identical, based on the g1 value.
-    # This is a simplification but should yield a working filter.
-    # L_res and C_res are calculated to resonate at f_center.
-    L_res = (Z0 * g_values[1]) / (2 * np.pi * bw)
-    C_res = 1 / ((w0**2) * L_res)
-
-    # Calculate coupling coefficients (k) based on standard filter theory
+    # 1. Calculate inter-resonator coupling factors
     k12 = FBW / math.sqrt(g_values[1] * g_values[2])
     k23 = FBW / math.sqrt(g_values[2] * g_values[3])
 
-    # Calculate coupling capacitors from the coupling coefficient and resonator capacitance
-    C_couple12 = k12 * C_res
-    C_couple23 = k23 * C_res
+    # 2. Choose a characteristic impedance for the resonators. Let's use Z0.
+    #    Resonator Z = w0 * L = 1 / (w0 * C). We choose L first.
+    #    This gives all resonators the same L and C before coupling is considered.
+    L = Z0 / w0
+    C = 1 / (w0**2 * L)
     
-    # All resonators are identical in this simplified model
-    L1 = L_res
-    C1 = C_res
-    L2 = L_res
-    C2 = C_res
-    L3 = L_res
-    C3 = C_res
+    # 3. Calculate the coupling capacitors based on the chosen C.
+    #    C_jk = k_jk * C
+    C_couple12 = k12 * C
+    C_couple23 = k23 * C
 
+    # 4. The inductors for all resonators are the same.
+    L1 = L
+    L2 = L
+    L3 = L
+
+    # 5. The physical capacitors in the shunt resonators must be reduced to account 
+    #    for the presence of the coupling capacitors.
+    C1 = C - C_couple12
+    C2 = C - C_couple12 - C_couple23
+    C3 = C - C_couple23
+    
     return {
         "L1": L1, "C1": C1,
         "L2": L2, "C2": C2,
@@ -114,6 +120,7 @@ def generate_netlist(band_name, f_start, f_stop, components):
 * Thevenin equivalent of a 1V 50-ohm source transformed 1:4 to 200 ohms.
 * V_thevenin = 1V * sqrt(200/50) = 2V
 * R_thevenin = 50 * (200/50) = 200 Ohms
+* The source resistance loads the first resonator.
 V1 1 0 AC 2
 R_source 1 2 {Z0}
 
@@ -137,12 +144,12 @@ L3 9 0 {components['L3']:.6e}
 C3 9 0 {components['C3']:.6e}
 
 * --- Load ---
-* The filter is terminated in 200 Ohms, representing the transformed 50 Ohm load.
+* The load resistance loads the last resonator.
 R_load 9 0 {Z0}
 
 * --- Analysis ---
 .control
-    ac lin 801 {f_sweep_start * 1e6} {f_sweep_stop * 1e6}
+    ac lin 2001 {f_sweep_start * 1e6} {f_sweep_stop * 1e6}
     * We measure voltage at the load (node 9)
     let Vout = V(9)
     * Insertion Loss is defined as 20*log10(V_load / V_source_available)
@@ -207,16 +214,12 @@ def plot_results(band_name, f_start, f_stop):
     ax.set_xlabel("Frequency (MHz)", fontsize=12)
     ax.set_ylabel("Insertion Loss (dB)", fontsize=12)
     
-    # Set Y-axis limits for better visualization
-    # Add a check to prevent error on empty slice
-    passband_slice = vdb[(freqs >= f_start) & (freqs <= f_stop)]
-    if passband_slice.size > 0:
-        passband_max = np.max(passband_slice)
-        ax.set_ylim(passband_max - 80, passband_max + 2)
-    else:
-        # Fallback if no points are in the passband, though unlikely with linear sweep
-        ax.set_ylim(-80, 2)
-
+    # Set Y-axis limits to fixed range for better comparison
+    ax.set_ylim(-60, 0)
+    
+    # Set X-axis to zoom in on the passband and a little bit of the skirts
+    band_width = f_stop - f_start
+    ax.set_xlim(f_start - 0.5 * band_width, f_stop + 0.5 * band_width)
     
     # Highlight the passband region
     ax.axvspan(f_start, f_stop, color='green', alpha=0.2, label=f'{band_name} Passband')
@@ -227,14 +230,15 @@ def plot_results(band_name, f_start, f_stop):
     
     # Add text box with component values
     components = design_chebyshev_bandpass_from_band(f_start*1e6, f_stop*1e6)
+    # For N=3 Chebyshev, Resonators 1 and 3 are identical.
     text_str = "Component Values:\n"
     text_str += f"L (all): {components['L1']*1e6:.3f} uH\n"
-    text_str += f"C (res): {components['C1']*1e12:.3f} pF\n"
-    text_str += f"C12: {components['C12']*1e12:.3f} pF\n"
-    text_str += f"C23: {components['C23']*1e12:.3f} pF\n"
+    text_str += f"C1/C3: {components['C1']*1e12:.3f} pF\n"
+    text_str += f"C2:    {components['C2']*1e12:.3f} pF\n"
+    text_str += f"C12/C23: {components['C12']*1e12:.3f} pF\n"
     
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
-    ax.text(0.05, 0.35, text_str, transform=ax.transAxes, fontsize=10,
+    ax.text(0.05, 0.45, text_str, transform=ax.transAxes, fontsize=10,
             verticalalignment='top', bbox=props)
 
     plt.tight_layout()
@@ -271,10 +275,9 @@ def main():
         # Design the filter
         components = design_chebyshev_bandpass_from_band(f_start_hz, f_stop_hz)
         print(f"  Designed Components for {band_name}:")
-        print(f"    Resonator L: {components['L1']*1e6:.4f} uH")
-        print(f"    Resonator C: {components['C1']*1e12:.4f} pF")
-        print(f"    Coupling C12: {components['C12']*1e12:.4f} pF")
-        print(f"    Coupling C23: {components['C23']*1e12:.4f} pF")
+        print(f"    L (all): {components['L1']*1e6:.4f} uH")
+        print(f"    C1/C3: {components['C1']*1e12:.4f} pF, C2: {components['C2']*1e12:.4f} pF")
+        print(f"    C12/C23: {components['C12']*1e12:.4f} pF")
         
         # Generate the SPICE netlist for this design
         netlist_file = generate_netlist(band_name, f_start_mhz, f_stop_mhz, components)
