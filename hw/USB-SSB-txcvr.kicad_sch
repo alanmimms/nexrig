@@ -104,7 +104,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 72.39) (xy 208.28 72.39)
+			(xy 143.51 25.4) (xy 208.28 25.4)
 		)
 		(stroke
 			(width 0)
@@ -244,7 +244,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 54.61) (xy 146.05 69.85)
+			(xy 146.05 27.94) (xy 146.05 54.61)
 		)
 		(stroke
 			(width 0)
@@ -344,7 +344,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 69.85) (xy 208.28 69.85)
+			(xy 146.05 27.94) (xy 208.28 27.94)
 		)
 		(stroke
 			(width 0)
@@ -354,7 +354,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 57.15) (xy 143.51 72.39)
+			(xy 143.51 25.4) (xy 143.51 57.15)
 		)
 		(stroke
 			(width 0)
@@ -470,6 +470,16 @@
 		(pin "ClockSDA" bidirectional
 			(at 96.52 57.15 0)
 			(uuid "71329900-e6a2-43cf-a536-3a885bd2aeb6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "STM32CLK" output
+			(at 96.52 67.31 0)
+			(uuid "3ca756f9-3479-4430-9be6-03670660391b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -933,7 +943,7 @@
 			)
 		)
 		(pin "ControlSCL" bidirectional
-			(at 208.28 69.85 180)
+			(at 208.28 27.94 180)
 			(uuid "37a0679b-9843-4507-9ee5-103246d333c2")
 			(effects
 				(font
@@ -943,7 +953,7 @@
 			)
 		)
 		(pin "ControlSDA" bidirectional
-			(at 208.28 72.39 180)
+			(at 208.28 25.4 180)
 			(uuid "01ff1478-f7e3-4e29-86fc-4fcc8d46ed93")
 			(effects
 				(font

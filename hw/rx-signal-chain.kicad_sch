@@ -3933,10 +3933,6 @@
 		(uuid "976d524d-a486-4864-bb3f-bc7a5d3b181a")
 	)
 	(no_connect
-		(at 72.39 182.88)
-		(uuid "be56ab30-c9cf-4cb6-bdc9-6a67fe267cc6")
-	)
-	(no_connect
 		(at 72.39 167.64)
 		(uuid "e6c81dd0-ec37-491e-b0f0-bcccc2291424")
 	)
@@ -5490,7 +5486,7 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 187.96) (xy 74.93 187.96)
+			(xy 72.39 182.88) (xy 74.93 182.88)
 		)
 		(stroke
 			(width 0)
@@ -5647,6 +5643,16 @@
 			(type default)
 		)
 		(uuid "deb24ec5-d3a1-48b3-958f-7d60de25cc3e")
+	)
+	(wire
+		(pts
+			(xy 72.39 187.96) (xy 74.93 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e153ab27-8d34-42d7-a678-17e76d487761")
 	)
 	(wire
 		(pts
@@ -6235,6 +6241,17 @@
 			)
 		)
 	)
+	(hierarchical_label "STM32CLK"
+		(shape output)
+		(at 74.93 187.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2b19c73d-1bb1-4137-9842-04d5d34e12c9")
+	)
 	(hierarchical_label "ClockSCL"
 		(shape bidirectional)
 		(at 33.02 177.8 180)
@@ -6314,7 +6331,7 @@
 	)
 	(hierarchical_label "AudioMCLK"
 		(shape output)
-		(at 74.93 187.96 0)
+		(at 74.93 182.88 0)
 		(effects
 			(font
 				(size 1.27 1.27)
