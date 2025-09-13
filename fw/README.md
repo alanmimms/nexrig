@@ -45,6 +45,25 @@ in some standard format for import to eg SmartLogger.
   * Could save recorded QSOs, voice recordings to play back as
     microphone audio, etc.
 
+## Transmit Path Power Amplifier Efficiency
+The transmit path will use Envelope Elimination and Restoration (EER)
+for the Vdd supplied to the PA MOSFET. This derives the amplitude
+portion of the transmitted signal from the Vdd value while the PA
+MOSFET continually switches at the carrier frequency with phase offset
+provided by the NCO in the FPGA to provide the phase aspect of the
+output signal.
+
+In this scheme, the PA MOSFET's Vdd comes from a buck regulator
+designed to track the amplitude of the modulation in real time, so the
+MOSFET can always be saturated ON or fully OFF as much as possible to
+reduce dissipation.
+
+The FPGA, which receives the phase offset part of the modulation from
+the DSP in the microcontroller, uses a numerically controlled
+oscillator (NCO) to drive the PA MOSFET's gate. This can also be
+further modified to switch the MOSFET at real zero-crossing times to
+provide "class E amplifier" behavior to further reduce dissipation.
+
 
 # Things to Ponder
 * Should we provide Ethernet as well as USB connectivity?
@@ -59,3 +78,26 @@ in some standard format for import to eg SmartLogger.
     * Can use HDMI + USB HID.
 	* Or use built in 1024x768 LCD driver + touch controller.
   * Maybe needs GNSS receiver and/or battery backed RTC.
+
+
+## Consider PWM/PDM for NCO Gate Output
+This would improve spectral purity of the PA's output by making its
+square wave into a signal that is already PWMed or PDMed into a form
+that is easier to low pass filter into the final carrier wave. The
+idea is to gate the FPGA's NCO output with the PWM or PDM pattern to
+produce this square-sine signal for the carrier while still following
+the NCO's phase offset for the phase modulation component of the
+signal.
+
+## Consider Digital Pre-Distortion
+Digitally distort the input signal to the PA that is the inverse of
+the PA's nonlinear distortion(s). This would also be applied on a
+wave-to-wave basis by the FPGA by looking up values in internal FPGA
+table RAMs on the fly. The table RAMs' contents would be occasionally
+updated by the microcontroller (through SPI) based on measurements of
+the actual distortion (via the receive path's ADC, perhaps) or based
+on drift of the factors that lead to the distortion compared to a
+baseline assumption that is baseline precalculated. The drift factors
+are things like temperature, input supply voltage, and load impedance.
+(The microcontroller already has to track input supply voltage to do
+its PWM calculations for the EER envelope buck converter.)
