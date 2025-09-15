@@ -1,0 +1,26 @@
+* Qucs 25.2.0  /home/alan/ham/USB-SSB-txcvr/hw/eer-model.sch
+.INCLUDE "/usr/share/qucs-s/xspice_cmlib/include/ngspice_mathfunc.inc"
+L1 _net0 0  300N 
+C2 0 _net0  321P  IC=200
+C1 BPFin _net0  62P  IC=200
+C3 _net0 _net1  25.2P  IC=200
+C4 _net1 _net2  25.2P  IC=200
+C5 _net2 BPFout  62P  IC=200
+L2 _net1 0  300N 
+L3 _net2 0  300N 
+C7 0 _net2  321P  IC=200
+C6 0 _net1  355P  IC=200
+R1 0 BPFin  50 tc1=0.0 tc2=0.0 
+R2 0 BPFout  50 tc1=0.0 tc2=0.0 
+V1 BPFin 0 DC 0 SIN(0 1 1K 0 0 0) AC 1 ACPHASE 0
+
+.control
+
+ac lin 20001 1meg 30meg 
+write spice4qucs.ac1.plot v(BPFin) v(BPFout)
+destroy all
+reset
+
+exit
+.endc
+.END
