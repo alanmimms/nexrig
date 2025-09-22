@@ -11,7 +11,7 @@ serving, and DSP processing demand serious computational resources.
 The RF section covers all ten HF amateur bands from 160 meters down to
 10 meters, using PIN diode switching for band selection and
 transmit/receive switching. Each band gets its own order-5 Chebyshev
-bandpass filter rated for the full 100-watt output power. The result
+bandpass filter rated for the full 50-watt output power. The result
 is excellent harmonic suppression and band isolation without the
 complexity of mechanical switching.
 

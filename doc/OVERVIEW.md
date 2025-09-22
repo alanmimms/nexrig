@@ -82,7 +82,7 @@ running at 480MHz with a full megabyte each of flash and RAM. This
 isn't your typical Arduino project - we're talking serious
 computational power running Zephyr RTOS. The RF hardware handles ten
 HF bands (160m through 10m) with a sophisticated envelope elimination
-and restoration (EER) power amplifier capable of 100 watts output.
+and restoration (EER) power amplifier capable of 50 watts output.
 
 **Embedded Software**: Written in modern C++20, this handles the
 real-time RF control, basic DSP processing, and serves as a web
