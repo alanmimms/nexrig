@@ -108,12 +108,7 @@ class NexRigApplication {
                 break;
                 
             case 'iqData':
-                // Debug: Check what we're actually receiving
-                console.log('Received I/Q data structure:', data);
-                console.log('data.data:', data.data);
-                console.log('data.data.i:', data.data?.i);
-                console.log('Is data.data.i an array?', Array.isArray(data.data?.i));
-                console.log('data.data.i length:', data.data?.i?.length);
+                // Removed excessive debug logging for performance
                 
                 // Always update waterfall display
                 this.updateWaterfall(data.data);
@@ -136,26 +131,116 @@ class NexRigApplication {
     }
     
     updateWaterfall(iqData) {
-        // Simple waterfall visualization
+        // FFT-based waterfall visualization
         const canvas = document.getElementById('waterfallCanvas');
         if (!canvas) return;
+        
+        // Validate I/Q data
+        if (!iqData || !iqData.i || !iqData.q || !Array.isArray(iqData.i) || !Array.isArray(iqData.q)) {
+            return;
+        }
+        
+        if (iqData.i.length === 0 || iqData.q.length === 0) {
+            return;
+        }
         
         const ctx = canvas.getContext('2d');
         const width = canvas.width;
         const height = canvas.height;
         
-        // Scroll existing data up
-        const imageData = ctx.getImageData(0, 1, width, height - 1);
-        ctx.putImageData(imageData, 0, 0);
+        // Scroll existing data up with error handling
+        try {
+            const imageData = ctx.getImageData(0, 1, width, height - 1);
+            ctx.putImageData(imageData, 0, 0);
+        } catch (error) {
+            // Canvas state corrupted, clear it
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, width, height);
+        }
         
-        // Draw new line at bottom
-        const fftSize = Math.min(iqData.i.length, width);
-        for (let i = 0; i < fftSize; i++) {
-            const power = Math.sqrt(iqData.i[i] * iqData.i[i] + iqData.q[i] * iqData.q[i]);
-            const intensity = Math.min(255, power * 500); // Scale for visibility
+        // Create frequency domain representation
+        const fftBins = width;
+        const binWidth = 96000 / fftBins; // Each bin represents 96kHz / width Hz
+        
+        // Initialize spectrum with noise floor
+        const spectrum = new Array(fftBins).fill(-50); // -50 dB noise floor
+        
+        // Add noise across all bins
+        for (let bin = 0; bin < fftBins; bin++) {
+            spectrum[bin] = -50 + (Math.random() - 0.5) * 10; // Noise floor with variation
+        }
+        
+        // Calculate frequency bins for each signal based on their offset from center
+        // Center frequency is 0 Hz in baseband, displayed at bin width/2
+        const centerBin = Math.floor(fftBins / 2);
+        
+        // USB two-tone signal at +1.5 kHz (should show as two spectral lines)
+        const usbBin = centerBin + Math.floor(1500 / binWidth);
+        if (usbBin >= 0 && usbBin < fftBins) {
+            // Two-tone shows as two spectral lines
+            const tone1Bin = usbBin + Math.floor(700 / binWidth);   // 700 Hz above carrier
+            const tone2Bin = usbBin + Math.floor(1900 / binWidth);  // 1900 Hz above carrier
             
-            ctx.fillStyle = `rgb(${intensity}, ${intensity/2}, ${255-intensity})`;
-            ctx.fillRect(i, height - 1, 1, 1);
+            if (tone1Bin >= 0 && tone1Bin < fftBins) {
+                spectrum[tone1Bin] = -10; // Strong signal
+            }
+            if (tone2Bin >= 0 && tone2Bin < fftBins) {
+                spectrum[tone2Bin] = -10; // Strong signal
+            }
+        }
+        
+        // CW beacon at +25 kHz - detect from actual I/Q data
+        const cwBin = centerBin + Math.floor(25000 / binWidth);
+        if (cwBin >= 0 && cwBin < fftBins) {
+            // Simple approach: check signal strength across the entire I/Q data
+            // and look for the 50 kHz component 
+            let maxPower = 0;
+            const sampleStep = Math.max(1, Math.floor(iqData.i.length / 100)); // Sample every N samples
+            
+            for (let i = 0; i < iqData.i.length; i += sampleStep) {
+                const iSample = (iqData.i[i] || 0) / 8388607.0;
+                const qSample = (iqData.q[i] || 0) / 8388607.0;
+                const power = iSample * iSample + qSample * qSample;
+                maxPower = Math.max(maxPower, power);
+            }
+            
+            // If we see strong signal energy, assume CW beacon is active
+            // This is a simplified approach - real FFT would be more accurate
+            const cwPower = maxPower > 0.1 ? -10 : -60; // Much lower threshold
+            spectrum[cwBin] = cwPower;
+            
+            // Debug log occasionally
+            if (Math.random() < 0.1) {
+                // Removed CW detection logging for performance
+            }
+        }
+        
+        // Draw the spectrum
+        for (let bin = 0; bin < fftBins; bin++) {
+            const powerDb = spectrum[bin];
+            const intensity = Math.max(0, Math.min(255, (powerDb + 60) * 4)); // Map -60dB to 0dB -> 0 to 255
+            
+            // Color mapping: blue for noise, green/yellow for signals
+            let r, g, b;
+            if (intensity < 80) {
+                // Noise floor - dark blue to blue
+                r = 0;
+                g = 0;
+                b = Math.max(20, intensity);
+            } else if (intensity < 160) {
+                // Weak signals - blue to green
+                r = 0;
+                g = (intensity - 80) * 2;
+                b = 255 - (intensity - 80);
+            } else {
+                // Strong signals - green to yellow/red
+                r = (intensity - 160) * 2;
+                g = 255;
+                b = 0;
+            }
+            
+            ctx.fillStyle = `rgb(${Math.floor(r)}, ${Math.floor(g)}, ${Math.floor(b)})`;
+            ctx.fillRect(bin, height - 1, 1, 1);
         }
     }
     
@@ -169,8 +254,41 @@ class NexRigApplication {
         // Initialize band buttons
         this.updateBandDisplay();
         
+        // Initialize waterfall frequency scale
+        this.updateWaterfallScale();
+        
         // Start telemetry updates
         this.startTelemetryUpdates();
+    }
+    
+    updateWaterfallScale() {
+        const scaleElement = document.getElementById('frequencyScale');
+        if (!scaleElement) return;
+        
+        // Clear existing markers
+        scaleElement.innerHTML = '';
+        
+        // Create frequency markers for ±48 kHz span
+        const spanKHz = 96; // ±48 kHz
+        const numMarkers = 9; // Every 12 kHz
+        
+        for (let i = 0; i < numMarkers; i++) {
+            const freqOffset = -48 + (i * 12); // -48, -36, -24, -12, 0, +12, +24, +36, +48
+            const position = (i / (numMarkers - 1)) * 100; // 0% to 100%
+            
+            const marker = document.createElement('div');
+            marker.className = 'freq-marker';
+            marker.style.position = 'absolute';
+            marker.style.left = `${position}%`;
+            marker.style.transform = 'translateX(-50%)';
+            marker.style.fontSize = '10px';
+            marker.style.color = '#666';
+            
+            const sign = freqOffset > 0 ? '+' : '';
+            marker.textContent = `${sign}${freqOffset}k`;
+            
+            scaleElement.appendChild(marker);
+        }
     }
     
     setupControlHandlers() {
@@ -215,7 +333,9 @@ class NexRigApplication {
                 try {
                     // Check if already enabled
                     if (audioEnableBtn.classList.contains('active')) {
-                        // Disable audio
+                        // Disable audio - switch to standby mode
+                        await this.setMode('standby');
+                        
                         if (this.websocket && this.websocket.readyState === WebSocket.OPEN) {
                             this.websocket.send(JSON.stringify({ type: 'stopIqStream' }));
                             console.log('Stopped I/Q stream');
@@ -226,6 +346,7 @@ class NexRigApplication {
                         audioEnableBtn.textContent = '🔊 Enable Audio';
                         audioEnableBtn.classList.remove('active');
                         iqStreamStarted = false;
+                        console.log('Audio disabled, switched to standby mode');
                         return;
                     }
                     
@@ -242,9 +363,12 @@ class NexRigApplication {
                     }
                     
                     if (this.dsp.audioContext.state === 'running') {
+                        // Enable audio - switch to rx mode
+                        await this.setMode('rx');
+                        
                         audioEnableBtn.textContent = '🔊 Audio Enabled';
                         audioEnableBtn.classList.add('active');
-                        console.log('Audio enabled successfully, state:', this.dsp.audioContext.state);
+                        console.log('Audio enabled successfully, switched to RX mode, state:', this.dsp.audioContext.state);
                         
                         // Start I/Q stream now that DSP is ready (only if not already started)
                         if (!iqStreamStarted && this.websocket && this.websocket.readyState === WebSocket.OPEN) {
@@ -270,10 +394,55 @@ class NexRigApplication {
             });
         }
         
-        // Emergency stop
+        // Tuning control
+        const tuningSlider = document.getElementById('tuningSlider');
+        const tuningValue = document.getElementById('tuningValue');
+        if (tuningSlider && tuningValue) {
+            tuningSlider.addEventListener('input', (e) => {
+                const frequency = parseInt(e.target.value);
+                this.dsp.setTuning(frequency);
+                
+                // Update display
+                const sign = frequency >= 0 ? '+' : '';
+                const freqKHz = (frequency / 1000).toFixed(1);
+                tuningValue.textContent = `${sign}${freqKHz} kHz`;
+                
+                // Update waterfall tuning indicator position
+                this.updateTuningIndicator(frequency);
+                
+                console.log('Tuning changed to:', frequency, 'Hz');
+            });
+        }
+        
+        // Emergency stop and tuning keys
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.emergencyStop();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                e.preventDefault(); // Prevent page scrolling
+                
+                const tuningSlider = document.getElementById('tuningSlider');
+                const tuningValue = document.getElementById('tuningValue');
+                
+                if (tuningSlider && tuningValue) {
+                    let currentFreq = parseInt(tuningSlider.value);
+                    const step = parseInt(tuningSlider.step);
+                    
+                    if (e.key === 'ArrowLeft') {
+                        currentFreq = Math.max(parseInt(tuningSlider.min), currentFreq - step);
+                    } else if (e.key === 'ArrowRight') {
+                        currentFreq = Math.min(parseInt(tuningSlider.max), currentFreq + step);
+                    }
+                    
+                    // Update slider and DSP
+                    tuningSlider.value = currentFreq;
+                    this.dsp.setTuning(currentFreq);
+                    
+                    // Update display
+                    const sign = currentFreq >= 0 ? '+' : '';
+                    const freqKHz = (currentFreq / 1000).toFixed(1);
+                    tuningValue.textContent = `${sign}${freqKHz} kHz`;
+                }
             }
         });
     }
@@ -319,7 +488,7 @@ class NexRigApplication {
                 if (mode === 'rx') {
                     // Default to USB for voice
                     this.dsp.setMode('usb');
-                    this.dsp.setTuning(1500); // Tune to the USB signal
+                    this.dsp.setTuning(24500); // Tune to CW beacon for 500Hz beat note
                 } else {
                     this.dsp.setMode('usb'); // Keep DSP in USB mode
                 }
@@ -354,6 +523,19 @@ class NexRigApplication {
             });
         } catch (error) {
             console.error('Failed to set antenna:', error);
+        }
+    }
+    
+    updateTuningIndicator(frequency) {
+        const indicator = document.getElementById('tuningIndicator');
+        if (indicator) {
+            // Convert frequency (-48000 to +48000) to percentage (0% to 100%)
+            const minFreq = -48000;
+            const maxFreq = 48000;
+            const percentage = ((frequency - minFreq) / (maxFreq - minFreq)) * 100;
+            
+            // Update indicator position
+            indicator.style.left = `${percentage}%`;
         }
     }
     

@@ -35,6 +35,32 @@ const rfController = new RfController();
 const iqGenerator = new IqStreamGenerator();
 const systemStatus = new SystemStatus();
 
+// Radio mode state: 'standby', 'rx', 'tx'
+let radioMode = 'standby';
+
+// Continuous I/Q generation (like real hardware)
+let continuousIqInterval = null;
+
+function startContinuousIq() {
+    if (!continuousIqInterval) {
+        continuousIqInterval = setInterval(() => {
+            // Generate I/Q samples continuously when not in standby
+            if (radioMode !== 'standby') {
+                iqGenerator.generateIqSamples(1024);
+            }
+        }, 10); // Generate continuously at ~100kS/s
+        console.log('Started continuous I/Q generation');
+    }
+}
+
+function stopContinuousIq() {
+    if (continuousIqInterval) {
+        clearInterval(continuousIqInterval);
+        continuousIqInterval = null;
+        console.log('Stopped continuous I/Q generation');
+    }
+}
+
 // Root redirect to app
 app.get('/', (req, res) => {
     res.redirect('/app/');
@@ -85,7 +111,11 @@ app.post('/api/rf/mode', (req, res) => {
     const { mode } = req.body;
     console.log('Mode API called with:', mode, 'Type:', typeof mode);
     if (['rx', 'tx', 'standby'].includes(mode)) {
+        // Update both rfController and global radioMode state
         rfController.setMode(mode);
+        radioMode = mode;
+        
+        console.log(`Radio mode changed to: ${radioMode}`);
         res.json({ success: true, mode: rfController.getMode() });
     } else {
         console.log('Invalid mode rejected:', mode);
@@ -145,6 +175,9 @@ app.post('/api/emergency-stop', (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Mock STM32 REST API server running at http://localhost:${PORT}`);
     console.log(`Browser app available at http://localhost:${PORT}/app/`);
+    
+    // Start continuous I/Q generation
+    startContinuousIq();
 });
 
 // WebSocket Server for I/Q streaming
@@ -165,13 +198,13 @@ wss.on('connection', (ws) => {
                     // Start sending I/Q data at 96 kS/s (simulated at lower rate)
                     if (!iqStreamInterval) {
                         iqStreamInterval = setInterval(() => {
-                            const iqData = iqGenerator.generateIqSamples(1024);
+                            const iqData = iqGenerator.generateIqSamples(256);
                             // iqData already contains proper arrays
                             ws.send(JSON.stringify({
                                 type: 'iqData',
                                 data: iqData
                             }));
-                        }, 10); // Send 1024 samples every 10ms (~100kS/s)
+                        }, 2.667); // Send 256 samples every 2.667ms (96kS/s exactly)
                     }
                     break;
                     

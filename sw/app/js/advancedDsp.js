@@ -8,7 +8,7 @@ class AdvancedDsp {
         this.audioContext = null;
         this.sampleRate = 96000; // I/Q sample rate
         this.audioSampleRate = 48000; // Audio output rate
-        this.bufferSize = 1024;
+        this.bufferSize = 256; // Balanced latency vs performance (~5.3ms at 48kHz)
         
         // DSP state
         this.iqBuffer = [];
@@ -19,15 +19,15 @@ class AdvancedDsp {
         
         // Demodulation parameters
         this.mode = 'usb'; // usb, lsb, cw, am
-        this.tuningFreq = 1500; // Hz offset from center
+        this.tuningFreq = 0; // Hz offset from center
         this.bandwidth = 2400; // Hz
         
-        // Filter coefficients (simple Hilbert transform approximation)
-        this.hilbertTaps = this.generateHilbertFilter(64);
+        // Filter coefficients (simple Hilbert transform approximation) - reduced for performance
+        this.hilbertTaps = this.generateHilbertFilter(16);
         this.hilbertDelayLine = new Array(this.hilbertTaps.length).fill(0);
         
-        // Audio filter (low-pass for audio band)
-        this.audioFilterTaps = this.generateLowPassFilter(200, 3000, this.audioSampleRate, 64);
+        // Audio filter (low-pass for audio band) - reduced for performance
+        this.audioFilterTaps = this.generateLowPassFilter(200, 3000, this.audioSampleRate, 16);
         this.audioDelayLine = new Array(this.audioFilterTaps.length).fill(0);
         
         // AGC
@@ -54,10 +54,48 @@ class AdvancedDsp {
                 this.audioContext = new (window.AudioContext || window.webkitAudioContext)({
                     sampleRate: this.audioSampleRate
                 });
-                console.log('AudioContext created, state:', this.audioContext.state);
+                
+                // Load and initialize AudioWorklet processor
+                try {
+                    await this.audioContext.audioWorklet.addModule('./js/sdr-processor.js?v=' + Date.now());
+                    console.log('AudioWorklet module loaded successfully');
+                    
+                    this.workletNode = new AudioWorkletNode(this.audioContext, 'sdr-processor', {
+                        numberOfInputs: 0,
+                        numberOfOutputs: 1,
+                        outputChannelCount: [1]
+                    });
+                    this.workletNode.connect(this.audioContext.destination);
+                    console.log('AudioWorkletNode created and connected');
+                    
+                    // Listen for messages from AudioWorklet
+                    this.workletNode.port.onmessage = (event) => {
+                        if (event.data.type === 'debug') {
+                            if (event.data.message) {
+                                console.log(`AudioWorklet: ${event.data.message} (call ${event.data.processCount}, buffer: ${event.data.bufferSize})`);
+                            } else {
+                                console.log(`AudioWorklet: Process called ${event.data.processCount} times, buffer: ${event.data.bufferSize}`);
+                            }
+                        } else if (event.data.type === 'testResponse') {
+                            console.log(event.data.message);
+                        }
+                    };
+                    
+                    // Test message to worklet
+                    this.workletNode.port.postMessage({
+                        type: 'test',
+                        message: 'Hello from main thread'
+                    });
+                    
+                } catch (error) {
+                    console.error('Failed to load AudioWorklet:', error);
+                    throw error;
+                }
+                
+                console.log('AudioContext and SDR Worklet created, state:', this.audioContext.state);
                 return true;
             } catch (error) {
-                console.error('Failed to create AudioContext:', error);
+                console.error('Failed to create AudioContext or Worklet:', error);
                 return false;
             }
         }
@@ -65,7 +103,7 @@ class AdvancedDsp {
     }
     
     processIqData(iqData) {
-        if (!this.audioContext || this.audioContext.state !== 'running') {
+        if (!this.audioContext || this.audioContext.state !== 'running' || !this.workletNode) {
             // Silently return if AudioContext not ready
             return;
         }
@@ -76,30 +114,19 @@ class AdvancedDsp {
             return;
         }
         
-        // Add new I/Q samples to buffer (convert from 24-bit integers to floats)
-        for (let i = 0; i < iqData.i.length; i++) {
-            this.iqBuffer.push({
-                i: iqData.i[i] / 8388607.0,  // Convert 24-bit to -1.0 to +1.0 range
-                q: iqData.q[i] / 8388607.0
-            });
-        }
-        
-        console.log(`DSP: Received ${iqData.i.length} I/Q samples, buffer size: ${this.iqBuffer.length}, need: ${this.bufferSize * this.decimationRatio}`);
-        
-        // Process when we have enough samples
-        let blocksProcessed = 0;
-        while (this.iqBuffer.length >= this.bufferSize * this.decimationRatio) {
-            const audioSamples = this.demodulateBlock();
-            if (audioSamples.length > 0) {
-                this.playAudio(audioSamples);
-                blocksProcessed++;
+        // Send I/Q data to AudioWorklet processor
+        this.workletNode.port.postMessage({
+            type: 'iqData',
+            samples: {
+                i: iqData.i,
+                q: iqData.q
             }
-        }
+        });
         
-        if (blocksProcessed > 0) {
-            console.log(`DSP: Processed ${blocksProcessed} audio blocks`);
-        }
+        // Removed debug logging for performance
     }
+    
+    // Old DSP methods removed - now handled by AudioWorklet
     
     demodulateBlock() {
         const blockSize = this.bufferSize * this.decimationRatio;
@@ -124,18 +151,36 @@ class AdvancedDsp {
             const iShifted = iSample * cosPhase + qSample * sinPhase;
             const qShifted = qSample * cosPhase - iSample * sinPhase;
             
+            // Debug: Log input and output levels occasionally for CW detection
+            if (Math.random() < 0.001 && (Math.abs(iSample) > 0.05 || Math.abs(qSample) > 0.05)) {
+                console.log(`DSP Debug: Input I=${iSample.toFixed(3)}, Q=${qSample.toFixed(3)}, Tuning=${this.tuningFreq}Hz, Output I=${iShifted.toFixed(3)}, Q=${qShifted.toFixed(3)}`);
+            }
+            
+            // Special debug for CW frequency range (24-26 kHz tuning)
+            if (Math.random() < 0.001 && this.tuningFreq > 24000 && this.tuningFreq < 26000) {
+                const inputMagnitude = Math.sqrt(iSample*iSample + qSample*qSample);
+                if (inputMagnitude > 0.05) {
+                    console.log(`DSP CW Debug: Tuning=${this.tuningFreq}Hz, Input mag=${inputMagnitude.toFixed(3)}, I=${iSample.toFixed(3)}, Q=${qSample.toFixed(3)}, Mode=${this.mode}`);
+                }
+            }
+            
             // SSB demodulation
             let audioSample = 0;
             
             switch (this.mode) {
                 case 'usb':
-                    // USB: I + j*Hilbert(Q)
+                    // USB: I + Hilbert(Q) - proper SSB demodulation
                     const qHilbert = this.hilbertTransform(qShifted);
                     audioSample = iShifted + qHilbert;
+                    
+                    // Debug: Occasionally log the demodulation components
+                    if (Math.random() < 0.001 && Math.abs(iShifted) > 0.01) {
+                        console.log(`USB Demod: I=${iShifted.toFixed(3)}, Hilbert(Q)=${qHilbert.toFixed(3)}, Audio=${audioSample.toFixed(3)}, Tuning=${this.tuningFreq}Hz`);
+                    }
                     break;
                     
                 case 'lsb':
-                    // LSB: I - j*Hilbert(Q)
+                    // LSB: I - Hilbert(Q) - proper SSB demodulation
                     const qHilbertLsb = this.hilbertTransform(qShifted);
                     audioSample = iShifted - qHilbertLsb;
                     break;
@@ -223,12 +268,19 @@ class AdvancedDsp {
                 maxSample = Math.max(maxSample, Math.abs(clampedSample));
             }
             
-            // Always log for debugging
-            console.log(`DSP: Playing ${audioSamples.length} samples, max amplitude: ${maxSample.toFixed(4)}`);
+            // Log occasionally for monitoring
+            if (Math.random() < 0.001) {
+                console.log(`DSP: Audio level: ${maxSample.toFixed(4)}, Tuning: ${this.tuningFreq}Hz`);
+            }
             
-            // Check if audio is too quiet
-            if (maxSample < 0.001) {
-                console.warn('DSP: Audio amplitude very low, may not be audible');
+            // Special logging for CW tuning range
+            if (Math.random() < 0.01 && this.tuningFreq > 24000 && this.tuningFreq < 26000 && maxSample > 0.001) {
+                console.log(`DSP CW Audio Output: Level=${maxSample.toFixed(4)}, Tuning=${this.tuningFreq}Hz, Samples=${audioSamples.length}`);
+            }
+            
+            // Debug all audio output when tuned to any significant frequency
+            if (Math.random() < 0.005 && this.tuningFreq > 20000 && this.tuningFreq < 30000) {
+                console.log(`DSP Audio Check: MaxLevel=${maxSample.toFixed(4)}, Tuning=${this.tuningFreq}Hz`);
             }
             
             // Schedule audio playback for seamless output
@@ -305,18 +357,30 @@ class AdvancedDsp {
     
     setMode(mode) {
         this.mode = mode;
+        if (this.workletNode) {
+            this.workletNode.port.postMessage({
+                type: 'setMode',
+                mode: mode
+            });
+        }
         console.log('DSP mode set to:', mode);
     }
     
     setTuning(frequency) {
         this.tuningFreq = frequency;
+        if (this.workletNode) {
+            this.workletNode.port.postMessage({
+                type: 'setTuning',
+                frequency: frequency
+            });
+        }
         console.log('DSP tuning set to:', frequency, 'Hz');
     }
     
     setBandwidth(bandwidth) {
         this.bandwidth = bandwidth;
         // Regenerate audio filter with new bandwidth
-        this.audioFilterTaps = this.generateLowPassFilter(200, bandwidth, this.audioSampleRate, 64);
+        this.audioFilterTaps = this.generateLowPassFilter(200, bandwidth, this.audioSampleRate, 16);
         console.log('DSP bandwidth set to:', bandwidth, 'Hz');
     }
 }

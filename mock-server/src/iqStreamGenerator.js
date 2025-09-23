@@ -9,30 +9,54 @@ export class IqStreamGenerator {
         this.phase = 0;
         this.time = 0;
         
-        // Signal sources for simulation
+        // Signal sources for baseband simulation (±48kHz range)
         this.signals = [
             {
-                frequency: 1500,  // 1.5 kHz USB signal
-                amplitude: 0.4,
+                frequency: 0,     // 0 Hz - USB signal at baseband center
+                amplitude: 0.2,   
                 phase: 0,
                 type: 'usb_two_tone',
-                tone1: 700,    // 700 Hz audio tone (standard)
-                tone2: 1900    // 1900 Hz audio tone (standard)
+                tone1: 700,    // 700 Hz audio tone
+                tone2: 1900    // 1900 Hz audio tone
             },
             {
-                frequency: -3000, // 3 kHz LSB signal
-                amplitude: 0.2,
+                frequency: 25000, // +25 kHz - CW beacon in baseband
+                amplitude: 0.05,  
                 phase: 0,
-                type: 'lsb',
-                modulation: 1000  // 1 kHz audio
-            },
-            {
-                frequency: 8000,  // 8 kHz CW signal
-                amplitude: 0.3,
-                phase: 0,
-                type: 'cw'
+                type: 'cw_beacon',
+                message: 'TEST TEST DE WB7NAB WB7NAB K',
+                wpm: 25,
+                pauseTime: 2.0
             }
         ];
+        
+        // CW timing and state  
+        this.cwBeaconState = {
+            messageIndex: 0,
+            elementIndex: 0,
+            keyDown: false,
+            elementStartTime: 0,
+            pauseStartTime: 0,
+            inPause: false,
+            inMessagePause: false,
+            ditLength: 1.2 / 25,  // WPM to dit length in seconds (PARIS standard)
+            initialized: false,
+            lastTime: 0
+        };
+        
+        // Morse code table
+        this.morseCode = {
+            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
+            'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
+            'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
+            'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+            'Y': '-.--', 'Z': '--..', '0': '-----', '1': '.----', '2': '..---',
+            '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...',
+            '8': '---..', '9': '----.', ' ': ' ', '/': '-..-.'
+        };
+        
+        // FFT debugging state
+        this.lastFftTime = -1;
     }
     
     generateIqSamples(numSamples) {
@@ -51,9 +75,9 @@ export class IqStreamGenerator {
             let iSample = 0;
             let qSample = 0;
             
-            // Add noise floor
-            iSample += (Math.random() - 0.5) * 0.01;
-            qSample += (Math.random() - 0.5) * 0.01;
+            // Add noise floor - use crypto random for better randomness
+            iSample += (Math.random() - 0.5) * 0.005; // Reduced noise level
+            qSample += (Math.random() - 0.5) * 0.005;
             
             // Add each signal
             for (const signal of this.signals) {
@@ -65,6 +89,16 @@ export class IqStreamGenerator {
                         // Pure carrier (CW signal)
                         iSample += signal.amplitude * Math.cos(omega * t + signal.phase);
                         qSample += signal.amplitude * Math.sin(omega * t + signal.phase);
+                        break;
+                        
+                    case 'cw_beacon':
+                        // CW beacon with Morse code
+                        const keyDown = this.updateCwBeacon(t, signal);
+                        if (keyDown) {
+                            iSample += signal.amplitude * Math.cos(omega * t + signal.phase);
+                            qSample += signal.amplitude * Math.sin(omega * t + signal.phase);
+                        }
+                        // Removed debug logging for performance
                         break;
                         
                     case 'usb_two_tone':
@@ -111,12 +145,101 @@ export class IqStreamGenerator {
         
         this.time += numSamples * dt;
         
-        // Occasionally add a strong signal (simulate QSO)
-        if (Math.random() < 0.001) {
-            this.addRandomSignal();
+        return samples;
+    }
+    
+    updateCwBeacon(t, signal) {
+        // Continuous carrier - always key down for debugging
+        return true;
+        
+        // Handle message pause (2 seconds between complete messages)
+        if (state.inMessagePause) {
+            if (t - state.pauseStartTime >= signal.pauseTime) {
+                console.log('CW: Message pause ended, restarting');
+                state.inMessagePause = false;
+                state.messageIndex = 0;
+                state.elementIndex = 0;
+            }
+            return false;
         }
         
-        return samples;
+        // Check if we've completed the message
+        if (state.messageIndex >= signal.message.length) {
+            if (!state.inMessagePause) {
+                state.inMessagePause = true;
+                state.pauseStartTime = t;
+            }
+            return false;
+        }
+        
+        const currentChar = signal.message[state.messageIndex].toUpperCase();
+        const morsePattern = this.morseCode[currentChar];
+        
+        // Handle spaces (7 dit periods)
+        if (currentChar === ' ') {
+            if (!state.inPause) {
+                state.inPause = true;
+                state.pauseStartTime = t;
+            }
+            if (t - state.pauseStartTime >= 7 * state.ditLength) {
+                state.inPause = false;
+                state.messageIndex++;
+                state.elementIndex = 0;
+            }
+            return false;
+        }
+        
+        // Skip unknown characters
+        if (!morsePattern) {
+            state.messageIndex++;
+            return false;
+        }
+        
+        // Handle inter-element pause (1 dit period between dots/dashes)
+        if (state.inPause) {
+            if (t - state.pauseStartTime >= state.ditLength) {
+                state.inPause = false;
+            }
+            return false;
+        }
+        
+        // Check if we've completed this character
+        if (state.elementIndex >= morsePattern.length) {
+            // Inter-character pause (3 dit periods)
+            if (!state.inPause) {
+                state.inPause = true;
+                state.pauseStartTime = t;
+            }
+            if (t - state.pauseStartTime >= 3 * state.ditLength) {
+                state.inPause = false;
+                state.messageIndex++;
+                state.elementIndex = 0;
+            }
+            return false;
+        }
+        
+        const currentElement = morsePattern[state.elementIndex];
+        const elementDuration = currentElement === '.' ? state.ditLength : 3 * state.ditLength; // Dah = 3 dits
+        
+        // Start new element
+        if (!state.keyDown) {
+            state.keyDown = true;
+            state.elementStartTime = t;
+        }
+        
+        // Check if element is complete
+        if (t - state.elementStartTime >= elementDuration) {
+            state.keyDown = false;
+            state.elementIndex++;
+            
+            // Add inter-element pause if not at end of character
+            if (state.elementIndex < morsePattern.length) {
+                state.inPause = true;
+                state.pauseStartTime = t;
+            }
+        }
+        
+        return state.keyDown;
     }
     
     addRandomSignal() {

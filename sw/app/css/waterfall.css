@@ -52,9 +52,16 @@
 }
 
 .frequency-scale {
+  position: relative;
+  height: 20px;
+  border-bottom: 1px solid #3a3a3a;
+  margin-bottom: 2px;
+}
+
+.freq-marker {
+  position: absolute;
   font-size: 10px;
   color: #666;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 5px;
+  font-family: monospace;
+  white-space: nowrap;
 }
