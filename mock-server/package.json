@@ -1,0 +1,19 @@
+{
+  "name": "nexrig-mock-server",
+  "version": "1.0.0",
+  "description": "Mock STM32 server for NexRig SDR development",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
+}

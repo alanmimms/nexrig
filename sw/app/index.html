@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexRig SDR Transceiver</title>
+    
+    <!-- Modern browser features -->
+    <meta name="theme-color" content="#1976d2">
+    <meta name="description" content="NexRig Open-Source SDR Transceiver Interface">
+    
+    <!-- PWA manifest for installable web app -->
+    <link rel="manifest" href="/app/manifest.json">
+    <link rel="icon" type="image/png" href="/app/assets/nexrigIcon.png">
+    
+    <!-- CSS Reset and Core Styles -->
+    <link rel="stylesheet" href="/app/css/reset.css">
+    <link rel="stylesheet" href="/app/css/nexrigCore.css">
+    <link rel="stylesheet" href="/app/css/waterfall.css">
+    <link rel="stylesheet" href="/app/css/controls.css">
+    <link rel="stylesheet" href="/app/css/setboxManager.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Critical rendering path CSS inline for fast loading */
+        :root {
+            --nexrig-primary: #1976d2;
+            --nexrig-primary-dark: #1565c0;
+            --nexrig-secondary: #424242;
+            --nexrig-background: #0a0a0a;
+            --nexrig-surface: #1e1e1e;
+            --nexrig-surface-light: #2a2a2a;
+            --nexrig-text-primary: #ffffff;
+            --nexrig-text-secondary: #b0b0b0;
+            --nexrig-accent: #00e676;
+            --nexrig-warning: #ff9800;
+            --nexrig-error: #f44336;
+            
+            /* Waterfall colors */
+            --waterfall-bg: #000000;
+            --waterfall-strong: #ffff00;
+            --waterfall-medium: #ff8000;
+            --waterfall-weak: #8000ff;
+            --waterfall-noise: #000040;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--nexrig-background);
+            color: var(--nexrig-text-primary);
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        
+        .nexrig-app {
+            display: grid;
+            grid-template-areas: 
+                "header header header"
+                "controls waterfall spectrum"
+                "setbox waterfall meters";
+            grid-template-columns: 300px 1fr 200px;
+            grid-template-rows: 60px 1fr 200px;
+            height: 100vh;
+            gap: 4px;
+            padding: 4px;
+        }
+        
+        .nexrig-loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--nexrig-background);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--nexrig-surface-light);
+            border-top: 4px solid var(--nexrig-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 18px;
+            color: var(--nexrig-text-secondary);
+            margin-bottom: 10px;
+        }
+        
+        .loading-details {
+            font-size: 14px;
+            color: var(--nexrig-text-secondary);
+            text-align: center;
+            max-width: 400px;
+            line-height: 1.4;
+        }
+        
+        /* Hidden by default - shown when app loads */
+        .nexrig-app.loaded {
+            display: grid;
+        }
+        
+        .nexrig-loading.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading screen shown until app initializes -->
+    <div class="nexrig-loading" id="loadingScreen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Connecting to NexRig Hardware...</div>
+        <div class="loading-details" id="loadingDetails">
+            Initializing hardware abstraction layer and REST API client
+        </div>
+    </div>
+    
+    <!-- Main application UI - hidden until ready -->
+    <div class="nexrig-app" id="nexrigApp">
+        <!-- Top header with system status -->
+        <header class="nexrig-header" style="grid-area: header;">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="nexrig-title">
+                        <span class="logo">⚡</span>
+                        NexRig
+                        <span class="version" id="firmwareVersion">v1.0.0</span>
+                    </h1>
+                </div>
+                
+                <div class="header-center">
+                    <div class="frequency-display" id="frequencyDisplay">
+                        <span class="freq-value">14.200.000</span>
+                        <span class="freq-unit">MHz</span>
+                    </div>
+                    <div class="band-mode-display">
+                        <span class="band" id="currentBand">20m</span>
+                        <span class="mode" id="currentMode">RX</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="system-status" id="systemStatus">
+                        <div class="status-indicator rf-status" id="rfStatus" title="RF System">
+                            <span class="indicator"></span>
+                            <span class="label">RF</span>
+                        </div>
+                        <div class="status-indicator pa-status" id="paStatus" title="Power Amplifier">
+                            <span class="indicator"></span>
+                            <span class="label">PA</span>
+                        </div>
+                        <div class="status-indicator fpga-status" id="fpgaStatus" title="FPGA">
+                            <span class="indicator"></span>
+                            <span class="label">FPGA</span>
+                        </div>
+                        <div class="status-indicator connection-status" id="connectionStatus" title="STM32 Connection">
+                            <span class="indicator"></span>
+                            <span class="label">STM32</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Left panel - Controls and setbox management -->
+        <aside class="controls-panel" style="grid-area: controls;">
+            <div class="panel-content">
+                <!-- Active setbox display -->
+                <div class="active-setbox" id="activeSetbox">
+                    <h3>Active Configuration</h3>
+                    <div class="setbox-name" id="activeSetboxName">Default</div>
+                    <div class="setbox-inheritance" id="setboxInheritance">
+                        <span class="inheritance-path">Global → 20m → SSB</span>
+                    </div>
+                </div>
+                
+                <!-- Quick controls -->
+                <div class="quick-controls">
+                    <div class="control-group">
+                        <label>Power</label>
+                        <div class="power-control">
+                            <input type="range" id="powerSlider" min="1" max="100" value="10" step="1">
+                            <span class="power-value" id="powerValue">10W</span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label>Antenna</label>
+                        <select id="antennaSelect">
+                            <option value="1">Antenna 1</option>
+                            <option value="2">Antenna 2</option>
+                            <option value="3">Antenna 3</option>
+                            <option value="4">Antenna 4</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label>Mode</label>
+                        <div class="mode-buttons">
+                            <button class="mode-btn active" data-mode="rx">RX</button>
+                            <button class="mode-btn" data-mode="tx">TX</button>
+                            <button class="mode-btn" data-mode="standby">STBY</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Band selection -->
+                <div class="band-selection">
+                    <h4>Band Selection</h4>
+                    <div class="band-grid">
+                        <button class="band-btn" data-band="160m">160m</button>
+                        <button class="band-btn" data-band="80m">80m</button>
+                        <button class="band-btn" data-band="40m">40m</button>
+                        <button class="band-btn active" data-band="20m">20m</button>
+                        <button class="band-btn" data-band="17m">17m</button>
+                        <button class="band-btn" data-band="15m">15m</button>
+                        <button class="band-btn" data-band="12m">12m</button>
+                        <button class="band-btn" data-band="10m">10m</button>
+                        <button class="band-btn" data-band="6m">6m</button>
+                        <button class="band-btn" data-band="2m">2m</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Center - Waterfall display -->
+        <main class="waterfall-container" style="grid-area: waterfall;">
+            <div class="waterfall-header">
+                <div class="waterfall-controls">
+                    <button class="control-btn" id="waterfallZoomIn" title="Zoom In">🔍+</button>
+                    <button class="control-btn" id="waterfallZoomOut" title="Zoom Out">🔍-</button>
+                    <button class="control-btn" id="waterfallPause" title="Pause/Resume">⏸️</button>
+                    <span class="zoom-level" id="zoomLevel">×1</span>
+                </div>
+                <div class="frequency-scale" id="frequencyScale">
+                    <!-- Frequency markers generated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="waterfall-display" id="waterfallDisplay">
+                <canvas id="waterfallCanvas" width="800" height="400"></canvas>
+                <div class="tuning-indicator" id="tuningIndicator"></div>
+            </div>
+        </main>
+        
+        <!-- Right panel - Spectrum and meters -->
+        <aside class="spectrum-panel" style="grid-area: spectrum;">
+            <div class="spectrum-display">
+                <h4>Spectrum</h4>
+                <canvas id="spectrumCanvas" width="180" height="200"></canvas>
+            </div>
+        </aside>
+        
+        <!-- Bottom right - Meters and status -->
+        <aside class="meters-panel" style="grid-area: meters;">
+            <div class="meters-content">
+                <div class="meter-group">
+                    <div class="meter">
+                        <label>Forward Power</label>
+                        <div class="meter-bar">
+                            <div class="meter-fill" id="forwardPowerMeter" style="width: 20%;"></div>
+                        </div>
+                        <span class="meter-value" id="forwardPowerValue">10.0W</span>
+                    </div>
+                    
+                    <div class="meter">
+                        <label>SWR</label>
+                        <div class="meter-bar swr-meter">
+                            <div class="meter-fill" id="swrMeter" style="width: 10%;"></div>
+                        </div>
+                        <span class="meter-value" id="swrValue">1.2:1</span>
+                    </div>
+                    
+                    <div class="meter">
+                        <label>Temperature</label>
+                        <div class="meter-bar temp-meter">
+                            <div class="meter-fill" id="tempMeter" style="width: 30%;"></div>
+                        </div>
+                        <span class="meter-value" id="tempValue">45°C</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Bottom left - Setbox management -->
+        <aside class="setbox-panel" style="grid-area: setbox;">
+            <div class="setbox-content">
+                <h4>Setbox Manager</h4>
+                <div class="setbox-list" id="setboxList">
+                    <!-- Setboxes populated by JavaScript -->
+                </div>
+                <div class="setbox-actions">
+                    <button class="action-btn" id="newSetboxBtn">New</button>
+                    <button class="action-btn" id="saveSetboxBtn">Save</button>
+                    <button class="action-btn" id="deleteSetboxBtn">Delete</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Emergency controls overlay -->
+    <div class="emergency-overlay hidden" id="emergencyOverlay">
+        <div class="emergency-content">
+            <h2>⚠️ EMERGENCY STOP ACTIVATED</h2>
+            <p>All RF output has been disabled for safety.</p>
+            <button class="emergency-btn" id="emergencyResetBtn">Reset System</button>
+        </div>
+    </div>
+    
+    <!-- JavaScript modules -->
+    <script type="module" src="/app/js/nexrigApp.js"></script>
+    <script type="module" src="/app/js/hardwareApi.js"></script>
+    <script type="module" src="/app/js/streamManager.js"></script>
+    <script type="module" src="/app/js/setboxManager.js"></script>
+    <script type="module" src="/app/js/waterfallDisplay.js"></script>
+    <script type="module" src="/app/js/spectrumAnalyzer.js"></script>
+    <script type="module" src="/app/js/uiController.js"></script>
+    <script type="module" src="/app/js/advancedDsp.js"></script>
+    
+    <!-- Web Workers for background processing -->
+    <script>
+        // Check for required browser features
+        if (!window.WebAssembly || !window.AudioContext || !window.WebSocket) {
+            document.body.innerHTML = `
+                <div style="text-align: center; padding: 50px; color: white; background: #000;">
+                    <h1>Browser Not Supported</h1>
+                    <p>NexRig requires a modern browser with WebAssembly, Web Audio API, and WebSocket support.</p>
+                    <p>Please use Chrome 70+, Firefox 65+, Safari 13+, or Edge 79+.</p>
+                </div>
+            `;
+        }
+        
+        // Register service worker for offline capability
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/app/sw.js').catch(console.error);
+        }
+        
+        // Initialize app when DOM ready
+        document.addEventListener('DOMContentLoaded', () => {
+            import('/app/js/nexrigApp.js').then(module => {
+                window.nexrigApp = new module.NexRigApplication();
+                window.nexrigApp.initialize();
+            });
+        });
+    </script>
+</body>
+</html>
