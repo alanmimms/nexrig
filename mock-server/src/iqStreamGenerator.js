@@ -12,31 +12,36 @@ export class IqStreamGenerator {
         // Signal sources for simulation
         this.signals = [
             {
-                frequency: 1000,  // 1 kHz offset from center
-                amplitude: 0.5,
+                frequency: 1500,  // 1.5 kHz USB signal
+                amplitude: 0.4,
                 phase: 0,
-                type: 'cw'
+                type: 'usb_two_tone',
+                tone1: 700,    // 700 Hz audio tone (standard)
+                tone2: 1900    // 1900 Hz audio tone (standard)
             },
             {
-                frequency: -2500, // 2.5 kHz below center
-                amplitude: 0.3,
-                phase: 0,
-                type: 'ssb',
-                modulation: 300  // 300 Hz modulation
-            },
-            {
-                frequency: 5000,  // 5 kHz above center
+                frequency: -3000, // 3 kHz LSB signal
                 amplitude: 0.2,
                 phase: 0,
-                type: 'noise'
+                type: 'lsb',
+                modulation: 1000  // 1 kHz audio
+            },
+            {
+                frequency: 8000,  // 8 kHz CW signal
+                amplitude: 0.3,
+                phase: 0,
+                type: 'cw'
             }
         ];
     }
     
     generateIqSamples(numSamples) {
+        // Use regular arrays that will serialize properly
+        const iArray = [];
+        const qArray = [];
         const samples = {
-            i: new Float32Array(numSamples),
-            q: new Float32Array(numSamples),
+            i: iArray,
+            q: qArray,
             timestamp: Date.now()
         };
         
@@ -62,12 +67,24 @@ export class IqStreamGenerator {
                         qSample += signal.amplitude * Math.sin(omega * t + signal.phase);
                         break;
                         
-                    case 'ssb':
-                        // SSB signal with modulation
-                        const modOmega = 2 * Math.PI * signal.modulation;
-                        const modulation = 1 + 0.8 * Math.sin(modOmega * t);
-                        iSample += signal.amplitude * modulation * Math.cos(omega * t + signal.phase);
-                        qSample += signal.amplitude * modulation * Math.sin(omega * t + signal.phase);
+                    case 'usb_two_tone':
+                        // USB two-tone signal: carrier + audio tones
+                        // For USB: I = cos(wc*t) * cos(wa*t), Q = sin(wc*t) * cos(wa*t)
+                        const audio1 = Math.cos(2 * Math.PI * signal.tone1 * t);
+                        const audio2 = Math.cos(2 * Math.PI * signal.tone2 * t);
+                        const audioSum = 0.5 * (audio1 + audio2); // Two-tone test signal
+                        
+                        // Generate USB signal (audio shifted up by carrier frequency)
+                        iSample += signal.amplitude * audioSum * Math.cos(omega * t + signal.phase);
+                        qSample += signal.amplitude * audioSum * Math.sin(omega * t + signal.phase);
+                        break;
+                        
+                    case 'lsb':
+                        // LSB signal with single tone
+                        const lsbAudio = Math.cos(2 * Math.PI * signal.modulation * t);
+                        // For LSB: I = cos(wc*t) * cos(wa*t), Q = -sin(wc*t) * cos(wa*t)
+                        iSample += signal.amplitude * lsbAudio * Math.cos(omega * t + signal.phase);
+                        qSample += signal.amplitude * lsbAudio * (-Math.sin(omega * t + signal.phase));
                         break;
                         
                     case 'noise':
@@ -82,10 +99,14 @@ export class IqStreamGenerator {
                 signal.phase += 0.00001;
             }
             
-            // Apply AGC-like scaling and clipping
+            // Apply AGC-like scaling and convert to 24-bit range
             const scale = 0.8;
-            samples.i[n] = Math.max(-1, Math.min(1, iSample * scale));
-            samples.q[n] = Math.max(-1, Math.min(1, qSample * scale));
+            const scaledI = Math.max(-1, Math.min(1, iSample * scale));
+            const scaledQ = Math.max(-1, Math.min(1, qSample * scale));
+            
+            // Convert to 24-bit signed integer range (-8388608 to 8388607)
+            iArray.push(Math.round(scaledI * 8388607));
+            qArray.push(Math.round(scaledQ * 8388607));
         }
         
         this.time += numSamples * dt;

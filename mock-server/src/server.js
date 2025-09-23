@@ -83,10 +83,12 @@ app.get('/api/rf/mode', (req, res) => {
 
 app.post('/api/rf/mode', (req, res) => {
     const { mode } = req.body;
+    console.log('Mode API called with:', mode, 'Type:', typeof mode);
     if (['rx', 'tx', 'standby'].includes(mode)) {
         rfController.setMode(mode);
         res.json({ success: true, mode: rfController.getMode() });
     } else {
+        console.log('Invalid mode rejected:', mode);
         res.status(400).json({ error: 'Invalid mode' });
     }
 });
@@ -164,6 +166,7 @@ wss.on('connection', (ws) => {
                     if (!iqStreamInterval) {
                         iqStreamInterval = setInterval(() => {
                             const iqData = iqGenerator.generateIqSamples(1024);
+                            // iqData already contains proper arrays
                             ws.send(JSON.stringify({
                                 type: 'iqData',
                                 data: iqData

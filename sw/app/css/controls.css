@@ -1,0 +1,92 @@
+/* Control Panel Styles */
+.active-setbox {
+  background: #2a2a2a;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.setbox-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #00e676;
+  margin-bottom: 5px;
+}
+
+.setbox-inheritance {
+  font-size: 12px;
+  color: #b0b0b0;
+}
+
+.inheritance-path {
+  font-family: monospace;
+}
+
+.power-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.power-value {
+  min-width: 40px;
+  font-weight: 500;
+  color: #00e676;
+}
+
+input[type="range"] {
+  flex: 1;
+  height: 6px;
+  background: #2a2a2a;
+  border-radius: 3px;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #1976d2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #1976d2;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.audio-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.audio-controls select {
+  margin-top: 5px;
+}
+
+.audio-btn {
+  background: #2a2a2a;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.audio-btn:hover {
+  background: #3a3a3a;
+}
+
+.audio-btn.active {
+  background: #00e676;
+  color: #000;
+}

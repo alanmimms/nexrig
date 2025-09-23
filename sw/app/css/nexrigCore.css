@@ -1,0 +1,215 @@
+/* NexRig Core Styles */
+.nexrig-app {
+  display: none; /* Hidden until loaded */
+  grid-template-areas: 
+    "header header header"
+    "controls waterfall spectrum"
+    "setbox waterfall meters";
+  grid-template-columns: 300px 1fr 200px;
+  grid-template-rows: 60px 1fr 200px;
+  height: 100vh;
+  gap: 4px;
+  padding: 4px;
+}
+
+.nexrig-app.loaded {
+  display: grid;
+}
+
+.nexrig-header {
+  background: #1e1e1e;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.nexrig-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1976d2;
+}
+
+.frequency-display {
+  text-align: center;
+}
+
+.freq-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #00e676;
+}
+
+.freq-unit {
+  font-size: 18px;
+  color: #b0b0b0;
+  margin-left: 5px;
+}
+
+.band-mode-display {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.band, .mode {
+  background: #2a2a2a;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.controls-panel, .spectrum-panel, .meters-panel, .setbox-panel {
+  background: #1e1e1e;
+  border-radius: 4px;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.waterfall-container {
+  background: #000;
+  border-radius: 4px;
+  position: relative;
+}
+
+.band-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.band-btn, .mode-btn {
+  background: #2a2a2a;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.band-btn:hover, .mode-btn:hover {
+  background: #3a3a3a;
+}
+
+.band-btn.active, .mode-btn.active {
+  background: #1976d2;
+}
+
+.mode-buttons {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.control-group {
+  margin-bottom: 15px;
+}
+
+.control-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #b0b0b0;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 5px 0;
+}
+
+select {
+  width: 100%;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  color: white;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.meter {
+  margin-bottom: 15px;
+}
+
+.meter label {
+  font-size: 12px;
+  color: #b0b0b0;
+  margin-bottom: 3px;
+  display: block;
+}
+
+.meter-bar {
+  width: 100%;
+  height: 20px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.meter-fill {
+  height: 100%;
+  background: #00e676;
+  transition: width 0.3s ease;
+}
+
+.meter-value {
+  font-size: 12px;
+  color: #ffffff;
+  margin-top: 3px;
+}
+
+.swr-meter .meter-fill {
+  background: #ff9800;
+}
+
+.temp-meter .meter-fill {
+  background: #f44336;
+}
+
+#waterfallCanvas {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+h3, h4 {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.system-status {
+  display: flex;
+  gap: 10px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00e676;
+}
+
+.loading-text {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.loading-details {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.hidden {
+  display: none !important;
+}

@@ -1,680 +1,459 @@
 /**
- * @file nexrig-app.js
- * @brief Main NexRig Browser Application
- * 
- * This is the main application class for the NexRig browser interface.
- * It coordinates all UI components, manages the setbox system, and
- * communicates with the STM32 hardware through REST APIs.
- * 
- * The browser implements ALL policy decisions - the STM32 provides
- * only hardware mechanism through its REST API.
- * 
- * @copyright 2025 NexRig Project - MIT License
+ * NexRig Browser Application
+ * Main application controller and initialization
  */
 
-import { HardwareAPI } from './hardware-api.js';
-import { StreamManager } from './stream-manager.js';
-import { SetboxManager } from './setbox-manager.js';
-import { WaterfallDisplay } from './waterfall-display.js';
-import { SpectrumAnalyzer } from './spectrum-analyzer.js';
-import { UIController } from './ui-controller.js';
-import { AdvancedDSP } from './advanced-dsp.js';
+class NexRigApplication {
+    constructor() {
+        this.connected = false;
+        this.apiBaseUrl = window.location.origin + '/api';
+        this.wsUrl = `ws://${window.location.hostname}:3001`;
+        this.websocket = null;
+        this.currentFreq = 14200000;
+        this.currentBand = '20m';
+        this.currentMode = 'rx';
+        
+        // DSP processor
+        this.dsp = new AdvancedDsp();
+    }
 
-/**
- * @class NexRigApplication
- * @brief Main application coordinator
- * 
- * This class orchestrates all aspects of the NexRig user interface:
- * - Hardware communication through REST API
- * - Real-time data streaming via WebSockets
- * - Setbox management and inheritance
- * - DSP processing and visualization
- * - User interface coordination
- */
-export class NexRigApplication {
-  constructor() {
-    // Core system components
-    this.hardwareAPI = new HardwareAPI();
-    this.streamManager = new StreamManager();
-    this.setboxManager = new SetboxManager();
-    this.waterfallDisplay = new WaterfallDisplay();
-    this.spectrumAnalyzer = new SpectrumAnalyzer();
-    this.uiController = new UIController();
-    this.advancedDSP = new AdvancedDSP();
-    
-    // Application state
-    this.isInitialized = false;
-    this.isConnected = false;
-    this.currentState = {
-      frequency: 14200000,   // 20m band center
-      band: '20m',
-      mode: 'rx',
-      power: 10.0,
-      antenna: 1
-    };
-    
-    // Performance monitoring
-    this.performanceMetrics = {
-      frameRate: 60,
-      latency: 0,
-      cpuUsage: 0,
-      memoryUsage: 0
-    };
-    
-    // Event listeners registry
-    this.eventListeners = new Map();
-    
-    // Animation frame tracking
-    this.animationFrameId = null;
-    this.lastFrameTime = 0;
-    
-    console.log('NexRig Application initialized');
-  }
-  
-  /**
-   * @brief Initialize the complete application
-   * 
-   * This method coordinates the startup sequence:
-   * 1. Connect to STM32 hardware
-   * 2. Initialize all UI components
-   * 3. Load user configurations
-   * 4. Start real-time processing loops
-   */
-  async initialize() {
-    try {
-      this.updateLoadingStatus('Connecting to STM32 hardware...');
-      
-      // Connect to hardware API
-      await this.hardwareAPI.connect();
-      this.isConnected = true;
-      
-      this.updateLoadingStatus('Initializing data streams...');
-      
-      // Connect to real-time data streams
-      await this.streamManager.connect();
-      
-      this.updateLoadingStatus('Loading user configurations...');
-      
-      // Load setbox configurations and user preferences
-      await this.setboxManager.loadUserConfigurations();
-      
-      this.updateLoadingStatus('Initializing DSP engine...');
-      
-      // Initialize advanced DSP processing
-      await this.advancedDSP.initialize();
-      
-      this.updateLoadingStatus('Starting user interface...');
-      
-      // Initialize UI components
-      this.initializeUserInterface();
-      
-      this.updateLoadingStatus('Configuring event handlers...');
-      
-      // Set up event handling
-      this.setupEventHandlers();
-      
-      this.updateLoadingStatus('Getting hardware status...');
-      
-      // Get initial hardware state
-      await this.updateHardwareStatus();
-      
-      this.updateLoadingStatus('Starting real-time processing...');
-      
-      // Start real-time processing loops
-      this.startRealTimeProcessing();
-      
-      // Mark as fully initialized
-      this.isInitialized = true;
-      
-      // Hide loading screen and show main application
-      this.showMainApplication();
-      
-      console.log('NexRig Application fully initialized and ready');
-      
-    } catch (error) {
-      console.error('Failed to initialize NexRig application:', error);
-      this.showErrorMessage('Failed to connect to NexRig hardware', error.message);
-    }
-  }
-  
-  /**
-   * @brief Update loading screen status
-   * @param {string} status Status message to display
-   */
-  updateLoadingStatus(status) {
-    const loadingDetails = document.getElementById('loadingDetails');
-    if (loadingDetails) {
-      loadingDetails.textContent = status;
-    }
-    console.log(`Loading: ${status}`);
-  }
-  
-  /**
-   * @brief Initialize all user interface components
-   */
-  initializeUserInterface() {
-    // Initialize waterfall display
-    this.waterfallDisplay.initialize(document.getElementById('waterfallCanvas'));
-    
-    // Initialize spectrum analyzer
-    this.spectrumAnalyzer.initialize(document.getElementById('spectrumCanvas'));
-    
-    // Initialize UI controller with all interactive elements
-    this.uiController.initialize({
-      frequencyDisplay: document.getElementById('frequencyDisplay'),
-      bandButtons: document.querySelectorAll('.band-btn'),
-      modeButtons: document.querySelectorAll('.mode-btn'),
-      powerSlider: document.getElementById('powerSlider'),
-      antennaSelect: document.getElementById('antennaSelect'),
-      meters: {
-        forwardPower: document.getElementById('forwardPowerMeter'),
-        swr: document.getElementById('swrMeter'),
-        temperature: document.getElementById('tempMeter')
-      }
-    });
-    
-    // Initialize setbox UI components
-    this.setboxManager.initializeUI({
-      activeSetboxName: document.getElementById('activeSetboxName'),
-      setboxInheritance: document.getElementById('setboxInheritance'),
-      setboxList: document.getElementById('setboxList'),
-      newSetboxBtn: document.getElementById('newSetboxBtn'),
-      saveSetboxBtn: document.getElementById('saveSetboxBtn'),
-      deleteSetboxBtn: document.getElementById('deleteSetboxBtn')
-    });
-  }
-  
-  /**
-   * @brief Set up all event handlers for user interaction
-   */
-  setupEventHandlers() {
-    // Frequency control via waterfall display
-    this.waterfallDisplay.onFrequencyChange = (frequencyHz) => {
-      this.setFrequency(frequencyHz);
-    };
-    
-    // Band selection buttons
-    document.querySelectorAll('.band-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const band = e.target.dataset.band;
-        this.setBand(band);
-      });
-    });
-    
-    // Mode control buttons
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const mode = e.target.dataset.mode;
-        this.setMode(mode);
-      });
-    });
-    
-    // Power control slider
-    const powerSlider = document.getElementById('powerSlider');
-    powerSlider.addEventListener('input', (e) => {
-      const power = parseFloat(e.target.value);
-      this.setPower(power);
-    });
-    
-    // Antenna selection
-    const antennaSelect = document.getElementById('antennaSelect');
-    antennaSelect.addEventListener('change', (e) => {
-      const antenna = parseInt(e.target.value);
-      this.setAntenna(antenna);
-    });
-    
-    // Waterfall controls
-    document.getElementById('waterfallZoomIn').addEventListener('click', () => {
-      this.waterfallDisplay.zoomIn();
-    });
-    
-    document.getElementById('waterfallZoomOut').addEventListener('click', () => {
-      this.waterfallDisplay.zoomOut();
-    });
-    
-    document.getElementById('waterfallPause').addEventListener('click', () => {
-      this.waterfallDisplay.togglePause();
-    });
-    
-    // Setbox management
-    this.setboxManager.onSetboxChanged = (setboxName) => {
-      this.activateSetbox(setboxName);
-    };
-    
-    this.setboxManager.onSetboxSaved = (setboxName, configuration) => {
-      console.log(`Setbox '${setboxName}' saved with configuration:`, configuration);
-    };
-    
-    // Emergency stop handler
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && e.ctrlKey) {
-        this.emergencyStop();
-      }
-    });
-    
-    // Window visibility for performance optimization
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        this.pauseRealTimeProcessing();
-      } else {
-        this.resumeRealTimeProcessing();
-      }
-    });
-    
-    // Data stream handlers
-    this.streamManager.onIQData = (iqData) => {
-      this.handleIQData(iqData);
-    };
-    
-    this.streamManager.onSpectrumData = (spectrumData) => {
-      this.handleSpectrumData(spectrumData);
-    };
-    
-    this.streamManager.onHardwareEvent = (event) => {
-      this.handleHardwareEvent(event);
-    };
-  }
-  
-  /**
-   * @brief Start real-time processing loops
-   */
-  startRealTimeProcessing() {
-    // Main animation loop for UI updates
-    const processFrame = (timestamp) => {
-      if (!this.isInitialized) return;
-      
-      const deltaTime = timestamp - this.lastFrameTime;
-      this.lastFrameTime = timestamp;
-      
-      // Update performance metrics
-      this.updatePerformanceMetrics(deltaTime);
-      
-      // Process any pending DSP operations
-      this.advancedDSP.processFrame();
-      
-      // Update waterfall display
-      this.waterfallDisplay.render();
-      
-      // Update spectrum analyzer
-      this.spectrumAnalyzer.render();
-      
-      // Update UI meters and indicators
-      this.uiController.updateDisplays();
-      
-      // Schedule next frame
-      this.animationFrameId = requestAnimationFrame(processFrame);
-    };
-    
-    this.animationFrameId = requestAnimationFrame(processFrame);
-    
-    console.log('Real-time processing loops started');
-  }
-  
-  /**
-   * @brief Pause real-time processing (when window hidden)
-   */
-  pauseRealTimeProcessing() {
-    if (this.animationFrameId) {
-      cancelAnimationFrame(this.animationFrameId);
-      this.animationFrameId = null;
-    }
-  }
-  
-  /**
-   * @brief Resume real-time processing
-   */
-  resumeRealTimeProcessing() {
-    if (!this.animationFrameId && this.isInitialized) {
-      this.startRealTimeProcessing();
-    }
-  }
-  
-  /**
-   * @brief Handle incoming I/Q data from hardware
-   * @param {Object} iqData I/Q sample data
-   */
-  handleIQData(iqData) {
-    // Send to advanced DSP for processing
-    const processedData = this.advancedDSP.processIQSamples(iqData);
-    
-    // Update waterfall display
-    this.waterfallDisplay.addIQData(processedData);
-    
-    // Update spectrum analyzer
-    this.spectrumAnalyzer.addIQData(processedData);
-  }
-  
-  /**
-   * @brief Handle spectrum data from hardware
-   * @param {Object} spectrumData FFT spectrum data
-   */
-  handleSpectrumData(spectrumData) {
-    this.spectrumAnalyzer.updateSpectrum(spectrumData);
-  }
-  
-  /**
-   * @brief Handle hardware events from STM32
-   * @param {Object} event Hardware event notification
-   */
-  handleHardwareEvent(event) {
-    switch (event.type) {
-      case 'protection_triggered':
-        this.handleProtectionEvent(event);
-        break;
+    async initialize() {
+        console.log('Initializing NexRig Application...');
         
-      case 'rf_state_change':
-        this.handleRFStateChange(event);
-        break;
-        
-      case 'hardware_error':
-        this.handleHardwareError(event);
-        break;
-        
-      default:
-        console.log('Unknown hardware event:', event);
+        try {
+            // Update loading status
+            this.updateLoadingStatus('Connecting to hardware...');
+            
+            // Test REST API connection
+            const response = await fetch(`${this.apiBaseUrl}/status`);
+            if (!response.ok) {
+                throw new Error('Failed to connect to hardware');
+            }
+            
+            const status = await response.json();
+            console.log('Hardware status:', status);
+            
+            // Initialize DSP and audio
+            this.updateLoadingStatus('Initializing audio system...');
+            const dspInitialized = await this.dsp.initialize();
+            if (!dspInitialized) {
+                throw new Error('Failed to initialize audio system');
+            }
+            
+            // Initialize WebSocket connection
+            await this.initializeWebSocket();
+            
+            // Initialize UI components
+            this.initializeUI();
+            
+            // Mark as connected and show app
+            this.connected = true;
+            this.hideLoadingScreen();
+            
+            console.log('NexRig Application initialized successfully');
+            
+        } catch (error) {
+            console.error('Failed to initialize:', error);
+            this.updateLoadingStatus('Connection failed. Retrying...', error.message);
+            
+            // Retry after delay
+            setTimeout(() => this.initialize(), 2000);
+        }
     }
-  }
-  
-  /**
-   * @brief Set operating frequency
-   * @param {number} frequencyHz Frequency in Hz
-   */
-  async setFrequency(frequencyHz) {
-    try {
-      const response = await this.hardwareAPI.setFrequency(frequencyHz);
-      
-      if (response.success) {
-        this.currentState.frequency = frequencyHz;
-        this.uiController.updateFrequencyDisplay(frequencyHz);
-        
-        // Update active setbox if needed
-        this.setboxManager.updateCurrentParameter('frequency', frequencyHz);
-      }
-      
-    } catch (error) {
-      console.error('Failed to set frequency:', error);
-      this.showErrorMessage('Frequency Error', error.message);
+    
+    updateLoadingStatus(message, details = '') {
+        const loadingText = document.getElementById('loadingDetails');
+        if (loadingText) {
+            loadingText.textContent = details ? `${message} ${details}` : message;
+        }
     }
-  }
-  
-  /**
-   * @brief Set amateur radio band
-   * @param {string} band Band designation (e.g., "20m")
-   */
-  async setBand(band) {
-    try {
-      const response = await this.hardwareAPI.setBand(band);
-      
-      if (response.success) {
-        this.currentState.band = band;
-        this.uiController.updateBandDisplay(band);
+    
+    async initializeWebSocket() {
+        return new Promise((resolve, reject) => {
+            this.websocket = new WebSocket(this.wsUrl);
+            
+            this.websocket.onopen = () => {
+                console.log('WebSocket connected');
+                resolve();
+            };
+            
+            this.websocket.onerror = (error) => {
+                console.error('WebSocket error:', error);
+                reject(new Error('WebSocket connection failed'));
+            };
+            
+            this.websocket.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    this.handleWebSocketMessage(data);
+                } catch (e) {
+                    console.error('Failed to parse WebSocket message:', e);
+                }
+            };
+            
+            this.websocket.onclose = () => {
+                console.log('WebSocket disconnected');
+                this.connected = false;
+                // Attempt to reconnect
+                setTimeout(() => this.initializeWebSocket(), 2000);
+            };
+        });
+    }
+    
+    handleWebSocketMessage(data) {
+        switch (data.type) {
+            case 'connected':
+                console.log('Hardware capabilities:', data.capabilities);
+                // I/Q stream will be started when user enables audio
+                break;
+                
+            case 'iqData':
+                // Debug: Check what we're actually receiving
+                console.log('Received I/Q data structure:', data);
+                console.log('data.data:', data.data);
+                console.log('data.data.i:', data.data?.i);
+                console.log('Is data.data.i an array?', Array.isArray(data.data?.i));
+                console.log('data.data.i length:', data.data?.i?.length);
+                
+                // Always update waterfall display
+                this.updateWaterfall(data.data);
+                
+                // Only process through DSP if AudioContext is ready
+                if (this.dsp.audioContext && this.dsp.audioContext.state === 'running') {
+                    this.dsp.processIqData(data.data);
+                } else {
+                    // Silently discard I/Q data until DSP is ready
+                }
+                break;
+                
+            case 'txStreamReady':
+                console.log('TX stream ready, sample rate:', data.sampleRate);
+                break;
+                
+            default:
+                console.log('Unknown WebSocket message:', data.type);
+        }
+    }
+    
+    updateWaterfall(iqData) {
+        // Simple waterfall visualization
+        const canvas = document.getElementById('waterfallCanvas');
+        if (!canvas) return;
         
-        // Band changes often require frequency adjustment
-        const bandFreq = this.getBandCenterFrequency(band);
-        if (bandFreq) {
-          await this.setFrequency(bandFreq);
+        const ctx = canvas.getContext('2d');
+        const width = canvas.width;
+        const height = canvas.height;
+        
+        // Scroll existing data up
+        const imageData = ctx.getImageData(0, 1, width, height - 1);
+        ctx.putImageData(imageData, 0, 0);
+        
+        // Draw new line at bottom
+        const fftSize = Math.min(iqData.i.length, width);
+        for (let i = 0; i < fftSize; i++) {
+            const power = Math.sqrt(iqData.i[i] * iqData.i[i] + iqData.q[i] * iqData.q[i]);
+            const intensity = Math.min(255, power * 500); // Scale for visibility
+            
+            ctx.fillStyle = `rgb(${intensity}, ${intensity/2}, ${255-intensity})`;
+            ctx.fillRect(i, height - 1, 1, 1);
+        }
+    }
+    
+    initializeUI() {
+        // Initialize frequency display
+        this.updateFrequencyDisplay();
+        
+        // Set up control handlers
+        this.setupControlHandlers();
+        
+        // Initialize band buttons
+        this.updateBandDisplay();
+        
+        // Start telemetry updates
+        this.startTelemetryUpdates();
+    }
+    
+    setupControlHandlers() {
+        // Band selection buttons
+        document.querySelectorAll('.band-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const band = e.target.dataset.band;
+                this.setBand(band);
+            });
+        });
+        
+        // Mode buttons
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const mode = e.target.dataset.mode;
+                this.setMode(mode);
+            });
+        });
+        
+        // Power slider
+        const powerSlider = document.getElementById('powerSlider');
+        if (powerSlider) {
+            powerSlider.addEventListener('input', (e) => {
+                this.setPower(parseInt(e.target.value));
+            });
         }
         
-        // Update active setbox
-        this.setboxManager.updateCurrentParameter('band', band);
-      }
-      
-    } catch (error) {
-      console.error('Failed to set band:', error);
-      this.showErrorMessage('Band Error', error.message);
-    }
-  }
-  
-  /**
-   * @brief Set operating mode
-   * @param {string} mode Operating mode ("rx", "tx", "standby")
-   */
-  async setMode(mode) {
-    try {
-      const response = await this.hardwareAPI.setMode(mode);
-      
-      if (response.success) {
-        this.currentState.mode = mode;
-        this.uiController.updateModeDisplay(mode);
+        // Antenna selection
+        const antennaSelect = document.getElementById('antennaSelect');
+        if (antennaSelect) {
+            antennaSelect.addEventListener('change', (e) => {
+                this.setAntenna(parseInt(e.target.value));
+            });
+        }
         
-        // Update active setbox
-        this.setboxManager.updateCurrentParameter('mode', mode);
-      }
-      
-    } catch (error) {
-      console.error('Failed to set mode:', error);
-      this.showErrorMessage('Mode Error', error.message);
-    }
-  }
-  
-  /**
-   * @brief Set transmit power
-   * @param {number} powerWatts Power in watts
-   */
-  async setPower(powerWatts) {
-    try {
-      const response = await this.hardwareAPI.setPower(powerWatts);
-      
-      if (response.success) {
-        this.currentState.power = powerWatts;
-        this.uiController.updatePowerDisplay(powerWatts);
+        // Audio enable button
+        const audioEnableBtn = document.getElementById('audioEnableBtn');
+        if (audioEnableBtn) {
+            let iqStreamStarted = false;
+            
+            audioEnableBtn.addEventListener('click', async () => {
+                try {
+                    // Check if already enabled
+                    if (audioEnableBtn.classList.contains('active')) {
+                        // Disable audio
+                        if (this.websocket && this.websocket.readyState === WebSocket.OPEN) {
+                            this.websocket.send(JSON.stringify({ type: 'stopIqStream' }));
+                            console.log('Stopped I/Q stream');
+                        }
+                        if (this.dsp.audioContext) {
+                            await this.dsp.audioContext.suspend();
+                        }
+                        audioEnableBtn.textContent = '🔊 Enable Audio';
+                        audioEnableBtn.classList.remove('active');
+                        iqStreamStarted = false;
+                        return;
+                    }
+                    
+                    // Create AudioContext if not already created
+                    const contextCreated = await this.dsp.createAudioContext();
+                    if (!contextCreated) {
+                        console.error('Failed to create AudioContext');
+                        return;
+                    }
+                    
+                    // Resume if suspended
+                    if (this.dsp.audioContext.state === 'suspended') {
+                        await this.dsp.audioContext.resume();
+                    }
+                    
+                    if (this.dsp.audioContext.state === 'running') {
+                        audioEnableBtn.textContent = '🔊 Audio Enabled';
+                        audioEnableBtn.classList.add('active');
+                        console.log('Audio enabled successfully, state:', this.dsp.audioContext.state);
+                        
+                        // Start I/Q stream now that DSP is ready (only if not already started)
+                        if (!iqStreamStarted && this.websocket && this.websocket.readyState === WebSocket.OPEN) {
+                            this.websocket.send(JSON.stringify({ type: 'startIqStream' }));
+                            console.log('Started I/Q stream');
+                            iqStreamStarted = true;
+                        }
+                    } else {
+                        console.warn('AudioContext not running, state:', this.dsp.audioContext.state);
+                    }
+                } catch (error) {
+                    console.error('Failed to enable audio:', error);
+                }
+            });
+        }
         
-        // Update active setbox
-        this.setboxManager.updateCurrentParameter('power', powerWatts);
-      }
-      
-    } catch (error) {
-      console.error('Failed to set power:', error);
-      this.showErrorMessage('Power Error', error.message);
-    }
-  }
-  
-  /**
-   * @brief Set antenna selection
-   * @param {number} antenna Antenna number (1-4)
-   */
-  async setAntenna(antenna) {
-    try {
-      const response = await this.hardwareAPI.setAntenna(antenna);
-      
-      if (response.success) {
-        this.currentState.antenna = antenna;
-        this.uiController.updateAntennaDisplay(antenna);
+        // DSP mode selection
+        const dspModeSelect = document.getElementById('dspModeSelect');
+        if (dspModeSelect) {
+            dspModeSelect.addEventListener('change', (e) => {
+                this.dsp.setMode(e.target.value);
+                console.log('DSP mode changed to:', e.target.value);
+            });
+        }
         
-        // Update active setbox
-        this.setboxManager.updateCurrentParameter('antenna', antenna);
-      }
-      
-    } catch (error) {
-      console.error('Failed to set antenna:', error);
-      this.showErrorMessage('Antenna Error', error.message);
-    }
-  }
-  
-  /**
-   * @brief Activate a setbox configuration
-   * @param {string} setboxName Name of setbox to activate
-   */
-  async activateSetbox(setboxName) {
-    try {
-      const configuration = this.setboxManager.resolveSetboxConfiguration(setboxName);
-      
-      // Apply all configuration parameters to hardware
-      if (configuration.frequency) {
-        await this.setFrequency(configuration.frequency);
-      }
-      
-      if (configuration.band) {
-        await this.setBand(configuration.band);
-      }
-      
-      if (configuration.mode) {
-        await this.setMode(configuration.mode);
-      }
-      
-      if (configuration.power) {
-        await this.setPower(configuration.power);
-      }
-      
-      if (configuration.antenna) {
-        await this.setAntenna(configuration.antenna);
-      }
-      
-      // Update UI to show active setbox
-      this.setboxManager.setActiveSetbox(setboxName);
-      
-      console.log(`Activated setbox: ${setboxName}`, configuration);
-      
-    } catch (error) {
-      console.error('Failed to activate setbox:', error);
-      this.showErrorMessage('Setbox Error', error.message);
-    }
-  }
-  
-  /**
-   * @brief Get hardware status from STM32
-   */
-  async updateHardwareStatus() {
-    try {
-      const rfStatus = await this.hardwareAPI.getRFStatus();
-      const paStatus = await this.hardwareAPI.getPowerAmplifierStatus();
-      const protectionStatus = await this.hardwareAPI.getProtectionStatus();
-      
-      // Update current state from hardware
-      this.currentState.frequency = rfStatus.frequency_hz;
-      this.currentState.band = rfStatus.band;
-      this.currentState.mode = rfStatus.mode;
-      this.currentState.power = paStatus.target_power_watts;
-      this.currentState.antenna = rfStatus.antenna;
-      
-      // Update UI displays
-      this.uiController.updateAllDisplays(this.currentState);
-      
-      // Update status indicators
-      this.updateStatusIndicators(rfStatus, paStatus, protectionStatus);
-      
-    } catch (error) {
-      console.error('Failed to get hardware status:', error);
-      this.updateConnectionStatus(false);
-    }
-  }
-  
-  /**
-   * @brief Update system status indicators
-   */
-  updateStatusIndicators(rfStatus, paStatus, protectionStatus) {
-    const indicators = {
-      rf: rfStatus.pll_locked && rfStatus.mode !== 'error',
-      pa: paStatus.operational && !paStatus.protection_active,
-      fpga: rfStatus.fpga_responsive,
-      connection: this.isConnected
-    };
-    
-    this.uiController.updateStatusIndicators(indicators);
-  }
-  
-  /**
-   * @brief Emergency stop - immediate safe state
-   */
-  async emergencyStop() {
-    try {
-      await this.hardwareAPI.emergencyStop();
-      
-      // Show emergency overlay
-      const overlay = document.getElementById('emergencyOverlay');
-      overlay.classList.remove('hidden');
-      
-      // Disable all controls
-      this.uiController.disableAllControls();
-      
-      console.log('EMERGENCY STOP ACTIVATED');
-      
-    } catch (error) {
-      console.error('Emergency stop failed:', error);
-    }
-  }
-  
-  /**
-   * @brief Show main application interface
-   */
-  showMainApplication() {
-    const loadingScreen = document.getElementById('loadingScreen');
-    const nexrigApp = document.getElementById('nexrigApp');
-    
-    loadingScreen.classList.add('hidden');
-    nexrigApp.classList.add('loaded');
-  }
-  
-  /**
-   * @brief Show error message to user
-   * @param {string} title Error title
-   * @param {string} message Error details
-   */
-  showErrorMessage(title, message) {
-    // Create error dialog or notification
-    console.error(`${title}: ${message}`);
-    
-    // Update loading screen with error
-    const loadingText = document.querySelector('.loading-text');
-    const loadingDetails = document.getElementById('loadingDetails');
-    
-    if (loadingText) loadingText.textContent = `❌ ${title}`;
-    if (loadingDetails) loadingDetails.textContent = message;
-  }
-  
-  /**
-   * @brief Get center frequency for a band
-   * @param {string} band Band designation
-   * @returns {number|null} Center frequency in Hz
-   */
-  getBandCenterFrequency(band) {
-    const frequencies = {
-      '160m': 1900000,
-      '80m': 3750000,
-      '40m': 7150000,
-      '20m': 14200000,
-      '17m': 18118000,
-      '15m': 21225000,
-      '12m': 24940000,
-      '10m': 28850000,
-      '6m': 52000000,
-      '2m': 146000000
-    };
-    
-    return frequencies[band] || null;
-  }
-  
-  /**
-   * @brief Update performance metrics
-   * @param {number} deltaTime Time since last frame in ms
-   */
-  updatePerformanceMetrics(deltaTime) {
-    // Calculate frame rate
-    this.performanceMetrics.frameRate = 1000 / deltaTime;
-    
-    // Update performance display if visible
-    if (this.performanceMetrics.frameRate < 30) {
-      console.warn(`Low frame rate: ${this.performanceMetrics.frameRate.toFixed(1)} fps`);
-    }
-  }
-  
-  /**
-   * @brief Cleanup and shutdown
-   */
-  destroy() {
-    // Cancel animation frame
-    if (this.animationFrameId) {
-      cancelAnimationFrame(this.animationFrameId);
+        // Emergency stop
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.emergencyStop();
+            }
+        });
     }
     
-    // Disconnect from hardware
-    this.streamManager.disconnect();
-    this.hardwareAPI.disconnect();
+    async setBand(band) {
+        try {
+            const response = await fetch(`${this.apiBaseUrl}/rf/band`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ band })
+            });
+            
+            if (response.ok) {
+                this.currentBand = band;
+                this.updateBandDisplay();
+                
+                // Get the new frequency for this band
+                const freqResponse = await fetch(`${this.apiBaseUrl}/rf/frequency`);
+                if (freqResponse.ok) {
+                    const freqData = await freqResponse.json();
+                    this.currentFreq = freqData.frequency;
+                    this.updateFrequencyDisplay();
+                }
+            }
+        } catch (error) {
+            console.error('Failed to set band:', error);
+        }
+    }
     
-    // Cleanup UI components
-    this.waterfallDisplay.destroy();
-    this.spectrumAnalyzer.destroy();
+    async setMode(mode) {
+        try {
+            const response = await fetch(`${this.apiBaseUrl}/rf/mode`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ mode })
+            });
+            
+            if (response.ok) {
+                this.currentMode = mode;
+                this.updateModeDisplay();
+                
+                // Update DSP mode based on radio mode
+                if (mode === 'rx') {
+                    // Default to USB for voice
+                    this.dsp.setMode('usb');
+                    this.dsp.setTuning(1500); // Tune to the USB signal
+                } else {
+                    this.dsp.setMode('usb'); // Keep DSP in USB mode
+                }
+            }
+        } catch (error) {
+            console.error('Failed to set mode:', error);
+        }
+    }
     
-    console.log('NexRig Application destroyed');
-  }
+    async setPower(power) {
+        try {
+            const response = await fetch(`${this.apiBaseUrl}/rf/power`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ power })
+            });
+            
+            if (response.ok) {
+                document.getElementById('powerValue').textContent = `${power}W`;
+            }
+        } catch (error) {
+            console.error('Failed to set power:', error);
+        }
+    }
+    
+    async setAntenna(antenna) {
+        try {
+            await fetch(`${this.apiBaseUrl}/rf/antenna`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ antenna })
+            });
+        } catch (error) {
+            console.error('Failed to set antenna:', error);
+        }
+    }
+    
+    async emergencyStop() {
+        try {
+            await fetch(`${this.apiBaseUrl}/emergency-stop`, {
+                method: 'POST'
+            });
+            console.log('Emergency stop activated');
+        } catch (error) {
+            console.error('Emergency stop failed:', error);
+        }
+    }
+    
+    updateFrequencyDisplay() {
+        const freqDisplay = document.getElementById('frequencyDisplay');
+        if (freqDisplay) {
+            const freqMHz = (this.currentFreq / 1000000).toFixed(3);
+            freqDisplay.querySelector('.freq-value').textContent = freqMHz;
+        }
+    }
+    
+    updateBandDisplay() {
+        // Update band buttons
+        document.querySelectorAll('.band-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.band === this.currentBand);
+        });
+        
+        // Update header display
+        const bandDisplay = document.getElementById('currentBand');
+        if (bandDisplay) {
+            bandDisplay.textContent = this.currentBand;
+        }
+    }
+    
+    updateModeDisplay() {
+        // Update mode buttons
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.mode === this.currentMode);
+        });
+        
+        // Update header display
+        const modeDisplay = document.getElementById('currentMode');
+        if (modeDisplay) {
+            modeDisplay.textContent = this.currentMode.toUpperCase();
+        }
+    }
+    
+    startTelemetryUpdates() {
+        setInterval(async () => {
+            try {
+                const response = await fetch(`${this.apiBaseUrl}/telemetry`);
+                if (response.ok) {
+                    const telemetry = await response.json();
+                    this.updateTelemetryDisplay(telemetry);
+                }
+            } catch (error) {
+                console.error('Telemetry update failed:', error);
+            }
+        }, 1000); // Update every second
+    }
+    
+    updateTelemetryDisplay(telemetry) {
+        // Update power meter
+        const forwardPower = document.getElementById('forwardPowerMeter');
+        const forwardValue = document.getElementById('forwardPowerValue');
+        if (forwardPower && forwardValue) {
+            const powerPercent = (telemetry.forwardPower / 100) * 100;
+            forwardPower.style.width = `${powerPercent}%`;
+            forwardValue.textContent = `${telemetry.forwardPower.toFixed(1)}W`;
+        }
+        
+        // Update SWR meter
+        const swrMeter = document.getElementById('swrMeter');
+        const swrValue = document.getElementById('swrValue');
+        if (swrMeter && swrValue) {
+            const swrPercent = Math.min(((telemetry.swr - 1) / 2) * 100, 100);
+            swrMeter.style.width = `${swrPercent}%`;
+            swrValue.textContent = `${telemetry.swr.toFixed(1)}:1`;
+        }
+        
+        // Update temperature meter
+        const tempMeter = document.getElementById('tempMeter');
+        const tempValue = document.getElementById('tempValue');
+        if (tempMeter && tempValue) {
+            const tempPercent = (telemetry.temperature / 100) * 100;
+            tempMeter.style.width = `${tempPercent}%`;
+            tempValue.textContent = `${telemetry.temperature.toFixed(0)}°C`;
+        }
+    }
+    
+    hideLoadingScreen() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        const nexrigApp = document.getElementById('nexrigApp');
+        
+        if (loadingScreen) {
+            loadingScreen.classList.add('hidden');
+        }
+        if (nexrigApp) {
+            nexrigApp.classList.add('loaded');
+        }
+    }
 }

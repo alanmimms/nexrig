@@ -9,9 +9,8 @@
     <meta name="theme-color" content="#1976d2">
     <meta name="description" content="NexRig Open-Source SDR Transceiver Interface">
     
-    <!-- PWA manifest for installable web app -->
-    <link rel="manifest" href="/app/manifest.json">
-    <link rel="icon" type="image/png" href="/app/assets/nexrigIcon.png">
+    <!-- Basic favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     
     <!-- CSS Reset and Core Styles -->
     <link rel="stylesheet" href="/app/css/reset.css">
@@ -226,6 +225,19 @@
                             <button class="mode-btn" data-mode="standby">STBY</button>
                         </div>
                     </div>
+                    
+                    <div class="control-group">
+                        <label>Audio</label>
+                        <div class="audio-controls">
+                            <button class="audio-btn" id="audioEnableBtn">🔊 Enable Audio</button>
+                            <select id="dspModeSelect">
+                                <option value="usb" selected>USB</option>
+                                <option value="lsb">LSB</option>
+                                <option value="am">AM</option>
+                                <option value="cw">CW</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Band selection -->
@@ -332,14 +344,8 @@
     </div>
     
     <!-- JavaScript modules -->
-    <script type="module" src="/app/js/nexrigApp.js"></script>
-    <script type="module" src="/app/js/hardwareApi.js"></script>
-    <script type="module" src="/app/js/streamManager.js"></script>
-    <script type="module" src="/app/js/setboxManager.js"></script>
-    <script type="module" src="/app/js/waterfallDisplay.js"></script>
-    <script type="module" src="/app/js/spectrumAnalyzer.js"></script>
-    <script type="module" src="/app/js/uiController.js"></script>
-    <script type="module" src="/app/js/advancedDsp.js"></script>
+    <script src="/app/js/advancedDsp.js"></script>
+    <script src="/app/js/nexrigApp.js"></script>
     
     <!-- Web Workers for background processing -->
     <script>
@@ -354,17 +360,12 @@
             `;
         }
         
-        // Register service worker for offline capability
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/app/sw.js').catch(console.error);
-        }
+        // Service worker disabled for now
         
         // Initialize app when DOM ready
         document.addEventListener('DOMContentLoaded', () => {
-            import('/app/js/nexrigApp.js').then(module => {
-                window.nexrigApp = new module.NexRigApplication();
-                window.nexrigApp.initialize();
-            });
+            window.nexrigApp = new NexRigApplication();
+            window.nexrigApp.initialize();
         });
     </script>
 </body>

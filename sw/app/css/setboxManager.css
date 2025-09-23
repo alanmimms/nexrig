@@ -1,0 +1,52 @@
+/* Setbox Manager Styles */
+.setbox-list {
+  max-height: 120px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+}
+
+.setbox-item {
+  padding: 8px 12px;
+  border-bottom: 1px solid #3a3a3a;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.setbox-item:hover {
+  background: #2a2a2a;
+}
+
+.setbox-item.active {
+  background: #1976d2;
+}
+
+.setbox-item:last-child {
+  border-bottom: none;
+}
+
+.setbox-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.action-btn {
+  flex: 1;
+  background: #2a2a2a;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+
+.action-btn:hover {
+  background: #3a3a3a;
+}
+
+.action-btn:active {
+  background: #1976d2;
+}
