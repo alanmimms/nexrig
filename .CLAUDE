@@ -1,0 +1,104 @@
+# Claude Code Session Context
+
+## Project: USB SSB Transceiver - Mock Server & Browser App Development
+
+### Current Session Summary
+Working on fixing frequency tuning issues in a Software Defined Radio (SDR) browser application where audio output wasn't changing when tuning frequency was adjusted.
+
+### Problem Solved
+**Issue**: Frequency tuning had no effect on audio output - tuning changes didn't produce audible differences in received signals.
+
+**Root Causes Found & Fixed**:
+1. **HTML default tuning**: Slider was set to `value="1500"` instead of proper initial value
+2. **Phase accumulator timing**: `sampleIndex` was incremented AFTER phase calculation instead of before
+3. **AudioWorklet caching**: Module wasn't reloading due to browser cache
+4. **Initial tuning frequency**: Was set to 0Hz (no frequency shift) instead of test frequency
+
+**Solutions Implemented**:
+1. Fixed HTML tuning slider to start at 24500Hz for CW beacon testing
+2. Fixed phase accumulator timing in `sdr-processor.js`
+3. Added cache-busting to AudioWorklet module loading
+4. Added keyboard arrow key support for tuning (Left/Right arrows)
+5. Set initial tuning to 24.5kHz to hear 500Hz beat note from 25kHz CW beacon
+
+### Key Files Modified
+
+#### `/home/alan/ham/usb-ssb-txcvr/sw/app/index.html`
+- Changed tuning slider: `value="24500"` and display to `+24.5 kHz`
+
+#### `/home/alan/ham/usb-ssb-txcvr/sw/app/js/nexrigApp.js`
+- Added keyboard arrow key support for tuning in keydown event handler
+- Changed initial tuning from 0Hz to 24500Hz for testing
+- Arrow keys now tune frequency up/down by 100Hz steps
+
+#### `/home/alan/ham/usb-ssb-txcvr/sw/app/js/advancedDsp.js`
+- Added cache-busting parameter to AudioWorklet module loading
+- Changed initial tuning frequency from 1500Hz to 0Hz (later overridden to 24500Hz)
+
+#### `/home/alan/ham/usb-ssb-txcvr/sw/app/js/sdr-processor.js`
+- Fixed critical timing bug: moved `this.sampleIndex++` BEFORE phase calculation
+- Frequency shifting formula: `phaseIncrement = 2 * π * tuningFreq / iqSampleRate`
+- Phase accumulator properly tracks tuning phase for complex multiplication
+- Using magnitude detection temporarily for debugging: `audioSample = Math.sqrt(iBaseband² + qBaseband²) * 0.5`
+
+#### `/home/alan/ham/usb-ssb-txcvr/mock-server/src/iqStreamGenerator.js`
+- Configured signal sources for testing:
+  - USB two-tone signal at 0Hz (baseband center): 700Hz + 1900Hz audio tones  
+  - CW beacon at +25kHz: continuous carrier for beat note testing
+- CW beacon temporarily set to continuous carrier (`return true`) for debugging
+
+### Technical Architecture
+- **Mock Server**: Provides wide baseband I/Q data (±48kHz range) via WebSocket
+- **Browser DSP**: AudioWorklet processor performs frequency-selective demodulation
+- **Frequency Shifting**: Complex multiplication to mix desired frequency to baseband
+- **Sample Rates**: 96kS/s I/Q input, 48kS/s audio output, 2:1 decimation
+
+### Expected Behavior After Fixes
+1. **Initial State**: Tuned to 24.5kHz, should hear 500Hz tone from CW beacon
+2. **Frequency Tuning**: Arrow keys change frequency, audio should change accordingly
+3. **Debug Output**: Should show non-zero phase increments and varying cos/sin values
+4. **Signal Reception**: 
+   - At 0Hz: Hear USB two-tone signal (700Hz + 1900Hz)
+   - At 24.5kHz: Hear 500Hz beat note from 25kHz CW beacon
+   - At other frequencies: Hear noise or other signals
+
+### Debug Commands
+- `cd /home/alan/ham/usb-ssb-txcvr/mock-server && npm run dev` - Start mock server
+- Open `http://localhost:3000/app/` in browser
+- Use Ctrl+Shift+R for hard refresh (cache-busting)
+- Check browser console for AudioWorklet debug messages
+- Use Left/Right arrow keys to tune frequency
+
+### Next Steps if Issues Persist
+1. Verify AudioWorklet debug shows non-zero phase increments
+2. Check that tuning changes are reflected in debug output  
+3. Test different frequencies to confirm frequency-selective reception
+4. Switch from magnitude detection back to proper SSB demodulation
+5. Verify CW beacon timing and Morse code generation
+
+### File Structure
+```
+/home/alan/ham/usb-ssb-txcvr/
+├── mock-server/              # Node.js mock STM32 server
+│   ├── src/
+│   │   ├── server.js         # Express server + WebSocket
+│   │   ├── iqStreamGenerator.js  # I/Q signal generation
+│   │   ├── rfController.js   # RF control simulation
+│   │   └── systemStatus.js   # System telemetry
+│   └── package.json
+├── sw/app/                   # Browser application  
+│   ├── index.html           # Main UI
+│   ├── js/
+│   │   ├── nexrigApp.js     # Main application logic
+│   │   ├── advancedDsp.js   # DSP module with AudioWorklet
+│   │   └── sdr-processor.js # AudioWorklet processor
+│   └── css/
+└── fpga/                    # FPGA development (future)
+```
+
+### Recent Console Output Analysis
+Last debug output showed `Tune=0Hz` with `phaseInc=0.000000`, indicating the frequency shifting fix worked but tuning was still at 0Hz. After setting to 24.5kHz, should now see proper phase increment values around 1.604 radians.
+
+---
+*Session Date: 2025-09-23*
+*Claude Code Session - SDR Frequency Tuning Debug & Fix*
