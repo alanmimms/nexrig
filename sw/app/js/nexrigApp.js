@@ -74,6 +74,7 @@ class NexRigApplication {
             
             this.websocket.onopen = () => {
                 console.log('WebSocket connected');
+                // I/Q stream starts automatically from server (like real radio hardware)
                 resolve();
             };
             
@@ -158,61 +159,45 @@ class NexRigApplication {
             ctx.fillRect(0, 0, width, height);
         }
         
-        // Create frequency domain representation
+        // Create frequency domain representation using simple DFT
         const fftBins = width;
-        const binWidth = 96000 / fftBins; // Each bin represents 96kHz / width Hz
-        
-        // Initialize spectrum with noise floor
-        const spectrum = new Array(fftBins).fill(-50); // -50 dB noise floor
-        
-        // Add noise across all bins
+        const spectrum = new Array(fftBins);
+
+        // Use a subset of I/Q samples for efficiency
+        const fftSize = Math.min(512, iqData.i.length);
+        const sampleStep = Math.floor(iqData.i.length / fftSize);
+
+        // Compute DFT for each bin
         for (let bin = 0; bin < fftBins; bin++) {
-            spectrum[bin] = -50 + (Math.random() - 0.5) * 10; // Noise floor with variation
-        }
-        
-        // Calculate frequency bins for each signal based on their offset from center
-        // Center frequency is 0 Hz in baseband, displayed at bin width/2
-        const centerBin = Math.floor(fftBins / 2);
-        
-        // USB two-tone signal at +1.5 kHz (should show as two spectral lines)
-        const usbBin = centerBin + Math.floor(1500 / binWidth);
-        if (usbBin >= 0 && usbBin < fftBins) {
-            // Two-tone shows as two spectral lines
-            const tone1Bin = usbBin + Math.floor(700 / binWidth);   // 700 Hz above carrier
-            const tone2Bin = usbBin + Math.floor(1900 / binWidth);  // 1900 Hz above carrier
-            
-            if (tone1Bin >= 0 && tone1Bin < fftBins) {
-                spectrum[tone1Bin] = -10; // Strong signal
+            // Map bin to frequency (-48kHz to +48kHz)
+            const freq = -48000 + (bin * 96000 / fftBins);
+            const omega = 2 * Math.PI * freq / 96000;
+
+            let real = 0;
+            let imag = 0;
+
+            // DFT calculation
+            for (let n = 0; n < fftSize; n++) {
+                const idx = n * sampleStep;
+                if (idx < iqData.i.length) {
+                    const iSample = (iqData.i[idx] || 0) / 8388607.0;
+                    const qSample = (iqData.q[idx] || 0) / 8388607.0;
+
+                    const phase = omega * n;
+                    const cos_phase = Math.cos(phase);
+                    const sin_phase = Math.sin(phase);
+
+                    // Complex multiply: (i + jq) * (cos - jsin)
+                    real += iSample * cos_phase + qSample * sin_phase;
+                    imag += qSample * cos_phase - iSample * sin_phase;
+                }
             }
-            if (tone2Bin >= 0 && tone2Bin < fftBins) {
-                spectrum[tone2Bin] = -10; // Strong signal
-            }
-        }
-        
-        // CW beacon at +25 kHz - detect from actual I/Q data
-        const cwBin = centerBin + Math.floor(25000 / binWidth);
-        if (cwBin >= 0 && cwBin < fftBins) {
-            // Simple approach: check signal strength across the entire I/Q data
-            // and look for the 50 kHz component 
-            let maxPower = 0;
-            const sampleStep = Math.max(1, Math.floor(iqData.i.length / 100)); // Sample every N samples
-            
-            for (let i = 0; i < iqData.i.length; i += sampleStep) {
-                const iSample = (iqData.i[i] || 0) / 8388607.0;
-                const qSample = (iqData.q[i] || 0) / 8388607.0;
-                const power = iSample * iSample + qSample * qSample;
-                maxPower = Math.max(maxPower, power);
-            }
-            
-            // If we see strong signal energy, assume CW beacon is active
-            // This is a simplified approach - real FFT would be more accurate
-            const cwPower = maxPower > 0.1 ? -10 : -60; // Much lower threshold
-            spectrum[cwBin] = cwPower;
-            
-            // Debug log occasionally
-            if (Math.random() < 0.1) {
-                // Removed CW detection logging for performance
-            }
+
+            // Calculate power and convert to dB (logarithmic scale)
+            const power = (real * real + imag * imag) / fftSize;
+            const powerDb = 10 * Math.log10(Math.max(1e-10, power)); // Avoid log(0)
+
+            spectrum[bin] = powerDb;
         }
         
         // Draw the spectrum
@@ -242,6 +227,24 @@ class NexRigApplication {
             ctx.fillStyle = `rgb(${Math.floor(r)}, ${Math.floor(g)}, ${Math.floor(b)})`;
             ctx.fillRect(bin, height - 1, 1, 1);
         }
+
+        // DEBUG: Add waterfall time tick marks every 1000ms
+        if (!this.waterfallStartTime) {
+            this.waterfallStartTime = Date.now();
+            this.lastTickTime = 0;
+        }
+        const elapsedMs = Date.now() - this.waterfallStartTime;
+        const currentTick = Math.floor(elapsedMs / 1000);
+
+        // Add tick mark on the new bottom row when we cross a 1000ms boundary
+        if (currentTick > this.lastTickTime) {
+            ctx.fillStyle = 'white';
+            // Left edge tick mark
+            ctx.fillRect(0, height - 1, 1, 1);
+            // Right edge tick mark
+            ctx.fillRect(width - 1, height - 1, 1, 1);
+            this.lastTickTime = currentTick;
+        }
     }
     
     initializeUI() {
@@ -256,6 +259,9 @@ class NexRigApplication {
         
         // Initialize waterfall frequency scale
         this.updateWaterfallScale();
+
+        // Initialize tuning indicator to 0Hz
+        this.updateTuningIndicator(0);
         
         // Start telemetry updates
         this.startTelemetryUpdates();
@@ -437,11 +443,14 @@ class NexRigApplication {
                     // Update slider and DSP
                     tuningSlider.value = currentFreq;
                     this.dsp.setTuning(currentFreq);
-                    
+
                     // Update display
                     const sign = currentFreq >= 0 ? '+' : '';
                     const freqKHz = (currentFreq / 1000).toFixed(1);
                     tuningValue.textContent = `${sign}${freqKHz} kHz`;
+
+                    // Update waterfall tuning indicator position
+                    this.updateTuningIndicator(currentFreq);
                 }
             }
         });
@@ -488,7 +497,7 @@ class NexRigApplication {
                 if (mode === 'rx') {
                     // Default to USB for voice
                     this.dsp.setMode('usb');
-                    this.dsp.setTuning(24500); // Tune to CW beacon for 500Hz beat note
+                    this.dsp.setTuning(0); // Start at baseband center frequency
                 } else {
                     this.dsp.setMode('usb'); // Keep DSP in USB mode
                 }

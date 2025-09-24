@@ -38,28 +38,8 @@ const systemStatus = new SystemStatus();
 // Radio mode state: 'standby', 'rx', 'tx'
 let radioMode = 'standby';
 
-// Continuous I/Q generation (like real hardware)
-let continuousIqInterval = null;
-
-function startContinuousIq() {
-    if (!continuousIqInterval) {
-        continuousIqInterval = setInterval(() => {
-            // Generate I/Q samples continuously when not in standby
-            if (radioMode !== 'standby') {
-                iqGenerator.generateIqSamples(1024);
-            }
-        }, 10); // Generate continuously at ~100kS/s
-        console.log('Started continuous I/Q generation');
-    }
-}
-
-function stopContinuousIq() {
-    if (continuousIqInterval) {
-        clearInterval(continuousIqInterval);
-        continuousIqInterval = null;
-        console.log('Stopped continuous I/Q generation');
-    }
-}
+// Continuous I/Q generation happens on-demand when WebSocket requests data
+// No separate timer needed - generate fresh samples each time they're requested
 
 // Root redirect to app
 app.get('/', (req, res) => {
@@ -175,9 +155,6 @@ app.post('/api/emergency-stop', (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Mock STM32 REST API server running at http://localhost:${PORT}`);
     console.log(`Browser app available at http://localhost:${PORT}/app/`);
-    
-    // Start continuous I/Q generation
-    startContinuousIq();
 });
 
 // WebSocket Server for I/Q streaming
@@ -185,26 +162,42 @@ const wss = new WebSocketServer({ port: WS_PORT, host: '0.0.0.0' });
 
 wss.on('connection', (ws) => {
     console.log('WebSocket client connected');
-    
+
     let iqStreamInterval = null;
     let txStreamInterval = null;
-    
+
+    // FIXED: Mock radio always sends I/Q data when client connects (like real hardware)
+    // No need to wait for startIqStream message - real radios don't wait
+    console.log('Starting I/Q stream automatically (like real radio hardware)');
+    iqStreamInterval = setInterval(() => {
+        console.log('DEBUG: Generating I/Q data...');
+        const iqData = iqGenerator.generateIqSamples(480);
+        console.log('DEBUG: Generated I/Q data, sending to WebSocket');
+        ws.send(JSON.stringify({
+            type: 'iqData',
+            data: iqData
+        }));
+    }, 5.0); // Send 480 samples every 5ms (96kS/s exactly) - more stable timing
+
     ws.on('message', (message) => {
         try {
             const msg = JSON.parse(message);
-            
+            console.log('DEBUG: WebSocket message received:', JSON.stringify(msg));
+
             switch (msg.type) {
                 case 'startIqStream':
-                    // Start sending I/Q data at 96 kS/s (simulated at lower rate)
+                    // Start sending I/Q data at 96 kS/s
                     if (!iqStreamInterval) {
                         iqStreamInterval = setInterval(() => {
-                            const iqData = iqGenerator.generateIqSamples(256);
-                            // iqData already contains proper arrays
+                            // Generate fresh I/Q samples on every request - no separate timer
+                            console.log('DEBUG: Generating I/Q data...');
+                            const iqData = iqGenerator.generateIqSamples(480);
+                            console.log('DEBUG: Generated I/Q data, sending to WebSocket');
                             ws.send(JSON.stringify({
                                 type: 'iqData',
                                 data: iqData
                             }));
-                        }, 2.667); // Send 256 samples every 2.667ms (96kS/s exactly)
+                        }, 5.0); // Send 480 samples every 5ms (96kS/s exactly) - more stable timing
                     }
                     break;
                     

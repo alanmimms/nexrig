@@ -96,6 +96,72 @@ Working on fixing frequency tuning issues in a Software Defined Radio (SDR) brow
 └── fpga/                    # FPGA development (future)
 ```
 
+### Issues Fixed
+
+#### Audio Buzzing Problem (RESOLVED - Final Fix)
+- **Issue**: Clean audio for first ~100ms, then continuous buzzing
+- **Root Cause**: Timing mismatch between I/Q production (96kS/s) and audio consumption (48kS/s)
+- **Previous Attempts**:
+  - Removed buffer thresholds (helped but didn't eliminate buzzing)
+  - Fixed undefined variable `samplesToProcess` in debug messages
+- **Final Solution**: Implemented fractional resampler with linear interpolation
+  - Precise phase tracking advances by exactly 2.0 per audio sample
+  - Linear interpolation between I/Q samples eliminates aliasing
+  - Perfect sample rate conversion handles any timing precision differences
+- **Technical Details**: `sdr-processor.js` lines 31-33, 128-186
+
+#### WASM Integration Issue (RESOLVED)
+- **Issue**: "importScripts is not defined" error when loading WASM in AudioWorklet
+- **Root Cause**: importScripts only available during AudioWorklet execution, not module load time
+- **Solution**: Reverted to pure JavaScript DSP implementation for now
+- **Future**: Need alternative WASM loading method compatible with AudioWorklet constraints
+
+### CRITICAL Timing Architecture (IMPORTANT)
+**The audio consumption rate is the ONLY thing in this system that should be timed on the browser side.**
+
+- Audio AudioWorklet drains the I/Q buffer at its natural rate (48kS/s after 2:1 decimation)
+- Buffer is filled by incoming I/Q samples from WebSocket at 96kS/s
+- Mock server timing is NOT constrained by browser audio drain rate
+- Mock server simulates a radio producing I/Q samples at fixed 96kS/s rate
+- No browser-side timers needed except for mock server to generate samples at radio rate
+- Audio consumption provides the sole source of timing control on browser side
+- This master/slave relationship: audio drain is master, I/Q production follows radio rate
+
+### Current DSP Implementation Status (Updated)
+**Current State**: Pure JavaScript DSP implementation - WASM reverted due to loading issues
+- `advancedDsp.js`: Coordinates AudioWorklet and handles I/Q data routing
+- `sdr-processor.js`: AudioWorklet processor doing DSP in pure JavaScript
+- Basic operations: Simple decimation (2:1), SSB/AM demodulation, Hilbert transforms, AGC
+- **WASM Files Created**: `sdr_dsp.c`, `wasmDspWrapper.js` - ready for future integration
+- **WASM Status**: Compiled successfully but importScripts incompatible with AudioWorklet loading
+
+### WASM DSP Integration Plan (Recommended)
+**Ideal Architecture**: AudioWorklet + WASM for high-performance browser SDR
+- AudioWorklet provides real-time audio thread scheduling
+- WASM provides high-performance DSP operations (complex math, filtering, demodulation)
+- Combine for optimal performance: AudioWorklet timing + WASM computation speed
+
+**Implementation Steps for Future WASM Integration**:
+1. **Alternative WASM Loading**: Use different approach than importScripts:
+   - Pre-load WASM module in main thread, pass to AudioWorklet via message
+   - Use dynamic import() with blob URLs for AudioWorklet-compatible loading
+   - Initialize WASM inside AudioWorklet constructor after successful loading
+2. **WASM DSP Functions**: Already created in `sdr_dsp.c`:
+   - High-performance FIR/IIR filtering and Hilbert transforms
+   - SSB/LSB/AM demodulation algorithms
+   - Combined decimation + demodulation processing
+   - Memory management functions for WASM heap
+3. **Integration Points**: Replace JavaScript DSP in `sdr-processor.js`:
+   - Replace `hilbertTransform()` with WASM version
+   - Replace demodulation switch statement with `processIqBlock()`
+   - Maintain AudioWorklet for real-time scheduling and audio output
+
+#### Key Files for Buffer Issue
+- `sw/app/js/sdr-processor.js` - AudioWorklet processor, main DSP logic
+- `mock-server/src/server.js` - WebSocket I/Q streaming at exactly 96kS/s
+- `mock-server/src/iqStreamGenerator.js` - Mock I/Q signal generation
+- `sw/app/js/advancedDsp.js` - DSP coordination and AudioWorklet management
+
 ### Recent Console Output Analysis
 Last debug output showed `Tune=0Hz` with `phaseInc=0.000000`, indicating the frequency shifting fix worked but tuning was still at 0Hz. After setting to 24.5kHz, should now see proper phase increment values around 1.604 radians.
 

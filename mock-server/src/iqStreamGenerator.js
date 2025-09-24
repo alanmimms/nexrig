@@ -13,7 +13,7 @@ export class IqStreamGenerator {
         this.signals = [
             {
                 frequency: 0,     // 0 Hz - USB signal at baseband center
-                amplitude: 0.2,   
+                amplitude: 0.02,  // Much weaker to prevent splatter
                 phase: 0,
                 type: 'usb_two_tone',
                 tone1: 700,    // 700 Hz audio tone
@@ -21,12 +21,18 @@ export class IqStreamGenerator {
             },
             {
                 frequency: 25000, // +25 kHz - CW beacon in baseband
-                amplitude: 0.05,  
+                amplitude: 0.05,  // Clean CW carrier level
                 phase: 0,
-                type: 'cw_beacon',
+                type: 'cw',      // Changed to pure carrier for testing
                 message: 'TEST TEST DE WB7NAB WB7NAB K',
                 wpm: 25,
                 pauseTime: 2.0
+            },
+            {
+                frequency: 10000, // Test tone at +10 kHz
+                amplitude: 0.03,  // Clean CW carrier level
+                phase: 0,
+                type: 'cw'        // Pure carrier for testing
             }
         ];
         
@@ -72,47 +78,60 @@ export class IqStreamGenerator {
         const dt = 1.0 / this.sampleRate;
         
         for (let n = 0; n < numSamples; n++) {
+            // DEBUGGING: Generate pure zeros to isolate waterfall rendering issues
             let iSample = 0;
             let qSample = 0;
-            
-            // Add noise floor - use crypto random for better randomness
-            iSample += (Math.random() - 0.5) * 0.005; // Reduced noise level
-            qSample += (Math.random() - 0.5) * 0.005;
-            
+
+            // NOISE REMOVED: All noise should come from mock server signal generation only
+            // No artificial noise floor added here
+
+            // DEBUG: Log signal processing on first sample
+            if (n === 0) {
+                console.log(`DEBUG: Processing ${this.signals.length} signals, time=${this.time.toFixed(6)}`);
+            }
+
             // Add each signal
             for (const signal of this.signals) {
                 const t = this.time + n * dt;
                 const omega = 2 * Math.PI * signal.frequency;
-                
+
                 switch (signal.type) {
                     case 'cw':
                         // Pure carrier (CW signal)
                         iSample += signal.amplitude * Math.cos(omega * t + signal.phase);
                         qSample += signal.amplitude * Math.sin(omega * t + signal.phase);
                         break;
-                        
+
                     case 'cw_beacon':
                         // CW beacon with Morse code
                         const keyDown = this.updateCwBeacon(t, signal);
                         if (keyDown) {
-                            iSample += signal.amplitude * Math.cos(omega * t + signal.phase);
-                            qSample += signal.amplitude * Math.sin(omega * t + signal.phase);
+                            const cwI = signal.amplitude * Math.cos(omega * t + signal.phase);
+                            const cwQ = signal.amplitude * Math.sin(omega * t + signal.phase);
+                            iSample += cwI;
+                            qSample += cwQ;
+
+                            // Debug: Log CW contribution occasionally
+                            if (n === 0 && Math.random() < 0.01) {
+                                console.log(`CW: f=${signal.frequency}Hz, amp=${signal.amplitude}, I=${cwI.toFixed(4)}, Q=${cwQ.toFixed(4)}`);
+                            }
                         }
-                        // Removed debug logging for performance
                         break;
-                        
+
                     case 'usb_two_tone':
-                        // USB two-tone signal: carrier + audio tones
-                        // For USB: I = cos(wc*t) * cos(wa*t), Q = sin(wc*t) * cos(wa*t)
-                        const audio1 = Math.cos(2 * Math.PI * signal.tone1 * t);
-                        const audio2 = Math.cos(2 * Math.PI * signal.tone2 * t);
-                        const audioSum = 0.5 * (audio1 + audio2); // Two-tone test signal
-                        
-                        // Generate USB signal (audio shifted up by carrier frequency)
-                        iSample += signal.amplitude * audioSum * Math.cos(omega * t + signal.phase);
-                        qSample += signal.amplitude * audioSum * Math.sin(omega * t + signal.phase);
+                        // USB two-tone signal at baseband (direct conversion receiver tuned to carrier)
+                        // For USB at baseband: generate analytic signal
+                        // I = cos(audio_freq*t), Q = sin(audio_freq*t)
+                        const audio1_i = Math.cos(2 * Math.PI * signal.tone1 * t);
+                        const audio1_q = Math.sin(2 * Math.PI * signal.tone1 * t);
+                        const audio2_i = Math.cos(2 * Math.PI * signal.tone2 * t);
+                        const audio2_q = Math.sin(2 * Math.PI * signal.tone2 * t);
+
+                        // Sum the two tones to create two-tone test signal
+                        iSample += signal.amplitude * 0.5 * (audio1_i + audio2_i);
+                        qSample += signal.amplitude * 0.5 * (audio1_q + audio2_q);
                         break;
-                        
+
                     case 'lsb':
                         // LSB signal with single tone
                         const lsbAudio = Math.cos(2 * Math.PI * signal.modulation * t);
@@ -120,7 +139,7 @@ export class IqStreamGenerator {
                         iSample += signal.amplitude * lsbAudio * Math.cos(omega * t + signal.phase);
                         qSample += signal.amplitude * lsbAudio * (-Math.sin(omega * t + signal.phase));
                         break;
-                        
+
                     case 'noise':
                         // Band-limited noise
                         const noise = (Math.random() - 0.5) * signal.amplitude;
@@ -128,9 +147,9 @@ export class IqStreamGenerator {
                         qSample += noise * Math.sin(omega * t);
                         break;
                 }
-                
-                // Slowly drift the phase for realism
-                signal.phase += 0.00001;
+
+                // Removed phase drift - was causing issues
+                // signal.phase += 0.00001;
             }
             
             // Apply AGC-like scaling and convert to 24-bit range

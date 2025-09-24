@@ -7,45 +7,41 @@ class SdrProcessor extends AudioWorkletProcessor {
     constructor() {
         super();
         // Removed console.log from audio thread
-        
+
         // DSP parameters
         this.sampleRate = 48000;
         this.iqSampleRate = 96000;
         this.decimationRatio = 2; // 96kHz -> 48kHz
-        this.tuningFreq = 0; // Hz
+        this.tuningFreq = 0; // Hz (handled by hardware, kept for compatibility)
         this.mode = 'usb';
-        
+
         // I/Q buffer from WebSocket
         this.iqBuffer = [];
-        this.sampleIndex = 0;
-        this.tuningPhase = 0; // Phase accumulator for frequency shifting
-        
-        // Simple 8-tap Hilbert filter for performance
-        this.hilbertTaps = this.generateHilbertFilter(8);
-        this.hilbertDelay = new Float32Array(8);
+        this.sampleCounter = 0;  // Count processed samples for phase calculation
+
+        // JavaScript DSP implementation for now
+        this.hilbertTaps = this.generateHilbertFilter(16); // More taps for better quality
+        this.hilbertDelay = new Float32Array(16);
         this.hilbertIndex = 0;
-        
-        // Simple 8-tap audio filter
-        this.audioTaps = this.generateLowPassFilter(8);
-        this.audioDelay = new Float32Array(8);
-        this.audioIndex = 0;
-        
+
         // AGC
         this.agcGain = 1.0;
         this.agcTarget = 0.1;
-        
+
+        // Fractional resampler state for stable decimation
+        this.resamplerPhase = 0.0;
+        this.resamplerRate = this.iqSampleRate / this.sampleRate; // 96000/48000 = 2.0
+
         // Listen for messages from main thread
         this.port.onmessage = (event) => {
             this.handleMessage(event.data);
         };
-        
+
         // Debug counters
         this.processCallCount = 0;
         this.iqDataCount = 0;
-        
-        // Test tone generator
-        this.testTonePhase = 0;
     }
+
     
     handleMessage(data) {
         switch (data.type) {
@@ -60,14 +56,28 @@ class SdrProcessor extends AudioWorkletProcessor {
             case 'iqData':
                 // Add I/Q samples to buffer
                 const samples = data.samples;
-                for (let i = 0; i < samples.i.length; i++) {
-                    this.iqBuffer.push({
-                        i: samples.i[i] / 8388607.0, // 24-bit to float
-                        q: samples.q[i] / 8388607.0
+                if (samples && samples.i && samples.q) {
+                    for (let i = 0; i < samples.i.length; i++) {
+                        this.iqBuffer.push({
+                            i: samples.i[i] / 8388607.0, // 24-bit to float
+                            q: samples.q[i] / 8388607.0
+                        });
+                    }
+                    this.iqDataCount++;
+
+                    // Debug: Log when we receive I/Q data
+                    if (this.iqDataCount <= 5 || this.iqDataCount % 100 === 0) {
+                        this.port.postMessage({
+                            type: 'debug',
+                            message: `Received I/Q data #${this.iqDataCount}: ${samples.i.length} samples, buffer now has ${this.iqBuffer.length}`
+                        });
+                    }
+                } else {
+                    this.port.postMessage({
+                        type: 'debug',
+                        message: 'ERROR: Received iqData message with invalid samples'
                     });
                 }
-                this.iqDataCount++;
-                // Remove console.log from audio thread
                 break;
                 
             case 'setTuning':
@@ -89,9 +99,9 @@ class SdrProcessor extends AudioWorkletProcessor {
         const output = outputs[0];
         const outputChannel = output[0];
         const blockSize = outputChannel.length; // 128 samples
-        
+
         this.processCallCount++;
-        
+
         // Send immediate debug on first few calls
         if (this.processCallCount <= 5) {
             this.port.postMessage({
@@ -101,89 +111,94 @@ class SdrProcessor extends AudioWorkletProcessor {
                 message: 'AudioWorklet process() is running!'
             });
         }
-        
-        // Send debug more frequently to monitor buffer
+
+        // Monitor buffer health
         if (this.processCallCount % 100 === 0) {
             this.port.postMessage({
                 type: 'debug',
                 processCount: this.processCallCount,
-                bufferSize: this.iqBuffer.length
+                bufferSize: this.iqBuffer.length,
+                message: `Buffer: ${this.iqBuffer.length} samples available`
             });
         }
-        
-        // Process audio samples - consume I/Q data to prevent buildup
+
+        // AUDIO RE-ENABLED - Testing for horizontal bars with original signal processing
+        // Fractional resampler for stable decimation
         for (let i = 0; i < blockSize; i++) {
             let audioSample = 0;
-            
-            // Always try to process I/Q data to keep buffer from growing
-            if (this.iqBuffer.length >= 2) {
-                // Take 2 samples for decimation  
-                const iqSample = this.iqBuffer.shift();
-                this.iqBuffer.shift(); // Discard second sample for decimation
-                
-                // Debug: Log first few samples to verify we're getting I/Q data
-                if (this.processCallCount <= 10) {
-                    this.port.postMessage({
-                        type: 'debug',
-                        processCount: this.processCallCount,
-                        bufferSize: this.iqBuffer.length,
-                        message: `Got IQ sample: I=${iqSample.i.toFixed(3)}, Q=${iqSample.q.toFixed(3)}`
-                    });
+
+            // Calculate required I/Q sample index for this audio sample
+            const requiredIqIndex = Math.floor(this.resamplerPhase);
+
+            // Check if we have enough I/Q samples
+            if (this.iqBuffer.length > requiredIqIndex + 1) {
+                // Linear interpolation between two I/Q samples
+                const iq1 = this.iqBuffer[requiredIqIndex];
+                const iq2 = this.iqBuffer[requiredIqIndex + 1];
+                const frac = this.resamplerPhase - requiredIqIndex;
+
+                const iSample = iq1.i + frac * (iq2.i - iq1.i);
+                const qSample = iq1.q + frac * (iq2.q - iq1.q);
+
+                // Demodulation
+                switch (this.mode) {
+                    case 'usb':
+                        // USB: I + Hilbert(Q)
+                        const qHilbert = this.hilbertTransform(qSample);
+                        audioSample = iSample + qHilbert;
+                        break;
+                    case 'lsb':
+                        // LSB: I - Hilbert(Q)
+                        const qHilbertLsb = this.hilbertTransform(qSample);
+                        audioSample = iSample - qHilbertLsb;
+                        break;
+                    case 'am':
+                    case 'cw':
+                        // AM/CW: magnitude
+                        audioSample = Math.sqrt(iSample * iSample + qSample * qSample);
+                        break;
+                    default:
+                        audioSample = iSample; // Direct I channel
                 }
-                
-                // Increment sample index first to get proper phase progression
-                this.sampleIndex++;
-                
-                // Frequency-selective demodulation using phase accumulator
-                // Mix down the tuned frequency to baseband, then demodulate
-                const phaseIncrement = 2 * Math.PI * this.tuningFreq / this.iqSampleRate;
-                this.tuningPhase += phaseIncrement;
-                
-                // Keep phase in reasonable range to avoid precision loss
-                if (this.tuningPhase > 2 * Math.PI) {
-                    this.tuningPhase -= 2 * Math.PI;
-                }
-                if (this.tuningPhase < -2 * Math.PI) {
-                    this.tuningPhase += 2 * Math.PI;
-                }
-                
-                const cosPhase = Math.cos(this.tuningPhase);
-                const sinPhase = Math.sin(this.tuningPhase);
-                
-                // Complex multiply to bring tuned frequency to baseband
-                const iBaseband = iqSample.i * cosPhase + iqSample.q * sinPhase;
-                const qBaseband = iqSample.q * cosPhase - iqSample.i * sinPhase;
-                
-                // Temporary: Use magnitude detection to debug baseband tuning
-                audioSample = Math.sqrt(iBaseband * iBaseband + qBaseband * qBaseband) * 0.5;
-                
-                // Debug: Log first few baseband conversions to verify code path
-                if (this.processCallCount <= 15 && i === 0) { // Only log first sample of each process call
-                    this.port.postMessage({
-                        type: 'debug',
-                        processCount: this.processCallCount,
-                        bufferSize: this.iqBuffer.length,
-                        message: `Phase Debug: Tune=${this.tuningFreq}Hz, sampleIdx=${this.sampleIndex}, phaseInc=${phaseIncrement.toFixed(6)}, phase=${this.tuningPhase.toFixed(6)}, cos=${cosPhase.toFixed(6)}, sin=${sinPhase.toFixed(6)}`
-                    });
-                }
-                
+
+                // AGC
+                audioSample = this.automaticGainControl(audioSample);
             } else {
-                // Generate test tone when no I/Q data available
-                audioSample = 0.05 * Math.sin(this.testTonePhase);
-                this.testTonePhase += 2 * Math.PI * 1000 / this.sampleRate;
+                // No I/Q data - track underrun
+                audioSample = 0;
             }
-            
+
+            // Advance resampler phase
+            this.resamplerPhase += this.resamplerRate;
+
             // Output to audio with clipping
             outputChannel[i] = Math.max(-1, Math.min(1, audioSample));
         }
+
+        // Remove consumed I/Q samples from buffer
+        const samplesConsumed = Math.floor(this.resamplerPhase);
+        if (samplesConsumed > 0 && this.iqBuffer.length >= samplesConsumed) {
+            this.iqBuffer.splice(0, samplesConsumed);
+            this.resamplerPhase -= samplesConsumed;
+        }
+
+        // Report buffer status for waterfall debugging
+        if (this.processCallCount % 50 === 0) {
+            this.port.postMessage({
+                type: 'debug',
+                message: `AUDIO DISABLED - Waterfall Debug Mode: ${this.iqBuffer.length} I/Q samples in buffer`
+            });
+        }
         
-        // Aggressively consume any excess I/Q samples to prevent buffer growth
-        while (this.iqBuffer.length > 1000) {
+        // Keep buffer size reasonable but don't throw away too much data
+        // Only trim if we have way too much buffered (more than 1 second at 96kHz)
+        while (this.iqBuffer.length > 96000) {
             this.iqBuffer.shift();
         }
         
         return true; // Keep processor alive
     }
+
     
     hilbertTransform(sample) {
         // Circular buffer for efficiency

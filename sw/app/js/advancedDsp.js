@@ -107,13 +107,20 @@ class AdvancedDsp {
             // Silently return if AudioContext not ready
             return;
         }
-        
+
         // Check if we're getting valid data
         if (!iqData || !iqData.i || !iqData.q || iqData.i.length === 0) {
             console.warn('DSP: Invalid or empty I/Q data received');
             return;
         }
-        
+
+        // Debug: Log occasionally to confirm we're sending data
+        if (!this.iqSendCount) this.iqSendCount = 0;
+        this.iqSendCount++;
+        if (this.iqSendCount <= 5 || this.iqSendCount % 100 === 0) {
+            console.log(`DSP: Sending I/Q data #${this.iqSendCount} to worklet: ${iqData.i.length} samples`);
+        }
+
         // Send I/Q data to AudioWorklet processor
         this.workletNode.port.postMessage({
             type: 'iqData',
@@ -122,8 +129,6 @@ class AdvancedDsp {
                 q: iqData.q
             }
         });
-        
-        // Removed debug logging for performance
     }
     
     // Old DSP methods removed - now handled by AudioWorklet
