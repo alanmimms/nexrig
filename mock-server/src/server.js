@@ -210,7 +210,6 @@ wss.on('connection', (ws) => {
     if (streamState.packetCount % 100 === 0) {
       const elapsed = (now - streamState.startTime) / 1000;
       const effectiveSampleRate = (streamState.packetCount * streamState.samplesPerPacket) / elapsed;
-      console.log(`Stream: ${effectiveSampleRate.toFixed(0)} S/s effective, packet #${streamState.packetCount}`);
     }
   };
   

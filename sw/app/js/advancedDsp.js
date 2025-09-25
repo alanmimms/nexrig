@@ -189,19 +189,6 @@ class AdvancedDsp {
             const iShifted = iSample * cosPhase + qSample * sinPhase;
             const qShifted = qSample * cosPhase - iSample * sinPhase;
             
-            // Debug: Log input and output levels occasionally for CW detection
-            if (Math.random() < 0.001 && (Math.abs(iSample) > 0.05 || Math.abs(qSample) > 0.05)) {
-                console.log(`DSP Debug: Input I=${iSample.toFixed(3)}, Q=${qSample.toFixed(3)}, Tuning=${this.tuningFreq}Hz, Output I=${iShifted.toFixed(3)}, Q=${qShifted.toFixed(3)}`);
-            }
-            
-            // Special debug for CW frequency range (24-26 kHz tuning)
-            if (Math.random() < 0.001 && this.tuningFreq > 24000 && this.tuningFreq < 26000) {
-                const inputMagnitude = Math.sqrt(iSample*iSample + qSample*qSample);
-                if (inputMagnitude > 0.05) {
-                    console.log(`DSP CW Debug: Tuning=${this.tuningFreq}Hz, Input mag=${inputMagnitude.toFixed(3)}, I=${iSample.toFixed(3)}, Q=${qSample.toFixed(3)}, Mode=${this.mode}`);
-                }
-            }
-            
             // SSB demodulation
             let audioSample = 0;
             
@@ -210,11 +197,6 @@ class AdvancedDsp {
                     // USB: I + Hilbert(Q) - proper SSB demodulation
                     const qHilbert = this.hilbertTransform(qShifted);
                     audioSample = iShifted + qHilbert;
-                    
-                    // Debug: Occasionally log the demodulation components
-                    if (Math.random() < 0.001 && Math.abs(iShifted) > 0.01) {
-                        console.log(`USB Demod: I=${iShifted.toFixed(3)}, Hilbert(Q)=${qHilbert.toFixed(3)}, Audio=${audioSample.toFixed(3)}, Tuning=${this.tuningFreq}Hz`);
-                    }
                     break;
                     
                 case 'lsb':
@@ -304,21 +286,6 @@ class AdvancedDsp {
                 const clampedSample = Math.max(-1, Math.min(1, audioSamples[i]));
                 channelData[i] = clampedSample;
                 maxSample = Math.max(maxSample, Math.abs(clampedSample));
-            }
-            
-            // Log occasionally for monitoring
-            if (Math.random() < 0.001) {
-                console.log(`DSP: Audio level: ${maxSample.toFixed(4)}, Tuning: ${this.tuningFreq}Hz`);
-            }
-            
-            // Special logging for CW tuning range
-            if (Math.random() < 0.01 && this.tuningFreq > 24000 && this.tuningFreq < 26000 && maxSample > 0.001) {
-                console.log(`DSP CW Audio Output: Level=${maxSample.toFixed(4)}, Tuning=${this.tuningFreq}Hz, Samples=${audioSamples.length}`);
-            }
-            
-            // Debug all audio output when tuned to any significant frequency
-            if (Math.random() < 0.005 && this.tuningFreq > 20000 && this.tuningFreq < 30000) {
-                console.log(`DSP Audio Check: MaxLevel=${maxSample.toFixed(4)}, Tuning=${this.tuningFreq}Hz`);
             }
             
             // Schedule audio playback for seamless output

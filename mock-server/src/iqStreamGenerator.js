@@ -81,17 +81,8 @@ export class IqStreamGenerator {
     const dt = 1.0 / this.sampleRate;
     
     for (let n = 0; n < numSamples; n++) {
-      // DEBUGGING: Generate pure zeros to isolate waterfall rendering issues
       let iSample = 0;
       let qSample = 0;
-
-      // NOISE REMOVED: All noise should come from mock server signal generation only
-      // No artificial noise floor added here
-
-      // DEBUG: Log signal processing on first sample
-      if (n === 0) {
-        console.log(`DEBUG: Processing ${this.signals.length} signals, time=${this.time.toFixed(6)}`);
-      }
 
       // Add each signal
       for (const signal of this.signals) {
@@ -113,11 +104,6 @@ export class IqStreamGenerator {
             const cwQ = signal.amplitude * Math.sin(omega * t + signal.phase);
             iSample += cwI;
             qSample += cwQ;
-
-            // Debug: Log CW contribution occasionally
-            if (n === 0 && Math.random() < 0.01) {
-              console.log(`CW: f=${signal.frequency}Hz, amp=${signal.amplitude}, I=${cwI.toFixed(4)}, Q=${cwQ.toFixed(4)}`);
-            }
           }
           break;
 
@@ -170,6 +156,7 @@ export class IqStreamGenerator {
     return samples;
   }
   
+
   updateCwBeacon(t, signal) {
     // Convert WPM to dit duration (PARIS = 50 dits at given WPM)
     const ditDuration = 1.2 / signal.wpm;
@@ -191,10 +178,11 @@ export class IqStreamGenerator {
       const char = signal.message[charIndex].toUpperCase();
       
       if (char === ' ') {
-	duration += 9 * ditDuration;  // Was 7, now 9 for clearer word breaks
+	elementTime += 9 * ditDuration; // Word space (was 7, now 9 for clearer word breaks)
+	if (cyclePosition < elementTime) return false;
 	continue;
       }
-
+      
       const morse = this.morseCode[char];
       if (!morse) continue;
       
@@ -216,13 +204,14 @@ export class IqStreamGenerator {
 	}
       }
       
-      // Inter-character space (3 dits total, but we already have 1 from inter-element)
-      elementTime += 2 * ditDuration;
+      // Inter-character space (4 dits for more natural spacing, was 3)
+      elementTime += 4 * ditDuration;
       if (cyclePosition < elementTime) return false;
     }
     
     return false;
   }
+
 
   // Helper method to calculate total message duration
   calculateMessageDuration(message, ditDuration) {
@@ -232,7 +221,7 @@ export class IqStreamGenerator {
       const char = message[i].toUpperCase();
       
       if (char === ' ') {
-	duration += 7 * ditDuration;
+	duration += 9 * ditDuration;  // Word space (was 7, now 9 to match updateCwBeacon)
 	continue;
       }
       
@@ -248,13 +237,9 @@ export class IqStreamGenerator {
 	}
       }
       
-      // Inter-character space with more natural timing
+      // Inter-character space (except after last character)
       if (i < message.length - 1) {
-	if (message[i + 1] === ' ') {
-	  // Already have word space coming, no extra needed
-	} else {
-	  duration += 4 * ditDuration;  // Was 3, now 4 for better rhythm
-	}
+	duration += 4 * ditDuration;  // Was 3, now 4 to match updateCwBeacon
       }
     }
     
