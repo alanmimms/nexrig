@@ -4,388 +4,225 @@
  */
 
 class AdvancedDsp {
-    constructor() {
-        this.audioContext = null;
-        this.sampleRate = 96000; // I/Q sample rate
-        this.audioSampleRate = 48000; // Audio output rate
-        this.bufferSize = 256; // Balanced latency vs performance (~5.3ms at 48kHz)
-        
-        // DSP state
-        this.iqBuffer = [];
-        this.audioBuffer = [];
-        this.decimationRatio = this.sampleRate / this.audioSampleRate; // 2:1
-        this.sampleIndex = 0; // Track absolute sample position for phase continuity
-        this.nextPlayTime = 0; // Track when to schedule next audio buffer
-        
-        // Demodulation parameters
-        this.mode = 'usb'; // usb, lsb, cw, am
-        this.tuningFreq = 0; // Hz offset from center
-        this.bandwidth = 2400; // Hz
-        
-        // Filter coefficients (simple Hilbert transform approximation) - reduced for performance
-        this.hilbertTaps = this.generateHilbertFilter(16);
-        this.hilbertDelayLine = new Array(this.hilbertTaps.length).fill(0);
-        
-        // Audio filter (low-pass for audio band) - reduced for performance
-        this.audioFilterTaps = this.generateLowPassFilter(200, 3000, this.audioSampleRate, 16);
-        this.audioDelayLine = new Array(this.audioFilterTaps.length).fill(0);
-        
-        // AGC
-        this.agcGain = 1.0;
-        this.agcTarget = 0.1;
-        this.agcAttack = 0.001;
-        this.agcDecay = 0.0001;
-    }
+  constructor() {
+    this.audioContext = null;
+    this.sampleRate = 96000; // I/Q sample rate
+    this.audioSampleRate = 48000; // Audio output rate
+    this.bufferSize = 256; // Balanced latency vs performance (~5.3ms at 48kHz)
     
-    async initialize() {
-        try {
-            // Don't create AudioContext yet - wait for user gesture
-            console.log('DSP initialized, AudioContext will be created on user gesture');
-            return true;
-        } catch (error) {
-            console.error('Failed to initialize DSP:', error);
-            return false;
-        }
-    }
+    // DSP state
+    this.iqBuffer = [];
+    this.audioBuffer = [];
+    this.decimationRatio = this.sampleRate / this.audioSampleRate; // 2:1
+    this.sampleIndex = 0; // Track absolute sample position for phase continuity
+    this.nextPlayTime = 0; // Track when to schedule next audio buffer
     
-    async createAudioContext() {
-        if (!this.audioContext) {
-            try {
-                this.audioContext = new (window.AudioContext || window.webkitAudioContext)({
-                    sampleRate: this.audioSampleRate
-                });
-                
-                // Pre-load WASM module for AudioWorklet
-                let wasmModule = null;
-                try {
-                    console.log('Pre-loading WASM DSP module...');
-                    const SdrDspModule = await import('../wasm/sdr_dsp.js');
-                    wasmModule = await SdrDspModule.default();
-                    console.log('WASM DSP module pre-loaded successfully');
-                } catch (error) {
-                    console.warn('Failed to pre-load WASM DSP module, falling back to JavaScript:', error);
-                }
-
-                // Load and initialize AudioWorklet processor
-                try {
-                    await this.audioContext.audioWorklet.addModule('./js/sdr-processor.js?v=' + Date.now());
-                    console.log('AudioWorklet module loaded successfully');
-
-                    this.workletNode = new AudioWorkletNode(this.audioContext, 'sdr-processor', {
-                        numberOfInputs: 0,
-                        numberOfOutputs: 1,
-                        outputChannelCount: [1]
-                    });
-                    this.workletNode.connect(this.audioContext.destination);
-                    console.log('AudioWorkletNode created and connected');
-
-                    // Send pre-loaded WASM module to AudioWorklet if available
-                    if (wasmModule) {
-                        console.log('Sending WASM module to AudioWorklet...');
-                        this.workletNode.port.postMessage({
-                            type: 'initWasm',
-                            wasmModule: wasmModule
-                        });
-                    }
-                    
-                    // Listen for messages from AudioWorklet
-                    this.workletNode.port.onmessage = (event) => {
-                        if (event.data.type === 'debug') {
-                            if (event.data.message) {
-                                console.log(`AudioWorklet: ${event.data.message} (call ${event.data.processCount}, buffer: ${event.data.bufferSize})`);
-                            } else {
-                                console.log(`AudioWorklet: Process called ${event.data.processCount} times, buffer: ${event.data.bufferSize}`);
-                            }
-                        } else if (event.data.type === 'testResponse') {
-                            console.log(event.data.message);
-                        }
-                    };
-                    
-                    // Test message to worklet
-                    this.workletNode.port.postMessage({
-                        type: 'test',
-                        message: 'Hello from main thread'
-                    });
-                    
-                } catch (error) {
-                    console.error('Failed to load AudioWorklet:', error);
-                    throw error;
-                }
-
-                // Ensure AudioContext is running
-                if (this.audioContext.state === 'suspended') {
-                    console.log('AudioContext suspended, resuming...');
-                    await this.audioContext.resume();
-                }
-
-                console.log('AudioContext and SDR Worklet created, final state:', this.audioContext.state);
-                return true;
-            } catch (error) {
-                console.error('Failed to create AudioContext or Worklet:', error);
-                return false;
-            }
-        }
-        return true;
-    }
+    // Demodulation parameters
+    this.mode = 'usb'; // usb, lsb, cw, am
+    this.tuningFreq = 0; // Hz offset from center
+    this.bandwidth = 2400; // Hz
     
-    processIqData(iqData) {
-        if (!this.audioContext || this.audioContext.state !== 'running' || !this.workletNode) {
-            // Log why we're not processing
-            if (!this.audioContext) {
-                console.warn('DSP: No AudioContext - audio not initialized');
-            } else if (this.audioContext.state !== 'running') {
-                console.warn(`DSP: AudioContext not running, state: ${this.audioContext.state}`);
-            } else if (!this.workletNode) {
-                console.warn('DSP: No workletNode - AudioWorklet not loaded');
-            }
-            return;
-        }
-
-        // Check if we're getting valid data
-        if (!iqData || !iqData.i || !iqData.q || iqData.i.length === 0) {
-            console.warn('DSP: Invalid or empty I/Q data received');
-            return;
-        }
-
-        // Debug: Log occasionally to confirm we're sending data
-        if (!this.iqSendCount) this.iqSendCount = 0;
-        this.iqSendCount++;
-        if (this.iqSendCount <= 5 || this.iqSendCount % 100 === 0) {
-            console.log(`DSP: Sending I/Q data #${this.iqSendCount} to worklet: ${iqData.i.length} samples`);
-        }
-
-        // Send I/Q data to AudioWorklet processor
-        this.workletNode.port.postMessage({
-            type: 'iqData',
-            samples: {
-                i: iqData.i,
-                q: iqData.q
-            }
+    // Filter coefficients (simple Hilbert transform approximation) - reduced for performance
+    this.hilbertTaps = this.generateHilbertFilter(16);
+    this.hilbertDelayLine = new Array(this.hilbertTaps.length).fill(0);
+    
+    // Audio filter (low-pass for audio band) - reduced for performance
+    this.audioFilterTaps = this.generateLowPassFilter(200, 3000, this.audioSampleRate, 16);
+    this.audioDelayLine = new Array(this.audioFilterTaps.length).fill(0);
+    
+    // AGC
+    this.agcGain = 1.0;
+    this.agcTarget = 0.1;
+    this.agcAttack = 0.001;
+    this.agcDecay = 0.0001;
+  }
+  
+  async initialize() {
+    try {
+      // Don't create AudioContext yet - wait for user gesture
+      console.log('DSP initialized, AudioContext will be created on user gesture');
+      return true;
+    } catch (error) {
+      console.error('Failed to initialize DSP:', error);
+      return false;
+    }
+  }
+  
+  async createAudioContext() {
+    if (!this.audioContext) {
+      try {
+        this.audioContext = new (window.AudioContext || window.webkitAudioContext)({
+          sampleRate: this.audioSampleRate
         });
-    }
-    
-    // Old DSP methods removed - now handled by AudioWorklet
-    
-    demodulateBlock() {
-        const blockSize = this.bufferSize * this.decimationRatio;
-        const iqBlock = this.iqBuffer.splice(0, blockSize);
-        const audioSamples = [];
         
-        for (let i = 0; i < iqBlock.length; i += this.decimationRatio) {
-            // Get I/Q sample
-            const iSample = iqBlock[i].i;
-            const qSample = iqBlock[i].q;
-            
-            // Frequency shift to tune the desired signal to baseband
-            // Use absolute sample index for phase continuity
-            const tuningPhase = 2 * Math.PI * this.tuningFreq * this.sampleIndex / this.sampleRate;
-            const cosPhase = Math.cos(tuningPhase);
-            const sinPhase = Math.sin(tuningPhase);
-            
-            // Increment sample index for next sample
-            this.sampleIndex += this.decimationRatio;
-            
-            // Complex multiply to shift frequency
-            const iShifted = iSample * cosPhase + qSample * sinPhase;
-            const qShifted = qSample * cosPhase - iSample * sinPhase;
-            
-            // SSB demodulation
-            let audioSample = 0;
-            
-            switch (this.mode) {
-                case 'usb':
-                    // USB: I + Hilbert(Q) - proper SSB demodulation
-                    const qHilbert = this.hilbertTransform(qShifted);
-                    audioSample = iShifted + qHilbert;
-                    break;
-                    
-                case 'lsb':
-                    // LSB: I - Hilbert(Q) - proper SSB demodulation
-                    const qHilbertLsb = this.hilbertTransform(qShifted);
-                    audioSample = iShifted - qHilbertLsb;
-                    break;
-                    
-                case 'cw':
-                case 'am':
-                    // Envelope detection for AM/CW
-                    audioSample = Math.sqrt(iShifted * iShifted + qShifted * qShifted);
-                    break;
-            }
-            
-            // Audio band filtering
-            audioSample = this.audioFilter(audioSample);
-            
-            // AGC
-            audioSample = this.automaticGainControl(audioSample);
-            
-            audioSamples.push(audioSample);
-        }
+        // Load WASM module first
+        const wasmResponse = await fetch('/app/wasm/sdr_dsp.wasm');
+        const wasmBytes = await wasmResponse.arrayBuffer();
         
-        return audioSamples;
-    }
-    
-    hilbertTransform(sample) {
-        // Shift delay line
-        for (let i = this.hilbertDelayLine.length - 1; i > 0; i--) {
-            this.hilbertDelayLine[i] = this.hilbertDelayLine[i - 1];
-        }
-        this.hilbertDelayLine[0] = sample;
+        // Load AudioWorklet with cache-busting
+        await this.audioContext.audioWorklet.addModule('./js/sdr-processor.js?v=' + Date.now());
         
-        // Convolution with Hilbert filter
-        let output = 0;
-        for (let i = 0; i < this.hilbertTaps.length; i++) {
-            output += this.hilbertTaps[i] * this.hilbertDelayLine[i];
-        }
+        this.workletNode = new AudioWorkletNode(this.audioContext, 'sdr-processor', {
+          numberOfInputs: 0,
+          numberOfOutputs: 1,
+          outputChannelCount: [1]
+        });
         
-        return output;
-    }
-    
-    audioFilter(sample) {
-        // Shift delay line
-        for (let i = this.audioDelayLine.length - 1; i > 0; i--) {
-            this.audioDelayLine[i] = this.audioDelayLine[i - 1];
-        }
-        this.audioDelayLine[0] = sample;
+        // Send WASM bytes to worklet
+        this.workletNode.port.postMessage({
+          type: 'initWasm',
+          wasmBytes: wasmBytes
+        });
         
-        // Convolution with audio filter
-        let output = 0;
-        for (let i = 0; i < this.audioFilterTaps.length; i++) {
-            output += this.audioFilterTaps[i] * this.audioDelayLine[i];
-        }
+        this.workletNode.connect(this.audioContext.destination);
+        console.log('AudioWorkletNode created and connected');
         
-        return output;
-    }
-    
-    automaticGainControl(sample) {
-        const amplitude = Math.abs(sample);
-        
-        // Update AGC gain
-        if (amplitude > this.agcTarget) {
-            this.agcGain -= this.agcAttack * (amplitude - this.agcTarget);
-        } else {
-            this.agcGain += this.agcDecay * (this.agcTarget - amplitude);
-        }
-        
-        // Limit gain
-        this.agcGain = Math.max(0.1, Math.min(10.0, this.agcGain));
-        
-        return sample * this.agcGain;
-    }
-    
-    playAudio(audioSamples) {
-        if (!this.audioContext || audioSamples.length === 0) return;
-        
-        try {
-            // Create audio buffer
-            const buffer = this.audioContext.createBuffer(1, audioSamples.length, this.audioSampleRate);
-            const channelData = buffer.getChannelData(0);
-            
-            // Copy samples to audio buffer and check audio levels
-            let maxSample = 0;
-            for (let i = 0; i < audioSamples.length; i++) {
-                const clampedSample = Math.max(-1, Math.min(1, audioSamples[i]));
-                channelData[i] = clampedSample;
-                maxSample = Math.max(maxSample, Math.abs(clampedSample));
-            }
-            
-            // Schedule audio playback for seamless output
-            const source = this.audioContext.createBufferSource();
-            source.buffer = buffer;
-            source.connect(this.audioContext.destination);
-            
-            // Schedule at the next play time for seamless audio
-            const currentTime = this.audioContext.currentTime;
-            if (this.nextPlayTime < currentTime) {
-                // First buffer or we're behind - start immediately
-                this.nextPlayTime = currentTime;
-            }
-            
-            source.start(this.nextPlayTime);
-            
-            // Calculate when the next buffer should start
-            const bufferDuration = audioSamples.length / this.audioSampleRate;
-            this.nextPlayTime += bufferDuration;
-            
-        } catch (error) {
-            console.error('Audio playback error:', error);
-        }
-    }
-    
-    generateHilbertFilter(numTaps) {
-        // Simple Hilbert transform filter (90-degree phase shift)
-        const taps = new Array(numTaps).fill(0);
-        const center = Math.floor(numTaps / 2);
-        
-        for (let i = 0; i < numTaps; i++) {
-            if (i !== center) {
-                const n = i - center;
-                if (n % 2 !== 0) {
-                    taps[i] = 2.0 / (Math.PI * n);
-                }
-            }
-        }
-        
-        // Apply window function (Hamming)
-        for (let i = 0; i < numTaps; i++) {
-            const window = 0.54 - 0.46 * Math.cos(2 * Math.PI * i / (numTaps - 1));
-            taps[i] *= window;
-        }
-        
-        return taps;
-    }
-    
-    generateLowPassFilter(lowFreq, highFreq, sampleRate, numTaps) {
-        // Bandpass filter for audio frequencies
-        const taps = new Array(numTaps).fill(0);
-        const center = Math.floor(numTaps / 2);
-        const nyquist = sampleRate / 2;
-        
-        const normalizedLow = lowFreq / nyquist;
-        const normalizedHigh = highFreq / nyquist;
-        
-        for (let i = 0; i < numTaps; i++) {
-            const n = i - center;
-            if (n === 0) {
-                taps[i] = normalizedHigh - normalizedLow;
+        // Listen for messages from AudioWorklet
+        this.workletNode.port.onmessage = (event) => {
+          if (event.data.type === 'debug') {
+            if (event.data.message) {
+              console.log(`AudioWorklet: ${event.data.message} (call ${event.data.processCount}, buffer: ${event.data.bufferSize})`);
             } else {
-                taps[i] = (Math.sin(Math.PI * normalizedHigh * n) - 
-                          Math.sin(Math.PI * normalizedLow * n)) / (Math.PI * n);
+              console.log(`AudioWorklet: Process called ${event.data.processCount} times, buffer: ${event.data.bufferSize}`);
             }
-            
-            // Apply Hamming window
-            const window = 0.54 - 0.46 * Math.cos(2 * Math.PI * i / (numTaps - 1));
-            taps[i] *= window;
+          } else if (event.data.type === 'testResponse') {
+            console.log(event.data.message);
+          }
+        };
+        
+        // Test message to worklet
+        this.workletNode.port.postMessage({
+          type: 'test',
+          message: 'Hello from main thread'
+        });
+        
+        // Ensure AudioContext is running
+        if (this.audioContext.state === 'suspended') {
+          console.log('AudioContext suspended, resuming...');
+          await this.audioContext.resume();
         }
         
-        return taps;
+        console.log('AudioContext and SDR Worklet created, final state:', this.audioContext.state);
+        return true;
+      } catch (error) {
+        console.error('Failed to create AudioContext or Worklet:', error);
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  processIqData(iqData) {
+    if (!this.audioContext || this.audioContext.state !== 'running' || !this.workletNode) {
+      // Log why we're not processing
+      if (!this.audioContext) {
+        console.warn('DSP: No AudioContext - audio not initialized');
+      } else if (this.audioContext.state !== 'running') {
+        console.warn(`DSP: AudioContext not running, state: ${this.audioContext.state}`);
+      } else if (!this.workletNode) {
+        console.warn('DSP: No workletNode - AudioWorklet not loaded');
+      }
+      return;
     }
     
-    setMode(mode) {
-        this.mode = mode;
-        if (this.workletNode) {
-            this.workletNode.port.postMessage({
-                type: 'setMode',
-                mode: mode
-            });
+    // Check if we're getting valid data
+    if (!iqData || !iqData.i || !iqData.q || iqData.i.length === 0) {
+      console.warn('DSP: Invalid or empty I/Q data received');
+      return;
+    }
+    
+    // Debug: Log occasionally to confirm we're sending data
+    if (!this.iqSendCount) this.iqSendCount = 0;
+    this.iqSendCount++;
+    if (this.iqSendCount <= 5 || this.iqSendCount % 100 === 0) {
+      console.log(`DSP: Sending I/Q data #${this.iqSendCount} to worklet: ${iqData.i.length} samples`);
+    }
+    
+    // Send I/Q data to AudioWorklet processor
+    this.workletNode.port.postMessage({
+      type: 'iqData',
+      samples: {
+        i: iqData.i,
+        q: iqData.q
+      }
+    });
+  }
+  
+  generateHilbertFilter(numTaps) {
+    // Simple Hilbert transform filter (90-degree phase shift)
+    const taps = new Array(numTaps).fill(0);
+    const center = Math.floor(numTaps / 2);
+    
+    for (let i = 0; i < numTaps; i++) {
+      if (i !== center) {
+        const n = i - center;
+        if (n % 2 !== 0) {
+          taps[i] = 2.0 / (Math.PI * n);
         }
-        console.log('DSP mode set to:', mode);
+      }
     }
     
-    setTuning(frequency) {
-        this.tuningFreq = frequency;
-        if (this.workletNode) {
-            this.workletNode.port.postMessage({
-                type: 'setTuning',
-                frequency: frequency
-            });
-        }
-        console.log('DSP tuning set to:', frequency, 'Hz');
+    // Apply window function (Hamming)
+    for (let i = 0; i < numTaps; i++) {
+      const window = 0.54 - 0.46 * Math.cos(2 * Math.PI * i / (numTaps - 1));
+      taps[i] *= window;
     }
     
-    setBandwidth(bandwidth) {
-        this.bandwidth = bandwidth;
-        // Regenerate audio filter with new bandwidth
-        this.audioFilterTaps = this.generateLowPassFilter(200, bandwidth, this.audioSampleRate, 16);
-        console.log('DSP bandwidth set to:', bandwidth, 'Hz');
+    return taps;
+  }
+  
+  generateLowPassFilter(lowFreq, highFreq, sampleRate, numTaps) {
+    // Bandpass filter for audio frequencies
+    const taps = new Array(numTaps).fill(0);
+    const center = Math.floor(numTaps / 2);
+    const nyquist = sampleRate / 2;
+    
+    const normalizedLow = lowFreq / nyquist;
+    const normalizedHigh = highFreq / nyquist;
+    
+    for (let i = 0; i < numTaps; i++) {
+      const n = i - center;
+      if (n === 0) {
+        taps[i] = normalizedHigh - normalizedLow;
+      } else {
+        taps[i] = (Math.sin(Math.PI * normalizedHigh * n) - 
+                   Math.sin(Math.PI * normalizedLow * n)) / (Math.PI * n);
+      }
+      
+      // Apply Hamming window
+      const window = 0.54 - 0.46 * Math.cos(2 * Math.PI * i / (numTaps - 1));
+      taps[i] *= window;
     }
+    
+    return taps;
+  }
+  
+  setMode(mode) {
+    this.mode = mode;
+    if (this.workletNode) {
+      this.workletNode.port.postMessage({
+        type: 'setMode',
+        mode: mode
+      });
+    }
+    console.log('DSP mode set to:', mode);
+  }
+  
+  setTuning(frequency) {
+    this.tuningFreq = frequency;
+    if (this.workletNode) {
+      this.workletNode.port.postMessage({
+        type: 'setTuning',
+        frequency: frequency
+      });
+    }
+    console.log('DSP tuning set to:', frequency, 'Hz');
+  }
+  
+  setBandwidth(bandwidth) {
+    this.bandwidth = bandwidth;
+    // Regenerate audio filter with new bandwidth
+    this.audioFilterTaps = this.generateLowPassFilter(200, bandwidth, this.audioSampleRate, 16);
+    console.log('DSP bandwidth set to:', bandwidth, 'Hz');
+  }
 }

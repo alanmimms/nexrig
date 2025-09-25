@@ -5,7 +5,7 @@
 
 export class IqStreamGenerator {
   constructor() {
-    this.sampleRate = 96000; // 96 kS/s
+    this.sampleRate = 96000; // I/Q sample rate
     this.phase = 0;
     this.time = 0;
     
@@ -13,7 +13,7 @@ export class IqStreamGenerator {
     this.signals = [
       {
         frequency: 0,     // 0 Hz - USB signal at baseband center
-        amplitude: 0.02,  // Much weaker to prevent splatter
+        amplitude: 0.015,  // Reduced to avoid IMD
         phase: 0,
         type: 'usb_two_tone',
         tone1: 700,    // 700 Hz audio tone
@@ -21,21 +21,23 @@ export class IqStreamGenerator {
       },
       {
         frequency: 25000, // +25 kHz - CW beacon in baseband
-        amplitude: 0.05,  // Clean CW carrier level
+        amplitude: 0.05,
         phase: 0,
         type: 'cw_beacon',
         message: 'TEST TEST DE WB7NAB WB7NAB K',
         wpm: 25,
         pauseTime: 2.0,
+        envelope: 0      // Current envelope value for this signal
       },
       {
         frequency: 10000, // Test tone at +10 kHz
-        amplitude: 0.03,  // Clean CW carrier level
+        amplitude: 0.03,
         phase: 0,
         type: 'cw_beacon',
-	message: 'CQ CQ DE TEST',
-	wpm: 20,
-	pauseTime: 2.0,
+        message: 'CQ CQ DE TEST',
+        wpm: 30,
+        pauseTime: 3.0,
+        envelope: 0      // Current envelope value for this signal
       }
     ];
     
@@ -53,6 +55,9 @@ export class IqStreamGenerator {
       lastTime: 0
     };
     
+    // CW envelope shaping parameters
+    this.cwRiseTime = 0.005; // 5ms rise/fall time (standard for clean CW)
+    
     // Morse code table
     this.morseCode = {
       'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
@@ -63,9 +68,6 @@ export class IqStreamGenerator {
       '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...',
       '8': '---..', '9': '----.', ' ': ' ', '/': '-..-.'
     };
-    
-    // FFT debugging state
-    this.lastFftTime = -1;
   }
   
   generateIqSamples(numSamples) {
@@ -83,62 +85,76 @@ export class IqStreamGenerator {
     for (let n = 0; n < numSamples; n++) {
       let iSample = 0;
       let qSample = 0;
-
+      
+      // Add noise floor for realism (very low level)
+      const noiseLevel = 0.001;
+      iSample += (Math.random() - 0.5) * noiseLevel;
+      qSample += (Math.random() - 0.5) * noiseLevel;
+      
       // Add each signal
       for (const signal of this.signals) {
         const t = this.time + n * dt;
         const omega = 2 * Math.PI * signal.frequency;
-
+        
         switch (signal.type) {
-        case 'cw':
-          // Pure carrier (CW signal)
-          iSample += signal.amplitude * Math.cos(omega * t + signal.phase);
-          qSample += signal.amplitude * Math.sin(omega * t + signal.phase);
-          break;
-
-        case 'cw_beacon':
-          // CW beacon with Morse code
-          const keyDown = this.updateCwBeacon(t, signal);
-          if (keyDown) {
-            const cwI = signal.amplitude * Math.cos(omega * t + signal.phase);
-            const cwQ = signal.amplitude * Math.sin(omega * t + signal.phase);
-            iSample += cwI;
-            qSample += cwQ;
-          }
-          break;
-
-        case 'usb_two_tone':
-          // USB two-tone signal at baseband (direct conversion receiver tuned to carrier)
-          // For USB at baseband: generate analytic signal
-          // I = cos(audio_freq*t), Q = sin(audio_freq*t)
-          const audio1_i = Math.cos(2 * Math.PI * signal.tone1 * t);
-          const audio1_q = Math.sin(2 * Math.PI * signal.tone1 * t);
-          const audio2_i = Math.cos(2 * Math.PI * signal.tone2 * t);
-          const audio2_q = Math.sin(2 * Math.PI * signal.tone2 * t);
-
-          // Sum the two tones to create two-tone test signal
-          iSample += signal.amplitude * 0.5 * (audio1_i + audio2_i);
-          qSample += signal.amplitude * 0.5 * (audio1_q + audio2_q);
-          break;
-
-        case 'lsb':
-          // LSB signal with single tone
-          const lsbAudio = Math.cos(2 * Math.PI * signal.modulation * t);
-          // For LSB: I = cos(wc*t) * cos(wa*t), Q = -sin(wc*t) * cos(wa*t)
-          iSample += signal.amplitude * lsbAudio * Math.cos(omega * t + signal.phase);
-          qSample += signal.amplitude * lsbAudio * (-Math.sin(omega * t + signal.phase));
-          break;
-
-        case 'noise':
-          // Band-limited noise
-          const noise = (Math.random() - 0.5) * signal.amplitude;
-          iSample += noise * Math.cos(omega * t);
-          qSample += noise * Math.sin(omega * t);
-          break;
+          case 'cw':
+            // Pure carrier (CW signal without keying)
+            iSample += signal.amplitude * Math.cos(omega * t + signal.phase);
+            qSample += signal.amplitude * Math.sin(omega * t + signal.phase);
+            break;
+            
+          case 'cw_beacon':
+            // CW beacon with Morse code and envelope shaping
+            const keyDown = this.updateCwBeacon(t, signal);
+            
+            // Update envelope with soft rise/fall for this specific signal
+            const targetEnvelope = keyDown ? 1.0 : 0.0;
+            const envelopeRate = dt / this.cwRiseTime;
+            
+            if (signal.envelope < targetEnvelope) {
+              signal.envelope = Math.min(signal.envelope + envelopeRate, 1.0);
+            } else if (signal.envelope > targetEnvelope) {
+              signal.envelope = Math.max(signal.envelope - envelopeRate, 0.0);
+            }
+            
+            // Apply shaped envelope if above threshold
+            if (signal.envelope > 0.001) {
+              // Use raised cosine shaping for smoother edges
+              const shapedEnvelope = (1 - Math.cos(Math.PI * signal.envelope)) / 2;
+              const cwI = signal.amplitude * shapedEnvelope * Math.cos(omega * t + signal.phase);
+              const cwQ = signal.amplitude * shapedEnvelope * Math.sin(omega * t + signal.phase);
+              iSample += cwI;
+              qSample += cwQ;
+            }
+            break;
+            
+          case 'usb_two_tone':
+            // USB two-tone signal at baseband (direct conversion receiver tuned to carrier)
+            const audio1_i = Math.cos(2 * Math.PI * signal.tone1 * t);
+            const audio1_q = Math.sin(2 * Math.PI * signal.tone1 * t);
+            const audio2_i = Math.cos(2 * Math.PI * signal.tone2 * t);
+            const audio2_q = Math.sin(2 * Math.PI * signal.tone2 * t);
+            
+            // Sum the two tones to create two-tone test signal
+            iSample += signal.amplitude * 0.5 * (audio1_i + audio2_i);
+            qSample += signal.amplitude * 0.5 * (audio1_q + audio2_q);
+            break;
+            
+          case 'lsb':
+            // LSB signal with single tone
+            const lsbAudio = Math.cos(2 * Math.PI * signal.modulation * t);
+            // For LSB: I = cos(wc*t) * cos(wa*t), Q = -sin(wc*t) * cos(wa*t)
+            iSample += signal.amplitude * lsbAudio * Math.cos(omega * t + signal.phase);
+            qSample += signal.amplitude * lsbAudio * (-Math.sin(omega * t + signal.phase));
+            break;
+            
+          case 'noise':
+            // Band-limited noise
+            const noise = (Math.random() - 0.5) * signal.amplitude;
+            iSample += noise * Math.cos(omega * t);
+            qSample += noise * Math.sin(omega * t);
+            break;
         }
-
-        // Removed phase drift - was causing issues
-        // signal.phase += 0.00001;
       }
       
       // Apply AGC-like scaling and convert to 24-bit range
@@ -156,7 +172,6 @@ export class IqStreamGenerator {
     return samples;
   }
   
-
   updateCwBeacon(t, signal) {
     // Convert WPM to dit duration (PARIS = 50 dits at given WPM)
     const ditDuration = 1.2 / signal.wpm;
@@ -178,9 +193,9 @@ export class IqStreamGenerator {
       const char = signal.message[charIndex].toUpperCase();
       
       if (char === ' ') {
-	elementTime += 9 * ditDuration; // Word space (was 7, now 9 for clearer word breaks)
-	if (cyclePosition < elementTime) return false;
-	continue;
+        elementTime += 9 * ditDuration; // Word space (was 7, now 9 for clearer word breaks)
+        if (cyclePosition < elementTime) return false;
+        continue;
       }
       
       const morse = this.morseCode[char];
@@ -188,20 +203,20 @@ export class IqStreamGenerator {
       
       // Process each dit/dah in the character
       for (let i = 0; i < morse.length; i++) {
-	const elementDuration = morse[i] === '.' ? ditDuration : 3 * ditDuration;
-	
-	// Check if we're in this element
-	if (cyclePosition >= elementTime && cyclePosition < elementTime + elementDuration) {
+        const elementDuration = morse[i] === '.' ? ditDuration : 3 * ditDuration;
+        
+        // Check if we're in this element
+        if (cyclePosition >= elementTime && cyclePosition < elementTime + elementDuration) {
           return true; // Key down
-	}
-	
-	elementTime += elementDuration;
-	
-	// Inter-element space (1 dit)
-	if (i < morse.length - 1) {
+        }
+        
+        elementTime += elementDuration;
+        
+        // Inter-element space (1 dit)
+        if (i < morse.length - 1) {
           elementTime += ditDuration;
           if (cyclePosition < elementTime) return false;
-	}
+        }
       }
       
       // Inter-character space (4 dits for more natural spacing, was 3)
@@ -211,8 +226,7 @@ export class IqStreamGenerator {
     
     return false;
   }
-
-
+  
   // Helper method to calculate total message duration
   calculateMessageDuration(message, ditDuration) {
     let duration = 0;
@@ -221,25 +235,25 @@ export class IqStreamGenerator {
       const char = message[i].toUpperCase();
       
       if (char === ' ') {
-	duration += 9 * ditDuration;  // Word space (was 7, now 9 to match updateCwBeacon)
-	continue;
+        duration += 9 * ditDuration;  // Word space (was 7, now 9 to match updateCwBeacon)
+        continue;
       }
       
       const morse = this.morseCode[char];
       if (!morse) continue;
       
       for (let j = 0; j < morse.length; j++) {
-	// Element duration
-	duration += morse[j] === '.' ? ditDuration : 3 * ditDuration;
-	// Inter-element space
-	if (j < morse.length - 1) {
+        // Element duration
+        duration += morse[j] === '.' ? ditDuration : 3 * ditDuration;
+        // Inter-element space
+        if (j < morse.length - 1) {
           duration += ditDuration;
-	}
+        }
       }
       
       // Inter-character space (except after last character)
       if (i < message.length - 1) {
-	duration += 4 * ditDuration;  // Was 3, now 4 to match updateCwBeacon
+        duration += 4 * ditDuration;  // Was 3, now 4 to match updateCwBeacon
       }
     }
     

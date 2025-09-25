@@ -41,49 +41,77 @@ class SdrProcessor extends AudioWorkletProcessor {
 
   handleMessage(data) {
     switch (data.type) {
-      case 'test':
-        this.port.postMessage({
-          type: 'testResponse',
-          message: 'AudioWorklet received test message: ' + data.message
-        });
-        break;
+    case 'initWasm':
+      this.initializeWasm(data.wasmBytes);
+      break;
+    case 'test':
+      this.port.postMessage({
+        type: 'testResponse',
+        message: 'AudioWorklet received test message: ' + data.message
+      });
+      break;
 
-      case 'iqData':
-        // Add I/Q samples to buffer
-        const samples = data.samples;
-        if (samples && samples.i && samples.q) {
-          for (let i = 0; i < samples.i.length; i++) {
-            this.iqBuffer.push({
-              i: samples.i[i] / 8388607.0, // 24-bit to float
-              q: samples.q[i] / 8388607.0
-            });
-          }
-          this.iqDataCount++;
-
-          // Debug: Log when we receive I/Q data
-          if (this.iqDataCount <= 5 || this.iqDataCount % 100 === 0) {
-            this.port.postMessage({
-              type: 'debug',
-              message: `Received I/Q data #${this.iqDataCount}: ${samples.i.length} samples, buffer now has ${this.iqBuffer.length}`
-            });
-          }
+    case 'iqData':
+      // Add I/Q samples to buffer
+      const samples = data.samples;
+      if (samples && samples.i && samples.q) {
+        for (let i = 0; i < samples.i.length; i++) {
+          this.iqBuffer.push({
+            i: samples.i[i] / 8388607.0, // 24-bit to float
+            q: samples.q[i] / 8388607.0
+          });
         }
-        break;
+        this.iqDataCount++;
 
-      case 'setTuning':
-        this.tuningFreq = data.frequency;
-        this.port.postMessage({
-          type: 'debug',
-          message: `Tuning changed to: ${this.tuningFreq}Hz`
-        });
-        break;
+        // Debug: Log when we receive I/Q data
+        if (this.iqDataCount <= 5 || this.iqDataCount % 100 === 0) {
+          this.port.postMessage({
+            type: 'debug',
+            message: `Received I/Q data #${this.iqDataCount}: ${samples.i.length} samples, buffer now has ${this.iqBuffer.length}`
+          });
+        }
+      }
+      break;
 
-      case 'setMode':
-        this.mode = data.mode;
-        break;
+    case 'setTuning':
+      this.tuningFreq = data.frequency;
+      this.port.postMessage({
+        type: 'debug',
+        message: `Tuning changed to: ${this.tuningFreq}Hz`
+      });
+      break;
+
+    case 'setMode':
+      this.mode = data.mode;
+      break;
     }
   }
 
+  async initializeWasm(wasmBytes) {
+    try {
+      // Compile and instantiate WASM
+      const wasmModule = await WebAssembly.instantiate(wasmBytes);
+      this.wasm = wasmModule.instance.exports;
+      
+      // Initialize WASM memory views
+      this.wasmMemory = this.wasm.memory;
+      this.HEAPF32 = new Float32Array(this.wasmMemory.buffer);
+      
+      // Initialize Hilbert filter in WASM
+      this.wasm.init_hilbert_filter();
+      
+      this.useWasm = true;
+      this.port.postMessage({
+	type: 'debug',
+	message: 'WASM DSP initialized successfully'
+      });
+    } catch (error) {
+      this.port.postMessage({
+	type: 'debug', 
+	message: `WASM init failed: ${error.message}`
+      });
+    }
+  }
   process(inputs, outputs, parameters) {
     const output = outputs[0];
     const outputChannel = output[0];
@@ -97,7 +125,7 @@ class SdrProcessor extends AudioWorkletProcessor {
         type: 'debug',
         processCount: this.processCallCount,
         bufferSize: this.iqBuffer.length,
-        message: 'AudioWorklet process() is running!'
+	message: `Buffer: ${this.iqBuffer.length} samples, underruns: ${this.underrunCount}, AGC: ${this.agcGain.toFixed(2)}, DSP: ${this.useWasm ? 'WASM' : 'JavaScript'}`
       });
     }
 
@@ -179,8 +207,42 @@ class SdrProcessor extends AudioWorkletProcessor {
           qShifted = iSample * sinPhase + qSample * cosPhase;
         }
 
-        // Demodulation based on mode
-        switch (this.mode) {
+
+	if (this.useWasm && this.wasm) {
+	  // Allocate WASM memory for I/Q data
+	  const ptr_i = this.wasm.allocate_memory(4);  // 1 float
+	  const ptr_q = this.wasm.allocate_memory(4);  // 1 float
+	  const ptr_out = this.wasm.allocate_memory(4); // 1 float
+	  
+	  // Write samples to WASM memory
+	  this.HEAPF32[ptr_i >> 2] = iShifted;
+	  this.HEAPF32[ptr_q >> 2] = qShifted;
+	  
+	  // Call WASM demodulation
+	  switch (this.mode) {
+	  case 'usb':
+	    this.wasm.usb_demodulate_block(ptr_i, ptr_q, ptr_out, 1);
+	    break;
+	  case 'lsb':
+	    this.wasm.lsb_demodulate_block(ptr_i, ptr_q, ptr_out, 1);
+	    break;
+	  case 'am':
+	  case 'cw':
+	    this.wasm.am_demodulate_block(ptr_i, ptr_q, ptr_out, 1);
+	    break;
+	  }
+	  
+	  // Read result
+	  audioSample = this.HEAPF32[ptr_out >> 2];
+	  
+	  // Free WASM memory
+	  this.wasm.free_memory(ptr_i);
+	  this.wasm.free_memory(ptr_q);
+	  this.wasm.free_memory(ptr_out);
+	} else {
+
+          // Demodulation based on mode
+          switch (this.mode) {
           case 'usb':
             // USB: I + Hilbert(Q)
             const qHilbert = this.hilbertTransform(qShifted);
@@ -207,7 +269,9 @@ class SdrProcessor extends AudioWorkletProcessor {
 
           default:
             audioSample = iShifted;
-        }
+          }
+	}
+
 
         // Apply gentle AGC
         audioSample = this.applyAgc(audioSample);
