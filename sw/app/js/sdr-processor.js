@@ -24,9 +24,9 @@ class SdrProcessor extends AudioWorkletProcessor {
         this.hilbertDelay = new Float32Array(16);
         this.hilbertIndex = 0;
 
-        // AGC
-        this.agcGain = 1.0;
-        this.agcTarget = 0.1;
+        // AGC - much less aggressive
+        this.agcGain = 5.0;  // Start with higher gain
+        this.agcTarget = 0.3; // Higher target level
 
         // Fractional resampler state for stable decimation
         this.resamplerPhase = 0.0;
@@ -40,6 +40,14 @@ class SdrProcessor extends AudioWorkletProcessor {
         // Debug counters
         this.processCallCount = 0;
         this.iqDataCount = 0;
+
+        // WASM DSP support
+        this.wasmDsp = null;
+        this.useWasm = false;
+
+        // Test tone for debugging
+        this.testTonePhase = 0;
+        this.audioTestMode = false;
     }
 
     
@@ -92,6 +100,41 @@ class SdrProcessor extends AudioWorkletProcessor {
             case 'setMode':
                 this.mode = data.mode;
                 break;
+
+            case 'initWasm':
+                // Initialize WASM DSP wrapper with pre-loaded module
+                try {
+                    // Import the WASM DSP wrapper class into AudioWorklet context
+                    importScripts('./js/wasmDspWrapper.js');
+
+                    this.wasmDsp = new WasmDspWrapper();
+                    // Initialize with the pre-loaded WASM module
+                    this.wasmDsp.initialize(data.wasmModule).then((success) => {
+                        if (success) {
+                            this.useWasm = true;
+                            this.port.postMessage({
+                                type: 'debug',
+                                message: 'WASM DSP initialized successfully in AudioWorklet'
+                            });
+                        } else {
+                            this.port.postMessage({
+                                type: 'debug',
+                                message: 'WASM DSP initialization failed, using JavaScript fallback'
+                            });
+                        }
+                    }).catch((error) => {
+                        this.port.postMessage({
+                            type: 'debug',
+                            message: `WASM DSP initialization error: ${error.message}`
+                        });
+                    });
+                } catch (error) {
+                    this.port.postMessage({
+                        type: 'debug',
+                        message: `WASM DSP import error: ${error.message}, using JavaScript fallback`
+                    });
+                }
+                break;
         }
     }
     
@@ -122,30 +165,186 @@ class SdrProcessor extends AudioWorkletProcessor {
             });
         }
 
-        // AUDIO RE-ENABLED - Testing for horizontal bars with original signal processing
-        // Fractional resampler for stable decimation
+        // TEMPORARY: Test tone for 3 seconds to verify audio path
+        if (this.processCallCount < 48000 / 128 * 3) { // 3 seconds
+            for (let i = 0; i < blockSize; i++) {
+                // Generate loud 1kHz test tone
+                const testSample = 0.3 * Math.sin(2 * Math.PI * 1000 * this.testTonePhase / this.sampleRate);
+                outputChannel[i] = testSample;
+                this.testTonePhase++;
+            }
+            // Debug more samples
+            if (this.processCallCount < 10) {
+                this.port.postMessage({
+                    type: 'debug',
+                    message: `TEST TONE: 1kHz @ ${outputChannel[0].toFixed(4)}, processCount: ${this.processCallCount}, blockSize: ${blockSize}`
+                });
+            }
+        } else {
+            // WASM or JavaScript DSP processing
+            if (this.useWasm && this.wasmDsp) {
+                // High-performance WASM block processing
+                this.processWithWasm(outputChannel, blockSize);
+            } else {
+                // JavaScript fallback processing
+                this.processWithJavaScript(outputChannel, blockSize);
+            }
+        }
+
+        // Remove consumed I/Q samples from buffer - different logic for WASM vs JavaScript
+        if (this.useWasm && this.wasmDsp) {
+            // WASM block processing consumes samples differently
+            const samplesConsumed = blockSize * 2; // 2:1 decimation
+            if (this.iqBuffer.length >= samplesConsumed) {
+                this.iqBuffer.splice(0, samplesConsumed);
+            }
+        } else {
+            // JavaScript processing already handled buffer consumption in processWithJavaScript
+            // Debug buffer state after processing
+            if (this.processCallCount > 1125 && this.processCallCount < 1135) {
+                this.port.postMessage({
+                    type: 'debug',
+                    message: `Buffer after JS processing: ${this.iqBuffer.length} samples remaining`
+                });
+            }
+        }
+
+        // Report buffer status for debugging
+        if (this.processCallCount % 50 === 0) {
+            const dspMode = this.useWasm ? 'WASM' : 'JavaScript';
+            this.port.postMessage({
+                type: 'debug',
+                message: `Audio processing active (${dspMode}): ${this.iqBuffer.length} I/Q samples in buffer`
+            });
+        }
+        
+        // Keep buffer size reasonable but don't throw away too much data
+        // Only trim if we have way too much buffered (more than 1 second at 96kHz)
+        while (this.iqBuffer.length > 96000) {
+            this.iqBuffer.shift();
+        }
+        
+        return true; // Keep processor alive
+    }
+
+    processWithWasm(outputChannel, blockSize) {
+        // High-performance WASM block processing
+        if (this.iqBuffer.length < blockSize * 2) {
+            // Not enough I/Q data for block processing
+            outputChannel.fill(0);
+            return;
+        }
+
+        try {
+            // Extract I/Q samples for block processing
+            const iSamples = new Float32Array(blockSize * 2);
+            const qSamples = new Float32Array(blockSize * 2);
+
+            for (let i = 0; i < blockSize * 2; i++) {
+                if (i < this.iqBuffer.length) {
+                    iSamples[i] = this.iqBuffer[i].i;
+                    qSamples[i] = this.iqBuffer[i].q;
+                }
+            }
+
+            // Process entire block with WASM
+            const audioSamples = this.wasmDsp.processIqBlock(iSamples, qSamples, this.mode);
+
+            // Copy results to output with AGC and clipping
+            for (let i = 0; i < blockSize; i++) {
+                if (i < audioSamples.length) {
+                    const sample = this.automaticGainControl(audioSamples[i]);
+                    outputChannel[i] = Math.max(-1, Math.min(1, sample));
+                } else {
+                    outputChannel[i] = 0;
+                }
+            }
+
+            // Update resampler phase for buffer management
+            this.resamplerPhase += blockSize * this.resamplerRate;
+
+        } catch (error) {
+            // WASM processing failed, fall back to JavaScript
+            this.port.postMessage({
+                type: 'debug',
+                message: `WASM processing error: ${error.message}, falling back to JavaScript`
+            });
+            this.useWasm = false;
+            this.processWithJavaScript(outputChannel, blockSize);
+        }
+    }
+
+    processWithJavaScript(outputChannel, blockSize) {
+        // Audio-rate-driven processing: Always produce exactly blockSize samples
+        // This is the master clock - I/Q buffer should accommodate our needs
+
+        // Require minimum buffer to prevent starvation cycles
+        const minBufferSize = 1024; // ~10ms worth of I/Q data at 96kHz
+        if (this.iqBuffer.length < minBufferSize) {
+            // Not enough buffer - output silence and wait for more data
+            outputChannel.fill(0);
+            if (this.processCallCount % 50 === 0 || this.processCallCount < 20) {
+                this.port.postMessage({
+                    type: 'debug',
+                    message: `BUFFER STARVATION: need ${minBufferSize}+ samples, have ${this.iqBuffer.length}, outputting silence`
+                });
+            }
+            return;
+        }
+
         for (let i = 0; i < blockSize; i++) {
             let audioSample = 0;
 
-            // Calculate required I/Q sample index for this audio sample
-            const requiredIqIndex = Math.floor(this.resamplerPhase);
+            // Simple 2:1 decimation - need 2 I/Q samples per audio sample
+            const iqIndex = i * 2;
 
-            // Check if we have enough I/Q samples
-            if (this.iqBuffer.length > requiredIqIndex + 1) {
-                // Linear interpolation between two I/Q samples
-                const iq1 = this.iqBuffer[requiredIqIndex];
-                const iq2 = this.iqBuffer[requiredIqIndex + 1];
-                const frac = this.resamplerPhase - requiredIqIndex;
+            // Check if we have enough I/Q samples for this audio sample
+            if (this.iqBuffer.length > iqIndex + 1) {
+                const iq = this.iqBuffer[iqIndex];
+                const iSample = iq.i;
+                const qSample = iq.q;
 
-                const iSample = iq1.i + frac * (iq2.i - iq1.i);
-                const qSample = iq1.q + frac * (iq2.q - iq1.q);
+                // Apply frequency shift if tuning offset is set
+                let iShifted = iSample;
+                let qShifted = qSample;
+
+                if (this.tuningFreq !== 0) {
+                    // Calculate the phase for this sample
+                    const sampleTime = (this.sampleCounter + iqIndex) / this.iqSampleRate;
+                    const phase = 2 * Math.PI * this.tuningFreq * sampleTime;
+                    const cosPhase = Math.cos(-phase); // Negative to shift down
+                    const sinPhase = Math.sin(-phase);
+
+                    // Complex multiplication for frequency shift
+                    iShifted = iSample * cosPhase - qSample * sinPhase;
+                    qShifted = iSample * sinPhase + qSample * cosPhase;
+                }
+
+                // Debug first few samples to check I/Q levels
+                if (i === 0 && this.processCallCount > 1125 && this.processCallCount < 1135) {
+                    this.port.postMessage({
+                        type: 'debug',
+                        message: `I/Q Debug: I=${iShifted.toFixed(6)}, Q=${qShifted.toFixed(6)}, tuning=${this.tuningFreq}Hz, count=${this.processCallCount}`
+                    });
+                }
 
                 // Demodulation
                 switch (this.mode) {
                     case 'usb':
-                        // USB: I + Hilbert(Q)
-                        const qHilbert = this.hilbertTransform(qSample);
-                        audioSample = iSample + qHilbert;
+                        // TEMPORARY: Just use I channel directly to test
+                        audioSample = iShifted * 2.0; // Use frequency-shifted sample
+
+                        // Original USB: I + Hilbert(Q)
+                        // const qHilbert = this.hilbertTransform(qSample);
+                        // audioSample = iSample + qHilbert;
+
+                        // Debug demodulated audio - ALWAYS log to see if it's zero
+                        if (i === 0 && this.processCallCount > 1125 && this.processCallCount < 1135) {
+                            this.port.postMessage({
+                                type: 'debug',
+                                message: `USB Direct I: I=${iSample.toFixed(6)}, Q=${qSample.toFixed(6)}, Audio=${audioSample.toFixed(6)}`
+                            });
+                        }
                         break;
                     case 'lsb':
                         // LSB: I - Hilbert(Q)
@@ -164,39 +363,48 @@ class SdrProcessor extends AudioWorkletProcessor {
                 // AGC
                 audioSample = this.automaticGainControl(audioSample);
             } else {
-                // No I/Q data - track underrun
+                // Not enough I/Q samples - output silence
                 audioSample = 0;
+                // Debug: Log buffer underrun occasionally
+                if (i === 0 && this.processCallCount % 20 === 0) {
+                    this.port.postMessage({
+                        type: 'debug',
+                        message: `Buffer underrun: need I/Q sample at ${iqIndex}, but only have ${this.iqBuffer.length} samples`
+                    });
+                }
             }
-
-            // Advance resampler phase
-            this.resamplerPhase += this.resamplerRate;
 
             // Output to audio with clipping
             outputChannel[i] = Math.max(-1, Math.min(1, audioSample));
+
+            // Debug: Log audio samples after test tone ends
+            if (i === 0 && this.processCallCount > 1125 && this.processCallCount < 1145) {
+                this.port.postMessage({
+                    type: 'debug',
+                    message: `Audio output: raw=${audioSample.toFixed(6)}, clipped=${outputChannel[i].toFixed(6)}, AGC=${this.agcGain.toFixed(3)}`
+                });
+            }
         }
 
-        // Remove consumed I/Q samples from buffer
-        const samplesConsumed = Math.floor(this.resamplerPhase);
-        if (samplesConsumed > 0 && this.iqBuffer.length >= samplesConsumed) {
+        // Remove processed I/Q samples from buffer (each audio sample uses 2 I/Q samples)
+        const samplesConsumed = blockSize * 2;
+        if (this.iqBuffer.length >= samplesConsumed) {
             this.iqBuffer.splice(0, samplesConsumed);
-            this.resamplerPhase -= samplesConsumed;
+        } else {
+            // Clear whatever we have if we don't have enough
+            this.iqBuffer.length = 0;
         }
 
-        // Report buffer status for waterfall debugging
-        if (this.processCallCount % 50 === 0) {
+        // Update sample counter for frequency shift timing
+        this.sampleCounter += samplesConsumed;
+
+        // Debug: Log buffer state occasionally
+        if (this.processCallCount % 50 === 0 || this.processCallCount < 20) {
             this.port.postMessage({
                 type: 'debug',
-                message: `AUDIO DISABLED - Waterfall Debug Mode: ${this.iqBuffer.length} I/Q samples in buffer`
+                message: `Audio block complete: consumed ${samplesConsumed} I/Q samples, ${this.iqBuffer.length} remain, call ${this.processCallCount}`
             });
         }
-        
-        // Keep buffer size reasonable but don't throw away too much data
-        // Only trim if we have way too much buffered (more than 1 second at 96kHz)
-        while (this.iqBuffer.length > 96000) {
-            this.iqBuffer.shift();
-        }
-        
-        return true; // Keep processor alive
     }
 
     
@@ -230,14 +438,17 @@ class SdrProcessor extends AudioWorkletProcessor {
     
     automaticGainControl(sample) {
         const amplitude = Math.abs(sample);
-        
+
         if (amplitude > this.agcTarget) {
-            this.agcGain -= 0.001 * (amplitude - this.agcTarget);
+            // Much slower attack
+            this.agcGain -= 0.00001 * (amplitude - this.agcTarget);
         } else {
-            this.agcGain += 0.0001 * (this.agcTarget - amplitude);
+            // Much slower decay
+            this.agcGain += 0.000001 * (this.agcTarget - amplitude);
         }
-        
-        this.agcGain = Math.max(0.1, Math.min(10.0, this.agcGain));
+
+        // Allow more gain range
+        this.agcGain = Math.max(1.0, Math.min(20.0, this.agcGain));
         return sample * this.agcGain;
     }
     

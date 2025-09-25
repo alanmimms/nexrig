@@ -55,11 +55,22 @@ class AdvancedDsp {
                     sampleRate: this.audioSampleRate
                 });
                 
+                // Pre-load WASM module for AudioWorklet
+                let wasmModule = null;
+                try {
+                    console.log('Pre-loading WASM DSP module...');
+                    const SdrDspModule = await import('../wasm/sdr_dsp.js');
+                    wasmModule = await SdrDspModule.default();
+                    console.log('WASM DSP module pre-loaded successfully');
+                } catch (error) {
+                    console.warn('Failed to pre-load WASM DSP module, falling back to JavaScript:', error);
+                }
+
                 // Load and initialize AudioWorklet processor
                 try {
                     await this.audioContext.audioWorklet.addModule('./js/sdr-processor.js?v=' + Date.now());
                     console.log('AudioWorklet module loaded successfully');
-                    
+
                     this.workletNode = new AudioWorkletNode(this.audioContext, 'sdr-processor', {
                         numberOfInputs: 0,
                         numberOfOutputs: 1,
@@ -67,6 +78,15 @@ class AdvancedDsp {
                     });
                     this.workletNode.connect(this.audioContext.destination);
                     console.log('AudioWorkletNode created and connected');
+
+                    // Send pre-loaded WASM module to AudioWorklet if available
+                    if (wasmModule) {
+                        console.log('Sending WASM module to AudioWorklet...');
+                        this.workletNode.port.postMessage({
+                            type: 'initWasm',
+                            wasmModule: wasmModule
+                        });
+                    }
                     
                     // Listen for messages from AudioWorklet
                     this.workletNode.port.onmessage = (event) => {
@@ -91,8 +111,14 @@ class AdvancedDsp {
                     console.error('Failed to load AudioWorklet:', error);
                     throw error;
                 }
-                
-                console.log('AudioContext and SDR Worklet created, state:', this.audioContext.state);
+
+                // Ensure AudioContext is running
+                if (this.audioContext.state === 'suspended') {
+                    console.log('AudioContext suspended, resuming...');
+                    await this.audioContext.resume();
+                }
+
+                console.log('AudioContext and SDR Worklet created, final state:', this.audioContext.state);
                 return true;
             } catch (error) {
                 console.error('Failed to create AudioContext or Worklet:', error);
@@ -104,7 +130,14 @@ class AdvancedDsp {
     
     processIqData(iqData) {
         if (!this.audioContext || this.audioContext.state !== 'running' || !this.workletNode) {
-            // Silently return if AudioContext not ready
+            // Log why we're not processing
+            if (!this.audioContext) {
+                console.warn('DSP: No AudioContext - audio not initialized');
+            } else if (this.audioContext.state !== 'running') {
+                console.warn(`DSP: AudioContext not running, state: ${this.audioContext.state}`);
+            } else if (!this.workletNode) {
+                console.warn('DSP: No workletNode - AudioWorklet not loaded');
+            }
             return;
         }
 

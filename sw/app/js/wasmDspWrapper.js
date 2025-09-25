@@ -19,16 +19,13 @@ class WasmDspWrapper {
         };
     }
 
-    async initialize() {
+    async initialize(preloadedModule = null) {
         try {
-            // Import the WASM module
-            // Note: In AudioWorklet, we need to use importScripts with full path
-            if (typeof importScripts !== 'undefined') {
-                // AudioWorklet environment - use absolute path
-                importScripts('/app/wasm/sdr_dsp.js');
-                this.wasmModule = await SdrDspModule();
+            if (preloadedModule) {
+                // Use pre-loaded WASM module passed from main thread
+                this.wasmModule = preloadedModule;
             } else {
-                // Main thread environment
+                // Main thread environment - load WASM module
                 const SdrDspModule = await import('/app/wasm/sdr_dsp.js');
                 this.wasmModule = await SdrDspModule.default();
             }
