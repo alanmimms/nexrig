@@ -2,8 +2,35 @@
 # Requires Emscripten SDK (emcc)
 
 CC = emcc
-CFLAGS = -O3 -ffast-math -DNDEBUG
-WASM_FLAGS = -s WASM=1 -s EXPORTED_RUNTIME_METHODS='["cwrap"]' -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1 -s EXPORT_NAME="SdrDspModule"
+CFLAGS = -O3 -msimd128 -ffast-math -DNDEBUG
+
+EXPORTED_FUNCTIONS = \
+	_malloc \
+	_free \
+	_init_hilbert_filter \
+	_hilbert_transform_sample \
+	_hilbert_transform_block \
+	_usb_demodulate_block \
+	_lsb_demodulate_block \
+	_am_demodulate_block \
+	_decimate_by_2 \
+	_process_baseband_iq_block \
+	_allocate_memory \
+	_free_memory
+
+
+empty :=
+space := $(empty) $(empty)
+comma := ,
+
+WASM_FLAGS = \
+	-s WASM=1 \
+	-s ENVIRONMENT=web,worker \
+	-s EXPORTED_FUNCTIONS='["$(subst $(space),"$(comma)",$(strip $(EXPORTED_FUNCTIONS)))"]' \
+	-s EXPORTED_RUNTIME_METHODS='["cwrap"]' \
+	-s ALLOW_MEMORY_GROWTH=1 \
+	-s INITIAL_MEMORY=131072
+
 
 # Source and output files
 SRC = sdr_dsp.c
