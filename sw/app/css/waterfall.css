@@ -65,3 +65,64 @@
   font-family: monospace;
   white-space: nowrap;
 }
+
+
+.waterfall-display {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.tuning-indicator {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #ff0000;
+  pointer-events: none;
+  z-index: 12; /* Higher than filter envelope */
+}
+
+.filter-envelope {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.filter-envelope-usb {
+  border-left: 2px solid #00ff00;
+  border-right: 2px solid #00ff00;
+  background: rgba(0, 255, 0, 0.05);
+}
+
+.filter-envelope-lsb {
+  border-left: 2px solid #00ffff;
+  border-right: 2px solid #00ffff;
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.filter-envelope-cw {
+  border-left: 2px solid #ffff00;
+  border-right: 2px solid #ffff00;
+  background: rgba(255, 255, 0, 0.08);
+}
+
+.filter-envelope-am {
+  border-left: 2px solid #ff00ff;
+  border-right: 2px solid #ff00ff;
+  background: rgba(255, 0, 255, 0.05);
+}
+
+.filter-info {
+  position: absolute;
+  top: 5px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  color: #fff;
+  z-index: 11;
+  white-space: nowrap;
+}

@@ -1,6 +1,7 @@
 /**
  * NexRig Browser Application
  * Main application controller and initialization
+ * Enhanced with filter envelope visualization
  */
 
 class NexRigApplication {
@@ -15,6 +16,14 @@ class NexRigApplication {
     
     // DSP processor
     this.dsp = new AdvancedDsp();
+    
+    // Filter parameters for visualization
+    this.filterParams = {
+      usb: { low: 200, high: 3500, offset: 0 },
+      lsb: { low: -3500, high: -200, offset: 0 },
+      cw: { low: 200, high: 700, offset: 0 },  // 500Hz filter for USB-style CW
+      am: { low: -4000, high: 4000, offset: 0 }
+    };
   }
 
   async initialize() {
@@ -46,7 +55,7 @@ class NexRigApplication {
       // Initialize UI components
       this.initializeUI();
       
-      // Check for SIMD supporrt
+      // Check for SIMD support
       this.checkSIMDSupport();
 
       // Mark as connected and show app
@@ -112,16 +121,12 @@ class NexRigApplication {
       break;
       
     case 'iqData':
-      // Removed excessive debug logging for performance
-      
       // Always update waterfall display
       this.updateWaterfall(data.data);
       
       // Only process through DSP if AudioContext is ready
       if (this.dsp.audioContext && this.dsp.audioContext.state === 'running') {
         this.dsp.processIqData(data.data);
-      } else {
-        // Silently discard I/Q data until DSP is ready
       }
       break;
       
@@ -134,7 +139,6 @@ class NexRigApplication {
     }
   }
   
-  // Enhanced updateWaterfall method for nexrigApp.js
   updateWaterfall(iqData) {
     const canvas = document.getElementById('waterfallCanvas');
     if (!canvas) return;
@@ -142,7 +146,7 @@ class NexRigApplication {
     // Validate I/Q data
     if (!iqData || !iqData.i || !iqData.q || iqData.i.length === 0) return;
     
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
     const width = canvas.width;
     const height = canvas.height;
     
@@ -177,7 +181,6 @@ class NexRigApplication {
     }
     
     // Compute FFT using DFT (simplified for demonstration)
-    // In production, use FFT library or Web Audio API's FFT
     for (let k = 0; k < fftSize; k++) {
       let real = 0;
       let imag = 0;
@@ -208,7 +211,7 @@ class NexRigApplication {
     let minDb = Infinity;
     let maxDb = -Infinity;
     for (let i = 0; i < fftSize; i++) {
-      if (displaySpectrum[i] > -100) { // Ignore very low values
+      if (displaySpectrum[i] > -100) {
         minDb = Math.min(minDb, displaySpectrum[i]);
         maxDb = Math.max(maxDb, displaySpectrum[i]);
       }
@@ -238,8 +241,8 @@ class NexRigApplication {
       
       // Map power to color intensity
       const intensity = Math.max(0, Math.min(255, 
-					     ((power - minDb) / (maxDb - minDb)) * 255
-					    ));
+                                             ((power - minDb) / (maxDb - minDb)) * 255
+                                            ));
       
       // Enhanced color mapping for better visibility
       let r, g, b;
@@ -287,6 +290,142 @@ class NexRigApplication {
     }
   }
   
+
+  updateFilterEnvelope() {
+    const envelope = document.getElementById('filterEnvelope');
+    const info = document.getElementById('filterInfo');
+    const description = document.getElementById('filterDescription');
+    const waterfall = document.getElementById('waterfallCanvas');
+    const tuningSlider = document.getElementById('tuningSlider');
+    
+    if (!envelope || !waterfall || !tuningSlider) return;
+    
+    const mode = this.dsp.mode || 'usb';
+    const params = this.filterParams[mode];
+    
+    // Use the DISPLAY width for positioning elements, not canvas internal width
+    const displayWidth = waterfall.offsetWidth || waterfall.width;
+    
+    // Get current tuning frequency from slider
+    const tuningFreq = parseInt(tuningSlider.value || 0);
+    
+    // Calculate pixels per Hz based on display width
+    const hzPerPixel = 96000 / displayWidth;
+    
+    // Center of display (0 Hz position)
+    const centerPixel = displayWidth / 2;
+    
+    // Where the tuning indicator should be displayed
+    const tuningPixel = centerPixel + (tuningFreq / hzPerPixel);
+    
+    // Filter edges in Hz (relative to baseband after shifting)
+    let filterLowHz, filterHighHz;
+    
+    switch (mode) {
+    case 'usb':
+      filterLowHz = params.low;   // 200 Hz
+      filterHighHz = params.high; // 3500 Hz
+      break;
+      
+    case 'lsb':
+      filterLowHz = params.low;   // -3500 Hz
+      filterHighHz = params.high; // -200 Hz
+      break;
+      
+    case 'cw':
+      filterLowHz = params.offset + params.low;   // 350 Hz
+      filterHighHz = params.offset + params.high; // 850 Hz
+      break;
+      
+    case 'am':
+      filterLowHz = params.low;   // -4000 Hz
+      filterHighHz = params.high; // +4000 Hz
+      break;
+    }
+    
+    // Convert filter edges to pixel positions relative to tuning
+    const leftPixel = tuningPixel + (filterLowHz / hzPerPixel);
+    const rightPixel = tuningPixel + (filterHighHz / hzPerPixel);
+    
+    // Ensure correct order
+    const minPixel = Math.min(leftPixel, rightPixel);
+    const maxPixel = Math.max(leftPixel, rightPixel);
+    
+    // Clamp to display bounds
+    const clampedLeft = Math.max(0, minPixel);
+    const clampedRight = Math.min(displayWidth, maxPixel);
+    const width = clampedRight - clampedLeft;
+    
+    console.log('Filter envelope update:', {
+      displayWidth: displayWidth,
+      tuningFreq: tuningFreq,
+      tuningPixel: tuningPixel.toFixed(1),
+      filterRange: `${filterLowHz} to ${filterHighHz} Hz`,
+      pixelRange: `${clampedLeft.toFixed(1)} to ${clampedRight.toFixed(1)}px`,
+      width: width.toFixed(1)
+    });
+    
+    // Update envelope position using display coordinates
+    envelope.style.left = `${clampedLeft}px`;
+    envelope.style.width = `${width}px`;
+    
+    // Update envelope class
+    envelope.className = `filter-envelope filter-envelope-${mode}`;
+    
+    // Update info text
+    const bandwidth = Math.abs(filterHighHz - filterLowHz);
+    info.textContent = `${mode.toUpperCase()}: ${Math.round(bandwidth)} Hz`;
+    
+    // Center info text on envelope
+    info.style.left = `${clampedLeft + width/2}px`;
+    info.style.transform = 'translateX(-50%)';
+    
+    // Update description
+    if (description) {
+      switch (mode) {
+      case 'usb':
+        description.textContent = `Upper Sideband: ${params.low}-${params.high} Hz above carrier`;
+        break;
+      case 'lsb':
+        description.textContent = `Lower Sideband: ${Math.abs(params.high)}-${Math.abs(params.low)} Hz below carrier`;
+        break;
+      case 'cw':
+        description.textContent = `CW: ${bandwidth} Hz @ ${params.offset} Hz tone`;
+        break;
+      case 'am':
+        description.textContent = `AM: ±${Math.abs(params.high)} Hz`;
+        break;
+      }
+    }
+  }
+
+  updateTuningIndicator(frequency) {
+    const indicator = document.getElementById('tuningIndicator');
+    const waterfall = document.getElementById('waterfallCanvas');
+    
+    if (indicator && waterfall) {
+      // Use display width, not canvas internal width
+      const displayWidth = waterfall.offsetWidth || waterfall.width;
+      const hzPerPixel = 96000 / displayWidth;
+      const centerPixel = displayWidth / 2;
+      
+      // Calculate pixel position for the tuning frequency
+      const tuningPixel = centerPixel + (frequency / hzPerPixel);
+      
+      // Set position in pixels
+      indicator.style.left = `${tuningPixel}px`;
+      
+      console.log('Tuning indicator:', {
+	frequency: frequency,
+	displayWidth: displayWidth,
+	tuningPixel: tuningPixel.toFixed(1)
+      });
+      
+      // Also update the filter envelope
+      this.updateFilterEnvelope();
+    }
+  }
+
   initializeUI() {
     // Initialize frequency display
     this.updateFrequencyDisplay();
@@ -302,6 +441,9 @@ class NexRigApplication {
 
     // Initialize tuning indicator to 0Hz
     this.updateTuningIndicator(0);
+    
+    // Initialize filter envelope
+    this.updateFilterEnvelope();
     
     // Start telemetry updates
     this.startTelemetryUpdates();
@@ -351,6 +493,24 @@ class NexRigApplication {
       btn.addEventListener('click', (e) => {
         const mode = e.target.dataset.mode;
         this.setMode(mode);
+      });
+    });
+    
+    // Demodulation mode buttons
+    document.querySelectorAll('.demod-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // Update active button
+        document.querySelectorAll('.demod-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        // Set DSP mode
+        const mode = e.target.dataset.mode;
+        this.dsp.setMode(mode);
+        
+        // Update filter envelope visualization
+        this.updateFilterEnvelope();
+        
+        console.log(`Demodulation mode changed to: ${mode}`);
       });
     });
     
@@ -416,7 +576,7 @@ class NexRigApplication {
             audioEnableBtn.classList.add('active');
             console.log('Audio enabled successfully, switched to RX mode, state:', this.dsp.audioContext.state);
             
-            // Start I/Q stream now that DSP is ready (only if not already started)
+            // Start I/Q stream now that DSP is ready
             if (!iqStreamStarted && this.websocket && this.websocket.readyState === WebSocket.OPEN) {
               this.websocket.send(JSON.stringify({ type: 'startIqStream' }));
               console.log('Started I/Q stream');
@@ -428,15 +588,6 @@ class NexRigApplication {
         } catch (error) {
           console.error('Failed to enable audio:', error);
         }
-      });
-    }
-    
-    // DSP mode selection
-    const dspModeSelect = document.getElementById('dspModeSelect');
-    if (dspModeSelect) {
-      dspModeSelect.addEventListener('change', (e) => {
-        this.dsp.setMode(e.target.value);
-        console.log('DSP mode changed to:', e.target.value);
       });
     }
     
@@ -455,6 +606,9 @@ class NexRigApplication {
         
         // Update waterfall tuning indicator position
         this.updateTuningIndicator(frequency);
+        
+        // Update filter envelope position
+        this.updateFilterEnvelope();
         
         console.log('Tuning changed to:', frequency, 'Hz');
       });
@@ -491,6 +645,9 @@ class NexRigApplication {
 
           // Update waterfall tuning indicator position
           this.updateTuningIndicator(currentFreq);
+          
+          // Update filter envelope position
+          this.updateFilterEnvelope();
         }
       }
     });
@@ -535,11 +692,8 @@ class NexRigApplication {
         
         // Update DSP mode based on radio mode
         if (mode === 'rx') {
-          // Default to USB for voice
-          this.dsp.setMode('usb');
+          // Keep current demodulation mode
           this.dsp.setTuning(0); // Start at baseband center frequency
-        } else {
-          this.dsp.setMode('usb'); // Keep DSP in USB mode
         }
       }
     } catch (error) {
@@ -572,19 +726,6 @@ class NexRigApplication {
       });
     } catch (error) {
       console.error('Failed to set antenna:', error);
-    }
-  }
-  
-  updateTuningIndicator(frequency) {
-    const indicator = document.getElementById('tuningIndicator');
-    if (indicator) {
-      // Convert frequency (-48000 to +48000) to percentage (0% to 100%)
-      const minFreq = -48000;
-      const maxFreq = 48000;
-      const percentage = ((frequency - minFreq) / (maxFreq - minFreq)) * 100;
-      
-      // Update indicator position
-      indicator.style.left = `${percentage}%`;
     }
   }
   
@@ -706,13 +847,13 @@ class NexRigApplication {
     if (indicator) {
       const indicatorDot = indicator.querySelector('.indicator');
       if (supported) {
-	indicatorDot.style.background = '#00e676';
-	indicator.title = 'SIMD: Supported';
-	console.log('SIMD indicator set to GREEN');
+        indicatorDot.style.background = '#00e676';
+        indicator.title = 'SIMD: Supported';
+        console.log('SIMD indicator set to GREEN');
       } else {
-	indicatorDot.style.background = '#666';
-	indicator.title = 'SIMD: Not supported';
-	console.log('SIMD indicator set to GREY');
+        indicatorDot.style.background = '#666';
+        indicator.title = 'SIMD: Not supported';
+        console.log('SIMD indicator set to GREY');
       }
     } else {
       console.warn('SIMD indicator element not found in DOM');
@@ -724,11 +865,11 @@ class NexRigApplication {
     if (indicator) {
       const indicatorDot = indicator.querySelector('.indicator');
       if (active) {
-	indicatorDot.style.background = '#00e676';
-	indicator.title = 'WASM: Active';
+        indicatorDot.style.background = '#00e676';
+        indicator.title = 'WASM: Active';
       } else {
-	indicatorDot.style.background = '#ff9800';
-	indicator.title = 'WASM: Using JavaScript fallback';
+        indicatorDot.style.background = '#ff9800';
+        indicator.title = 'WASM: Using JavaScript fallback';
       }
     }
   }

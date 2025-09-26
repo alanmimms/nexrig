@@ -51,85 +51,102 @@ class AdvancedDsp {
   async createAudioContext() {
     if (!this.audioContext) {
       try {
-        this.audioContext = new (window.AudioContext || window.webkitAudioContext)({
+	this.audioContext = new (window.AudioContext || window.webkitAudioContext)({
           sampleRate: this.audioSampleRate
-        });
-        
-        // Load WASM module first
-        const wasmResponse = await fetch('/app/wasm/sdr_dsp.wasm');
-        const wasmBytes = await wasmResponse.arrayBuffer();
-        
-        // Load AudioWorklet with cache-busting
-        await this.audioContext.audioWorklet.addModule('./js/sdr-processor.js?v=' + Date.now());
-        
-        this.workletNode = new AudioWorkletNode(this.audioContext, 'sdr-processor', {
+	});
+	
+	// First, load the AudioWorklet module
+	try {
+          // Use the correct absolute path
+          const workletUrl = '/app/js/sdr-processor.js?v=' + Date.now();
+          console.log('Loading AudioWorklet from:', workletUrl);
+          
+          await this.audioContext.audioWorklet.addModule(workletUrl);
+          console.log('AudioWorklet module loaded successfully');
+	} catch (workletError) {
+          console.error('Failed to load AudioWorklet module:', workletError);
+          // Try without cache busting
+          await this.audioContext.audioWorklet.addModule('/app/js/sdr-processor.js');
+	}
+	
+	// Now create the worklet node
+	this.workletNode = new AudioWorkletNode(this.audioContext, 'sdr-processor', {
           numberOfInputs: 0,
           numberOfOutputs: 1,
           outputChannelCount: [1]
-        });
-        
-        // Send WASM bytes to worklet
-        this.workletNode.port.postMessage({
-          type: 'initWasm',
-          wasmBytes: wasmBytes
-        });
-        
-        this.workletNode.connect(this.audioContext.destination);
-        console.log('AudioWorkletNode created and connected');
-        
-        // Listen for messages from AudioWorklet
-        this.workletNode.port.onmessage = (event) => {
-
+	});
+	
+	// Try to load WASM, but don't fail if it's missing
+	try {
+          const wasmResponse = await fetch('/app/wasm/sdr_dsp.wasm');
+          if (wasmResponse.ok) {
+            const wasmBytes = await wasmResponse.arrayBuffer();
+            
+            // Send WASM bytes to worklet
+            this.workletNode.port.postMessage({
+              type: 'initWasm',
+              wasmBytes: wasmBytes
+            });
+            console.log('WASM module sent to AudioWorklet');
+          } else {
+            console.warn('WASM not found, using JavaScript DSP fallback');
+          }
+	} catch (wasmError) {
+          console.warn('WASM loading failed, using JavaScript DSP fallback:', wasmError);
+	}
+	
+	this.workletNode.connect(this.audioContext.destination);
+	console.log('AudioWorkletNode created and connected');
+	
+	// Listen for messages from AudioWorklet
+	this.workletNode.port.onmessage = (event) => {
           if (event.data.type === 'debug') {
-
             if (event.data.message) {
-              console.log(`AudioWorklet: ${event.data.message} (call ${event.data.processCount}, buffer: ${event.data.bufferSize})`);
-            } else {
-              console.log(`AudioWorklet: Process called ${event.data.processCount} times, buffer: ${event.data.bufferSize}`);
+              console.log(`AudioWorklet: ${event.data.message}`);
             }
-
-	    // Update WASM indicator based on messages
-	    if (event.data.message.includes('WASM DSP initialized successfully')) {
+            
+            // Update WASM indicator based on messages
+            if (event.data.message && event.data.message.includes('WASM DSP initialized successfully')) {
               if (window.nexrigApp) {
-		window.nexrigApp.updateWasmIndicator(true);
+		window.nexrigApp.updateWASMIndicator(true);
               }
-	    } else if (event.data.message.includes('WASM init failed')) {
+            } else if (event.data.message && event.data.message.includes('WASM init failed')) {
               if (window.nexrigApp) {
-		window.nexrigApp.updateWasmIndicator(false);
+		window.nexrigApp.updateWASMIndicator(false);
               }
-	    }
-	  } else if (event.data.type === 'dspStatus') {
-	    // Handle status updates
-	    if (window.nexrigApp) {
-	      window.nexrigApp.updateWasmIndicator(event.data.useWasm);
-	    }
-	  } else if (event.data.type === 'testResponse') {
+            }
+          } else if (event.data.type === 'dspStatus') {
+            // Handle status updates
+            if (window.nexrigApp) {
+              window.nexrigApp.updateWASMIndicator(event.data.useWasm);
+            }
+          } else if (event.data.type === 'testResponse') {
             console.log(event.data.message);
           }
-        };
-        
-        // Test message to worklet
-        this.workletNode.port.postMessage({
+	};
+	
+	// Test message to worklet
+	this.workletNode.port.postMessage({
           type: 'test',
           message: 'Hello from main thread'
-        });
-        
-        // Ensure AudioContext is running
-        if (this.audioContext.state === 'suspended') {
+	});
+	
+	// Ensure AudioContext is running
+	if (this.audioContext.state === 'suspended') {
           console.log('AudioContext suspended, resuming...');
           await this.audioContext.resume();
-        }
-        
-        console.log('AudioContext and SDR Worklet created, final state:', this.audioContext.state);
-        return true;
+	}
+	
+	console.log('AudioContext and SDR Worklet created, final state:', this.audioContext.state);
+	return true;
       } catch (error) {
-        console.error('Failed to create AudioContext or Worklet:', error);
-        return false;
+	console.error('Failed to create AudioContext or Worklet:', error);
+	return false;
       }
     }
     return true;
   }
-  
+
   processIqData(iqData) {
     if (!this.audioContext || this.audioContext.state !== 'running' || !this.workletNode) {
       // Log why we're not processing
