@@ -5,6 +5,7 @@
  */
 
 class NexRigApplication {
+
   constructor() {
     this.connected = false;
     this.apiBaseUrl = window.location.origin + '/api';
@@ -18,12 +19,7 @@ class NexRigApplication {
     this.dsp = new AdvancedDsp();
     
     // Filter parameters for visualization
-    this.filterParams = {
-      usb: { low: 200, high: 3500, offset: 0 },
-      lsb: { low: -3500, high: -200, offset: 0 },
-      cw: { low: 200, high: 700, offset: 0 },  // 500Hz filter for USB-style CW
-      am: { low: -4000, high: 4000, offset: 0 }
-    };
+    this.filterParams = DspConfig.filterParams;
   }
 
   async initialize() {
@@ -301,7 +297,8 @@ class NexRigApplication {
     if (!envelope || !waterfall || !tuningSlider) return;
     
     const mode = this.dsp.mode || 'usb';
-    const params = this.filterParams[mode];
+    const params = DspConfig.filterParams[mode];
+    const waterfallConfig = DspConfig.waterfall;
     
     // Use the DISPLAY width for positioning elements, not canvas internal width
     const displayWidth = waterfall.offsetWidth || waterfall.width;
@@ -333,8 +330,14 @@ class NexRigApplication {
       break;
       
     case 'cw':
-      filterLowHz = params.offset + params.low;   // 350 Hz
-      filterHighHz = params.offset + params.high; // 850 Hz
+      // CW is just narrow USB or LSB - no offset needed for visualization
+      if (this.cwMode === 'lsb') {
+	filterLowHz = -700;  // Mirror for LSB-style CW
+	filterHighHz = -200;
+      } else {
+	filterLowHz = 200;   // Standard USB-style CW
+	filterHighHz = 700;
+      }
       break;
       
     case 'am':

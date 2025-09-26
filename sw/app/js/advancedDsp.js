@@ -98,9 +98,21 @@ class AdvancedDsp {
 	this.workletNode.connect(this.audioContext.destination);
 	console.log('AudioWorkletNode created and connected');
 	
+	// Send configuration to worklet
+	this.workletNode.port.postMessage({
+	  type: 'config',
+	  config: DspConfig.getSerializable(),
+	});
+
 	// Listen for messages from AudioWorklet
 	this.workletNode.port.onmessage = (event) => {
-          if (event.data.type === 'debug') {
+
+	  if (event.data.type === 'requestConfig') {
+	    this.workletNode.port.postMessage({
+	      type: 'config',
+	      config: DspConfig
+	    });
+	  } else if (event.data.type === 'debug') {
             if (event.data.message) {
               console.log(`AudioWorklet: ${event.data.message}`);
             }

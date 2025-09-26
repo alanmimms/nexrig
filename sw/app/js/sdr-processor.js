@@ -1,22 +1,45 @@
+/**
+ * SDR AudioWorklet Processor
+ */
+
 class SdrProcessor extends AudioWorkletProcessor {
   constructor() {
     super();
 
-    // DSP parameters
-    this.sampleRate = 48000;
-    this.iqSampleRate = 96000;
-    this.decimationRatio = 2;
-    this.tuningFreq = 0; // Hz
-    this.mode = 'usb';
-    this.cwMode = 'usb'; // Which SSB mode to use for CW
-
-    // Filter parameters for each mode
-    this.filterParams = {
-      usb: { low: 200, high: 3500 },
-      lsb: { low: -3500, high: -200 },
-      cw: { low: 200, high: 700 },  // 500Hz filter for CW in USB mode (200-700 Hz)
-      am: { low: -4000, high: 4000 }
+    // Default config - will be updated via message from main thread
+    this.config = {
+      filterParams: {
+        usb: { low: 200, high: 3500 },
+        lsb: { low: -3500, high: -200 },
+        cw: { low: 200, high: 700 },
+        am: { low: -4000, high: 4000 }
+      },
+      sampleRates: {
+        iq: 96000,
+        audio: 48000,
+        decimation: 2
+      },
+      agc: {
+        initialGain: 3.0,
+        target: 0.3,
+        attackRate: 0.0001,
+        minGain: 1.0,
+        maxGain: 3.0
+      },
+      filter: {
+        order: 64,
+        window: 'blackman'
+      }
     };
+    
+    // DSP parameters
+    this.sampleRate = this.config.sampleRates.audio;
+    this.iqSampleRate = this.config.sampleRates.iq;
+    this.decimationRatio = this.config.sampleRates.decimation;
+    
+    this.tuningFreq = 0;
+    this.mode = 'usb';
+    this.cwMode = 'usb';
 
     // I/Q buffer
     this.iqBuffer = [];
@@ -31,16 +54,23 @@ class SdrProcessor extends AudioWorkletProcessor {
     this.bandpassTaps = null;
     this.bandpassDelayI = null;
     this.bandpassDelayQ = null;
-    this.updateBandpassFilter();
+    
+    // Don't update filter yet - wait for config
+    this.filterReady = false;
 
     // AGC
-    this.agcGain = 3.0;
-    this.agcTarget = 0.3;
+    this.agcGain = this.config.agc.initialGain;
+    this.agcTarget = this.config.agc.target;
 
     // Listen for messages
     this.port.onmessage = (event) => {
       this.handleMessage(event.data);
     };
+
+    // Request config from main thread
+    this.port.postMessage({
+      type: 'requestConfig'
+    });
 
     // Debug counters
     this.processCallCount = 0;
@@ -50,6 +80,24 @@ class SdrProcessor extends AudioWorkletProcessor {
 
   handleMessage(data) {
     switch (data.type) {
+      case 'config':
+        // Receive config from main thread
+        this.config = data.config;
+        this.sampleRate = this.config.sampleRates.audio;
+        this.iqSampleRate = this.config.sampleRates.iq;
+        this.decimationRatio = this.config.sampleRates.decimation;
+        this.agcTarget = this.config.agc.target;
+        
+        // Now we can initialize the filter
+        this.updateBandpassFilter();
+        this.filterReady = true;
+        
+        this.port.postMessage({
+          type: 'debug',
+          message: 'Config received and filter initialized'
+        });
+        break;
+
       case 'iqData':
         const samples = data.samples;
         if (samples && samples.i && samples.q) {
@@ -73,17 +121,18 @@ class SdrProcessor extends AudioWorkletProcessor {
 
       case 'setMode':
         this.mode = data.mode;
-        this.updateBandpassFilter();
+        if (this.filterReady) {
+          this.updateBandpassFilter();
+        }
         this.port.postMessage({
           type: 'debug',
-          message: `Mode changed to: ${this.mode}, filter reconfigured`
+          message: `Mode: ${this.mode}`
         });
         break;
 
       case 'setCwMode':
-        // Allow setting whether CW uses USB or LSB demodulation
         this.cwMode = data.cwMode || 'usb';
-        if (this.mode === 'cw') {
+        if (this.mode === 'cw' && this.filterReady) {
           this.updateBandpassFilter();
         }
         break;
@@ -94,25 +143,22 @@ class SdrProcessor extends AudioWorkletProcessor {
     let lowFreq, highFreq;
     
     if (this.mode === 'cw') {
-      // CW uses narrow filter with USB or LSB demodulation
+      // CW filter based on SSB mode
+      const cwParams = this.config.filterParams.cw;
       if (this.cwMode === 'lsb') {
-        // For LSB CW, mirror the filter
-        lowFreq = -700;
-        highFreq = -200;
+        lowFreq = -cwParams.high;
+        highFreq = -cwParams.low;
       } else {
-        // Default USB CW
-        lowFreq = 200;
-        highFreq = 700;
+        lowFreq = cwParams.low;
+        highFreq = cwParams.high;
       }
     } else {
-      // Normal mode filters
-      const params = this.filterParams[this.mode];
+      const params = this.config.filterParams[this.mode];
       lowFreq = params.low;
       highFreq = params.high;
     }
     
-    // Generate complex bandpass filter
-    const filterOrder = 64;
+    const filterOrder = this.config.filter.order;
     this.bandpassTaps = this.generateBandpassFilter(
       lowFreq,
       highFreq,
@@ -120,13 +166,12 @@ class SdrProcessor extends AudioWorkletProcessor {
       filterOrder
     );
     
-    // Separate delay lines for I and Q
     this.bandpassDelayI = new Float32Array(filterOrder);
     this.bandpassDelayQ = new Float32Array(filterOrder);
     
     this.port.postMessage({
       type: 'debug',
-      message: `${this.mode.toUpperCase()} filter: ${lowFreq}Hz to ${highFreq}Hz`
+      message: `Filter: ${lowFreq}Hz to ${highFreq}Hz`
     });
   }
 
@@ -134,7 +179,6 @@ class SdrProcessor extends AudioWorkletProcessor {
     const taps = new Float32Array(numTaps);
     const center = Math.floor(numTaps / 2);
     
-    // Normalize frequencies
     const wl = (2 * Math.PI * lowFreq) / sampleRate;
     const wh = (2 * Math.PI * highFreq) / sampleRate;
     
@@ -149,22 +193,27 @@ class SdrProcessor extends AudioWorkletProcessor {
         taps[i] = highpass - lowpass;
       }
       
-      // Apply Blackman window for better stopband
-      const a0 = 0.42;
-      const a1 = 0.5;
-      const a2 = 0.08;
-      const window = a0 - a1 * Math.cos(2 * Math.PI * i / (numTaps - 1)) 
-                        + a2 * Math.cos(4 * Math.PI * i / (numTaps - 1));
+      // Window function
+      let window = 1.0;
+      if (this.config.filter.window === 'blackman') {
+        const a0 = 0.42;
+        const a1 = 0.5;
+        const a2 = 0.08;
+        window = a0 - a1 * Math.cos(2 * Math.PI * i / (numTaps - 1)) 
+                    + a2 * Math.cos(4 * Math.PI * i / (numTaps - 1));
+      } else {
+        // Hamming
+        window = 0.54 - 0.46 * Math.cos(2 * Math.PI * i / (numTaps - 1));
+      }
       taps[i] *= window;
     }
     
-    // Normalize filter response
+    // Normalize
     let sum = 0;
     for (let i = 0; i < numTaps; i++) {
       sum += taps[i];
     }
     
-    // Only normalize if sum is significant
     if (Math.abs(sum) > 0.001) {
       for (let i = 0; i < numTaps; i++) {
         taps[i] /= sum;
@@ -175,7 +224,7 @@ class SdrProcessor extends AudioWorkletProcessor {
   }
 
   applyComplexBandpassFilter(iSample, qSample) {
-    // Shift new samples into delay lines
+    // Shift samples into delay lines
     for (let i = this.bandpassDelayI.length - 1; i > 0; i--) {
       this.bandpassDelayI[i] = this.bandpassDelayI[i - 1];
       this.bandpassDelayQ[i] = this.bandpassDelayQ[i - 1];
@@ -183,7 +232,7 @@ class SdrProcessor extends AudioWorkletProcessor {
     this.bandpassDelayI[0] = iSample;
     this.bandpassDelayQ[0] = qSample;
     
-    // Apply filter to both I and Q
+    // Apply filter
     let iOut = 0;
     let qOut = 0;
     for (let i = 0; i < this.bandpassTaps.length; i++) {
@@ -201,19 +250,21 @@ class SdrProcessor extends AudioWorkletProcessor {
 
     this.processCallCount++;
 
-    // Debug logging
     if (this.processCallCount <= 5 || this.processCallCount % 200 === 0) {
       this.port.postMessage({
         type: 'debug',
-        processCount: this.processCallCount,
-        bufferSize: this.iqBuffer.length,
-        message: `Mode: ${this.mode}, Tuning: ${this.tuningFreq}Hz, Buffer: ${this.iqBuffer.length}`
+        message: `Buffer: ${this.iqBuffer.length}, Mode: ${this.mode}, Filter: ${this.filterReady ? 'ready' : 'waiting'}`
       });
     }
 
-    this.processAudio(outputChannel, blockSize);
+    // Only process if filter is ready
+    if (this.filterReady) {
+      this.processAudio(outputChannel, blockSize);
+    } else {
+      outputChannel.fill(0);
+    }
 
-    // Manage buffer size
+    // Manage buffer
     const maxBufferSize = 48000;
     if (this.iqBuffer.length > maxBufferSize) {
       const toRemove = this.iqBuffer.length - maxBufferSize;
@@ -233,19 +284,27 @@ class SdrProcessor extends AudioWorkletProcessor {
       return;
     }
 
+    // Debug: log filter output occasionally
+    if (this.processCallCount % 100 === 0 && i === 0) {
+      this.port.postMessage({
+	type: 'debug',
+	message: `Mode: ${this.mode}, Filtered I: ${filtered.i.toFixed(6)}, Q: ${filtered.q.toFixed(6)}`
+      });
+    }
+
     for (let i = 0; i < blockSize; i++) {
       let audioSample = 0;
-      const iqIndex = i * 2;
+      const iqIndex = i * this.decimationRatio;
 
       if (this.iqBuffer.length > iqIndex + 1) {
-        // Decimate by averaging
+        // Decimate
         const iq1 = this.iqBuffer[iqIndex];
         const iq2 = this.iqBuffer[iqIndex + 1];
         
         let iSample = (iq1.i + iq2.i) / 2;
         let qSample = (iq1.q + iq2.q) / 2;
 
-        // STEP 1: Frequency shift to baseband
+        // Frequency shift
         if (this.tuningFreq !== 0) {
           const sampleTime = (this.sampleCounter + iqIndex) / this.iqSampleRate;
           const phase = 2 * Math.PI * this.tuningFreq * sampleTime;
@@ -259,33 +318,29 @@ class SdrProcessor extends AudioWorkletProcessor {
           qSample = qShifted;
         }
 
-        // STEP 2: Complex bandpass filter (filters both I and Q)
+        // Bandpass filter
         const filtered = this.applyComplexBandpassFilter(iSample, qSample);
 
-        // STEP 3: Demodulation
+        // Demodulation
         switch (this.mode) {
           case 'usb':
-            // USB: I + Hilbert(Q)
             audioSample = filtered.i + this.hilbertTransform(filtered.q);
             break;
 
           case 'lsb':
-            // LSB: I - Hilbert(Q)
             audioSample = filtered.i - this.hilbertTransform(filtered.q);
             break;
 
           case 'cw':
-            // CW uses SSB demodulation with narrow filter
             if (this.cwMode === 'lsb') {
               audioSample = filtered.i - this.hilbertTransform(filtered.q);
             } else {
               audioSample = filtered.i + this.hilbertTransform(filtered.q);
             }
-            audioSample *= 2; // Boost CW signals
+            audioSample *= 2;
             break;
 
           case 'am':
-            // AM: envelope detection
             audioSample = Math.sqrt(filtered.i * filtered.i + filtered.q * filtered.q);
             break;
 
@@ -293,22 +348,20 @@ class SdrProcessor extends AudioWorkletProcessor {
             audioSample = filtered.i;
         }
 
-        // STEP 4: AGC
+        // AGC
         audioSample = this.applyAgc(audioSample);
 
       } else {
-        // Fade out if buffer underrun
         if (i > 0) {
           audioSample = outputChannel[i - 1] * 0.95;
         }
       }
 
-      // Output with soft clipping
       outputChannel[i] = Math.tanh(audioSample * 0.5);
     }
 
     // Remove consumed samples
-    const samplesConsumed = Math.min(blockSize * 2, this.iqBuffer.length);
+    const samplesConsumed = Math.min(blockSize * this.decimationRatio, this.iqBuffer.length);
     if (samplesConsumed > 0) {
       this.iqBuffer.splice(0, samplesConsumed);
       this.sampleCounter += samplesConsumed;
@@ -330,7 +383,7 @@ class SdrProcessor extends AudioWorkletProcessor {
 
   applyAgc(sample) {
     const envelope = Math.abs(sample);
-    const alpha = 0.0001;
+    const alpha = this.config.agc.attackRate;
 
     if (envelope > 0.001) {
       if (envelope > this.agcTarget) {
@@ -340,7 +393,8 @@ class SdrProcessor extends AudioWorkletProcessor {
       }
     }
 
-    this.agcGain = Math.max(1.0, Math.min(3.0, this.agcGain));
+    this.agcGain = Math.max(this.config.agc.minGain, 
+                            Math.min(this.config.agc.maxGain, this.agcGain));
     return sample * this.agcGain;
   }
 
@@ -357,7 +411,6 @@ class SdrProcessor extends AudioWorkletProcessor {
       }
     }
 
-    // Hamming window
     for (let i = 0; i < numTaps; i++) {
       const window = 0.54 - 0.46 * Math.cos(2 * Math.PI * i / (numTaps - 1));
       taps[i] *= window;
