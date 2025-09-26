@@ -79,13 +79,31 @@ class AdvancedDsp {
         
         // Listen for messages from AudioWorklet
         this.workletNode.port.onmessage = (event) => {
+
           if (event.data.type === 'debug') {
+
             if (event.data.message) {
               console.log(`AudioWorklet: ${event.data.message} (call ${event.data.processCount}, buffer: ${event.data.bufferSize})`);
             } else {
               console.log(`AudioWorklet: Process called ${event.data.processCount} times, buffer: ${event.data.bufferSize}`);
             }
-          } else if (event.data.type === 'testResponse') {
+
+	    // Update WASM indicator based on messages
+	    if (event.data.message.includes('WASM DSP initialized successfully')) {
+              if (window.nexrigApp) {
+		window.nexrigApp.updateWasmIndicator(true);
+              }
+	    } else if (event.data.message.includes('WASM init failed')) {
+              if (window.nexrigApp) {
+		window.nexrigApp.updateWasmIndicator(false);
+              }
+	    }
+	  } else if (event.data.type === 'dspStatus') {
+	    // Handle status updates
+	    if (window.nexrigApp) {
+	      window.nexrigApp.updateWasmIndicator(event.data.useWasm);
+	    }
+	  } else if (event.data.type === 'testResponse') {
             console.log(event.data.message);
           }
         };

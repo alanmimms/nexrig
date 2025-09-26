@@ -46,6 +46,9 @@ class NexRigApplication {
       // Initialize UI components
       this.initializeUI();
       
+      // Check for SIMD supporrt
+      this.checkSIMDSupport();
+
       // Mark as connected and show app
       this.connected = true;
       this.hideLoadingScreen();
@@ -682,6 +685,51 @@ class NexRigApplication {
     }
     if (nexrigApp) {
       nexrigApp.classList.add('loaded');
+    }
+  }
+
+  checkSIMDSupport() {
+    // Chrome 91+ has SIMD enabled by default
+    const chromeMatch = navigator.userAgent.match(/Chrome\/(\d+)/);
+    const chromeVersion = chromeMatch ? parseInt(chromeMatch[1]) : 0;
+    
+    const simdSupported = chromeVersion >= 91;
+    
+    console.log(`Chrome version: ${chromeVersion}, SIMD supported: ${simdSupported}`);
+    this.updateSIMDIndicator(simdSupported);
+    
+    return simdSupported;
+  }
+
+  updateSIMDIndicator(supported) {
+    const indicator = document.getElementById('simdStatus');
+    if (indicator) {
+      const indicatorDot = indicator.querySelector('.indicator');
+      if (supported) {
+	indicatorDot.style.background = '#00e676';
+	indicator.title = 'SIMD: Supported';
+	console.log('SIMD indicator set to GREEN');
+      } else {
+	indicatorDot.style.background = '#666';
+	indicator.title = 'SIMD: Not supported';
+	console.log('SIMD indicator set to GREY');
+      }
+    } else {
+      console.warn('SIMD indicator element not found in DOM');
+    }
+  }
+
+  updateWASMIndicator(active) {
+    const indicator = document.getElementById('wasmStatus');
+    if (indicator) {
+      const indicatorDot = indicator.querySelector('.indicator');
+      if (active) {
+	indicatorDot.style.background = '#00e676';
+	indicator.title = 'WASM: Active';
+      } else {
+	indicatorDot.style.background = '#ff9800';
+	indicator.title = 'WASM: Using JavaScript fallback';
+      }
     }
   }
 }

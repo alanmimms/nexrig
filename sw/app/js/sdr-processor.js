@@ -112,6 +112,8 @@ class SdrProcessor extends AudioWorkletProcessor {
       });
     }
   }
+
+
   process(inputs, outputs, parameters) {
     const output = outputs[0];
     const outputChannel = output[0];
@@ -136,6 +138,15 @@ class SdrProcessor extends AudioWorkletProcessor {
         processCount: this.processCallCount,
         bufferSize: this.iqBuffer.length,
         message: `Buffer: ${this.iqBuffer.length} samples, underruns: ${this.underrunCount}, AGC: ${this.agcGain.toFixed(2)}`
+      });
+    }
+
+    // Report DSP status periodically
+    if (this.processCallCount % 500 === 0) {
+      this.port.postMessage({
+	type: 'dspStatus',
+	useWasm: this.useWasm,
+	bufferLevel: this.iqBuffer.length
       });
     }
 

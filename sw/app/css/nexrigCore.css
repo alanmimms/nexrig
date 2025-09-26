@@ -213,3 +213,18 @@ h3, h4 {
 .hidden {
   display: none !important;
 }
+
+.wasm-status .indicator,
+.simd-status .indicator {
+  transition: background-color 0.3s ease;
+}
+
+.wasm-status.active .indicator {
+  background: #00e676;
+  box-shadow: 0 0 4px #00e676;
+}
+
+.simd-status.supported .indicator {
+  background: #00e676;
+  box-shadow: 0 0 4px #00e676;
+}
