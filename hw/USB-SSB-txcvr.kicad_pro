@@ -479,8 +479,8 @@
         "line_style": 0,
         "name": "GND",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgb(34, 95, 23)",
         "wire_width": 12
       },
       {
@@ -488,8 +488,17 @@
         "line_style": 0,
         "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 3,
+        "schematic_color": "rgb(255, 49, 109)",
+        "wire_width": 12
+      },
+      {
+        "bus_width": 12,
+        "line_style": 0,
+        "name": "PowerRF",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 1,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgb(255, 142, 74)",
         "wire_width": 12
       },
       {
@@ -497,7 +506,7 @@
         "line_style": 0,
         "name": "USB2 Data",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 2,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "wire_width": 6
       }
@@ -510,13 +519,22 @@
       "/Power/VBUSsw": [
         "Power"
       ],
+      "/Tx Chain/Bin Select PA Tanks/PAdrain": [
+        "PowerRF"
+      ],
       "/USB/C-USBVBUS": [
         "Power"
       ],
       "GND": [
         "Power"
       ],
+      "Net-(C2201-Pad2)": [
+        "PowerRF"
+      ],
       "Net-(D1801-A-Pad1)": [
+        "Power"
+      ],
+      "Net-(L2204-Pad2)": [
         "Power"
       ],
       "Net-(U1001-SW)": [
@@ -672,6 +690,22 @@
       {
         "netclass": "Power",
         "pattern": "FPGA1V2"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "VPP_2V5"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Tx Chain/VPP_2V5"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "Veer"
+      },
+      {
+        "netclass": "GND",
+        "pattern": "GND"
       }
     ]
   },
@@ -1049,6 +1083,14 @@
     [
       "f249c9f1-932d-476f-a809-68b4c7a5d791",
       "PIN Diode Bias Boost"
+    ],
+    [
+      "0f153e91-311c-48a1-9871-c6d6a5339cb3",
+      "Bin Select PA Tanks"
+    ],
+    [
+      "68c6aea8-2c0e-4c22-ac79-c15238cdeec2",
+      "Tx LPFs"
     ]
   ],
   "text_variables": {
