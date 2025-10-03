@@ -15,6 +15,12 @@
 		(members "160m" "80m" "60m" "40m" "30m" "20m" "17m" "15m" "12m" "10m")
 	)
 	(junction
+		(at 83.82 90.17)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "79facc1d-5f15-48ad-ba36-46e4530a9fcd")
+	)
+	(junction
 		(at 71.12 151.13)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -41,6 +47,16 @@
 			(type default)
 		)
 		(uuid "085a4403-78bc-441e-9637-93738d56d71b")
+	)
+	(bus
+		(pts
+			(xy 83.82 90.17) (xy 83.82 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12ed427f-7917-4bd8-91ea-b5edf0db557f")
 	)
 	(wire
 		(pts
@@ -124,7 +140,17 @@
 	)
 	(bus
 		(pts
-			(xy 58.42 90.17) (xy 208.28 90.17)
+			(xy 83.82 90.17) (xy 208.28 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b9b591d-2c85-4388-9cf7-41dca791a984")
+	)
+	(bus
+		(pts
+			(xy 58.42 90.17) (xy 83.82 90.17)
 		)
 		(stroke
 			(width 0)
@@ -284,6 +310,16 @@
 	)
 	(wire
 		(pts
+			(xy 96.52 111.76) (xy 208.28 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b9cf3156-1dc7-4b42-8bd7-9501f732fe5a")
+	)
+	(wire
+		(pts
 			(xy 143.51 57.15) (xy 151.13 57.15)
 		)
 		(stroke
@@ -301,6 +337,16 @@
 			(type default)
 		)
 		(uuid "c49c83b1-9324-4d6a-afa1-b3be5d14bc2c")
+	)
+	(wire
+		(pts
+			(xy 96.52 109.22) (xy 208.28 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c8963771-1243-4d43-8347-cf034d105981")
 	)
 	(wire
 		(pts
@@ -334,6 +380,16 @@
 	)
 	(wire
 		(pts
+			(xy 96.52 106.68) (xy 208.28 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9932aa7-7fb5-4f70-a5ca-787712f675b5")
+	)
+	(wire
+		(pts
 			(xy 240.03 148.59) (xy 29.21 148.59)
 		)
 		(stroke
@@ -341,6 +397,16 @@
 			(type default)
 		)
 		(uuid "ed8886bd-18b6-45b3-8d19-97775f38caa3")
+	)
+	(bus
+		(pts
+			(xy 96.52 104.14) (xy 208.28 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "edf969bc-41ec-406d-88b0-1af8fe3563c4")
 	)
 	(wire
 		(pts
@@ -656,6 +722,56 @@
 		(pin "TxPh" bidirectional
 			(at 96.52 100.33 0)
 			(uuid "58150612-0158-44f0-ae44-f259d9de0ff3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Band" input
+			(at 83.82 93.98 90)
+			(uuid "23388adf-6f5f-4218-a7d9-384bbe09a558")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "PAtankSel" input
+			(at 96.52 104.14 0)
+			(uuid "f762b7eb-b9ea-4c50-a4f4-920c2ebe433f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TxTankL1" input
+			(at 96.52 106.68 0)
+			(uuid "7f0e2c48-f737-43bd-a6af-bb635bc00aa7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TxTankL2" input
+			(at 96.52 109.22 0)
+			(uuid "c21720f3-00de-4610-82a9-7d038e1722a2")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TxTankL3" input
+			(at 96.52 111.76 0)
+			(uuid "9e67a061-453d-452c-8771-be43dc154658")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1045,6 +1161,226 @@
 		(pin "AUDIOnRESET" output
 			(at 208.28 45.72 180)
 			(uuid "f95d9d71-22be-4f19-9dec-2e508fc540cc")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Band.10m" output
+			(at 208.28 54.61 180)
+			(uuid "32e6a3f4-5c41-4a13-ac11-faa4f60f3547")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Band.12m" output
+			(at 208.28 57.15 180)
+			(uuid "4b0045a3-0fcc-4fba-bbc4-976ac462aa7d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Band.15m" output
+			(at 208.28 59.69 180)
+			(uuid "b3493d20-1186-42fb-977e-b624f9d67011")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Band.17m" output
+			(at 208.28 62.23 180)
+			(uuid "3f5655df-80a7-46ff-b47a-526bc3375423")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Band.20m" output
+			(at 208.28 64.77 180)
+			(uuid "71e2e5b6-c40f-48ee-9eea-c7d1fa90eb30")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Band.30m" output
+			(at 208.28 67.31 180)
+			(uuid "64a0b28f-0771-49a2-8909-a97601f28027")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Band.40m" output
+			(at 208.28 69.85 180)
+			(uuid "7ffee13f-47ee-437c-825f-d44d65f5f1a0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Band.60m" output
+			(at 208.28 72.39 180)
+			(uuid "b8bebc41-6102-4df1-9116-e886cd2578c3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Band.80m" output
+			(at 208.28 74.93 180)
+			(uuid "47fc7960-1ae3-4e42-b38a-64b4f409b123")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Band.160m" output
+			(at 208.28 77.47 180)
+			(uuid "ba92a348-19a3-438e-948f-328b91fef22f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "PAtankSel" output
+			(at 208.28 104.14 180)
+			(uuid "1c801035-3350-43b4-87b7-d6ec6a688087")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "TxEnv.MISO" input
+			(at 208.28 81.28 180)
+			(uuid "86466ad1-28b3-448f-afce-7ad476ca18bd")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "TxEnv.MOSI" output
+			(at 208.28 83.82 180)
+			(uuid "a856edf8-d0b6-4a49-9edb-e93df9e0fc21")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "TxEnv.NSS" output
+			(at 208.28 86.36 180)
+			(uuid "1a1e7125-f905-453f-b4da-5a0e3e9d0a21")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "TxEnv.SCK" output
+			(at 208.28 93.98 180)
+			(uuid "33cbc137-587f-40ab-a43f-3956455e2ab5")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "TxPh.MISO" input
+			(at 257.81 76.2 0)
+			(uuid "ffd8c092-d5f6-45e0-9d31-40367d5135a6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TxPh.MOSI" output
+			(at 257.81 78.74 0)
+			(uuid "c7897677-fc8b-4b90-8667-5bb1c4d8b28a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TxPh.NSS" output
+			(at 257.81 81.28 0)
+			(uuid "6dc7247c-e007-43d6-a80f-3716792baa5d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TxPh.SCK" output
+			(at 257.81 83.82 0)
+			(uuid "01e173bc-57c0-4d23-8024-3d434fbc8d1b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TxTankL1" output
+			(at 208.28 106.68 180)
+			(uuid "3bc4f801-9315-471c-a4c8-771e31fcc54e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "TxTankL2" output
+			(at 208.28 109.22 180)
+			(uuid "95917fc1-66bd-4231-a142-39828baa8f32")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "TxTankL3" output
+			(at 208.28 111.76 180)
+			(uuid "1df7528d-0f57-4376-ab2e-b36576cda2f8")
 			(effects
 				(font
 					(size 1.27 1.27)
