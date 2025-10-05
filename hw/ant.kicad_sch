@@ -5,928 +5,775 @@
 	(uuid "8dbaf92a-d78e-45bd-985c-169947901fa4")
 	(paper "USLetter")
 	(title_block
-		(title "Antenna Tuner, BPF Array, Tx/Rx Relays")
+		(title "Antenna Tuner, Tx/Rx Relays")
 		(date "2025-08-10")
 		(company "WB7NAB")
 		(comment 1 "Alan Mimms")
 	)
-	(lib_symbols)
-	(junction
-		(at 69.85 134.62)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "065613f4-fa03-41e6-8db6-bbb75888faa7")
-	)
-	(junction
-		(at 116.84 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0ec9ce01-7c4a-4a9c-9950-321fd83ce70c")
-	)
-	(junction
-		(at 69.85 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "17f7c21e-284e-4e9a-8da3-b4448a829781")
-	)
-	(junction
-		(at 69.85 100.33)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "23d132b8-592f-4d64-929a-f3f54295ed72")
-	)
-	(junction
-		(at 116.84 170.18)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2a71daee-a2db-4cdb-8601-1b741a69339a")
-	)
-	(junction
-		(at 69.85 118.11)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "447b0489-f077-4787-96ef-fb76864cd9e5")
-	)
-	(junction
-		(at 69.85 27.94)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "47674cad-ee26-4a3a-8a60-8b44ff750fd8")
-	)
-	(junction
-		(at 116.84 134.62)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4aa931a1-b763-44d2-89e9-07399f91212b")
-	)
-	(junction
-		(at 69.85 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5bd47ab2-655c-40a8-96ab-2a250d79c7a5")
-	)
-	(junction
-		(at 116.84 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6fdcaa81-66c4-4fa2-9394-915f74cac2d2")
-	)
-	(junction
-		(at 116.84 64.77)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7ab50c02-c1d6-469a-bf4a-e305fa18ed9f")
-	)
-	(junction
-		(at 116.84 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "893fb7c8-800c-4a7c-9505-81e7d62e8436")
-	)
-	(junction
-		(at 116.84 118.11)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a3e7a194-0a96-43a2-bd5f-7a2128045569")
-	)
-	(junction
-		(at 69.85 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b48252f5-df6d-46bc-8e70-dc07e339ac49")
-	)
-	(junction
-		(at 116.84 100.33)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c9716232-8742-416e-8343-6348bc8c224e")
-	)
-	(junction
-		(at 69.85 64.77)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ce86943e-a0b6-4ce9-b6b9-f0c99f0e9433")
-	)
-	(junction
-		(at 69.85 170.18)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fc6e6c8c-eb1c-4d48-be91-7b4077334d6a")
-	)
-	(bus_entry
-		(at 62.23 67.31)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
+	(lib_symbols
+		(symbol "Connector:Conn_Coaxial_Power"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at -5.08 -1.27 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_Coaxial_Power"
+				(at -3.175 -1.27 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "BNC SMA SMB SMC LEMO coaxial connector CINCH RCA"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "*BNC* *SMA* *SMB* *SMC* *Cinch* *LEMO*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_Coaxial_Power_0_1"
+				(arc
+					(start 1.016 -0.508)
+					(mid 1.2048 -0.8684)
+					(end 1.27 -1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 1.27 -1.27)
+					(mid 0 -2.5345)
+					(end -1.27 -1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -1.27 -1.27)
+					(mid -1.2048 -0.8684)
+					(end -1.016 -0.508)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 -1.27)
+					(radius 0.508)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 0 -3.048)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Conn_Coaxial_Power_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 2.54)
+					(name "In"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 2.54)
+					(name "Ext"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
 		)
-		(uuid "0624d3a5-69fd-4c6c-84e8-83b5168ddb84")
-	)
-	(bus_entry
-		(at 62.23 102.87)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
+		(symbol "Relay:G5Q-1"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "K"
+				(at 11.43 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "G5Q-1"
+				(at 11.43 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Relay_THT:Relay_SPDT_Omron-G5Q-1"
+				(at 11.43 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.omron.com/ecb/products/pdf/en-g5q.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Description" "Omron G5G relay, Miniature Single Pole, SPDT, 10A"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Miniature Single Pole Relay"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Relay*SPDT*Omron*G5Q*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "G5Q-1_0_0"
+				(polyline
+					(pts
+						(xy 7.62 5.08) (xy 7.62 2.54) (xy 6.985 3.175) (xy 7.62 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "G5Q-1_0_1"
+				(rectangle
+					(start -10.16 5.08)
+					(end 10.16 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -8.255 1.905)
+					(end -1.905 -1.905)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -7.62 -1.905) (xy -2.54 1.905)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 5.08) (xy -5.08 1.905)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 -5.08) (xy -5.08 -1.905)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.635 0) (xy 0 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.635 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 0) (xy 2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 5.08) (xy 2.54 2.54) (xy 3.175 3.175) (xy 2.54 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.175 0) (xy 3.81 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 -2.54) (xy 3.175 3.81)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 -2.54) (xy 5.08 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "G5Q-1_1_1"
+				(pin passive line
+					(at -5.08 7.62 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 7.62 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -7.62 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 7.62 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
 		)
-		(uuid "36bbb351-ce3c-4ddd-b2d4-da2ca9eb4026")
-	)
-	(bus_entry
-		(at 62.23 189.23)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
+		(symbol "power:GND"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "GND"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GND_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
 		)
-		(uuid "5332c155-18c5-4a98-a0fe-741d131f6dd5")
-	)
-	(bus_entry
-		(at 62.23 154.94)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "643fd283-eb2f-49f2-9557-89d571e6213f")
-	)
-	(bus_entry
-		(at 62.23 172.72)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "84ed4a92-8476-47de-a161-613494a7e4ee")
-	)
-	(bus_entry
-		(at 62.23 49.53)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8aa6d19a-fd58-4759-a815-67bf270bb45d")
-	)
-	(bus_entry
-		(at 62.23 120.65)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dff8239d-c420-4f10-96b8-dc1761887dce")
-	)
-	(bus_entry
-		(at 62.23 137.16)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ee6a3b10-6bf2-4ae4-9e54-80ca85dc42e1")
-	)
-	(bus_entry
-		(at 62.23 85.09)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f44fb275-1dbd-45a1-8e02-b70fe2bca4a3")
-	)
-	(bus_entry
-		(at 62.23 31.75)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ff2e4ccc-a51e-4da6-820e-70e1d3acea6e")
-	)
-	(bus
-		(pts
-			(xy 58.42 194.31) (xy 62.23 194.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0210df73-e66c-43bc-b5eb-3837b089e0b1")
 	)
 	(wire
 		(pts
-			(xy 116.84 170.18) (xy 116.84 152.4)
+			(xy 218.44 81.28) (xy 220.98 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "11e4de09-ee42-45ce-9cfe-fafc06210021")
+		(uuid "0651dc8f-c6d1-45e0-a044-b9eaf731a672")
 	)
 	(wire
 		(pts
-			(xy 91.44 134.62) (xy 69.85 134.62)
+			(xy 222.25 120.65) (xy 233.68 120.65)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "13508c21-a43b-4e0d-a198-29fc5e42677d")
+		(uuid "08962e4b-428c-4c68-a152-d32799514c5b")
 	)
 	(wire
 		(pts
-			(xy 64.77 34.29) (xy 91.44 34.29)
+			(xy 234.95 77.47) (xy 231.14 77.47)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "18bc9e67-af30-4ef1-b2e4-ab6cb89f8009")
+		(uuid "33b0daca-3729-4493-8fe7-6afb3274a94c")
 	)
 	(wire
 		(pts
-			(xy 64.77 69.85) (xy 91.44 69.85)
+			(xy 242.57 77.47) (xy 248.92 77.47)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1b83fe6b-74cd-4224-9a2d-b519233002a2")
+		(uuid "3c1ba983-46d5-46e1-b137-f705f5cfc43e")
 	)
 	(wire
 		(pts
-			(xy 64.77 139.7) (xy 91.44 139.7)
+			(xy 228.6 116.84) (xy 228.6 102.87)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1f0d8b5a-f0e3-4abc-baad-416224c2985f")
-	)
-	(bus
-		(pts
-			(xy 62.23 137.16) (xy 62.23 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2c68393c-3312-4cbf-a06a-cd1ebd2816b0")
-	)
-	(bus
-		(pts
-			(xy 62.23 31.75) (xy 62.23 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2eaa5fdc-ef7f-451a-a8d3-c91b89a675d1")
+		(uuid "3fb6153e-6a4a-499e-8f1e-ca9b0b7f8e86")
 	)
 	(wire
 		(pts
-			(xy 69.85 186.69) (xy 69.85 170.18)
+			(xy 231.14 77.47) (xy 231.14 87.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "30a77ff3-99e3-40d6-8330-211e5075245b")
+		(uuid "3ff4373a-2e2d-40c9-ac88-1001dfe70719")
 	)
 	(wire
 		(pts
-			(xy 64.77 105.41) (xy 91.44 105.41)
+			(xy 222.25 116.84) (xy 228.6 116.84)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "35989186-75b1-41a1-905e-74c7567d5533")
+		(uuid "59e9d146-68df-4599-9295-38f8e90aac89")
 	)
 	(wire
 		(pts
-			(xy 69.85 170.18) (xy 69.85 152.4)
+			(xy 233.68 120.65) (xy 233.68 102.87)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "35be141d-a07a-4c68-923e-f48f08f0cac1")
+		(uuid "85502bda-b3d7-40c4-81de-98a5ec8ae9b9")
 	)
 	(wire
 		(pts
-			(xy 110.49 186.69) (xy 116.84 186.69)
+			(xy 248.92 77.47) (xy 248.92 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "39b96b4b-6413-4a16-9c89-71baee0e28e7")
+		(uuid "9158afa2-809c-44f2-928b-43b0ccfda61b")
 	)
 	(wire
 		(pts
-			(xy 64.77 123.19) (xy 91.44 123.19)
+			(xy 220.98 81.28) (xy 220.98 87.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "39c4a211-732f-41e5-9d5d-a359e783cff4")
-	)
-	(bus
-		(pts
-			(xy 62.23 30.48) (xy 62.23 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3d1c07ce-38f6-4da8-87e6-bc99a9896d29")
+		(uuid "b676d3ca-2f6b-4c4e-b748-5bb68e13b6b9")
 	)
 	(wire
 		(pts
-			(xy 69.85 152.4) (xy 69.85 134.62)
+			(xy 220.98 102.87) (xy 220.98 105.41)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3dae60f8-f0ca-4777-8536-9a73adbfe019")
+		(uuid "c7bccd45-1620-4847-9e7d-194fdd5569d9")
 	)
-	(wire
-		(pts
-			(xy 110.49 170.18) (xy 116.84 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "409d32f5-296e-4677-8245-7bd29cda4f3b")
-	)
-	(wire
-		(pts
-			(xy 91.44 64.77) (xy 69.85 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4340c463-34b5-4fd0-923d-aa4d9deda6f7")
-	)
-	(wire
-		(pts
-			(xy 64.77 175.26) (xy 91.44 175.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "45f568dd-bb5e-478b-bf64-e03c630e793f")
-	)
-	(wire
-		(pts
-			(xy 116.84 152.4) (xy 116.84 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4aecdedc-fb06-4b8a-b718-47f82f78b58d")
-	)
-	(bus
-		(pts
-			(xy 62.23 172.72) (xy 62.23 189.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4dbcdd35-bc70-40e2-9ac3-12defc9cbb96")
-	)
-	(wire
-		(pts
-			(xy 69.85 27.94) (xy 91.44 27.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "562c54e0-2d1c-4812-971c-49f2394ba745")
-	)
-	(wire
-		(pts
-			(xy 91.44 118.11) (xy 69.85 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5a52741d-b29e-4b4a-b6bb-fc3eaa46f7e9")
-	)
-	(wire
-		(pts
-			(xy 91.44 186.69) (xy 69.85 186.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5be2ec63-ee43-453e-af5b-18e9b2550c91")
-	)
-	(wire
-		(pts
-			(xy 69.85 46.99) (xy 91.44 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "67347e1b-d475-4a93-b223-be733fda03d4")
-	)
-	(bus
-		(pts
-			(xy 62.23 194.31) (xy 62.23 189.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "69987ba7-4dd0-4621-b839-b1abd451cca1")
-	)
-	(wire
-		(pts
-			(xy 69.85 46.99) (xy 69.85 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7146d17d-26f5-4a78-92b6-f07e378b619c")
-	)
-	(wire
-		(pts
-			(xy 91.44 152.4) (xy 69.85 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "72cd1ba7-1892-4d7a-92f6-22ba67c59086")
-	)
-	(wire
-		(pts
-			(xy 60.96 27.94) (xy 69.85 27.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "73bc05b2-6c16-4dae-ba6b-836ded1ee781")
-	)
-	(bus
-		(pts
-			(xy 62.23 120.65) (xy 62.23 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "74fdafc1-ef75-44f7-9bb1-9002adcf5f34")
-	)
-	(wire
-		(pts
-			(xy 64.77 87.63) (xy 91.44 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "76816563-7ede-4947-9a09-9245536e8ec6")
-	)
-	(wire
-		(pts
-			(xy 110.49 82.55) (xy 116.84 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "76852e95-4f35-4c50-813d-430ede012cdf")
-	)
-	(wire
-		(pts
-			(xy 69.85 100.33) (xy 69.85 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "775ba7fa-92c8-4ea0-986c-03219b95a4b4")
-	)
-	(wire
-		(pts
-			(xy 110.49 46.99) (xy 116.84 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "792262e7-98b4-4c8a-ae66-e0f03db82fbc")
-	)
-	(bus
-		(pts
-			(xy 62.23 102.87) (xy 62.23 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8181fe5d-6e92-4fa4-ae03-ed360acdacca")
-	)
-	(wire
-		(pts
-			(xy 91.44 170.18) (xy 69.85 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "81f5f68d-6bf6-4194-9b31-01a7c64e6100")
-	)
-	(wire
-		(pts
-			(xy 64.77 52.07) (xy 91.44 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "82575a07-bf4a-4759-b0ff-65c4e280b1da")
-	)
-	(wire
-		(pts
-			(xy 116.84 134.62) (xy 110.49 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8382fb17-c93b-41eb-bd62-0ace63a850c3")
-	)
-	(wire
-		(pts
-			(xy 69.85 46.99) (xy 69.85 27.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8d463b96-d411-44a8-858e-ae7c914aedff")
-	)
-	(wire
-		(pts
-			(xy 116.84 118.11) (xy 116.84 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "91ef9dbe-c7ae-4eb2-a978-d6550d5dc490")
-	)
-	(bus
-		(pts
-			(xy 62.23 67.31) (xy 62.23 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "93ef474c-7c2a-4e0c-8476-5a3a5ce3f7b1")
-	)
-	(wire
-		(pts
-			(xy 64.77 157.48) (xy 91.44 157.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9cb1d886-c448-4996-a983-d28bc0a29afb")
-	)
-	(wire
-		(pts
-			(xy 110.49 152.4) (xy 116.84 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9e9d704e-519d-4608-9962-a53260be2247")
-	)
-	(wire
-		(pts
-			(xy 110.49 27.94) (xy 116.84 27.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a6b1ea8e-54c8-4e1a-bd4b-14815048a5f3")
-	)
-	(wire
-		(pts
-			(xy 69.85 82.55) (xy 69.85 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aa75b140-e2dc-4ef7-a32b-1a41a681dfa8")
-	)
-	(wire
-		(pts
-			(xy 116.84 46.99) (xy 116.84 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ac36b7ba-8af0-484f-8979-ff6a1cdd0b86")
-	)
-	(wire
-		(pts
-			(xy 91.44 82.55) (xy 69.85 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bbee5cd3-96a5-4633-a54c-5a50c6a908cb")
-	)
-	(wire
-		(pts
-			(xy 116.84 100.33) (xy 116.84 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "be3e205d-793f-4c94-b154-2d6db647cd91")
-	)
-	(wire
-		(pts
-			(xy 91.44 100.33) (xy 69.85 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca3a0ea9-77f0-451e-bb53-8876f50e30d6")
-	)
-	(wire
-		(pts
-			(xy 116.84 186.69) (xy 116.84 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ccd8da76-7f50-4e5c-b5bc-9635a0a16371")
-	)
-	(wire
-		(pts
-			(xy 110.49 118.11) (xy 116.84 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d07edb2d-6657-43e8-bdbc-356b0153c25f")
-	)
-	(wire
-		(pts
-			(xy 116.84 64.77) (xy 116.84 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d181fdcd-9fb0-4a70-b589-6d30009e1e8b")
-	)
-	(bus
-		(pts
-			(xy 62.23 85.09) (xy 62.23 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d36008e4-e722-44f2-a363-e1887063d041")
-	)
-	(wire
-		(pts
-			(xy 116.84 82.55) (xy 116.84 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d6114b34-5995-4510-9a25-e29f82b94c5a")
-	)
-	(wire
-		(pts
-			(xy 69.85 134.62) (xy 69.85 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dbd2dd30-9e11-4165-aaf3-3012aaf5d89b")
-	)
-	(wire
-		(pts
-			(xy 110.49 100.33) (xy 116.84 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "de08639a-9b3e-48e6-a0c9-7fb265a91072")
-	)
-	(wire
-		(pts
-			(xy 69.85 82.55) (xy 69.85 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e0509b7d-91f8-4432-8b50-98fc28555835")
-	)
-	(bus
-		(pts
-			(xy 62.23 154.94) (xy 62.23 172.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ea08114b-74ae-4bf1-8f35-ae0268f62788")
-	)
-	(bus
-		(pts
-			(xy 62.23 49.53) (xy 62.23 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ea6d4c55-b7fb-4f99-b61a-91759c07f9c8")
-	)
-	(wire
-		(pts
-			(xy 110.49 64.77) (xy 116.84 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eff21317-4682-4ad8-9885-6dc357e38bde")
-	)
-	(wire
-		(pts
-			(xy 116.84 27.94) (xy 116.84 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f49b0a60-b1fd-4e0c-bf3c-f0fe20654091")
-	)
-	(wire
-		(pts
-			(xy 64.77 191.77) (xy 91.44 191.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fd2420c2-0133-43f9-820c-699cc9f3f387")
-	)
-	(label "Band.30m"
-		(at 76.2 105.41 0)
+	(hierarchical_label "AntRx"
+		(shape input)
+		(at 222.25 116.84 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right)
 		)
-		(uuid "205b911e-5014-4a2d-9817-395cd0d56177")
-	)
-	(label "Band.12m"
-		(at 76.2 175.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "34834eb2-aea5-463a-bb20-cb52a3bc4227")
-	)
-	(label "Band.20m"
-		(at 76.2 123.19 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "6a1356b1-92c6-4f2a-977a-0fcf5fbeeca5")
-	)
-	(label "Band.15m"
-		(at 76.2 157.48 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a3e22548-89cc-45c5-8c70-8cae713f10a6")
-	)
-	(label "Band.160m"
-		(at 76.2 34.29 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a4bf39ef-9c33-433d-89b9-76761fbb346c")
-	)
-	(label "Band.60m"
-		(at 76.2 69.85 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a6eb9aaf-0168-4207-af9a-3daa29a823ae")
-	)
-	(label "Band.17m"
-		(at 76.2 139.7 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b2c6cff6-fe6c-4af7-b011-203f5c526d34")
-	)
-	(label "Band.80m"
-		(at 76.2 52.07 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "dde4aa4f-9cb1-4d52-8866-df357646aa9e")
-	)
-	(label "Band.40m"
-		(at 76.2 87.63 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ddf26997-aa45-4557-b5c5-7ce0cf4cc1bb")
-	)
-	(label "Band.10m"
-		(at 76.2 191.77 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fcb841c7-d9b0-40c7-9756-a28be844119a")
+		(uuid "0aa8cfa9-03ab-4446-ab92-81819228733a")
 	)
 	(hierarchical_label "AntTx"
 		(shape input)
-		(at 22.86 69.85 0)
+		(at 222.25 120.65 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "0b44e372-3321-49bc-8cbb-084a743b3283")
 	)
+	(hierarchical_label "TxRelay"
+		(shape input)
+		(at 218.44 81.28 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2b0d51bd-7449-426a-aa3c-557cb2f15369")
+	)
 	(hierarchical_label "TxEnable"
 		(shape input)
-		(at 31.75 54.61 180)
+		(at 27.94 24.13 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -935,31 +782,9 @@
 		)
 		(uuid "3217e3aa-0c3d-484e-bd32-c5d390ea4013")
 	)
-	(hierarchical_label "AntRx"
-		(shape output)
-		(at 24.13 45.72 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "5fb18d56-c406-46d2-9adf-f04ee43e93e6")
-	)
-	(hierarchical_label "Band{Band}"
-		(shape input)
-		(at 58.42 194.31 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "95c4d2b1-8c60-4a36-a80e-75df267c644a")
-	)
 	(hierarchical_label "AntVSWR"
 		(shape output)
-		(at 22.86 78.74 0)
+		(at 20.32 26.67 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -968,190 +793,20 @@
 		)
 		(uuid "c484e0a6-8275-403f-88c9-17d1683f25ab")
 	)
-	(hierarchical_label "AntRx"
-		(shape input)
-		(at 60.96 27.94 180)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
+		(at 231.14 85.09 90)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left bottom)
 		)
-		(uuid "f5905b45-e1aa-469a-85e7-bf05c5dc31e3")
-	)
-	(sheet
-		(at 91.44 115.57)
-		(size 19.05 10.16)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "10316f80-2a51-45f2-9a70-65c0e863912d")
-		(property "Sheetname" "BPF6"
-			(at 88.9 114.808 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "BPF.kicad_sch"
-			(at 91.44 119.9646 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "CC1" "62pF"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT1" "300nH"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT1" "270pF"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC2" "24pF"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "title" "20m BPF"
-			(at 105.918 113.792 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-				)
-			)
-		)
-		(property "LT2" "300nH"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT2" "270pF"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC3" "24pF"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT3" "300nH"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT3" "270pF"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC4" "62pF"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ctune2" "60pF"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa1" "39pF"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa2" "DNP"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa3" "39pF"
-			(at 91.44 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "BPFIn" input
-			(at 91.44 118.11 180)
-			(uuid "44830202-7223-4ce7-8b71-09b260003ffa")
+		(uuid "40dd0bad-2084-4488-a74a-e29dd5274fed")
+		(property "Netclass" "PowerRF"
+			(at 228.6 84.3915 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1159,1049 +814,29 @@
 				(justify left)
 			)
 		)
-		(pin "BPFOut" output
-			(at 110.49 118.11 0)
-			(uuid "dd9017c0-a47f-4d5b-96c2-d0f1336af486")
+		(property "Component Class" ""
+			(at 367.03 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "Enable" input
-			(at 91.44 123.19 180)
-			(uuid "acc96ba1-dac6-4285-aa9b-6f7d12e27b16")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/1ffb1160-1891-4fab-821d-83a4f4ddba5b"
-					(page "13")
+					(italic yes)
 				)
 			)
 		)
 	)
-	(sheet
-		(at 91.44 149.86)
-		(size 19.05 10.16)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "21fa549d-d296-4f25-917b-3728bb2bb0e6")
-		(property "Sheetname" "BPF8"
-			(at 89.408 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "BPF.kicad_sch"
-			(at 91.44 154.2546 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "CC1" "68pF"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT1" "82nH"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT1" "620pF"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC2" "36pF"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "title" "15m BPF"
-			(at 105.918 148.336 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-				)
-			)
-		)
-		(property "LT2" "82nH"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT2" "620pF"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC3" "36pF"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT3" "82nH"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT3" "620pF"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC4" "68pF"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ctune2" "60pF"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa1" "DNP"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa2" "DNP"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa3" "DNP"
-			(at 91.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "BPFIn" input
-			(at 91.44 152.4 180)
-			(uuid "e6205491-d702-4b86-85a7-c17e81b1a1a5")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "BPFOut" output
-			(at 110.49 152.4 0)
-			(uuid "91c78ae2-8549-4fe8-a642-8fcd5bc25caa")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "Enable" input
-			(at 91.44 157.48 180)
-			(uuid "449a79f0-4fb3-4fff-a238-edd8203e7eda")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/1ffb1160-1891-4fab-821d-83a4f4ddba5b"
-					(page "15")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 91.44 25.4)
-		(size 19.05 11.43)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "2c47d288-2a68-43b8-918a-fa74b592e58c")
-		(property "Sheetname" "BPF1"
-			(at 89.154 24.638 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "BPF.kicad_sch"
-			(at 91.44 29.7946 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "CC1" "1500pF"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "title" "160m BPF"
-			(at 104.648 23.876 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-				)
-			)
-		)
-		(property "LT1" "500nH"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT2" "500nH"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT3" "500nH"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC2" "1000pF"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT1" "11nF"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT2" "11nF"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT3" "11nF"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC3" "1000pF"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC4" "1500pF"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ctune2" "120pF"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa1" "180pF"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa2" "820pF"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa3" "180pF"
-			(at 91.44 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "BPFIn" input
-			(at 91.44 27.94 180)
-			(uuid "f44087e5-a05a-46f6-942a-b1c01d2eb991")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "BPFOut" output
-			(at 110.49 27.94 0)
-			(uuid "5a8ef157-ae33-4cb4-bc94-345528869ccf")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "Enable" input
-			(at 91.44 34.29 180)
-			(uuid "867ebd9b-21cc-4c2f-b41d-a82d03bc269f")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/1ffb1160-1891-4fab-821d-83a4f4ddba5b"
-					(page "8")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 91.44 62.23)
-		(size 19.05 10.16)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "30cc1af8-e416-41be-a1f5-5605b156ce2f")
-		(property "Sheetname" "BPF3"
-			(at 91.44 61.5184 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sheetfile" "BPF.kicad_sch"
-			(at 91.44 66.6246 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "CC1" "330pF"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT1" "300nH"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT1" "2400pF"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC2" "200pF"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "title" "60m BPF"
-			(at 103.886 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-				)
-			)
-		)
-		(property "LT2" "300nH"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT2" "2400pF"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC3" "200pF"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT3" "300nH"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT3" "2400pF"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC4" "330pF"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ctune2" "120pF"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa1" "200pF"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa2" "180pF"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa3" "200pF"
-			(at 91.44 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "BPFIn" input
-			(at 91.44 64.77 180)
-			(uuid "68c202de-fb21-40b2-baab-74d7e62a45b3")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "BPFOut" output
-			(at 110.49 64.77 0)
-			(uuid "7d9df825-a95b-4382-a7c3-5b26b267ebc7")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "Enable" input
-			(at 91.44 69.85 180)
-			(uuid "ce23c425-451c-4d4f-87fa-671e53723640")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/1ffb1160-1891-4fab-821d-83a4f4ddba5b"
-					(page "10")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 91.44 80.01)
-		(size 19.05 10.16)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "3627ee59-86bf-457c-a7c4-91c03f4ee680")
-		(property "Sheetname" "BPF4"
-			(at 88.646 79.502 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "BPF.kicad_sch"
-			(at 91.44 84.4046 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "CC1" "180pF"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT1" "300nH"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT1" "1300pF"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC2" "91pF"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "title" "40m BPF"
-			(at 103.378 78.486 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-				)
-			)
-		)
-		(property "LT2" "300nH"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT2" "1300pF"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC3" "91pF"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT3" "300nH"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT3" "1300pF"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC4" "180pF"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ctune2" "120pF"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa1" "82pF"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa2" "82pF"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa3" "82pF"
-			(at 91.44 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "BPFIn" input
-			(at 91.44 82.55 180)
-			(uuid "f1cff230-b027-47cd-bdfd-04f8ea653db9")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "BPFOut" output
-			(at 110.49 82.55 0)
-			(uuid "82d0d0da-3c89-4420-9b69-aad89b63187b")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "Enable" input
-			(at 91.44 87.63 180)
-			(uuid "e2f11211-f828-4445-99b1-a80a5d66e8fb")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/1ffb1160-1891-4fab-821d-83a4f4ddba5b"
-					(page "11")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 91.44 44.45)
-		(size 19.05 10.16)
+	(symbol
+		(lib_id "Relay:G5Q-1")
+		(at 226.06 95.25 0)
+		(mirror x)
+		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "3b3a2c99-e323-45ff-bfe4-1e7b718b47d8")
-		(property "Sheetname" "BPF2"
-			(at 91.44 43.7384 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "BPF.kicad_sch"
-			(at 91.44 55.1946 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "CC1" "820pF"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT1" "300nH"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT2" "300nH"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT3" "300nH"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "title" "80m BPF"
-			(at 104.648 42.926 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-				)
-			)
-		)
-		(property "CC2" "560pF"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT1" "4700pF"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT2" "4700pF"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT3" "4700pF"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC3" "560pF"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC4" "820pF"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ctune2" "120pF"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa1" "330pF"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa2" "68pF"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa3" "330pF"
-			(at 91.44 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "BPFIn" input
-			(at 91.44 46.99 180)
-			(uuid "05b8c2e3-8d5f-41ae-8ff5-e1204f25c014")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "BPFOut" output
-			(at 110.49 46.99 0)
-			(uuid "72c3efc7-55c2-4674-b24f-bc15de6d668c")
+		(uuid "11ee5c63-4a94-41ef-a559-02cd489f8974")
+		(property "Reference" "K701"
+			(at 214.63 93.9799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2209,60 +844,96 @@
 				(justify right)
 			)
 		)
-		(pin "Enable" input
-			(at 91.44 52.07 180)
-			(uuid "99e84e66-27c0-4fa7-8ada-ab9df63911e0")
+		(property "Value" "G5Q-1"
+			(at 214.63 96.5199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Relay_THT:Relay_SPDT_Omron-G5Q-1"
+			(at 237.49 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
+		(property "Datasheet" "https://www.omron.com/ecb/products/pdf/en-g5q.pdf"
+			(at 226.06 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "Omron G5G relay, Miniature Single Pole, SPDT, 10A"
+			(at 226.06 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ed2e6e8b-ffec-4673-932f-29f717855712")
+		)
+		(pin "3"
+			(uuid "5e83fe6f-fc75-44b6-8ab1-7b6d31fb57bd")
+		)
+		(pin "5"
+			(uuid "5737f4cc-df65-4ac1-bc5c-b509b07ec70a")
+		)
+		(pin "1"
+			(uuid "b1d74dc3-5c79-4384-abc8-92ad3cce56c5")
+		)
+		(pin "4"
+			(uuid "2ef7f4d4-7a42-4853-9cf2-f3c7ea69db05")
+		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project ""
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/1ffb1160-1891-4fab-821d-83a4f4ddba5b"
-					(page "9")
+					(reference "K701")
+					(unit 1)
 				)
 			)
 		)
 	)
-	(sheet
-		(at 91.44 97.79)
-		(size 19.05 10.16)
+	(symbol
+		(lib_id "Connector:Conn_Coaxial_Power")
+		(at 237.49 77.47 90)
+		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "497540f8-78f3-4ef4-a3f6-35296d7462e0")
-		(property "Sheetname" "BPF5"
-			(at 89.408 96.52 0)
+		(fields_autoplaced yes)
+		(uuid "86422c65-e320-4c73-a723-b60e0e9414b6")
+		(property "Reference" "J701"
+			(at 239.014 71.12 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "BPF.kicad_sch"
-			(at 91.44 102.1846 0)
+		(property "Value" "Conn_Coaxial_Power"
+			(at 239.014 73.66 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left top)
-				(hide yes)
 			)
 		)
-		(property "CC1" "91pF"
-			(at 91.44 97.79 0)
+		(property "Footprint" "Connector_Coaxial:SMA_Amphenol_132289_EdgeMount"
+			(at 238.76 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2270,8 +941,8 @@
 				(hide yes)
 			)
 		)
-		(property "LT1" "300nH"
-			(at 91.44 97.79 0)
+		(property "Datasheet" "~"
+			(at 238.76 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2279,8 +950,8 @@
 				(hide yes)
 			)
 		)
-		(property "CT1" "680pF"
-			(at 91.44 97.79 0)
+		(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
+			(at 237.49 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2288,189 +959,33 @@
 				(hide yes)
 			)
 		)
-		(property "CC2" "33pF"
-			(at 91.44 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
+		(pin "1"
+			(uuid "f7ed8442-127a-4ea1-953f-13f5c885b3a6")
 		)
-		(property "title" "30m BPF"
-			(at 105.918 96.266 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-				)
-			)
-		)
-		(property "LT2" "300nH"
-			(at 91.44 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT2" "680pF"
-			(at 91.44 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC3" "33pF"
-			(at 91.44 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT3" "300nH"
-			(at 91.44 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT3" "680pF"
-			(at 91.44 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC4" "91pF"
-			(at 91.44 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ctune2" "60pF"
-			(at 91.44 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa1" "18pF"
-			(at 91.44 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa2" "47pF"
-			(at 91.44 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa3" "18pF"
-			(at 91.44 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "BPFIn" input
-			(at 91.44 100.33 180)
-			(uuid "90a26942-224a-4b11-8a83-a890c25641ec")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "BPFOut" output
-			(at 110.49 100.33 0)
-			(uuid "d0f90e1f-5afd-43c7-adff-d23e9770eab1")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "Enable" input
-			(at 91.44 105.41 180)
-			(uuid "de4a407e-c411-4fb6-9c11-20da3ab01f8b")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
+		(pin "2"
+			(uuid "a862d5a0-0905-40c6-870d-4b5e49135bb0")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project ""
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/1ffb1160-1891-4fab-821d-83a4f4ddba5b"
-					(page "12")
+					(reference "J701")
+					(unit 1)
 				)
 			)
 		)
 	)
-	(sheet
-		(at 91.44 132.08)
-		(size 19.05 10.16)
+	(symbol
+		(lib_id "power:GND")
+		(at 220.98 105.41 0)
+		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "6ba9ed59-3ec3-4f69-a67e-b49ca49a4198")
-		(property "Sheetname" "BPF7"
-			(at 89.662 131.318 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "BPF.kicad_sch"
-			(at 91.44 136.4746 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "CC1" "24pF"
-			(at 91.44 132.08 0)
+		(fields_autoplaced yes)
+		(uuid "8f152fb8-170b-47fb-87fb-31127121abc0")
+		(property "Reference" "#PWR0702"
+			(at 220.98 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2478,8 +993,16 @@
 				(hide yes)
 			)
 		)
-		(property "LT1" "82nH"
-			(at 91.44 132.08 0)
+		(property "Value" "GND"
+			(at 220.98 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 220.98 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2487,8 +1010,8 @@
 				(hide yes)
 			)
 		)
-		(property "CT1" "910pF"
-			(at 91.44 132.08 0)
+		(property "Datasheet" ""
+			(at 220.98 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2496,8 +1019,8 @@
 				(hide yes)
 			)
 		)
-		(property "CC2" "18pF"
-			(at 91.44 132.08 0)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 220.98 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2505,180 +1028,30 @@
 				(hide yes)
 			)
 		)
-		(property "title" "17m BPF"
-			(at 104.14 130.302 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-				)
-			)
-		)
-		(property "LT2" "82nH"
-			(at 91.44 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT2" "820pF"
-			(at 91.44 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC3" "18pF"
-			(at 91.44 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT3" "82nH"
-			(at 91.44 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT3" "910pF"
-			(at 91.44 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC4" "24pF"
-			(at 91.44 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ctune2" "120pF"
-			(at 91.44 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa1" "24pF"
-			(at 91.44 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa2" "47pF"
-			(at 91.44 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa3" "24pF"
-			(at 91.44 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "BPFIn" input
-			(at 91.44 134.62 180)
-			(uuid "03bcf039-57b8-4938-afa3-14745fbfcb15")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "BPFOut" output
-			(at 110.49 134.62 0)
-			(uuid "644df866-b189-4b44-914e-aac5bb2a87d7")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "Enable" input
-			(at 91.44 139.7 180)
-			(uuid "852f27f7-3bb1-4244-9c61-4a2497ed27d3")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
+		(pin "1"
+			(uuid "f58834aa-069a-49d6-b3b8-1135cec3db99")
 		)
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/1ffb1160-1891-4fab-821d-83a4f4ddba5b"
-					(page "14")
+					(reference "#PWR0702")
+					(unit 1)
 				)
 			)
 		)
 	)
-	(sheet
-		(at 91.44 184.15)
-		(size 19.05 10.16)
+	(symbol
+		(lib_id "power:GND")
+		(at 248.92 81.28 0)
+		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "90a2553f-e5d9-463d-b4a1-b25e66199157")
-		(property "Sheetname" "BPF10"
-			(at 89.662 183.388 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "BPF.kicad_sch"
-			(at 91.44 188.5446 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "CC1" "47pF"
-			(at 91.44 184.15 0)
+		(fields_autoplaced yes)
+		(uuid "a00d1920-8820-48e3-9a70-1a1e9d7c9779")
+		(property "Reference" "#PWR0701"
+			(at 248.92 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2686,8 +1059,16 @@
 				(hide yes)
 			)
 		)
-		(property "LT1" "47nH"
-			(at 91.44 184.15 0)
+		(property "Value" "GND"
+			(at 248.92 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 248.92 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2695,8 +1076,8 @@
 				(hide yes)
 			)
 		)
-		(property "CT1" "560pF"
-			(at 91.44 184.15 0)
+		(property "Datasheet" ""
+			(at 248.92 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2704,8 +1085,8 @@
 				(hide yes)
 			)
 		)
-		(property "CC2" "24pF"
-			(at 91.44 184.15 0)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 248.92 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2713,348 +1094,14 @@
 				(hide yes)
 			)
 		)
-		(property "title" "10m BPF"
-			(at 104.14 182.372 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-				)
-			)
-		)
-		(property "LT2" "47nH"
-			(at 91.44 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT2" "510pF"
-			(at 91.44 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC3" "24pF"
-			(at 91.44 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT3" "47nH"
-			(at 91.44 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT3" "560pF"
-			(at 91.44 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC4" "47pF"
-			(at 91.44 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa1" "27pF"
-			(at 91.44 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa2" "27pF"
-			(at 91.44 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa3" "27pF"
-			(at 91.44 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ctune2" "60pF"
-			(at 91.44 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "BPFIn" input
-			(at 91.44 186.69 180)
-			(uuid "81915aa2-5bdc-4cc0-83a0-341288c51d49")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "BPFOut" output
-			(at 110.49 186.69 0)
-			(uuid "e0318897-1251-4f60-8d1c-53d27cb85d85")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "Enable" input
-			(at 91.44 191.77 180)
-			(uuid "5dd7d3f5-01cf-4c97-9675-5ec398b4ee1e")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
+		(pin "1"
+			(uuid "7465b06b-8a27-4721-8b1b-0e24a64d6945")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project ""
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/1ffb1160-1891-4fab-821d-83a4f4ddba5b"
-					(page "17")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 91.44 167.64)
-		(size 19.05 10.16)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "bf3aa6d8-3415-4411-a7e2-df56f25f2b45")
-		(property "Sheetname" "BPF9"
-			(at 88.9 166.878 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "BPF.kicad_sch"
-			(at 91.44 172.0346 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "CC1" "39pF"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT1" "47nH"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT1" "820pF"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC2" "15pF"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "title" "12m BPF"
-			(at 105.918 165.862 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-				)
-			)
-		)
-		(property "LT2" "47nH"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT2" "820pF"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC3" "15pF"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LT3" "47nH"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CT3" "820pF"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CC4" "39pF"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa1" "DNP"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa2" "DNP"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "CTa3" "DNP"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ctune2" "60pF"
-			(at 91.44 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "BPFIn" input
-			(at 91.44 170.18 180)
-			(uuid "0d281715-6a89-401d-a915-059e840eefb1")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "BPFOut" output
-			(at 110.49 170.18 0)
-			(uuid "9eebb709-966e-4696-94cf-3b28e1ae1744")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "Enable" input
-			(at 91.44 175.26 180)
-			(uuid "ef904865-1254-4019-ad14-96e6290a697d")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/1ffb1160-1891-4fab-821d-83a4f4ddba5b"
-					(page "16")
+					(reference "#PWR0701")
+					(unit 1)
 				)
 			)
 		)

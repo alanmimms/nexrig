@@ -155,6 +155,30 @@ automatically compensate for power amplifier nonlinearities and
 maintain excellent signal quality across all power levels and
 modulation types.
 
+# Transmit/Receive Switching
+When the transceiver is in receive mode, the antenna signal is coupled
+to the input of the selected band's receive bandpass filter, which
+then provides an input to the GALI-74+ LNA and thence to the Tayloe
+detector.
+
+When in transmit mode, the receiver path is used to acquire a sample
+of the transmitted signal -- much attenuated -- so that Digital
+Pre-Distortion (DPD) and other calibrations can be calculated. This
+requires the receiver path to be disconnected from the antenna. The
+GALI-74+ LNA's input is instead provided in this case from the
+transmitter sampling attenuator (500k:50 ohm resistor divider). During
+receive mode this divider is disconnected so it doesn't add noise to
+the very small incoming antenna signal.
+
+# Master Clock TCXO
+The FPGA is driven by a 30MHz master temperature compensated clock
+oscillator. This produces a "clipped sine wave" signal, but the FPGA
+input pin receiving the clock is configured as a schmitt triggered
+input pin, which cleans that lazy sine wave right up. From this
+frequency all of the other clocks for the board are derived, and,
+particularly, the transmit and receive VFO and the STM32 clock.
+
+
 ### Development Standards and Practices
 
 The project maintains consistent coding standards across both embedded

@@ -11363,6 +11363,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 58.42) (xy 139.7 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "376cd71d-6110-4237-a14a-25b2d21f310b")
+	)
+	(wire
+		(pts
 			(xy 134.62 158.75) (xy 133.35 158.75)
 		)
 		(stroke
@@ -12343,6 +12353,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 30.48) (xy 139.7 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f1df968-cabb-4b41-b485-b43ef86a3a39")
+	)
+	(wire
+		(pts
 			(xy 80.01 111.76) (xy 77.47 111.76)
 		)
 		(stroke
@@ -13291,16 +13311,6 @@
 		)
 		(uuid "5d365588-065f-4c38-8166-c44710fd16cf")
 	)
-	(label "TxEnv.NSS"
-		(at 175.26 38.1 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "607248c2-80d8-4474-914f-d3b1056d6635")
-	)
 	(label "Band.40m"
 		(at 34.29 88.9 180)
 		(effects
@@ -13370,16 +13380,6 @@
 			(justify left bottom)
 		)
 		(uuid "7683b915-e55a-491d-9134-81f16ec02118")
-	)
-	(label "CPUCLK"
-		(at 78.74 38.1 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "793aadb5-9bf1-4a44-b8aa-9f653126aaec")
 	)
 	(label "USBD7"
 		(at 38.1 170.18 180)
@@ -13521,16 +13521,6 @@
 		)
 		(uuid "a94c7464-54b7-41d3-a489-95ffeb53168a")
 	)
-	(label "TxEnv.MOSI"
-		(at 175.26 43.18 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ad5e70b7-1313-4885-bb3e-af014613dec9")
-	)
 	(label "USBD6"
 		(at 38.1 162.56 180)
 		(effects
@@ -13651,16 +13641,6 @@
 		)
 		(uuid "d65670ef-4864-4bf5-adcf-9055cfd4a9cb")
 	)
-	(label "TxEnv.MISO"
-		(at 175.26 40.64 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d9f1a36d-799a-43de-b5f1-7fba0127fb84")
-	)
 	(label "USBD5"
 		(at 38.1 160.02 180)
 		(effects
@@ -13710,16 +13690,6 @@
 			(justify left bottom)
 		)
 		(uuid "f0ebf45a-b337-41a5-a1b6-c4e85bb9a3bb")
-	)
-	(label "TxEnv.SCK"
-		(at 175.26 33.02 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f32ef05b-16ec-4749-8de3-e4662b45f032")
 	)
 	(label "PAtankSel.C4"
 		(at 175.26 81.28 0)
@@ -13794,6 +13764,28 @@
 			(justify left)
 		)
 		(uuid "25ad7287-1b57-42be-a461-e4bd045c9313")
+	)
+	(hierarchical_label "STM32clock"
+		(shape input)
+		(at 78.74 38.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2b998575-b035-427a-aeae-ecf4577119ae")
+	)
+	(hierarchical_label "TxAmplitude"
+		(shape output)
+		(at 138.43 30.48 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2ce4fbd8-569f-4047-8420-51c8c186e34a")
 	)
 	(hierarchical_label "ControlSCL"
 		(shape bidirectional)
@@ -13904,6 +13896,17 @@
 			(justify left)
 		)
 		(uuid "c807dd20-2c66-4cd7-a05a-3c05d860e3f6")
+	)
+	(hierarchical_label "TxPGOOD"
+		(shape input)
+		(at 138.43 58.42 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ce41e00e-b7eb-4c67-8d97-74ec642d8c4b")
 	)
 	(hierarchical_label "TxEnable"
 		(shape output)
