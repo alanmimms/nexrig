@@ -1818,6 +1818,16 @@
 		)
 		(uuid "84da8d1f-de27-455d-af68-e412fbba65a9")
 	)
+	(wire
+		(pts
+			(xy 60.96 99.06) (xy 66.04 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "93136cba-04cf-477b-bc34-fce5a45c3282")
+	)
 	(bus
 		(pts
 			(xy 60.96 81.28) (xy 66.04 81.28)
@@ -2232,6 +2242,17 @@
 			(justify right)
 		)
 		(uuid "f2ea8eb9-3ff1-4713-bd27-634438117aa7")
+	)
+	(hierarchical_label "CDONE"
+		(shape output)
+		(at 60.96 99.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fac4b53c-3d5c-4733-a5ce-08b4a7af9543")
 	)
 	(netclass_flag ""
 		(length 2.54)
@@ -3614,6 +3635,16 @@
 		(pin "STM32clock" output
 			(at 66.04 96.52 180)
 			(uuid "2751ba21-b489-4bf1-88e8-67a31bc652fd")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CDONE" output
+			(at 66.04 99.06 180)
+			(uuid "606ba0c3-ec05-482f-8942-b98696d98753")
 			(effects
 				(font
 					(size 1.27 1.27)
