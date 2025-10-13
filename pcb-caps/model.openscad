@@ -1,0 +1,37 @@
+// ==============
+// == Parameters ==
+// ==============
+// You can change these values to update the model.
+
+shaftOuterDiameter = 10;   // [mm] Outer diameter of the Delrin shaft
+shaftInnerDiameter = 5;    // [mm] Diameter of the inner brass core
+shaftLength = 50;          // [mm] Total length of the shaft (placeholder)
+
+// This value controls the smoothness of the curves.
+$fn = 100;
+
+
+// ===========
+// == Model ==
+// ===========
+
+// 1. Delrin Outer Shaft
+// We make the Delrin part semi-transparent to see the brass core inside.
+color("WhiteSmoke", alpha = 0.6) {
+    
+    // Create a solid cylinder and then subtract the inner hole from it.
+    difference() {
+        // The main Delrin cylinder
+        cylinder(h = shaftLength, d = shaftOuterDiameter, center = true);
+        
+        // The hole for the brass core.
+        // It's made slightly taller to ensure a clean boolean subtraction.
+        cylinder(h = shaftLength + 0.02, d = shaftInnerDiameter, center = true);
+    }
+}
+
+// 2. Brass Inner Core
+// This is rendered as a separate part so it has its own color.
+color("Gold") {
+    cylinder(h = shaftLength, d = shaftInnerDiameter, center = true);
+}
