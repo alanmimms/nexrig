@@ -1690,16 +1690,6 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 92.71) (xy 66.04 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3537b894-1880-48cc-9e8d-29d36629eb59")
-	)
-	(wire
-		(pts
 			(xy 92.71 85.09) (xy 110.49 85.09)
 		)
 		(stroke
@@ -1798,6 +1788,26 @@
 		)
 		(uuid "7df1c413-d657-4568-9d9d-1dd0510f7197")
 	)
+	(bus
+		(pts
+			(xy 60.96 96.52) (xy 66.04 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80e4154d-eedb-41f9-8989-e1421b49f82c")
+	)
+	(bus
+		(pts
+			(xy 60.96 93.98) (xy 66.04 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "810bb7ed-1540-4016-a540-17a0be86a0f8")
+	)
 	(wire
 		(pts
 			(xy 226.06 73.66) (xy 240.03 73.66)
@@ -1810,7 +1820,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 99.06) (xy 66.04 99.06)
+			(xy 60.96 104.14) (xy 66.04 104.14)
 		)
 		(stroke
 			(width 0)
@@ -1890,7 +1900,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 96.52) (xy 66.04 96.52)
+			(xy 60.96 101.6) (xy 66.04 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1948,6 +1958,16 @@
 		)
 		(uuid "e105a0bd-5ce3-4ede-964c-89140ab64744")
 	)
+	(bus
+		(pts
+			(xy 60.96 91.44) (xy 66.04 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e19480f2-b7b8-4d9b-9432-39f0cb7f1f5d")
+	)
 	(wire
 		(pts
 			(xy 137.16 92.71) (xy 137.16 91.44)
@@ -1987,16 +2007,6 @@
 			(type default)
 		)
 		(uuid "ef4fa18c-7f86-49de-b9c6-ec63a44e965f")
-	)
-	(wire
-		(pts
-			(xy 60.96 90.17) (xy 66.04 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "efc0575e-caad-42b0-8b4a-c1362557affd")
 	)
 	(wire
 		(pts
@@ -2048,6 +2058,17 @@
 		)
 		(uuid "deda2e5b-6283-4f0f-81b3-a1a0b77c9dda")
 	)
+	(hierarchical_label "{QSD2phases}"
+		(shape output)
+		(at 60.96 96.52 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "06c34e6d-eb14-4cb8-812f-b8cd97ad91ca")
+	)
 	(hierarchical_label "TxSample"
 		(shape output)
 		(at 240.03 85.09 0)
@@ -2070,6 +2091,17 @@
 		)
 		(uuid "1993be33-7610-4ea5-a26f-3447485fe4e6")
 	)
+	(hierarchical_label "{QSD1phases}"
+		(shape output)
+		(at 60.96 93.98 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "256e04ff-0adb-472d-ba8e-ffa7fb7d47c7")
+	)
 	(hierarchical_label "PAtankSel"
 		(shape input)
 		(at 190.5 116.84 180)
@@ -2081,9 +2113,20 @@
 		)
 		(uuid "25f52352-2f4e-43ce-84e3-1c6ca0b62982")
 	)
+	(hierarchical_label "{QSD0phases}"
+		(shape output)
+		(at 60.96 91.44 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3d2ff812-e1b4-4c7e-882e-32b9c87e9748")
+	)
 	(hierarchical_label "STM32clock"
 		(shape output)
-		(at 60.96 96.52 180)
+		(at 60.96 101.6 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2091,17 +2134,6 @@
 			(justify right)
 		)
 		(uuid "59728a82-0cc4-422e-a9c9-611d3dd7d844")
-	)
-	(hierarchical_label "RxPh1"
-		(shape output)
-		(at 60.96 92.71 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "831c3401-a019-4bf8-88af-704f25184d72")
 	)
 	(hierarchical_label "TxOut"
 		(shape output)
@@ -2147,17 +2179,6 @@
 		)
 		(uuid "c8fbc9e2-0f03-4b51-a6e1-60c4ef688060")
 	)
-	(hierarchical_label "RxPh0"
-		(shape output)
-		(at 60.96 90.17 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "cf3bb909-a299-4c2b-af51-330aa4d57035")
-	)
 	(hierarchical_label "Band"
 		(shape input)
 		(at 190.5 67.31 180)
@@ -2182,7 +2203,7 @@
 	)
 	(hierarchical_label "CDONE"
 		(shape output)
-		(at 60.96 99.06 180)
+		(at 60.96 104.14 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3990,7 +4011,7 @@
 	)
 	(sheet
 		(at 66.04 78.74)
-		(size 26.67 22.86)
+		(size 26.67 27.94)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -4004,7 +4025,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "068cc90c-d1ce-4b82-ba62-fdba2623f1f6")
-		(property "Sheetname" "Tx FPGA"
+		(property "Sheetname" "FPGA"
 			(at 66.04 78.0284 0)
 			(effects
 				(font
@@ -4014,7 +4035,7 @@
 			)
 		)
 		(property "Sheetfile" "tx-fpga.kicad_sch"
-			(at 66.04 102.1846 0)
+			(at 66.04 107.2646 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4053,28 +4074,8 @@
 				(justify right)
 			)
 		)
-		(pin "RxPh0" output
-			(at 66.04 90.17 180)
-			(uuid "b5ac8d64-c40f-4a6a-9891-3b3aa5e6aead")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "RxPh1" output
-			(at 66.04 92.71 180)
-			(uuid "d2d61efa-09aa-447e-abc3-3a1f9cc7f504")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "STM32clock" output
-			(at 66.04 96.52 180)
+			(at 66.04 101.6 180)
 			(uuid "2751ba21-b489-4bf1-88e8-67a31bc652fd")
 			(effects
 				(font
@@ -4084,8 +4085,38 @@
 			)
 		)
 		(pin "CDONE" output
-			(at 66.04 99.06 180)
+			(at 66.04 104.14 180)
 			(uuid "606ba0c3-ec05-482f-8942-b98696d98753")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "{QSD0phases}" output
+			(at 66.04 91.44 180)
+			(uuid "8d575a4e-0f35-4830-8a1a-81e8c82cd137")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "{QSD1phases}" output
+			(at 66.04 93.98 180)
+			(uuid "9c2ac769-3d5b-4dba-ad6f-bcd5d75d7305")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "{QSD2phases}" output
+			(at 66.04 96.52 180)
+			(uuid "c16f043f-312f-4cd2-acaa-ccbe42ebc228")
 			(effects
 				(font
 					(size 1.27 1.27)

@@ -358,6 +358,16 @@
 		)
 		(uuid "92c57cd0-26ac-4026-9c4e-621fd70d4a52")
 	)
+	(bus
+		(pts
+			(xy 82.55 69.85) (xy 82.55 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "97002148-9ddd-4a8b-85b8-4de2cd77966b")
+	)
 	(wire
 		(pts
 			(xy 182.88 39.37) (xy 208.28 39.37)
@@ -410,6 +420,16 @@
 	)
 	(bus
 		(pts
+			(xy 87.63 69.85) (xy 87.63 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad8f2e48-3419-44ea-8ea3-2af9721921d8")
+	)
+	(bus
+		(pts
 			(xy 109.22 96.52) (xy 208.28 96.52)
 		)
 		(stroke
@@ -440,7 +460,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.534 69.85) (xy 81.534 93.98)
+			(xy 78.74 69.85) (xy 78.74 93.98)
 		)
 		(stroke
 			(width 0)
@@ -478,15 +498,15 @@
 		)
 		(uuid "bfaee79e-ebcb-4da4-b34d-53e22152c43e")
 	)
-	(wire
+	(bus
 		(pts
-			(xy 87.884 93.98) (xy 87.884 69.85)
+			(xy 85.09 69.85) (xy 85.09 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "cbf8386b-22be-48db-9c3e-b905aee8be88")
+		(uuid "c1841627-e520-4cc1-9c0f-8016374d31ac")
 	)
 	(wire
 		(pts
@@ -608,16 +628,6 @@
 		)
 		(uuid "f57d48f9-d0b6-4ff5-a04d-cb3fde7537df")
 	)
-	(wire
-		(pts
-			(xy 85.344 69.85) (xy 85.344 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fac810cd-bdd0-4e23-ac5e-f3adf59b3d48")
-	)
 	(sheet
 		(at 70.104 39.37)
 		(size 34.036 30.48)
@@ -693,28 +703,8 @@
 				(justify right)
 			)
 		)
-		(pin "RxPh0" input
-			(at 85.344 69.85 270)
-			(uuid "570a291c-7ee3-4be7-bb18-4837dd84ab4a")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "RxPh1" input
-			(at 87.884 69.85 270)
-			(uuid "3936bad0-5f74-45c4-94a8-bcc6694c7759")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "TxSample" input
-			(at 81.534 69.85 270)
+			(at 78.74 69.85 270)
 			(uuid "31ae95ab-5f24-40f9-b178-c1f7237576f1")
 			(effects
 				(font
@@ -751,6 +741,36 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(pin "{QSD0phases}" input
+			(at 82.55 69.85 270)
+			(uuid "a927e019-2e48-4288-96de-5421c53f3e5f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "{QSD1phases}" input
+			(at 85.09 69.85 270)
+			(uuid "d93a70c2-56eb-4952-bd5e-f163ad64550b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "{QSD2phases}" input
+			(at 87.63 69.85 270)
+			(uuid "87355c32-6bdf-4fc3-b67f-485bc27fb5a8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
@@ -930,28 +950,8 @@
 			)
 		)
 		(pin "TxSample" output
-			(at 81.534 93.98 90)
+			(at 78.74 93.98 90)
 			(uuid "24e01d6c-ebdd-4375-977c-54c85a475b16")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "RxPh0" output
-			(at 85.344 93.98 90)
-			(uuid "5f09a021-6691-4f1a-8345-98d9fb753b2f")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "RxPh1" output
-			(at 87.884 93.98 90)
-			(uuid "4bc08639-62c2-48ad-8d62-76eca4cc48d4")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -992,6 +992,36 @@
 		(pin "CDONE" output
 			(at 101.6 118.11 0)
 			(uuid "2b01d991-1844-49fa-9607-6189da98647c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "{QSD0phases}" output
+			(at 82.55 93.98 90)
+			(uuid "49aab2e9-91df-418d-9c94-555467989dc2")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "{QSD1phases}" output
+			(at 85.09 93.98 90)
+			(uuid "136a778a-e39d-4a49-90a6-793d982a4463")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "{QSD2phases}" output
+			(at 87.63 93.98 90)
+			(uuid "f224078c-1b35-450e-9557-3d2ec04c8043")
 			(effects
 				(font
 					(size 1.27 1.27)
