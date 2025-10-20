@@ -1871,15 +1871,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(bus_alias "QSD0phases"
-		(members "a" "b" "c" "d")
-	)
-	(bus_alias "QSD1phases"
-		(members "a" "b" "c" "d")
-	)
-	(bus_alias "QSD2phases"
-		(members "a" "b" "c" "d")
-	)
 	(text "Select output pin for PAgate signal\nto be physically close to UCC27511A\ngate driver chip."
 		(exclude_from_sim no)
 		(at 236.982 111.506 0)
@@ -2912,7 +2903,7 @@
 		)
 		(uuid "fd01a25e-aea4-48cf-84b7-51a6930f4415")
 	)
-	(label "QSD0phases.d"
+	(label "Ctrl.qsdPh2d"
 		(at 200.66 57.15 0)
 		(effects
 			(font
@@ -2922,7 +2913,7 @@
 		)
 		(uuid "165e1623-3904-4c14-a80a-7b72807125dd")
 	)
-	(label "QSD2phases.d"
+	(label "Ctrl.qsdPh2d"
 		(at 107.95 71.12 180)
 		(effects
 			(font
@@ -2932,7 +2923,7 @@
 		)
 		(uuid "1db46606-44b8-41da-91e5-73a178ceed42")
 	)
-	(label "QSD2phases.b"
+	(label "Ctrl.qsdPh2b"
 		(at 107.95 66.04 180)
 		(effects
 			(font
@@ -2942,7 +2933,7 @@
 		)
 		(uuid "1e7dcd35-2f52-47ab-8a45-2e5d199600c6")
 	)
-	(label "QSD0phases.c"
+	(label "Ctrl.qsdPh2c"
 		(at 200.66 54.61 0)
 		(effects
 			(font
@@ -2952,7 +2943,7 @@
 		)
 		(uuid "29e8b383-c91f-49c4-8248-705ca9ec5929")
 	)
-	(label "QSD2phases.a"
+	(label "Ctrl.qsdPh2a"
 		(at 107.95 63.5 180)
 		(effects
 			(font
@@ -2972,7 +2963,7 @@
 		)
 		(uuid "4af912b8-a912-40da-a4d6-3ecf2e6ace4a")
 	)
-	(label "QSD1phases.c"
+	(label "Ctrl.qsdPh2c"
 		(at 200.66 67.31 0)
 		(effects
 			(font
@@ -2982,7 +2973,7 @@
 		)
 		(uuid "4b58184e-5391-41aa-8037-db52830218de")
 	)
-	(label "QSD1phases.b"
+	(label "Ctrl.qsdPh2b"
 		(at 200.66 64.77 0)
 		(effects
 			(font
@@ -2992,7 +2983,7 @@
 		)
 		(uuid "69e86dc0-b36b-4a42-8810-e9a2750f821a")
 	)
-	(label "QSD1phases.d"
+	(label "Ctrl.qsdPh2d"
 		(at 200.66 69.85 0)
 		(effects
 			(font
@@ -3002,7 +2993,7 @@
 		)
 		(uuid "8de95451-05cd-4ef7-ab99-ced75d4a69bd")
 	)
-	(label "QSD1phases.a"
+	(label "Ctrl.qsdPh1a"
 		(at 200.66 62.23 0)
 		(effects
 			(font
@@ -3022,7 +3013,7 @@
 		)
 		(uuid "99bae5b0-3db9-425e-b331-ae0a837a1eb6")
 	)
-	(label "QSD2phases.c"
+	(label "Ctrl.qsdPh2c"
 		(at 107.95 68.58 180)
 		(effects
 			(font
@@ -3032,7 +3023,7 @@
 		)
 		(uuid "a47d21e7-a1f8-4958-bca3-856bf56e7b7f")
 	)
-	(label "QSD0phases.a"
+	(label "Ctrl.qsdPh0a"
 		(at 200.66 49.53 0)
 		(effects
 			(font
@@ -3052,7 +3043,7 @@
 		)
 		(uuid "b48395bf-7317-4a34-b75e-c44197edeb73")
 	)
-	(label "QSD.MCLK"
+	(label "Ctrl.MCLK"
 		(at 200.66 59.69 0)
 		(effects
 			(font
@@ -3062,7 +3053,7 @@
 		)
 		(uuid "b57fb36f-a1e2-4b2f-a2ca-2a73d38e4467")
 	)
-	(label "QSD0phases.b"
+	(label "Ctrl.qsdPh2b"
 		(at 200.66 52.07 0)
 		(effects
 			(font
@@ -3187,7 +3178,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "037bde03-a11d-4d46-b1cf-1c7e6fe7e4b1")
-		(property "Reference" "#PWR01301"
+		(property "Reference" "#PWR0601"
 			(at 40.64 68.58 0)
 			(effects
 				(font
@@ -3238,7 +3229,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01301")
+					(reference "#PWR0601")
 					(unit 1)
 				)
 			)
@@ -3253,7 +3244,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0ea2ac3d-a358-46ba-b555-e7a73af871bb")
-		(property "Reference" "C1301"
+		(property "Reference" "C601"
 			(at 33.528 53.594 0)
 			(effects
 				(font
@@ -3370,7 +3361,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1301")
+					(reference "C601")
 					(unit 1)
 				)
 			)
@@ -3386,7 +3377,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "18b4a110-a75f-4ea7-a477-5a4374c810fd")
-		(property "Reference" "C1305"
+		(property "Reference" "C605"
 			(at 103.886 32.766 90)
 			(effects
 				(font
@@ -3509,7 +3500,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1305")
+					(reference "C605")
 					(unit 1)
 				)
 			)
@@ -3525,7 +3516,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "207a7f17-76e2-45df-b6fc-878fc5484d7f")
-		(property "Reference" "U1301"
+		(property "Reference" "U601"
 			(at 128.27 57.1499 0)
 			(effects
 				(font
@@ -3783,7 +3774,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "U1301")
+					(reference "U601")
 					(unit 3)
 				)
 			)
@@ -3799,7 +3790,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "20ca9158-f4b2-4637-94d7-24a17f141fcc")
-		(property "Reference" "U1301"
+		(property "Reference" "U601"
 			(at 186.69 87.63 0)
 			(effects
 				(font
@@ -4055,7 +4046,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "U1301")
+					(reference "U601")
 					(unit 2)
 				)
 			)
@@ -4070,7 +4061,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "29c645b1-f585-481c-b8d0-c868cce5e171")
-		(property "Reference" "#PWR01308"
+		(property "Reference" "#PWR0608"
 			(at 120.65 198.12 0)
 			(effects
 				(font
@@ -4121,7 +4112,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01308")
+					(reference "#PWR0608")
 					(unit 1)
 				)
 			)
@@ -4137,7 +4128,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3bdaee78-7bb7-4d48-9b4e-3f72fc0625c6")
-		(property "Reference" "C1310"
+		(property "Reference" "C610"
 			(at 169.926 25.146 90)
 			(effects
 				(font
@@ -4260,7 +4251,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1310")
+					(reference "C610")
 					(unit 1)
 				)
 			)
@@ -4275,7 +4266,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "40dc9c96-d1cc-4159-8f35-7ca8de71b6e4")
-		(property "Reference" "#PWR01313"
+		(property "Reference" "#PWR0613"
 			(at 187.96 123.19 0)
 			(effects
 				(font
@@ -4326,7 +4317,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01313")
+					(reference "#PWR0613")
 					(unit 1)
 				)
 			)
@@ -4342,7 +4333,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4d4e58a7-5f0c-4c04-9679-7e828c7388ca")
-		(property "Reference" "C1303"
+		(property "Reference" "C603"
 			(at 96.774 32.766 90)
 			(effects
 				(font
@@ -4465,7 +4456,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1303")
+					(reference "C603")
 					(unit 1)
 				)
 			)
@@ -4481,7 +4472,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "554ca73f-3353-4442-a9c0-20e3419d6ca1")
-		(property "Reference" "C1308"
+		(property "Reference" "C608"
 			(at 135.636 161.036 90)
 			(effects
 				(font
@@ -4604,7 +4595,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1308")
+					(reference "C608")
 					(unit 1)
 				)
 			)
@@ -4621,7 +4612,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "567d336a-5cbe-42ed-a463-bc56f8c5887f")
-		(property "Reference" "U1301"
+		(property "Reference" "U601"
 			(at 199.39 133.3499 0)
 			(effects
 				(font
@@ -4879,7 +4870,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "U1301")
+					(reference "U601")
 					(unit 1)
 				)
 			)
@@ -4895,7 +4886,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5f7aa783-0705-46fb-a190-38bd337e2b4d")
-		(property "Reference" "C1307"
+		(property "Reference" "C607"
 			(at 128.524 161.036 90)
 			(effects
 				(font
@@ -5018,7 +5009,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1307")
+					(reference "C607")
 					(unit 1)
 				)
 			)
@@ -5033,7 +5024,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6037f5ae-0c47-4a70-885e-32d293a41c39")
-		(property "Reference" "#PWR01307"
+		(property "Reference" "#PWR0607"
 			(at 110.49 179.07 0)
 			(effects
 				(font
@@ -5084,7 +5075,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01307")
+					(reference "#PWR0607")
 					(unit 1)
 				)
 			)
@@ -5099,7 +5090,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "634cebde-4471-4f93-b5e9-bb5199efbaa1")
-		(property "Reference" "#PWR01309"
+		(property "Reference" "#PWR0609"
 			(at 132.08 179.07 0)
 			(effects
 				(font
@@ -5150,7 +5141,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01309")
+					(reference "#PWR0609")
 					(unit 1)
 				)
 			)
@@ -5166,7 +5157,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "695fcb33-f896-405b-9bcf-d088a89869af")
-		(property "Reference" "Y1301"
+		(property "Reference" "Y601"
 			(at 68.58 43.18 0)
 			(effects
 				(font
@@ -5339,7 +5330,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "Y1301")
+					(reference "Y601")
 					(unit 1)
 				)
 			)
@@ -5354,7 +5345,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6ced3a6a-7484-46be-a705-0151019e40cd")
-		(property "Reference" "#PWR01306"
+		(property "Reference" "#PWR0606"
 			(at 110.49 149.86 0)
 			(effects
 				(font
@@ -5404,7 +5395,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01306")
+					(reference "#PWR0606")
 					(unit 1)
 				)
 			)
@@ -5420,7 +5411,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "73081305-7a26-422c-b45f-dc9039c0e1eb")
-		(property "Reference" "C1311"
+		(property "Reference" "C611"
 			(at 184.404 106.426 90)
 			(effects
 				(font
@@ -5543,7 +5534,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1311")
+					(reference "C611")
 					(unit 1)
 				)
 			)
@@ -5559,7 +5550,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7ba12d4a-0180-46c5-adff-32d63d994d71")
-		(property "Reference" "C1306"
+		(property "Reference" "C606"
 			(at 106.426 161.036 90)
 			(effects
 				(font
@@ -5682,7 +5673,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1306")
+					(reference "C606")
 					(unit 1)
 				)
 			)
@@ -5698,7 +5689,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "802dfc08-3dec-414f-92da-92d39740bf07")
-		(property "Reference" "#PWR01302"
+		(property "Reference" "#PWR0602"
 			(at 48.26 53.34 0)
 			(effects
 				(font
@@ -5748,7 +5739,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01302")
+					(reference "#PWR0602")
 					(unit 1)
 				)
 			)
@@ -5764,7 +5755,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "84ad78cc-3a29-4fa2-8d67-c79461f67b71")
-		(property "Reference" "C1304"
+		(property "Reference" "C604"
 			(at 99.314 161.036 90)
 			(effects
 				(font
@@ -5887,7 +5878,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1304")
+					(reference "C604")
 					(unit 1)
 				)
 			)
@@ -5903,7 +5894,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8778c8be-aee7-42f7-bbe7-bad2576a9c0a")
-		(property "Reference" "C1312"
+		(property "Reference" "C612"
 			(at 191.516 106.426 90)
 			(effects
 				(font
@@ -6026,7 +6017,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1312")
+					(reference "C612")
 					(unit 1)
 				)
 			)
@@ -6042,7 +6033,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8a430d5e-efbd-49ba-a7d5-2ecea7b764d9")
-		(property "Reference" "C1302"
+		(property "Reference" "C602"
 			(at 41.148 53.594 0)
 			(effects
 				(font
@@ -6159,7 +6150,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1302")
+					(reference "C602")
 					(unit 1)
 				)
 			)
@@ -6174,7 +6165,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a9996e53-c97d-492d-9600-2ad6310dc577")
-		(property "Reference" "#PWR01303"
+		(property "Reference" "#PWR0603"
 			(at 88.9 60.96 0)
 			(effects
 				(font
@@ -6225,7 +6216,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01303")
+					(reference "#PWR0603")
 					(unit 1)
 				)
 			)
@@ -6241,7 +6232,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ac17e73c-a0a8-4103-9bd8-2395f264c320")
-		(property "Reference" "R1301"
+		(property "Reference" "R601"
 			(at 134.62 151.1299 0)
 			(effects
 				(font
@@ -6358,7 +6349,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "R1301")
+					(reference "R601")
 					(unit 1)
 				)
 			)
@@ -6374,7 +6365,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b0575b2d-8078-4806-986e-3521197217d2")
-		(property "Reference" "#PWR01304"
+		(property "Reference" "#PWR0604"
 			(at 100.33 31.75 0)
 			(effects
 				(font
@@ -6424,7 +6415,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01304")
+					(reference "#PWR0604")
 					(unit 1)
 				)
 			)
@@ -6440,7 +6431,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b0fd65da-358a-4632-aa3d-297c5016bb71")
-		(property "Reference" "#PWR01312"
+		(property "Reference" "#PWR0612"
 			(at 187.96 105.41 0)
 			(effects
 				(font
@@ -6490,7 +6481,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01312")
+					(reference "#PWR0612")
 					(unit 1)
 				)
 			)
@@ -6505,7 +6496,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b60d8fcc-632f-47a7-b86d-defc25feccb5")
-		(property "Reference" "U1301"
+		(property "Reference" "U601"
 			(at 127 179.0699 0)
 			(effects
 				(font
@@ -6763,7 +6754,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "U1301")
+					(reference "U601")
 					(unit 4)
 				)
 			)
@@ -6779,7 +6770,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b92b16be-e430-4134-8781-6f29b7648bec")
-		(property "Reference" "C1309"
+		(property "Reference" "C609"
 			(at 162.814 25.146 90)
 			(effects
 				(font
@@ -6902,7 +6893,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "C1309")
+					(reference "C609")
 					(unit 1)
 				)
 			)
@@ -6917,7 +6908,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c905beb4-f313-4d2e-8a78-c9827d698956")
-		(property "Reference" "#PWR01305"
+		(property "Reference" "#PWR0605"
 			(at 100.33 50.8 0)
 			(effects
 				(font
@@ -6968,7 +6959,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01305")
+					(reference "#PWR0605")
 					(unit 1)
 				)
 			)
@@ -6983,7 +6974,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "daa04622-6090-4346-b6d0-6ec523e7f57f")
-		(property "Reference" "#PWR01311"
+		(property "Reference" "#PWR0611"
 			(at 166.37 43.18 0)
 			(effects
 				(font
@@ -7034,7 +7025,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01311")
+					(reference "#PWR0611")
 					(unit 1)
 				)
 			)
@@ -7050,7 +7041,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "eeb2b6b0-fa05-45ca-b3aa-55f022cd3007")
-		(property "Reference" "#PWR01310"
+		(property "Reference" "#PWR0610"
 			(at 166.37 24.13 0)
 			(effects
 				(font
@@ -7100,7 +7091,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "#PWR01310")
+					(reference "#PWR0610")
 					(unit 1)
 				)
 			)

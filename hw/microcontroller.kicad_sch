@@ -11153,10 +11153,6 @@
 		(uuid "b09e3346-01d0-4311-a77a-237561c916ce")
 	)
 	(no_connect
-		(at 77.47 101.6)
-		(uuid "b6848073-3690-4bff-a881-032ce3008fbd")
-	)
-	(no_connect
 		(at 35.56 119.38)
 		(uuid "c858aa8d-e138-4778-875c-03d82052c7f5")
 	)
@@ -11183,10 +11179,6 @@
 	(no_connect
 		(at 72.39 165.1)
 		(uuid "dd855449-b986-44e9-b521-eda883b4ad73")
-	)
-	(no_connect
-		(at 77.47 116.84)
-		(uuid "ee509c2a-3e4f-4910-b686-7976163c5aab")
 	)
 	(no_connect
 		(at 72.39 180.34)
@@ -12712,6 +12704,16 @@
 	)
 	(wire
 		(pts
+			(xy 77.47 116.84) (xy 78.74 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "71a0aecd-6a7c-4b3b-9e2e-5c3b65559714")
+	)
+	(wire
+		(pts
 			(xy 118.11 118.11) (xy 120.65 118.11)
 		)
 		(stroke
@@ -14202,6 +14204,16 @@
 	)
 	(wire
 		(pts
+			(xy 77.47 101.6) (xy 78.74 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fdc1d18e-acca-4b2c-b1f1-d9a5d06e2d93")
+	)
+	(wire
+		(pts
 			(xy 72.39 149.86) (xy 74.93 149.86)
 		)
 		(stroke
@@ -14230,7 +14242,7 @@
 		)
 		(uuid "00b0f829-0244-497b-a280-596aced18375")
 	)
-	(label "QSD.reset"
+	(label "Ctrl.reset"
 		(at 99.06 58.42 0)
 		(effects
 			(font
@@ -14280,7 +14292,7 @@
 		)
 		(uuid "23c7ea87-7099-418a-ad85-e956bbbece75")
 	)
-	(label "QSD.SCL1"
+	(label "Ctrl.rxSCL"
 		(at 128.27 187.96 270)
 		(effects
 			(font
@@ -14320,7 +14332,7 @@
 		)
 		(uuid "3143c337-961d-4afc-8c22-12d85a75eb45")
 	)
-	(label "QSD.data2"
+	(label "Ctrl.data2"
 		(at 34.29 104.14 180)
 		(effects
 			(font
@@ -14380,7 +14392,7 @@
 		)
 		(uuid "3fdd6512-317c-454c-8bc6-3238328255e6")
 	)
-	(label "QSD.SCL0"
+	(label "Ctrl.audioSCL"
 		(at 115.57 187.96 270)
 		(effects
 			(font
@@ -14410,7 +14422,7 @@
 		)
 		(uuid "49b53588-6df6-4402-a8a4-0b1754a71235")
 	)
-	(label "QSD.data1"
+	(label "Ctrl.data1"
 		(at 34.29 83.82 180)
 		(effects
 			(font
@@ -14460,7 +14472,7 @@
 		)
 		(uuid "556dd619-c23c-49e8-8b0b-7304033e3f7f")
 	)
-	(label "QSD.SDA1"
+	(label "Ctrl.rxSDA"
 		(at 134.62 187.96 270)
 		(effects
 			(font
@@ -14510,7 +14522,7 @@
 		)
 		(uuid "5fb3e042-6b9e-49c2-aeca-1673849504ab")
 	)
-	(label "QSD.SDA2"
+	(label "Ctrl.txSDA"
 		(at 151.13 26.67 180)
 		(effects
 			(font
@@ -14590,7 +14602,7 @@
 		)
 		(uuid "7683b915-e55a-491d-9134-81f16ec02118")
 	)
-	(label "QSD.SDA2"
+	(label "Ctrl.txSDA"
 		(at 147.32 187.96 270)
 		(effects
 			(font
@@ -14630,7 +14642,7 @@
 		)
 		(uuid "7ac8580b-b5b6-49bc-ac2b-123dfe869ef4")
 	)
-	(label "QSD.SCL1"
+	(label "Ctrl.rxSCL"
 		(at 78.74 63.5 0)
 		(effects
 			(font
@@ -14650,7 +14662,7 @@
 		)
 		(uuid "7eb93a14-8018-4259-abe4-a96c19befcbf")
 	)
-	(label "QSD.SDA0"
+	(label "Ctrl.audioSDA"
 		(at 151.13 64.77 180)
 		(effects
 			(font
@@ -14740,7 +14752,7 @@
 		)
 		(uuid "9af2288a-c21d-4cae-9461-85d011f39eca")
 	)
-	(label "QSD.data0"
+	(label "Ctrl.data0"
 		(at 187.96 41.91 0)
 		(effects
 			(font
@@ -14830,7 +14842,7 @@
 		)
 		(uuid "a5f05e0d-b4ec-4666-bca5-458e9818a24e")
 	)
-	(label "QSD.BCLK"
+	(label "Ctrl.BCLK"
 		(at 187.96 39.37 0)
 		(effects
 			(font
@@ -14850,7 +14862,7 @@
 		)
 		(uuid "a94c7464-54b7-41d3-a489-95ffeb53168a")
 	)
-	(label "QSD.SCL2"
+	(label "Ctrl.txSCL"
 		(at 151.13 29.21 180)
 		(effects
 			(font
@@ -14880,7 +14892,7 @@
 		)
 		(uuid "b3c23cc8-2ed7-4820-9461-da70a55a31bd")
 	)
-	(label "QSD.SDA0"
+	(label "Ctrl.audioSDA"
 		(at 121.92 187.96 270)
 		(effects
 			(font
@@ -14900,7 +14912,7 @@
 		)
 		(uuid "b4046e55-ee45-491c-acd8-83dcc94ede06")
 	)
-	(label "QSD.SCL0"
+	(label "Ctrl.audioSCL"
 		(at 34.29 111.76 180)
 		(effects
 			(font
@@ -14920,7 +14932,7 @@
 		)
 		(uuid "b61d658f-8c27-45e3-8fd7-44fe88f77f78")
 	)
-	(label "QSD.SCL2"
+	(label "Ctrl.txSCL"
 		(at 140.97 187.96 270)
 		(effects
 			(font
@@ -14980,7 +14992,7 @@
 		)
 		(uuid "be88bd86-0403-4bf2-aa6c-9355df0b6994")
 	)
-	(label "QSD.SDA1"
+	(label "Ctrl.rxSDA"
 		(at 78.74 109.22 0)
 		(effects
 			(font
@@ -15110,7 +15122,7 @@
 		)
 		(uuid "f243d9cf-b0a1-43d7-a2bb-eeb8dd3aa242")
 	)
-	(label "QSD.WCLK"
+	(label "Ctrl.WCLK"
 		(at 187.96 36.83 0)
 		(effects
 			(font
@@ -15181,6 +15193,17 @@
 				(hide yes)
 			)
 		)
+	)
+	(hierarchical_label "nTxRelay"
+		(shape output)
+		(at 78.74 73.66 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "05e293ff-e148-4a60-b585-1fdf8044f68a")
 	)
 	(hierarchical_label "USBDP"
 		(shape bidirectional)
@@ -15283,7 +15306,7 @@
 	)
 	(hierarchical_label "TxPGOOD"
 		(shape input)
-		(at 78.74 73.66 0)
+		(at 78.74 101.6 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15291,6 +15314,17 @@
 			(justify left)
 		)
 		(uuid "ce41e00e-b7eb-4c67-8d97-74ec642d8c4b")
+	)
+	(hierarchical_label "RxQSK"
+		(shape output)
+		(at 78.74 116.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "cfcbd69d-88ae-442a-a8eb-f8221d35d970")
 	)
 	(hierarchical_label "TxEnable"
 		(shape output)
@@ -15598,7 +15632,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "06bad4f7-666d-4770-bdeb-0084ff8535db")
-		(property "Reference" "TP211"
+		(property "Reference" "TP202"
 			(at 193.04 71.1199 90)
 			(effects
 				(font
@@ -15729,7 +15763,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP211")
+					(reference "TP202")
 					(unit 1)
 				)
 			)
@@ -17179,7 +17213,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "36f58c28-b8fe-423d-8d32-3bb8eddaf51e")
-		(property "Reference" "TP202"
+		(property "Reference" "TP204"
 			(at 193.04 76.1999 90)
 			(effects
 				(font
@@ -17310,7 +17344,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP202")
+					(reference "TP204")
 					(unit 1)
 				)
 			)
@@ -17455,7 +17489,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3f54fc5d-5dba-48f8-bb74-2da3c45fe4f0")
-		(property "Reference" "TP208"
+		(property "Reference" "TP211"
 			(at 201.93 106.6799 90)
 			(effects
 				(font
@@ -17586,7 +17620,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP208")
+					(reference "TP211")
 					(unit 1)
 				)
 			)
@@ -18142,7 +18176,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "50f33a38-4af0-404b-8911-f5e51997f4c6")
-		(property "Reference" "TP205"
+		(property "Reference" "TP207"
 			(at 193.04 83.8199 90)
 			(effects
 				(font
@@ -18273,7 +18307,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP205")
+					(reference "TP207")
 					(unit 1)
 				)
 			)
@@ -19238,7 +19272,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5d66cf8e-8ef7-45c4-b965-5e5f5ef02ab6")
-		(property "Reference" "TP207"
+		(property "Reference" "TP210"
 			(at 201.93 104.1399 90)
 			(effects
 				(font
@@ -19369,7 +19403,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP207")
+					(reference "TP210")
 					(unit 1)
 				)
 			)
@@ -19784,7 +19818,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6bdd3cc2-d29f-4f0c-83f2-8e41541a638b")
-		(property "Reference" "TP204"
+		(property "Reference" "TP206"
 			(at 193.04 81.2799 90)
 			(effects
 				(font
@@ -19915,7 +19949,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP204")
+					(reference "TP206")
 					(unit 1)
 				)
 			)
@@ -20341,7 +20375,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "758efc64-2c24-495c-be16-745ca6c8ebfc")
-		(property "Reference" "TP210"
+		(property "Reference" "TP201"
 			(at 193.04 68.5799 90)
 			(effects
 				(font
@@ -20472,7 +20506,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP210")
+					(reference "TP201")
 					(unit 1)
 				)
 			)
@@ -21607,7 +21641,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9402b0b3-1de6-4918-8ae2-e3a0920e0631")
-		(property "Reference" "TP203"
+		(property "Reference" "TP205"
 			(at 193.04 78.7399 90)
 			(effects
 				(font
@@ -21738,7 +21772,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP203")
+					(reference "TP205")
 					(unit 1)
 				)
 			)
@@ -23887,7 +23921,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c2d27ae3-182a-4e6f-8ee6-234249513f85")
-		(property "Reference" "TP201"
+		(property "Reference" "TP203"
 			(at 193.04 73.6599 90)
 			(effects
 				(font
@@ -24018,7 +24052,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP201")
+					(reference "TP203")
 					(unit 1)
 				)
 			)
@@ -25255,7 +25289,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f12c402c-e168-4fc8-bcd3-2be4262df06a")
-		(property "Reference" "TP206"
+		(property "Reference" "TP209"
 			(at 201.93 93.9799 90)
 			(effects
 				(font
@@ -25386,7 +25420,7 @@
 		(instances
 			(project ""
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP206")
+					(reference "TP209")
 					(unit 1)
 				)
 			)
@@ -26518,7 +26552,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fe563a02-c6c6-4216-9374-e0a310dcdd63")
-		(property "Reference" "TP209"
+		(property "Reference" "TP208"
 			(at 193.04 86.3599 90)
 			(effects
 				(font
@@ -26649,7 +26683,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP209")
+					(reference "TP208")
 					(unit 1)
 				)
 			)
