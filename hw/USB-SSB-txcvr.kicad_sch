@@ -11,15 +11,11 @@
 		(comment 1 "Alan Mimms")
 	)
 	(lib_symbols)
-	(bus_alias "Band"
-		(members "160m" "80m" "60m" "40m" "30m" "20m" "17m" "15m" "12m" "10m" "rxC0"
-			"rxC1" "rxC2" "rxC3" "rxC4" "rxC5" "rxC6" "rxC7" "rxL1" "rxL2" "rxL3"
-		)
-	)
 	(bus_alias "QSD"
-		(members "SCL0" "SDA0" "SCL1" "SDA1" "SCL2" "SDA2" "reset" "BCLK" "MCLK"
-			"WCLK" "data0" "data1" "data2"
-		)
+		(members "SCL" "SDA" "reset" "BCLK" "MCLK" "WCLK" "data0" "data1" "data2")
+	)
+	(bus_alias "Tuning"
+		(members "PAtankSDA" "PAtankSCL" "preselSDA" "preselSCL" "LPFSDA" "LPFSCL")
 	)
 	(junction
 		(at 113.03 85.09)
