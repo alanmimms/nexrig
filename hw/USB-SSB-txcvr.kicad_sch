@@ -12,9 +12,10 @@
 	)
 	(lib_symbols)
 	(bus_alias "Ctrl"
-		(members "SCL" "SDA" "reset" "BCLK" "MCLK" "WCLK" "data0" "data1" "data2"
-			"PAtankSDA" "PAtankSCL" "rxSDA" "rxSCL" "txSDA" "txSCL" "qsdNSS" "qsdSCK"
-			"qsdMISO"
+		(members "reset" "BCLK" "MCLK" "WCLK" "data0" "data1" "data2" "qsdNSS"
+			"qsdSCK" "qsdMISO" "tuneSCK" "tuneNSS" "tuneMOSI" "tuneMISO" "enable5V"
+			"tmpSCL" "tmpSDA" "qsdPh0a" "qsdPh0b" "qsdPh0c" "qsdPh0d" "qsdPh1a" "qsdPh1b"
+			"qsdPh1c" "qsdPh1d" "qsdPh2a" "qsdPh2b" "qsdPh2c" "qsdPh2d"
 		)
 	)
 	(junction
@@ -161,26 +162,6 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 106.68) (xy 234.95 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "67b2c4fa-5f4f-4054-af0a-03483f5518dc")
-	)
-	(wire
-		(pts
-			(xy 237.49 106.68) (xy 237.49 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6b51f6fb-3118-4a96-aa94-06911b7eaac9")
-	)
-	(wire
-		(pts
 			(xy 173.99 74.93) (xy 189.23 74.93)
 		)
 		(stroke
@@ -258,16 +239,6 @@
 			(type default)
 		)
 		(uuid "c9244f64-6a1d-46ab-b1d6-a980b87ec787")
-	)
-	(wire
-		(pts
-			(xy 232.41 106.68) (xy 232.41 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cf3da541-b74d-447d-9858-875ba185afb5")
 	)
 	(wire
 		(pts
@@ -569,7 +540,7 @@
 				(justify left)
 			)
 		)
-		(pin "nTxRelay" input
+		(pin "TxRelay" input
 			(at 90.17 105.41 270)
 			(uuid "ad4a7dbb-37c8-4d8d-a8fd-3729d0a6878b")
 			(effects
@@ -583,79 +554,6 @@
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(page "5")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 226.06 124.46)
-		(size 15.24 12.7)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "989674b0-a935-4352-9502-d92e0c9bb54e")
-		(property "Sheetname" "USB"
-			(at 226.06 123.7484 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "usb.kicad_sch"
-			(at 226.06 137.7446 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(pin "USBDP" bidirectional
-			(at 234.95 124.46 90)
-			(uuid "264552e9-321a-42da-bd86-d950cfb43272")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "nUSBFault" output
-			(at 232.41 124.46 90)
-			(uuid "424296fd-6bcc-4a58-b179-2009e5dc21ea")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "USBDN" bidirectional
-			(at 237.49 124.46 90)
-			(uuid "6860df71-2c55-4e03-83b2-5588b5d83125")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
-					(page "7")
 				)
 			)
 		)
@@ -735,36 +633,6 @@
 				(justify left)
 			)
 		)
-		(pin "USBDN" bidirectional
-			(at 237.49 106.68 270)
-			(uuid "8f44e22a-002e-4f67-8c28-89ad82a3245b")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "USBDP" bidirectional
-			(at 234.95 106.68 270)
-			(uuid "2a899b37-7f6f-4e26-a417-7734b4ac8711")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "nUSBFault" input
-			(at 232.41 106.68 270)
-			(uuid "413e59b5-2e3f-4462-83e6-8f6a8f435fd1")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "CDONE" input
 			(at 189.23 74.93 180)
 			(uuid "6706bdb1-cff5-4f0b-94bd-a4032d74c7c8")
@@ -825,7 +693,7 @@
 				(justify left)
 			)
 		)
-		(pin "nTxRelay" output
+		(pin "TxRelay" output
 			(at 207.01 106.68 270)
 			(uuid "76892349-fe3c-4160-9bfc-30c56d107623")
 			(effects

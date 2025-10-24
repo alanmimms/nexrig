@@ -599,6 +599,36 @@
       "GND": [
         "Power"
       ],
+      "Net-(C1401-Pad1)": [
+        "PowerRF"
+      ],
+      "Net-(C1404-Pad1)": [
+        "PowerRF"
+      ],
+      "Net-(C1409-Pad1)": [
+        "PowerRF"
+      ],
+      "Net-(C1412-Pad1)": [
+        "PowerRF"
+      ],
+      "Net-(C1418-Pad1)": [
+        "PowerRF"
+      ],
+      "Net-(C1426-Pad1)": [
+        "PowerRF"
+      ],
+      "Net-(C1428-Pad1)": [
+        "PowerRF"
+      ],
+      "Net-(C1432-Pad1)": [
+        "PowerRF"
+      ],
+      "Net-(C1435-Pad2)": [
+        "PowerRF"
+      ],
+      "Net-(C1438-Pad2)": [
+        "PowerRF"
+      ],
       "Net-(C1501-Pad1)": [
         "PowerRF"
       ],
@@ -666,6 +696,9 @@
         "Power"
       ],
       "Net-(D1502-A-Pad1)": [
+        "Power"
+      ],
+      "Net-(D1601-A-Pad1)": [
         "Power"
       ],
       "Net-(D1701-A-Pad1)": [
@@ -824,6 +857,18 @@
       "Net-(U1506-CB)": [
         "Power"
       ],
+      "Net-(U1601-OUT)": [
+        "Power"
+      ],
+      "Net-(U1605-CB)": [
+        "Power"
+      ],
+      "Net-(U1605-SW)": [
+        "Power"
+      ],
+      "Net-(U1606-CB)": [
+        "Power"
+      ],
       "Net-(U1701-OUT)": [
         "Power"
       ],
@@ -837,6 +882,12 @@
         "Power"
       ],
       "Net-(U1801-OUT)": [
+        "Power"
+      ],
+      "Net-(U1801-VDD1A)": [
+        "Power"
+      ],
+      "Net-(U1801-VDDCR)": [
         "Power"
       ],
       "Net-(U1803-CB)": [
@@ -894,6 +945,9 @@
         "Power"
       ],
       "Net-(U601-4-VCCPLL)": [
+        "Power"
+      ],
+      "Net-(U602-4-VCCPLL)": [
         "Power"
       ],
       "Net-(U7709-SW)": [
@@ -1090,6 +1144,10 @@
       {
         "netclass": "diff75",
         "pattern": "/microcontroller/Ethernet/EthTx+"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+1.2VPP"
       }
     ]
   },
@@ -1463,10 +1521,6 @@
       "FPGA"
     ],
     [
-      "989674b0-a935-4352-9502-d92e0c9bb54e",
-      "USB"
-    ],
-    [
       "fe3f480c-996c-4fed-905b-c8c4e1f16100",
       "Tpad 6"
     ],
@@ -1513,10 +1567,6 @@
     [
       "acc2372a-588f-45d7-a9dc-955cac4e7364",
       "Ethernet"
-    ],
-    [
-      "ec3731a3-df09-4e93-b25b-76297aeb30bb",
-      "SDCard"
     ]
   ],
   "text_variables": {
