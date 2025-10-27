@@ -3015,6 +3015,26 @@
 		)
 		(uuid "2559f825-c1d5-4e5f-b477-e6cdc99c6a66")
 	)
+	(text "Note this is Z=50 ohm domain."
+		(exclude_from_sim no)
+		(at 99.314 62.992 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "3e9d789e-f88b-4210-a560-e0a1de5e4c89")
+	)
+	(text "Note this is Z=200 ohm domain."
+		(exclude_from_sim no)
+		(at 31.496 83.82 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6c51c24f-cf8f-4a2b-9ebd-e6aa56e0bfa2")
+	)
 	(text "FT50-43\n800 : 3-way 50 ohm\n16t : trifilar 4t\n#26 AWG"
 		(exclude_from_sim no)
 		(at 67.31 75.438 0)
@@ -4391,16 +4411,6 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 93.98) (xy 57.15 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "889c5168-e4f9-4559-b4a7-bb90f325b2c9")
-	)
-	(wire
-		(pts
 			(xy 115.57 187.96) (xy 115.57 190.5)
 		)
 		(stroke
@@ -4438,6 +4448,16 @@
 			(type default)
 		)
 		(uuid "8ac9f076-d744-478d-9d75-4cdfe71996ea")
+	)
+	(wire
+		(pts
+			(xy 52.07 93.98) (xy 57.15 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8b572913-3c8c-47a5-a0ff-6984c0780e65")
 	)
 	(wire
 		(pts
@@ -5071,7 +5091,7 @@
 	)
 	(wire
 		(pts
-			(xy 17.78 91.44) (xy 21.59 91.44)
+			(xy 21.59 91.44) (xy 25.4 91.44)
 		)
 		(stroke
 			(width 0)
@@ -5829,9 +5849,9 @@
 		)
 		(uuid "f754ba22-f841-41e3-adcd-cb166cf71f20")
 	)
-	(hierarchical_label "AntRx"
+	(hierarchical_label "RxZ200"
 		(shape input)
-		(at 17.78 91.44 180)
+		(at 21.59 91.44 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9978,8 +9998,8 @@
 		)
 	)
 	(sheet
-		(at 21.59 88.9)
-		(size 29.21 17.78)
+		(at 25.4 88.9)
+		(size 26.67 17.78)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -9994,7 +10014,7 @@
 		)
 		(uuid "07084359-e357-43be-bf88-86367e12e534")
 		(property "Sheetname" "Clipper, Attenuator, Preselector"
-			(at 21.59 88.1884 0)
+			(at 25.4 88.1884 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10003,7 +10023,7 @@
 			)
 		)
 		(property "Sheetfile" "preselector.kicad_sch"
-			(at 21.59 107.2646 0)
+			(at 25.4 107.2646 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10012,8 +10032,8 @@
 				(hide yes)
 			)
 		)
-		(pin "AntRx" input
-			(at 21.59 91.44 180)
+		(pin "RxZ200" input
+			(at 25.4 91.44 180)
 			(uuid "ce118f90-a48c-4cca-acc6-f460cb75573b")
 			(effects
 				(font
@@ -10023,7 +10043,7 @@
 			)
 		)
 		(pin "atten3dB" input
-			(at 21.59 96.52 180)
+			(at 25.4 96.52 180)
 			(uuid "06d766f4-e92a-46f9-b26b-0e223fe688da")
 			(effects
 				(font
@@ -10033,7 +10053,7 @@
 			)
 		)
 		(pin "atten6dB" input
-			(at 21.59 99.06 180)
+			(at 25.4 99.06 180)
 			(uuid "46bfb3ea-8a47-4335-a9a6-5463626f9e80")
 			(effects
 				(font
@@ -10043,7 +10063,7 @@
 			)
 		)
 		(pin "atten12dB" input
-			(at 21.59 101.6 180)
+			(at 25.4 101.6 180)
 			(uuid "48c61ac2-7ef9-4ace-8bc7-7ea2613f388f")
 			(effects
 				(font
@@ -10053,7 +10073,7 @@
 			)
 		)
 		(pin "atten24dB" input
-			(at 21.59 104.14 180)
+			(at 25.4 104.14 180)
 			(uuid "a829738f-b054-4a4d-9efb-cc0bf0650922")
 			(effects
 				(font
@@ -10063,7 +10083,7 @@
 			)
 		)
 		(pin "rxPreselOut" output
-			(at 50.8 93.98 0)
+			(at 52.07 93.98 0)
 			(uuid "77f769f7-9874-49cd-99dc-81122f8be34a")
 			(effects
 				(font
