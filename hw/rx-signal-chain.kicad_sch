@@ -1771,6 +1771,220 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Diode:SM712_SOT23"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 4.445 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SM712_SOT23"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 0 -8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diode_arrays/littelfuse_tvs_diode_array_sm712_datasheet.pdf.pdf"
+				(at -3.81 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "7V/12V, 600W Asymmetrical TVS Diode Array, SOT-23"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "transient voltage suppressor thyrector transil"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SM712_SOT23_0_0"
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SM712_SOT23_0_1"
+				(polyline
+					(pts
+						(xy -6.35 0) (xy 6.35 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -6.35 -1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -6.35 1.27) (xy -6.35 -1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.302 1.27) (xy -3.81 1.27) (xy -3.81 -1.27) (xy -4.318 -1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 0)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy 1.27 1.27) (xy 6.35 -1.27) (xy 6.35 1.27) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.318 1.27) (xy 3.81 1.27) (xy 3.81 -1.27) (xy 3.302 -1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SM712_SOT23_1_1"
+				(pin passive line
+					(at -8.89 0 0)
+					(length 2.54)
+					(name "A1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 0 -3.81 90)
+					(length 2.54)
+					(name "common"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 0 180)
+					(length 2.54)
+					(name "A2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Library:Transformer_3S"
 			(pin_names
 				(offset 1.016)
@@ -3015,9 +3229,19 @@
 		)
 		(uuid "2559f825-c1d5-4e5f-b477-e6cdc99c6a66")
 	)
+	(text "~25V pk-pk\nprotection"
+		(exclude_from_sim no)
+		(at 33.02 82.042 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "38f14b6d-a0d6-4070-8f3a-9dfd92427620")
+	)
 	(text "Note this is Z=50 ohm domain."
 		(exclude_from_sim no)
-		(at 99.314 62.992 0)
+		(at 108.712 60.198 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3027,7 +3251,7 @@
 	)
 	(text "Note this is Z=200 ohm domain."
 		(exclude_from_sim no)
-		(at 31.496 83.82 0)
+		(at 54.356 62.23 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3037,7 +3261,7 @@
 	)
 	(text "FT50-43\n800 : 3-way 50 ohm\n16t : trifilar 4t\n#26 AWG"
 		(exclude_from_sim no)
-		(at 67.31 75.438 0)
+		(at 86.36 75.438 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3292,7 +3516,7 @@
 		(uuid "cd297bf0-666b-4b15-a935-9e85a6cfa2b2")
 	)
 	(junction
-		(at 83.82 102.87)
+		(at 102.87 102.87)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d1bbfe41-234b-4ca1-814d-d8e835637621")
@@ -3316,7 +3540,7 @@
 		(uuid "e6449505-0c7c-408e-b754-bf815262ef24")
 	)
 	(junction
-		(at 83.82 115.57)
+		(at 102.87 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ec2a1822-f1c1-477a-9d81-329b15f2b72b")
@@ -3511,7 +3735,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 102.87) (xy 83.82 102.87)
+			(xy 96.52 102.87) (xy 102.87 102.87)
 		)
 		(stroke
 			(width 0)
@@ -3831,7 +4055,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 105.41) (xy 55.88 104.14)
+			(xy 74.93 105.41) (xy 74.93 104.14)
 		)
 		(stroke
 			(width 0)
@@ -3871,7 +4095,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 67.31) (xy 121.92 67.31)
+			(xy 106.68 67.31) (xy 121.92 67.31)
 		)
 		(stroke
 			(width 0)
@@ -3881,7 +4105,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 115.57) (xy 83.82 115.57)
+			(xy 96.52 115.57) (xy 102.87 115.57)
 		)
 		(stroke
 			(width 0)
@@ -3901,7 +4125,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 104.14) (xy 57.15 104.14)
+			(xy 74.93 104.14) (xy 76.2 104.14)
 		)
 		(stroke
 			(width 0)
@@ -3971,6 +4195,16 @@
 	)
 	(wire
 		(pts
+			(xy 17.78 91.44) (xy 24.13 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3cb2f538-d7b7-4d3f-a0c9-aada8c5d6dbe")
+	)
+	(wire
+		(pts
 			(xy 218.44 137.16) (xy 218.44 152.4)
 		)
 		(stroke
@@ -4021,7 +4255,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 102.87) (xy 83.82 115.57)
+			(xy 102.87 102.87) (xy 102.87 115.57)
 		)
 		(stroke
 			(width 0)
@@ -4101,7 +4335,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 113.03) (xy 121.92 113.03)
+			(xy 106.68 113.03) (xy 121.92 113.03)
 		)
 		(stroke
 			(width 0)
@@ -4141,7 +4375,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 107.95) (xy 87.63 107.95)
+			(xy 96.52 107.95) (xy 106.68 107.95)
 		)
 		(stroke
 			(width 0)
@@ -4171,7 +4405,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 95.25) (xy 87.63 95.25)
+			(xy 96.52 95.25) (xy 106.68 95.25)
 		)
 		(stroke
 			(width 0)
@@ -4451,7 +4685,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 93.98) (xy 57.15 93.98)
+			(xy 71.12 93.98) (xy 76.2 93.98)
 		)
 		(stroke
 			(width 0)
@@ -4561,7 +4795,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 91.44) (xy 121.92 91.44)
+			(xy 106.68 91.44) (xy 121.92 91.44)
 		)
 		(stroke
 			(width 0)
@@ -4571,7 +4805,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 107.95) (xy 87.63 113.03)
+			(xy 106.68 107.95) (xy 106.68 113.03)
 		)
 		(stroke
 			(width 0)
@@ -4608,6 +4842,16 @@
 			(type default)
 		)
 		(uuid "9fd64b65-5b22-45e8-a7fa-b1fece424842")
+	)
+	(wire
+		(pts
+			(xy 17.78 77.47) (xy 17.78 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9fd77d24-6030-458f-8879-788e94bf26ee")
 	)
 	(wire
 		(pts
@@ -4661,7 +4905,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 82.55) (xy 87.63 67.31)
+			(xy 106.68 82.55) (xy 106.68 67.31)
 		)
 		(stroke
 			(width 0)
@@ -4681,7 +4925,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 95.25) (xy 87.63 91.44)
+			(xy 106.68 95.25) (xy 106.68 91.44)
 		)
 		(stroke
 			(width 0)
@@ -4761,7 +5005,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 115.57) (xy 83.82 119.38)
+			(xy 102.87 115.57) (xy 102.87 119.38)
 		)
 		(stroke
 			(width 0)
@@ -5091,7 +5335,7 @@
 	)
 	(wire
 		(pts
-			(xy 21.59 91.44) (xy 25.4 91.44)
+			(xy 41.91 91.44) (xy 44.45 91.44)
 		)
 		(stroke
 			(width 0)
@@ -5101,7 +5345,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 90.17) (xy 83.82 90.17)
+			(xy 96.52 90.17) (xy 102.87 90.17)
 		)
 		(stroke
 			(width 0)
@@ -5221,7 +5465,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 82.55) (xy 87.63 82.55)
+			(xy 96.52 82.55) (xy 106.68 82.55)
 		)
 		(stroke
 			(width 0)
@@ -5301,6 +5545,16 @@
 	)
 	(wire
 		(pts
+			(xy 17.78 59.69) (xy 17.78 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f48a6a7a-6cf7-45fb-8a22-75d2a6aab5fd")
+	)
+	(wire
+		(pts
 			(xy 199.39 152.4) (xy 199.39 153.67)
 		)
 		(stroke
@@ -5371,7 +5625,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 90.17) (xy 83.82 102.87)
+			(xy 102.87 90.17) (xy 102.87 102.87)
 		)
 		(stroke
 			(width 0)
@@ -5388,6 +5642,16 @@
 			(type default)
 		)
 		(uuid "fec14a71-4954-401b-9d7d-040e506a491f")
+	)
+	(wire
+		(pts
+			(xy 33.02 95.25) (xy 33.02 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "feda51f5-f5fb-4452-8e0e-35be92b73041")
 	)
 	(wire
 		(pts
@@ -5851,14 +6115,14 @@
 	)
 	(hierarchical_label "RxZ200"
 		(shape input)
-		(at 21.59 91.44 180)
+		(at 17.78 59.69 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
-		(uuid "b848df48-7473-481a-be87-a12fb97136d1")
+		(uuid "7128024f-8717-49dd-b334-cc6b438c59b0")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -7855,6 +8119,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 33.02 96.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "71189f7f-9554-476c-adce-5221bac379ad")
+		(property "Reference" "#PWR0529"
+			(at 33.02 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 33.02 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 33.02 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 33.02 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 33.02 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1f3d5f4f-7880-47fe-8dcd-f634f4f6e9a5")
+		)
+		(instances
+			(project "USB-SSB-txcvr"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f"
+					(reference "#PWR0529")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 78.74 157.48 0)
 		(unit 1)
@@ -9175,7 +9506,7 @@
 	)
 	(symbol
 		(lib_id "Library:Transformer_3S")
-		(at 67.31 92.71 0)
+		(at 86.36 92.71 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9183,7 +9514,7 @@
 		(dnp no)
 		(uuid "bb7ee6fc-0a11-4f3f-af06-3339b425896a")
 		(property "Reference" "T301"
-			(at 67.31 81.026 0)
+			(at 86.36 81.026 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9191,7 +9522,7 @@
 			)
 		)
 		(property "Value" "12t  primary : 6T #26 trifilar secondary FT37-43"
-			(at 67.6275 80.01 0)
+			(at 86.6775 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9200,7 +9531,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 67.31 92.71 0)
+			(at 86.36 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9209,7 +9540,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 67.31 92.71 0)
+			(at 86.36 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9218,7 +9549,7 @@
 			)
 		)
 		(property "Description" "Transformer, trifilar secondary"
-			(at 67.31 92.71 0)
+			(at 86.36 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9528,6 +9859,162 @@
 		)
 	)
 	(symbol
+		(lib_id "Diode:SM712_SOT23")
+		(at 33.02 91.44 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e3de1585-f17f-40ba-b56c-f5b30f696885")
+		(property "Reference" "D301"
+			(at 33.02 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "STS321150B100AH"
+			(at 33.02 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-323"
+			(at 33.02 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.eaton.com/content/dam/eaton/products/electronic-components/resources/data-sheet/eaton-sts321xxxb100ah-automotive-low-capacitance-tvs-diode-esd-suppressor-data-sheet-elx1278-en.pdf"
+			(at 36.83 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "ESD Protection Diodes / TVS Diodes Auto ESD SOD323-2,8.0V"
+			(at 33.02 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 33.02 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 33.02 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "c5d21223-9693-4435-8740-b510a20fd3a2")
+		)
+		(pin "3"
+			(uuid "67fbb08c-2890-4782-8bd4-301c86f1f25c")
+		)
+		(pin "1"
+			(uuid "49d53a4b-d9b4-4a3f-88b0-9bc1a1f7c192")
+		)
+		(instances
+			(project "USB-SSB-txcvr"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f"
+					(reference "D301")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 17.78 73.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e40b9dd4-0afc-4bc1-9b06-5e979f8c4134")
+		(property "Reference" "C319"
+			(at 18.034 71.374 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1uF 250V"
+			(at 18.288 75.692 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 18.7452 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 17.78 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 17.78 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1c8ff0d7-faf6-4e19-8271-3e4e8d335478")
+		)
+		(pin "2"
+			(uuid "7d2f5713-f0ac-403c-b465-c65dd52fee52")
+		)
+		(instances
+			(project "USB-SSB-txcvr"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f"
+					(reference "C319")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 220.98 157.48 0)
 		(mirror x)
@@ -9599,7 +10086,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 83.82 119.38 0)
+		(at 102.87 119.38 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9608,7 +10095,7 @@
 		(fields_autoplaced yes)
 		(uuid "eeeabff4-3567-4ac3-9b2b-d78af2275dd5")
 		(property "Reference" "#PWR0306"
-			(at 83.82 125.73 0)
+			(at 102.87 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9617,7 +10104,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 83.82 124.46 0)
+			(at 102.87 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9626,7 +10113,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 83.82 119.38 0)
+			(at 102.87 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9635,7 +10122,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 83.82 119.38 0)
+			(at 102.87 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9644,7 +10131,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 83.82 119.38 0)
+			(at 102.87 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9666,7 +10153,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 55.88 105.41 0)
+		(at 74.93 105.41 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9675,7 +10162,7 @@
 		(fields_autoplaced yes)
 		(uuid "f03f209e-0669-4d72-baa1-b25fafc03a65")
 		(property "Reference" "#PWR0302"
-			(at 55.88 111.76 0)
+			(at 74.93 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9684,7 +10171,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 55.88 110.49 0)
+			(at 74.93 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9693,7 +10180,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 105.41 0)
+			(at 74.93 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9702,7 +10189,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 105.41 0)
+			(at 74.93 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9711,7 +10198,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 55.88 105.41 0)
+			(at 74.93 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9998,7 +10485,7 @@
 		)
 	)
 	(sheet
-		(at 25.4 88.9)
+		(at 44.45 88.9)
 		(size 26.67 17.78)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10014,7 +10501,7 @@
 		)
 		(uuid "07084359-e357-43be-bf88-86367e12e534")
 		(property "Sheetname" "Clipper, Attenuator, Preselector"
-			(at 25.4 88.1884 0)
+			(at 44.45 88.1884 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10023,7 +10510,7 @@
 			)
 		)
 		(property "Sheetfile" "preselector.kicad_sch"
-			(at 25.4 107.2646 0)
+			(at 44.45 107.2646 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10033,7 +10520,7 @@
 			)
 		)
 		(pin "RxZ200" input
-			(at 25.4 91.44 180)
+			(at 44.45 91.44 180)
 			(uuid "ce118f90-a48c-4cca-acc6-f460cb75573b")
 			(effects
 				(font
@@ -10043,7 +10530,7 @@
 			)
 		)
 		(pin "atten3dB" input
-			(at 25.4 96.52 180)
+			(at 44.45 96.52 180)
 			(uuid "06d766f4-e92a-46f9-b26b-0e223fe688da")
 			(effects
 				(font
@@ -10053,7 +10540,7 @@
 			)
 		)
 		(pin "atten6dB" input
-			(at 25.4 99.06 180)
+			(at 44.45 99.06 180)
 			(uuid "46bfb3ea-8a47-4335-a9a6-5463626f9e80")
 			(effects
 				(font
@@ -10063,7 +10550,7 @@
 			)
 		)
 		(pin "atten12dB" input
-			(at 25.4 101.6 180)
+			(at 44.45 101.6 180)
 			(uuid "48c61ac2-7ef9-4ace-8bc7-7ea2613f388f")
 			(effects
 				(font
@@ -10073,7 +10560,7 @@
 			)
 		)
 		(pin "atten24dB" input
-			(at 25.4 104.14 180)
+			(at 44.45 104.14 180)
 			(uuid "a829738f-b054-4a4d-9efb-cc0bf0650922")
 			(effects
 				(font
@@ -10083,7 +10570,7 @@
 			)
 		)
 		(pin "rxPreselOut" output
-			(at 52.07 93.98 0)
+			(at 71.12 93.98 0)
 			(uuid "77f769f7-9874-49cd-99dc-81122f8be34a")
 			(effects
 				(font
