@@ -3369,16 +3369,6 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 16.51) (xy 36.83 16.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0509b553-0bef-457b-b68f-99ac99c7a194")
-	)
-	(wire
-		(pts
 			(xy 250.19 24.13) (xy 250.19 50.8)
 		)
 		(stroke
@@ -3456,16 +3446,6 @@
 			(type default)
 		)
 		(uuid "08c2060c-f7a4-4e53-83f5-8cb9d36fea66")
-	)
-	(wire
-		(pts
-			(xy 158.75 24.13) (xy 151.13 24.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "08f2e85d-706e-41ef-b410-dec8ae437660")
 	)
 	(wire
 		(pts
@@ -4259,16 +4239,6 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 16.51) (xy 36.83 19.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "482cb8df-1fc2-4d56-8165-7bf5f98124c2")
-	)
-	(wire
-		(pts
 			(xy 228.6 114.3) (xy 234.95 114.3)
 		)
 		(stroke
@@ -4499,7 +4469,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 24.13) (xy 168.91 24.13)
+			(xy 163.83 24.13) (xy 191.77 24.13)
 		)
 		(stroke
 			(width 0)
@@ -4799,16 +4769,6 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 19.05) (xy 38.1 19.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7621f8e7-3d4c-42b6-82cb-11ebf61b75cf")
-	)
-	(wire
-		(pts
 			(xy 234.95 82.55) (xy 234.95 83.82)
 		)
 		(stroke
@@ -4879,7 +4839,7 @@
 	)
 	(wire
 		(pts
-			(xy 20.32 16.51) (xy 24.13 16.51)
+			(xy 21.59 19.05) (xy 38.1 19.05)
 		)
 		(stroke
 			(width 0)
@@ -5379,7 +5339,7 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 24.13) (xy 143.51 24.13)
+			(xy 135.89 24.13) (xy 158.75 24.13)
 		)
 		(stroke
 			(width 0)
@@ -6329,16 +6289,6 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 24.13) (xy 191.77 24.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fe661bfe-e010-49f6-a015-5d08caf1d6b8")
-	)
-	(wire
-		(pts
 			(xy 245.11 121.92) (xy 246.38 121.92)
 		)
 		(stroke
@@ -7042,7 +6992,7 @@
 	)
 	(hierarchical_label "RxZ200"
 		(shape input)
-		(at 20.32 16.51 180)
+		(at 21.59 19.05 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7737,73 +7687,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 147.32 24.13 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "22f15e22-3a7c-443c-b3d4-2e4f294ec6ed")
-		(property "Reference" "C416"
-			(at 147.574 20.828 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1uF"
-			(at 147.32 27.686 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 143.51 25.0952 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 147.32 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 147.32 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "627ae625-0688-4e0e-8eef-8153f11f7dfc")
-		)
-		(pin "1"
-			(uuid "d2c780ad-9e18-42d3-bd06-f6535923580c")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f/07084359-e357-43be-bf88-86367e12e534"
-					(reference "C416")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:L_Ferrite")
 		(at 201.93 78.74 0)
 		(unit 1)
@@ -8364,73 +8247,6 @@
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f/07084359-e357-43be-bf88-86367e12e534"
 					(reference "#PWR0402")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 27.94 16.51 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "364dd76e-475b-4929-99ac-f759ae27a844")
-		(property "Reference" "C404"
-			(at 23.876 15.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1uF"
-			(at 30.988 15.494 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 24.13 17.4752 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 27.94 16.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 27.94 16.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "5787b896-7f6c-4444-8038-2154e707c1b9")
-		)
-		(pin "1"
-			(uuid "42bf6837-ef7b-478f-ac3b-809681b4c6cd")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f/07084359-e357-43be-bf88-86367e12e534"
-					(reference "C404")
 					(unit 1)
 				)
 			)
@@ -12978,73 +12794,6 @@
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f/07084359-e357-43be-bf88-86367e12e534"
 					(reference "C414")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 172.72 24.13 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a240dd8b-7c89-4df9-b5ea-25ba5c8dbd52")
-		(property "Reference" "C425"
-			(at 172.974 20.828 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1uF"
-			(at 172.72 27.686 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 168.91 25.0952 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 172.72 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 172.72 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2ecf4eb5-c578-4e4d-aa36-d88f1babb360")
-		)
-		(pin "1"
-			(uuid "2a98ff99-f74d-4929-835d-c47aa5c917a7")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f/07084359-e357-43be-bf88-86367e12e534"
-					(reference "C425")
 					(unit 1)
 				)
 			)
