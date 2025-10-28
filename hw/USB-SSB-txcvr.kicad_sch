@@ -15,7 +15,7 @@
 		(members "reset" "BCLK" "MCLK" "WCLK" "data0" "data1" "data2" "qsdNSS"
 			"qsdSCK" "qsdMOSI" "tuneSCK" "tuneNSS" "tuneMOSI" "tuneMISO" "enable5V"
 			"tmpSCL" "tmpSDA" "qsdPh0a" "qsdPh0b" "qsdPh0c" "qsdPh0d" "qsdPh1a" "qsdPh1b"
-			"qsdPh1c" "qsdPh1d" "qsdPh2a" "qsdPh2b" "qsdPh2c" "qsdPh2d"
+			"qsdPh1c" "qsdPh1d" "qsdPh2a" "qsdPh2b" "qsdPh2c" "qsdPh2d" "bruene"
 		)
 	)
 	(junction
@@ -49,6 +49,16 @@
 			(type default)
 		)
 		(uuid "0f30036f-db7c-4bbf-bb83-7a468af4e23b")
+	)
+	(wire
+		(pts
+			(xy 110.49 87.63) (xy 101.6 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12251cb8-b038-4abb-874b-89d0f3195e95")
 	)
 	(wire
 		(pts
@@ -102,23 +112,13 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 118.11) (xy 215.9 118.11)
+			(xy 107.95 85.09) (xy 107.95 64.77)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "35ffae43-624d-4e37-aea7-aaa238911b35")
-	)
-	(wire
-		(pts
-			(xy 80.01 105.41) (xy 80.01 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "467fa720-6b46-4a21-b4aa-9434846518be")
+		(uuid "3a42199e-bd8f-4568-a035-486c6c026082")
 	)
 	(wire
 		(pts
@@ -129,26 +129,6 @@
 			(type default)
 		)
 		(uuid "4b705863-d8e6-4802-9390-de8d2d30e2a8")
-	)
-	(wire
-		(pts
-			(xy 82.55 115.57) (xy 82.55 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5945698c-6680-4bbc-9e53-1b5a75b77a98")
-	)
-	(wire
-		(pts
-			(xy 213.36 106.68) (xy 213.36 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5ade42f3-84b0-4d96-b35c-6000088abbb2")
 	)
 	(wire
 		(pts
@@ -192,13 +172,13 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 115.57) (xy 82.55 115.57)
+			(xy 110.49 64.77) (xy 110.49 87.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a640c686-bc42-4efe-8717-642ae79fb1a9")
+		(uuid "a7b22eb6-d124-4e87-80f7-4ddd5c89c67c")
 	)
 	(wire
 		(pts
@@ -209,16 +189,6 @@
 			(type default)
 		)
 		(uuid "bfe6ac62-0156-4ba7-b041-98f7b6b152ba")
-	)
-	(wire
-		(pts
-			(xy 215.9 118.11) (xy 215.9 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c4c8221e-52d0-4845-b393-2a3436fa6166")
 	)
 	(wire
 		(pts
@@ -239,6 +209,16 @@
 			(type default)
 		)
 		(uuid "c9244f64-6a1d-46ab-b1d6-a980b87ec787")
+	)
+	(wire
+		(pts
+			(xy 101.6 85.09) (xy 107.95 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3d2a1fa-5919-4031-9638-5d9a65dfe6fb")
 	)
 	(wire
 		(pts
@@ -347,6 +327,26 @@
 		(pin "RxZ200" input
 			(at 87.63 64.77 270)
 			(uuid "8b617ee0-f87b-4fee-abc6-b2db07eaf836")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "txFwd" input
+			(at 107.95 64.77 270)
+			(uuid "b63838b7-a397-47ef-bf97-c71fcee1d46c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "txRev" input
+			(at 110.49 64.77 270)
+			(uuid "127505a4-eb89-4ae7-a454-af95c9959a06")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -500,26 +500,6 @@
 				(justify right)
 			)
 		)
-		(pin "AntFwdV" output
-			(at 80.01 105.41 270)
-			(uuid "5bbde259-5454-4b50-b9e6-8bac247d4c9f")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "AntRevV" output
-			(at 82.55 105.41 270)
-			(uuid "8c042d7c-1c9d-495e-8af3-6f7a4d2cece9")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "RxZ200" output
 			(at 87.63 76.2 90)
 			(uuid "817e73ee-8033-4448-85cf-18e95beeca99")
@@ -548,6 +528,26 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(pin "txFwd" output
+			(at 101.6 85.09 0)
+			(uuid "180df20e-3025-4002-b361-adfa2459171d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "txRev" output
+			(at 101.6 87.63 0)
+			(uuid "392727d3-ae92-42fc-9b7c-83506467de06")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
@@ -656,26 +656,6 @@
 		(pin "scaledEERVdd" input
 			(at 189.23 101.6 180)
 			(uuid "094fe206-2484-4368-9cec-5c22a7cb930f")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "AntFwdV" input
-			(at 215.9 106.68 270)
-			(uuid "213b5c9d-828c-4b00-b2a4-10fb2bcfce58")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "AntRevV" input
-			(at 213.36 106.68 270)
-			(uuid "6408aaa2-4196-488d-b477-cc529e073fab")
 			(effects
 				(font
 					(size 1.27 1.27)

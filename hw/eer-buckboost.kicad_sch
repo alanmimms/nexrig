@@ -2590,6 +2590,16 @@
 		)
 		(uuid "79b5a814-7818-4ac7-936c-1464f968e14a")
 	)
+	(text "Scale 0..60V\nto 0..3.16V."
+		(exclude_from_sim no)
+		(at 169.418 162.814 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "7bcdeeab-8f38-4b14-8361-49e9709bb0de")
+	)
 	(text "Isat >= 11A"
 		(exclude_from_sim no)
 		(at 183.642 106.426 0)
@@ -2600,7 +2610,7 @@
 		)
 		(uuid "8888bf84-a413-40cb-a498-769101226c12")
 	)
-	(text "Scale 0..25V\nto 0..3.27V."
+	(text "Scale 0..60V\nto 0..3.16V."
 		(exclude_from_sim no)
 		(at 67.564 177.546 0)
 		(effects
@@ -2956,7 +2966,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 161.29) (xy 82.55 161.29)
+			(xy 82.55 161.29) (xy 83.82 161.29)
 		)
 		(stroke
 			(width 0)
@@ -3106,7 +3116,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 177.8) (xy 81.28 161.29)
+			(xy 82.55 177.8) (xy 82.55 161.29)
 		)
 		(stroke
 			(width 0)
@@ -3616,7 +3626,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 177.8) (xy 81.28 177.8)
+			(xy 77.47 177.8) (xy 82.55 177.8)
 		)
 		(stroke
 			(width 0)
@@ -4276,7 +4286,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 161.29) (xy 93.98 161.29)
+			(xy 91.44 161.29) (xy 93.98 161.29)
 		)
 		(stroke
 			(width 0)
@@ -5321,151 +5331,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:CSD18543Q3A")
-		(at 157.48 109.22 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1526b63a-85e6-4168-8f34-1783dc41e4d3")
-		(property "Reference" "Q1802"
-			(at 163.83 107.9499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "CSD18543Q3A"
-			(at 163.83 110.4899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_SON:VSON-8_3.3x3.3mm_P0.65mm_NexFET"
-			(at 162.56 111.125 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/csd18543q3a.pdf"
-			(at 162.56 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "35A Id, 60V Vds, NexFET N-Channel Power MOSFET, 8.1mOhm Ron, Qg Typ 11.1nC, VSON-8 3.3x3.3mm"
-			(at 157.48 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 157.48 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 157.48 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 157.48 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 157.48 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 157.48 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 157.48 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 157.48 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "cf538a0c-5823-44d0-8f2c-c4efd5c00bd7")
-		)
-		(pin "4"
-			(uuid "071bbb46-5fbf-4b61-a593-4191c907c2d9")
-		)
-		(pin "3"
-			(uuid "8686702e-2304-48de-b4dc-3fef097772e7")
-		)
-		(pin "2"
-			(uuid "478595ce-5605-4d74-89fd-5a5b529c9003")
-		)
-		(pin "1"
-			(uuid "b51b871a-cf5a-4540-a909-56b8dc1f1f98")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/cbf7569b-90aa-4e1a-84a7-d4153f6242b6/54f6e4b0-17dc-4350-a926-dbfbd6a508b6"
-					(reference "Q1802")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 24.13 120.65 0)
 		(mirror y)
@@ -5483,7 +5348,7 @@
 				)
 			)
 		)
-		(property "Value" "470pF"
+		(property "Value" "47nF"
 			(at 27.178 122.936 0)
 			(effects
 				(font
@@ -6592,7 +6457,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100"
+		(property "Value" "1k"
 			(at 175.006 121.412 90)
 			(effects
 				(font
@@ -7284,7 +7149,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "66.5k"
+		(property "Value" "180k"
 			(at 79.502 170.18 90)
 			(effects
 				(font
@@ -8272,7 +8137,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "66.5k"
+		(property "Value" "180k"
 			(at 136.652 148.59 90)
 			(effects
 				(font
@@ -8913,152 +8778,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:CSD18543Q3A")
-		(at 210.82 109.22 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "802deae0-22f2-431c-9cf3-17b97aeb6716")
-		(property "Reference" "Q1804"
-			(at 204.47 107.9499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "CSD18543Q3A"
-			(at 204.47 110.4899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_SON:VSON-8_3.3x3.3mm_P0.65mm_NexFET"
-			(at 205.74 111.125 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/csd18543q3a.pdf"
-			(at 205.74 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "35A Id, 60V Vds, NexFET N-Channel Power MOSFET, 8.1mOhm Ron, Qg Typ 11.1nC, VSON-8 3.3x3.3mm"
-			(at 210.82 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 210.82 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 210.82 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 210.82 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 210.82 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 210.82 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 210.82 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 210.82 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "1815ef60-0088-4159-9771-4f2c136ffbd0")
-		)
-		(pin "4"
-			(uuid "43ca1d0e-b478-4439-963c-e19935b253af")
-		)
-		(pin "3"
-			(uuid "2ba9e5a6-8951-47e3-b5df-961a810efdd6")
-		)
-		(pin "2"
-			(uuid "9f77e4e4-aef3-462c-9b9f-92c5641891c8")
-		)
-		(pin "1"
-			(uuid "4568003c-3372-49f4-9cbb-521f65c29643")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/cbf7569b-90aa-4e1a-84a7-d4153f6242b6/54f6e4b0-17dc-4350-a926-dbfbd6a508b6"
-					(reference "Q1804")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 163.83 132.08 0)
 		(unit 1)
@@ -9220,6 +8939,167 @@
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/cbf7569b-90aa-4e1a-84a7-d4153f6242b6/54f6e4b0-17dc-4350-a926-dbfbd6a508b6"
 					(reference "#PWR01822")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:CSD18543Q3A")
+		(at 210.82 93.98 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8b33ab95-d6d6-47ac-b728-8c9cccee230c")
+		(property "Reference" "Q1803"
+			(at 204.47 92.7099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "CSD19532Q5B"
+			(at 204.47 95.2499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SON:VSONP-8-1EP_5x6_P1.27mm"
+			(at 205.74 95.885 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/gpn/csd19532q5b"
+			(at 205.74 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "MOSFETs 100V 4.0 mOhm N-Ch N exFET Power MOSFET"
+			(at 210.82 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey_Part_Number" ""
+			(at 210.82 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Display" ""
+			(at 210.82 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Display 2" ""
+			(at 210.82 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mfg" ""
+			(at 210.82 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MfgPart" ""
+			(at 210.82 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" ""
+			(at 210.82 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Type" ""
+			(at 210.82 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 210.82 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 210.82 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "5"
+			(uuid "c24e2126-3b55-488e-97b4-40ff6a8e9a0d")
+		)
+		(pin "4"
+			(uuid "c31d7b9d-819a-425d-ab46-fb79bec4be8d")
+		)
+		(pin "3"
+			(uuid "31f61c05-5a13-407b-80b8-f29179e34119")
+		)
+		(pin "2"
+			(uuid "e7542ddf-f946-4ecc-8b29-abde502fffab")
+		)
+		(pin "1"
+			(uuid "3bd1a000-67f9-4d87-935e-5ada34476749")
+		)
+		(instances
+			(project "USB-SSB-txcvr"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/cbf7569b-90aa-4e1a-84a7-d4153f6242b6/54f6e4b0-17dc-4350-a926-dbfbd6a508b6"
+					(reference "Q1803")
 					(unit 1)
 				)
 			)
@@ -9392,7 +9272,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "0.008"
+		(property "Value" "0.015"
 			(at 184.15 130.8099 90)
 			(effects
 				(font
@@ -9597,154 +9477,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:CSD18543Q3A")
-		(at 210.82 93.98 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9868a326-dd0a-40ee-adb8-23cc92030391")
-		(property "Reference" "Q1803"
-			(at 204.47 92.7099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "CSD18543Q3A"
-			(at 204.47 95.2499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_SON:VSON-8_3.3x3.3mm_P0.65mm_NexFET"
-			(at 205.74 95.885 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/csd18543q3a.pdf"
-			(at 205.74 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "35A Id, 60V Vds, NexFET N-Channel Power MOSFET, 8.1mOhm Ron, Qg Typ 11.1nC, VSON-8 3.3x3.3mm"
-			(at 210.82 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 210.82 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 210.82 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 210.82 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 210.82 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 210.82 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 210.82 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 210.82 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "033f6cc7-1e66-4924-b715-de66a216d583")
-		)
-		(pin "4"
-			(uuid "2c2131da-4670-4803-b8e6-c62ed1941ac8")
-		)
-		(pin "3"
-			(uuid "4cb82892-dd96-49e3-ac69-647c683491af")
-		)
-		(pin "2"
-			(uuid "e92d9351-5395-479e-8fe1-9509a6f2bb71")
-		)
-		(pin "1"
-			(uuid "d3e25121-124b-4aa6-a5c8-28e3a6f904e4")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/cbf7569b-90aa-4e1a-84a7-d4153f6242b6/54f6e4b0-17dc-4350-a926-dbfbd6a508b6"
-					(reference "Q1803")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_US")
-		(at 86.36 161.29 90)
+		(at 87.63 161.29 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9753,7 +9487,7 @@
 		(dnp no)
 		(uuid "9ffaf58a-39e4-4704-8041-d9d4cc0f6f51")
 		(property "Reference" "R1808"
-			(at 88.646 159.512 90)
+			(at 89.916 159.512 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9762,7 +9496,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 87.63 163.83 90)
+			(at 88.9 163.83 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9771,7 +9505,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 86.614 162.306 90)
+			(at 87.884 162.306 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9780,7 +9514,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 86.36 161.29 0)
+			(at 87.63 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9789,7 +9523,7 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
-			(at 86.36 161.29 0)
+			(at 87.63 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9798,7 +9532,7 @@
 			)
 		)
 		(property "DigiKey_Part_Number" ""
-			(at 86.36 161.29 90)
+			(at 87.63 161.29 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9807,7 +9541,7 @@
 			)
 		)
 		(property "Display" ""
-			(at 86.36 161.29 90)
+			(at 87.63 161.29 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9816,7 +9550,7 @@
 			)
 		)
 		(property "Display 2" ""
-			(at 86.36 161.29 90)
+			(at 87.63 161.29 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9825,7 +9559,7 @@
 			)
 		)
 		(property "Mfg" ""
-			(at 86.36 161.29 90)
+			(at 87.63 161.29 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9834,7 +9568,7 @@
 			)
 		)
 		(property "MfgPart" ""
-			(at 86.36 161.29 90)
+			(at 87.63 161.29 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9843,7 +9577,7 @@
 			)
 		)
 		(property "Sim.Params" ""
-			(at 86.36 161.29 90)
+			(at 87.63 161.29 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9852,7 +9586,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 86.36 161.29 90)
+			(at 87.63 161.29 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10667,6 +10401,167 @@
 		)
 	)
 	(symbol
+		(lib_id "Transistor_FET:CSD18543Q3A")
+		(at 210.82 109.22 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "af1ffc08-3f93-4011-9712-c9258f08fd72")
+		(property "Reference" "Q1804"
+			(at 204.47 107.9499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "CSD19532Q5B"
+			(at 204.47 110.4899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SON:VSONP-8-1EP_5x6_P1.27mm"
+			(at 205.74 111.125 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/gpn/csd19532q5b"
+			(at 205.74 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "MOSFETs 100V 4.0 mOhm N-Ch N exFET Power MOSFET"
+			(at 210.82 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey_Part_Number" ""
+			(at 210.82 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Display" ""
+			(at 210.82 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Display 2" ""
+			(at 210.82 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mfg" ""
+			(at 210.82 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MfgPart" ""
+			(at 210.82 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" ""
+			(at 210.82 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Type" ""
+			(at 210.82 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 210.82 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 210.82 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "5"
+			(uuid "ae284b84-fa23-42de-9bfc-7225d83179b8")
+		)
+		(pin "4"
+			(uuid "b29685d4-ddb6-4952-bfe3-a80d05031585")
+		)
+		(pin "3"
+			(uuid "7b9efd32-bda4-419b-943f-f33833ddeafe")
+		)
+		(pin "2"
+			(uuid "0aced1f9-019e-44cf-ac70-448c9888039e")
+		)
+		(pin "1"
+			(uuid "b51c0cf1-76b1-40be-9cc8-15332b7ed704")
+		)
+		(instances
+			(project "USB-SSB-txcvr"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/cbf7569b-90aa-4e1a-84a7-d4153f6242b6/54f6e4b0-17dc-4350-a926-dbfbd6a508b6"
+					(reference "Q1804")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 214.63 80.01 0)
 		(unit 1)
@@ -11299,6 +11194,167 @@
 		)
 	)
 	(symbol
+		(lib_id "Transistor_FET:CSD18543Q3A")
+		(at 157.48 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d6017b7f-6238-48f2-83a8-1fcbe2ecc7b5")
+		(property "Reference" "Q1802"
+			(at 163.83 107.9499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "CSD19532Q5B"
+			(at 163.83 110.4899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SON:VSONP-8-1EP_5x6_P1.27mm"
+			(at 162.56 111.125 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/gpn/csd19532q5b"
+			(at 162.56 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "MOSFETs 100V 4.0 mOhm N-Ch N exFET Power MOSFET"
+			(at 157.48 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey_Part_Number" ""
+			(at 157.48 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Display" ""
+			(at 157.48 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Display 2" ""
+			(at 157.48 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mfg" ""
+			(at 157.48 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MfgPart" ""
+			(at 157.48 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" ""
+			(at 157.48 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Type" ""
+			(at 157.48 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 157.48 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 157.48 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "5"
+			(uuid "feefef9d-efad-40dc-87c0-21bc734d8f2d")
+		)
+		(pin "4"
+			(uuid "8587eaaa-0d6b-4275-b89a-c8e54a354ff8")
+		)
+		(pin "3"
+			(uuid "f01f6591-7abc-4470-9056-3a6878538d2e")
+		)
+		(pin "2"
+			(uuid "0d4b1179-5823-48bd-b51e-1f47c12d6935")
+		)
+		(pin "1"
+			(uuid "6bcd00a4-0403-40c0-8ade-a008b8a5a208")
+		)
+		(instances
+			(project "USB-SSB-txcvr"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/cbf7569b-90aa-4e1a-84a7-d4153f6242b6/54f6e4b0-17dc-4350-a926-dbfbd6a508b6"
+					(reference "Q1802")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 137.16 78.74 0)
 		(unit 1)
@@ -11463,7 +11519,7 @@
 				)
 			)
 		)
-		(property "Value" "1nF"
+		(property "Value" "10nF"
 			(at 161.798 129.032 0)
 			(effects
 				(font
@@ -12541,7 +12597,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "CSD18543Q3A"
+		(property "Value" "CSD19532Q5B"
 			(at 163.83 95.2499 0)
 			(effects
 				(font
@@ -12550,7 +12606,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_SON:VSON-8_3.3x3.3mm_P0.65mm_NexFET"
+		(property "Footprint" "Package_SON:VSONP-8-1EP_5x6_P1.27mm"
 			(at 162.56 95.885 0)
 			(effects
 				(font
@@ -12561,7 +12617,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/csd18543q3a.pdf"
+		(property "Datasheet" "https://www.ti.com/lit/gpn/csd19532q5b"
 			(at 162.56 97.79 0)
 			(effects
 				(font
@@ -12571,7 +12627,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "35A Id, 60V Vds, NexFET N-Channel Power MOSFET, 8.1mOhm Ron, Qg Typ 11.1nC, VSON-8 3.3x3.3mm"
+		(property "Description" "MOSFETs 100V 4.0 mOhm N-Ch N exFET Power MOSFET"
 			(at 157.48 93.98 0)
 			(effects
 				(font
@@ -12641,6 +12697,22 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 157.48 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 157.48 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "5"
