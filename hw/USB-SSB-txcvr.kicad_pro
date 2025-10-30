@@ -554,6 +554,9 @@
       "+12V": [
         "Power"
       ],
+      "+2.7V": [
+        "Power"
+      ],
       "+SDCARDVDD": [
         "Power"
       ],
@@ -725,6 +728,9 @@
       "Net-(C504-Pad1)": [
         "PowerRF"
       ],
+      "Net-(C505-Pad1)": [
+        "PowerRF"
+      ],
       "Net-(D1501-A-Pad1)": [
         "Power"
       ],
@@ -738,6 +744,12 @@
         "Power"
       ],
       "Net-(D1801-A-Pad1)": [
+        "Power"
+      ],
+      "Net-(D1901-K_1)": [
+        "Power"
+      ],
+      "Net-(D1902-K_1)": [
         "Power"
       ],
       "Net-(D2001-K)": [
@@ -843,7 +855,7 @@
         "PowerRF"
       ],
       "Net-(Q1802-S-Pad1)": [
-        "Power"
+        "GND"
       ],
       "Net-(Q1902-D)": [
         "Power"
@@ -914,6 +926,12 @@
       "Net-(U1701-OUT)": [
         "Power"
       ],
+      "Net-(U1703-SW)": [
+        "Power"
+      ],
+      "Net-(U1703-VREG_1V2)": [
+        "Power"
+      ],
       "Net-(U1704-CB)": [
         "Power"
       ],
@@ -926,7 +944,7 @@
       "Net-(U1705-SW)": [
         "Power"
       ],
-      "Net-(U1706-CB)": [
+      "Net-(U1706-SW)": [
         "Power"
       ],
       "Net-(U1801-OUT)": [
@@ -936,6 +954,12 @@
         "Power"
       ],
       "Net-(U1801-VDDCR)": [
+        "Power"
+      ],
+      "Net-(U1802-VCC)": [
+        "Power"
+      ],
+      "Net-(U1802-VIN)": [
         "Power"
       ],
       "Net-(U1803-CB)": [
@@ -957,6 +981,15 @@
         "Power"
       ],
       "Net-(U1901-VDDCR)": [
+        "Power"
+      ],
+      "Net-(U1901-VREG_1V2)": [
+        "Power"
+      ],
+      "Net-(U2001-VDD1A)": [
+        "Power"
+      ],
+      "Net-(U2001-VDDCR)": [
         "Power"
       ],
       "Net-(U203-VDD1A)": [
@@ -993,6 +1026,9 @@
         "Power"
       ],
       "Net-(U601-4-VCCPLL)": [
+        "Power"
+      ],
+      "Net-(U601-OUT)": [
         "Power"
       ],
       "Net-(U602-4-VCCPLL)": [
@@ -1196,6 +1232,18 @@
       {
         "netclass": "Power",
         "pattern": "+1.2VPP"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+5VA"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+2.5VPP"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+3.3VFPGAIO"
       }
     ]
   },
@@ -1615,6 +1663,10 @@
     [
       "54f6e4b0-17dc-4350-a926-dbfbd6a508b6",
       "Tx EER Envelope Buck-Boost"
+    ],
+    [
+      "b5b8e2c9-b718-4cd8-b6b6-354bc595daa8",
+      "USB-PD"
     ],
     [
       "acc2372a-588f-45d7-a9dc-955cac4e7364",
