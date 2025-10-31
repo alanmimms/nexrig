@@ -1329,220 +1329,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Diode:SM712_SOT23"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at 0 4.445 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SM712_SOT23"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-				(at 0 -8.89 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diode_arrays/littelfuse_tvs_diode_array_sm712_datasheet.pdf.pdf"
-				(at -3.81 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "7V/12V, 600W Asymmetrical TVS Diode Array, SOT-23"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "transient voltage suppressor thyrector transil"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "SOT?23*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SM712_SOT23_0_0"
-				(polyline
-					(pts
-						(xy 0 -1.27) (xy 0 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SM712_SOT23_0_1"
-				(polyline
-					(pts
-						(xy -6.35 0) (xy 6.35 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -6.35 -1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -6.35 1.27) (xy -6.35 -1.27)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.302 1.27) (xy -3.81 1.27) (xy -3.81 -1.27) (xy -4.318 -1.27)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 0)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -1.27) (xy 1.27 1.27) (xy 6.35 -1.27) (xy 6.35 1.27) (xy 1.27 -1.27)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 4.318 1.27) (xy 3.81 1.27) (xy 3.81 -1.27) (xy 3.302 -1.27)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SM712_SOT23_1_1"
-				(pin passive line
-					(at -8.89 0 0)
-					(length 2.54)
-					(name "A1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 0 -3.81 90)
-					(length 2.54)
-					(name "common"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 8.89 0 180)
-					(length 2.54)
-					(name "A2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Interface_Expansion:MCP23S17_SS"
 			(pin_names
 				(offset 1.016)
@@ -2949,23 +2735,13 @@
 	)
 	(text "200 : 800 ohm\n8t bifilar #26AWG\nFT50-43"
 		(exclude_from_sim no)
-		(at 161.29 20.574 0)
+		(at 146.05 20.574 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
 		(uuid "447349b8-cb3a-4fda-8d87-7a800802c537")
-	)
-	(text "~13V pk-pk\nprotection"
-		(exclude_from_sim no)
-		(at 200.66 14.732 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "4e633504-d119-471c-a6f8-3246e3dec2dc")
 	)
 	(text "160m needs\nadditional 10nF"
 		(exclude_from_sim no)
@@ -2979,7 +2755,7 @@
 	)
 	(text "Note this is Z=800 ohm domain."
 		(exclude_from_sim no)
-		(at 225.806 14.986 0)
+		(at 198.12 15.494 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3158,12 +2934,6 @@
 		(uuid "7c4ca33f-3b92-4b2c-8bb0-174cdf537753")
 	)
 	(junction
-		(at 250.19 24.13)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7c537154-6df7-47f0-9122-85b6147ed48f")
-	)
-	(junction
 		(at 107.95 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3228,6 +2998,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9f1c9be8-6a60-4974-b067-a7d970370e23")
+	)
+	(junction
+		(at 250.19 24.13)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a0f6e69d-e485-44d4-950b-88b0447541d2")
 	)
 	(junction
 		(at 245.11 121.92)
@@ -3308,7 +3084,7 @@
 		(uuid "fc299bba-8299-4a4a-bb4e-d325e73449c6")
 	)
 	(junction
-		(at 158.75 35.56)
+		(at 143.51 35.56)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fcfdfed5-9817-4965-877d-ce9ec8354165")
@@ -4471,7 +4247,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 24.13) (xy 191.77 24.13)
+			(xy 148.59 24.13) (xy 250.19 24.13)
 		)
 		(stroke
 			(width 0)
@@ -4531,7 +4307,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 35.56) (xy 158.75 38.1)
+			(xy 143.51 35.56) (xy 143.51 38.1)
 		)
 		(stroke
 			(width 0)
@@ -4668,16 +4444,6 @@
 			(type default)
 		)
 		(uuid "6e3fcbaf-2f95-4717-8be8-cd9a51b114b7")
-	)
-	(wire
-		(pts
-			(xy 200.66 27.94) (xy 200.66 29.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6ec68f77-af56-4b1b-85c9-9e0de7bf6370")
 	)
 	(wire
 		(pts
@@ -5191,16 +4957,6 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 24.13) (xy 250.19 24.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a5828f8d-6a25-4d89-b2bd-20319d20867e")
-	)
-	(wire
-		(pts
 			(xy 232.41 67.31) (xy 232.41 68.58)
 		)
 		(stroke
@@ -5341,7 +5097,7 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 24.13) (xy 158.75 24.13)
+			(xy 135.89 24.13) (xy 143.51 24.13)
 		)
 		(stroke
 			(width 0)
@@ -5961,7 +5717,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 24.13) (xy 163.83 25.4)
+			(xy 148.59 24.13) (xy 148.59 25.4)
 		)
 		(stroke
 			(width 0)
@@ -6041,7 +5797,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 35.56) (xy 163.83 35.56)
+			(xy 143.51 35.56) (xy 148.59 35.56)
 		)
 		(stroke
 			(width 0)
@@ -6111,7 +5867,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 25.4) (xy 158.75 24.13)
+			(xy 143.51 25.4) (xy 143.51 24.13)
 		)
 		(stroke
 			(width 0)
@@ -7907,7 +7663,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 259.08 121.92 0)
 			(effects
 				(font
@@ -8288,7 +8044,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 160.02 121.92 0)
 			(effects
 				(font
@@ -8480,7 +8236,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 223.52 60.96 0)
 			(effects
 				(font
@@ -8694,7 +8450,7 @@
 	)
 	(symbol
 		(lib_id "Device:L_Ferrite_Coupled")
-		(at 161.29 30.48 90)
+		(at 146.05 30.48 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8703,7 +8459,7 @@
 		(dnp no)
 		(uuid "3f685dda-8025-4f1c-8e2e-7de91d7405f2")
 		(property "Reference" "L401"
-			(at 165.1 30.2261 90)
+			(at 149.86 30.2261 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8712,7 +8468,7 @@
 			)
 		)
 		(property "Value" "8t bifilar"
-			(at 165.1 28.8291 90)
+			(at 149.86 28.8291 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8722,7 +8478,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 161.29 30.48 0)
+			(at 146.05 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8731,7 +8487,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 161.29 30.48 0)
+			(at 146.05 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8740,7 +8496,7 @@
 			)
 		)
 		(property "Description" "Coupled inductor with ferrite core"
-			(at 161.29 30.48 0)
+			(at 146.05 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8749,7 +8505,7 @@
 			)
 		)
 		(property "cap-type" ""
-			(at 161.29 30.48 0)
+			(at 146.05 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8757,7 +8513,7 @@
 			)
 		)
 		(property "r-power" ""
-			(at 161.29 30.48 0)
+			(at 146.05 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8870,7 +8626,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 193.04 121.92 0)
 			(effects
 				(font
@@ -9861,7 +9617,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 240.03 60.96 0)
 			(effects
 				(font
@@ -10033,73 +9789,6 @@
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f/07084359-e357-43be-bf88-86367e12e534"
 					(reference "U408")
 					(unit 3)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 200.66 29.21 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6480e471-383a-47bf-9ebe-8a276fa26d25")
-		(property "Reference" "#PWR0440"
-			(at 200.66 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 200.66 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 200.66 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 200.66 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 200.66 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "772db636-d94d-4c6f-940e-c2521fba4ca4")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f/07084359-e357-43be-bf88-86367e12e534"
-					(reference "#PWR0440")
-					(unit 1)
 				)
 			)
 		)
@@ -10504,7 +10193,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 190.5 60.96 0)
 			(effects
 				(font
@@ -11467,7 +11156,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 127 121.92 0)
 			(effects
 				(font
@@ -11630,7 +11319,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 93.98 121.92 0)
 			(effects
 				(font
@@ -12126,7 +11815,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 209.55 121.92 0)
 			(effects
 				(font
@@ -12291,7 +11980,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 110.49 121.92 0)
 			(effects
 				(font
@@ -12454,7 +12143,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 143.51 121.92 0)
 			(effects
 				(font
@@ -12619,7 +12308,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 207.01 60.96 0)
 			(effects
 				(font
@@ -13096,93 +12785,6 @@
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f/07084359-e357-43be-bf88-86367e12e534"
 					(reference "#PWR0410")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Diode:SM712_SOT23")
-		(at 200.66 24.13 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "abc047ca-8351-473e-89c6-6b0b6ccffe22")
-		(property "Reference" "D401"
-			(at 200.66 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "STS321080B100AH"
-			(at 200.66 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_SOD-323"
-			(at 200.66 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.eaton.com/content/dam/eaton/products/electronic-components/resources/data-sheet/eaton-sts321xxxb100ah-automotive-low-capacitance-tvs-diode-esd-suppressor-data-sheet-elx1278-en.pdf"
-			(at 204.47 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "ESD Protection Diodes / TVS Diodes Auto ESD SOD323-2,8.0V"
-			(at 200.66 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 200.66 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 200.66 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "522951fa-af46-4bb1-92a8-3a92bf079213")
-		)
-		(pin "3"
-			(uuid "a222481a-dcbc-430e-bf29-1915aa3cf1a6")
-		)
-		(pin "1"
-			(uuid "b12cf4cd-e2e4-4ff3-b97f-a287a0ed31cc")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f/07084359-e357-43be-bf88-86367e12e534"
-					(reference "D401")
 					(unit 1)
 				)
 			)
@@ -14339,7 +13941,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 242.57 121.92 0)
 			(effects
 				(font
@@ -14571,7 +14173,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 176.53 121.92 0)
 			(effects
 				(font
@@ -14991,7 +14593,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AS169-73LF"
+		(property "Value" "AS183-92LF"
 			(at 226.06 121.92 0)
 			(effects
 				(font
@@ -15276,7 +14878,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 158.75 38.1 0)
+		(at 143.51 38.1 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -15286,7 +14888,7 @@
 		(fields_autoplaced yes)
 		(uuid "f08e8c68-195e-4f7d-93a9-b33ff65b86a8")
 		(property "Reference" "#PWR0431"
-			(at 158.75 44.45 0)
+			(at 143.51 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15295,7 +14897,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 158.75 43.18 0)
+			(at 143.51 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15304,7 +14906,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 158.75 38.1 0)
+			(at 143.51 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15313,7 +14915,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 158.75 38.1 0)
+			(at 143.51 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15322,7 +14924,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 158.75 38.1 0)
+			(at 143.51 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
