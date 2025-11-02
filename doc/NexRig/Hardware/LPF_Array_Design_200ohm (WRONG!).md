@@ -114,18 +114,49 @@ Total: 2 inductors + 3 capacitors = 5th order
 ## 3. Complete Component Specifications
 
 ### 3.1 Component Table - All 8 Filters
-
-| Filter | Band(s) | C1 Value | C1 Part Number         | L1 Value | L1 Part Number       | C2 Value   | C2 Part Number                | L2 Value | L2 Part Number       | C3 Value | C3 Part Number         |
-| ------ | ------- | -------- | ---------------------- | -------- | -------------------- | ---------- | ----------------------------- | -------- | -------------------- | -------- | ---------------------- |
-| **1**  | 160m    | 390pF    | Kemet C1210C391J1GACTU | 1.5µH    | Bourns 2100LL-152    | 620pF      | Kemet C1210C621J1GACTU        | 1.3µH    | Bourns 2100LL-132    | 330pF    | Kemet C1210C331J1GACTU |
-| **2**  | 80m     | 220pF    | Kemet C1210C221J1GACTU | 820nH    | Coilcraft 132-22L*   | 330pF      | Kemet C1210C331J1GACTU        | 750nH    | Bourns 2100LL-751    | 180pF    | Kemet C1210C181J1GACTU |
-| **3**  | 60m     | 150pF    | Kemet C1210C151J1GACTU | 620nH    | Coilcraft 132-19L*   | 240pF      | Kemet C1210C241J1GACTU        | 560nH    | Coilcraft 132-18L*   | 130pF    | Kemet C1210C131J1GACTU |
-| **4**  | 40m     | 120pF    | Kemet C1210C121J1GACTU | 470nH    | Coilcraft 132-16L*   | 180pF      | Kemet C1210C181J1GACTU        | 430nH    | Coilcraft 132-15L*   | 100pF    | Kemet C1210C101J1GACTU |
-| **5**  | 30m     | 82pF     | Kemet C1210C820J1GACTU | 330nH    | Coilcraft 132-13L*   | 130pF      | Kemet C1210C131J1GACTU        | 300nH    | Coilcraft 132-12L*   | 68pF     | Kemet C1210C680J1GACTU |
-| **6**  | 20m     | 56pF     | Kemet C1210C560J1GACTU | 240nH    | Coilcraft 132-10L*   | 91pF       | Kemet C1210C910J1GACTU        | 220nH    | Coilcraft 132-9L*    | 47pF     | Kemet C1210C470J1GACTU |
-| **7**  | 17m/15m | 39pF     | Kemet C1206C390J1GACTU | 180nH    | Coilcraft 132-8L*    | **2×33pF** | **2× Kemet C1206C330J1GACTU** | 160nH    | Coilcraft 132-7L*    | 33pF     | Kemet C1206C330J1GACTU |
-| **8**  | 12m/10m | 33pF     | Kemet C1206C330J5GACTU | 130nH    | Coilcraft 1008CS-131 | **2×24pF** | **2× Kemet C0805C240J5GACTU** | 120nH    | Coilcraft 1008CS-121 | 27pF     | Kemet C1206C270J5GACTU |
-
+| **Filter**    | **Cutoff (f_c)** | **Element** | **Ideal Value** | **Chosen Part(s)** | **Notes (Part #, Rating)**                          |
+| ------------- | ---------------- | ----------- | --------------- | ------------------ | --------------------------------------------------- |
+| **1: 160m**   | 2.4 MHz          | C1          | 381 pF          | **390 pF**         | 1x Kemet C1210C391J1GACTU (1kV, C0G)                |
+|               |                  | **L1**      | 18.2 µH         | **18 µH**          | 1x Wurth 74433301800 (18µH, 3.2A `I_rms`)           |
+|               |                  | **C2**      | 657 pF          | **660 pF**         | 2x Kemet C1210C331J1GACTU (330pF, 1kV, C0G)         |
+|               |                  | **L2**      | 18.2 µH         | **18 µH**          | 1x Wurth 74433301800 (18µH, 3.2A `I_rms`)           |
+|               |                  | C3          | 381 pF          | **390 pF**         | 1x Kemet C1210C391J1GACTU (1kV, C0G)                |
+| **2: 80m**    | 4.8 MHz          | C1          | 190 pF          | **180 pF**         | 1x Kemet C1210C181J1GACTU (1kV, C0G)                |
+|               |                  | **L1**      | 9.1 µH          | **10 µH**          | 1x Wurth 74433301000 (10µH, 2.5A `I_rms`)           |
+|               |                  | **C2**      | 328 pF          | **330 pF**         | 2x Kemet C1210C151J1GACTU (150pF, 1kV, C0G) + 180pF |
+|               |                  |             |                 |                    | _(Note: 2x 150pF or 2x 180pF is also acceptable)_   |
+|               |                  | **L2**      | 9.1 µH          | **10 µH**          | 1x Wurth 74433301000 (10µH, 2.5A `I_rms`)           |
+|               |                  | C3          | 190 pF          | **180 pF**         | 1x Kemet C1210C181J1GACTU (1kV, C0G)                |
+| **3: 60m**    | 6.5 MHz          | C1          | 140 pF          | **150 pF**         | 1x Kemet C1210C151J1GACTU (1kV, C0G)                |
+|               |                  | **L1**      | 6.7 µH          | **6.8 µH**         | 1x Wurth 74433300680 (6.8µH, 2.9A `I_rms`)          |
+|               |                  | **C2**      | 242 pF          | **240 pF**         | 2x Kemet C1210C121J1GACTU (120pF, 1kV, C0G)         |
+|               |                  | **L2**      | 6.7 µH          | **6.8 µH**         | 1x Wurth 74433300680 (6.8µH, 2.9A `I_rms`)          |
+|               |                  | C3          | 140 pF          | **150 pF**         | 1x Kemet C1210C151J1GACTU (1kV, C0G)                |
+| **4: 40m**    | 8.5 MHz          | C1          | 107 pF          | **100 pF**         | 1x Kemet C1210C101J1GACTU (1kV, C0G)                |
+|               |                  | **L1**      | 5.1 µH          | **4.7 µH**         | 1x Wurth 74433300470 (4.7µH, 3.4A `I_rms`)          |
+|               |                  | **C2**      | 185 pF          | **200 pF**         | 2x Kemet C1210C101J1GACTU (100pF, 1kV, C0G)         |
+|               |                  | **L2**      | 5.1 µH          | **4.7 µH**         | 1x Wurth 74433300470 (4.7µH, 3.4A `I_rms`)          |
+|               |                  | C3          | 107 pF          | **100 pF**         | 1x Kemet C1210C101J1GACTU (1kV, C0G)                |
+| **5: 30m**    | 11.5 MHz         | C1          | 79 pF           | **82 pF**          | 1x Kemet C1210C820J1GACTU (1kV, C0G)                |
+|               |                  | **L1**      | 3.8 µH          | **3.3 µH**         | 1x Wurth 74433300330 (3.3µH, 3.8A `I_rms`)          |
+|               |                  | **C2**      | 137 pF          | **136 pF**         | 2x Kemet C1210C680J1GACTU (68pF, 1kV, C0G)          |
+|               |                  | **L2**      | 3.8 µH          | **3.3 µH**         | 1x Wurth 74433300330 (3.3µH, 3.8A `I_rms`)          |
+|               |                  | C3          | 79 pF           | **82 pF**          | 1x Kemet C1210C820J1GACTU (1kV, C0G)                |
+| **6: 20m**    | 16.0 MHz         | C1          | 57 pF           | **56 pF**          | 1x Kemet C1210C560J1GACTU (1kV, C0G)                |
+|               |                  | **L1**      | 2.7 µH          | **2.2 µH**         | 1x Wurth 74433300220 (2.2µH, 4.4A `I_rms`)          |
+|               |                  | **C2**      | 98 pF           | **94 pF**          | 2x Kemet C1210C470J1GACTU (47pF, 1kV, C0G)          |
+|               |                  | **L2**      | 2.7 µH          | **2.2 µH**         | 1x Wurth 74433300220 (2.2µH, 4.4A `I_rms`)          |
+|               |                  | C3          | 57 pF           | **56 pF**          | 1x Kemet C1210C560J1GACTU (1kV, C0G)                |
+| **7: 17/15m** | 24.0 MHz         | C1          | 38 pF           | **39 pF**          | 1x Kemet C1206C390J1GACTU (1kV, C0G)                |
+|               |                  | **L1**      | 1.8 µH          | **1.8 µH**         | 1x Wurth 74433300180 (1.8µH, 5.0A `I_rms`)          |
+|               |                  | **C2**      | 65 pF           | **66 pF**          | 2x Kemet C1206C330J1GACTU (33pF, 1kV, C0G)          |
+|               |                  | **L2**      | 1.8 µH          | **1.8 µH**         | 1x Wurth 74433300180 (1.8µH, 5.0A `I_rms`)          |
+|               |                  | C3          | 38 pF           | **39 pF**          | 1x Kemet C1206C390J1GACTU (1kV, C0G)                |
+| **8: 12/10m** | 32.0 MHz         | C1          | 28 pF           | **27 pF**          | 1x Kemet C1206C270J5GACTU (500V, C0G)               |
+|               |                  | **L1**      | 1.36 µH         | **1.5 µH**         | 1x Wurth 74433300150 (1.5µH, 5.5A `I_rms`)          |
+|               |                  | **C2**      | 49 pF           | **48 pF**          | 2x Kemet C0805C240J5GACTU (24pF, 500V, C0G)         |
+|               |                  | **L2**      | 1.36 µH         | **1.5 µH**         | 1x Wurth 74433300150 (1.5µH, 5.5A `I_rms`)          |
+|               |                  | C3          | 28 pF           | **27 pF**          | 1x Kemet C1206C270J5GACTU (500V, C0G)               |
 **Notes:**
 - Filters 7 and 8 use **paralleled capacitors for C2 position only** (shown in bold) due to high RF current stress
 - All other positions use single capacitors
