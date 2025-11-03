@@ -1,0 +1,128 @@
+(footprint "L_Wurth_10.6mm_sq_SMT"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "Semi-Shielded High Saturation Power Inductor, body 4x4mm, https://www.we-online.com/catalog/en/WE-LQSH#/articles/WE-LQSH-4020")
+	(tags "SMT")
+	(property "Reference" "REF**"
+		(at 0 -8 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "72f04c79-3482-4b2f-9c2e-55d56c0ad165")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "L_Wurth_10.6mm_sq_SMT"
+		(at 0 3 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "e08f566d-cff8-45c7-9079-1320768f6f16")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "e1539276-b8dc-4967-8980-59b8b69682ec")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "6b0e3bf4-b5d0-440d-a828-3c0c9cabc15c")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_rect
+		(start -3.125 -6)
+		(end 3.125 6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Mask")
+		(uuid "331d94ac-163a-4e9c-974a-64832f0a5058")
+	)
+	(fp_rect
+		(start -6 -6)
+		(end 6 6)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "b675406b-b2ff-43e2-9def-aa1d03f7320a")
+	)
+	(fp_rect
+		(start -5.3 -5.3)
+		(end 5.3 5.3)
+		(stroke
+			(width 0.1)
+			(type dash)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "6233b187-2576-45e1-a914-e574490bfc92")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "1b0584c7-33fa-4426-8b5f-687217ccbef4")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.075)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -4.55 0)
+		(size 2.85 3.5)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "b0651a18-f829-4954-8869-32bff50db4c5")
+	)
+	(pad "2" smd rect
+		(at 4.55 0)
+		(size 2.85 3.5)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "ef536099-a2bc-4645-b7fd-fb6c3e07f94f")
+	)
+	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Inductor_SMD_Wurth.3dshapes/L_Wurth_WE-LQSH-4020.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
