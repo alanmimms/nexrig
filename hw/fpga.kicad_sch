@@ -2233,16 +2233,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Put pin for PAgate\nnear UCC27511A"
-		(exclude_from_sim no)
-		(at 229.87 114.3 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "fb14c7f6-2a41-4f08-bd66-0ddcf97c49cd")
-	)
 	(junction
 		(at 107.95 29.21)
 		(diameter 0)
@@ -2801,6 +2791,16 @@
 	)
 	(wire
 		(pts
+			(xy 218.44 120.65) (xy 220.98 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d2b8f82-288d-46d2-873d-648e26c885b7")
+	)
+	(wire
+		(pts
 			(xy 128.27 171.45) (xy 128.27 172.72)
 		)
 		(stroke
@@ -2878,6 +2878,16 @@
 			(type default)
 		)
 		(uuid "6ad370ae-7f68-473b-a5f8-13d1c6f66224")
+	)
+	(wire
+		(pts
+			(xy 218.44 125.73) (xy 220.98 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6f6f3036-b6fe-4e5e-8fc1-76f6a61ac835")
 	)
 	(wire
 		(pts
@@ -3108,6 +3118,16 @@
 			(type default)
 		)
 		(uuid "a4e50539-7378-4089-8e93-8c643ccf2ce0")
+	)
+	(wire
+		(pts
+			(xy 218.44 123.19) (xy 220.98 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a523271c-e548-4e77-b1fe-0cf6b91758d2")
 	)
 	(wire
 		(pts
@@ -3819,7 +3839,7 @@
 		)
 		(uuid "f58a08de-a121-4391-a66e-9aac60ce055a")
 	)
-	(hierarchical_label "PAgate"
+	(hierarchical_label "PAI+"
 		(shape output)
 		(at 220.98 118.11 0)
 		(effects
@@ -3828,7 +3848,7 @@
 			)
 			(justify left)
 		)
-		(uuid "48ea435c-7557-41b9-aad4-e509790aa2bc")
+		(uuid "3a4b31a4-3c42-4c3a-8eb6-0eb29e1c3d16")
 	)
 	(hierarchical_label "STM32clock"
 		(shape output)
@@ -3841,6 +3861,28 @@
 		)
 		(uuid "51d8f4d7-d749-420f-a796-9ad13982418b")
 	)
+	(hierarchical_label "PAI-"
+		(shape output)
+		(at 220.98 120.65 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "636d233f-cd31-42f7-bcc0-e65187f3ea13")
+	)
+	(hierarchical_label "PAQ+"
+		(shape output)
+		(at 220.98 123.19 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6a02d928-ff09-4d85-9904-a39dff90a0a2")
+	)
 	(hierarchical_label "CDONE"
 		(shape output)
 		(at 170.18 41.91 180)
@@ -3851,6 +3893,17 @@
 			(justify right)
 		)
 		(uuid "9d956df4-c25c-4029-9352-1fa238cee750")
+	)
+	(hierarchical_label "PAQ-"
+		(shape output)
+		(at 220.98 125.73 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ca494f9e-29f0-4e29-843f-b1ae534cfda2")
 	)
 	(netclass_flag ""
 		(length 2.54)
