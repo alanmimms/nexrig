@@ -986,33 +986,33 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Library:TQ2-5V"
-			(pin_numbers
-				(hide yes)
-			)
+		(symbol "Library:TQ2-5V-functional"
 			(pin_names
 				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "K"
-				(at 6.35 2.794 0)
+			(property "Reference" "K1509"
+				(at 6.35 4.826 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify right)
 				)
 			)
-			(property "Value" "TQ2-5V"
-				(at 9.398 0.762 0)
+			(property "Value" "TQ2-5V-functional"
+				(at 7.874 -5.842 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify right)
+					(hide yes)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "symbols:RELAY_TQ2_PAN"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1039,6 +1039,175 @@
 					(hide yes)
 				)
 			)
+			(property "cap-type" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "r-power" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Availability" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Check_prices" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description_1" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MANUFACTURER" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MAXIMUM_PACKAGE_HEIGHT" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MF" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MP" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "PARTREV" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Package" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Part Number" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Price" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "STANDARD" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Device" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "SnapEDA_Link" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Specifications" ""
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
 			(property "ki_locked" ""
 				(at 0 0 0)
 				(effects
@@ -1047,7 +1216,7 @@
 					)
 				)
 			)
-			(symbol "TQ2-5V_1_1"
+			(symbol "TQ2-5V-functional_1_1"
 				(rectangle
 					(start -5.08 5.715)
 					(end 5.08 -4.445)
@@ -1177,43 +1346,7 @@
 							)
 						)
 					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "16"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1240,24 +1373,6 @@
 					)
 				)
 				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
 					(at 2.54 7.62 270)
 					(length 2.54)
 					(name "NO1"
@@ -1275,26 +1390,8 @@
 						)
 					)
 				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 			)
-			(symbol "TQ2-5V_2_1"
+			(symbol "TQ2-5V-functional_2_1"
 				(rectangle
 					(start -5.08 5.715)
 					(end 5.08 -4.445)
@@ -1417,24 +1514,6 @@
 				(pin passive line
 					(at -2.54 7.62 270)
 					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
 					(name "NC2"
 						(effects
 							(font
@@ -1442,43 +1521,7 @@
 							)
 						)
 					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
+					(number "9"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1496,7 +1539,7 @@
 							)
 						)
 					)
-					(number "6"
+					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1514,25 +1557,7 @@
 							)
 						)
 					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
+					(number "7"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1541,7 +1566,7 @@
 					)
 				)
 			)
-			(symbol "TQ2-5V_3_1"
+			(symbol "TQ2-5V-functional_3_1"
 				(rectangle
 					(start -5.08 5.08)
 					(end 5.08 -5.08)
@@ -1600,17 +1625,43 @@
 						(type none)
 					)
 				)
+				(text "+"
+					(at 0.508 4.572 0)
+					(effects
+						(font
+							(size 0.635 0.635)
+						)
+					)
+				)
 				(pin passive line
-					(at 0 7.62 270)
+					(at -7.62 -3.81 0)
 					(length 2.54)
-					(name "C1"
+					(name "NC"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "9"
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "COIL+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1621,7 +1672,7 @@
 				(pin passive line
 					(at 0 -7.62 90)
 					(length 2.54)
-					(name "C2"
+					(name "COIL-"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1629,6 +1680,24 @@
 						)
 					)
 					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 -3.81 180)
+					(length 2.54)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2237,1312 +2306,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "TQ2-5V_1"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "K"
-				(at 6.35 2.794 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "TQ2-5V"
-				(at 9.398 0.762 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "TQ2-5V_1_1_1"
-				(rectangle
-					(start -5.08 5.715)
-					(end 5.08 -4.445)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -5.08) (xy 0 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "NC1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "T1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "NO1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "TQ2-5V_1_2_1"
-				(rectangle
-					(start -5.08 5.715)
-					(end 5.08 -4.445)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -5.08) (xy 0 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "NC2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "T2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "NO2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "TQ2-5V_1_3_1"
-				(rectangle
-					(start -5.08 5.08)
-					(end 5.08 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(rectangle
-					(start -3.175 1.905)
-					(end 3.175 -1.905)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -1.905) (xy 2.54 1.905)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 5.08) (xy 0 1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -5.08) (xy 0 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at 0 7.62 270)
-					(length 2.54)
-					(name "C1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "C2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "TQ2-5V_2"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "K"
-				(at 6.35 2.794 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "TQ2-5V"
-				(at 9.398 0.762 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "TQ2-5V_2_1_1"
-				(rectangle
-					(start -5.08 5.715)
-					(end 5.08 -4.445)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -5.08) (xy 0 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "NC1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "T1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "NO1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "TQ2-5V_2_2_1"
-				(rectangle
-					(start -5.08 5.715)
-					(end 5.08 -4.445)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -5.08) (xy 0 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "NC2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "T2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "NO2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "TQ2-5V_2_3_1"
-				(rectangle
-					(start -5.08 5.08)
-					(end 5.08 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(rectangle
-					(start -3.175 1.905)
-					(end 3.175 -1.905)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -1.905) (xy 2.54 1.905)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 5.08) (xy 0 1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -5.08) (xy 0 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at 0 7.62 270)
-					(length 2.54)
-					(name "C1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "C2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "power:+3.3V"
 			(power)
 			(pin_numbers
@@ -3879,8 +2642,16 @@
 		(uuid "d2cfabad-8526-4c0a-8ab9-5fbedc1483ff")
 	)
 	(no_connect
+		(at 90.17 95.25)
+		(uuid "6adb9aee-aa34-450e-846b-697021ba4845")
+	)
+	(no_connect
 		(at 68.58 71.12)
 		(uuid "83d0635b-7de8-45d0-bd75-cad4f5df7a50")
+	)
+	(no_connect
+		(at 105.41 95.25)
+		(uuid "a892e0a0-f9a1-4797-9aa4-9981900f5746")
 	)
 	(wire
 		(pts
@@ -7255,8 +6026,7 @@
 		)
 	)
 	(symbol
-		(lib_name "TQ2-5V_2")
-		(lib_id "Library:TQ2-5V")
+		(lib_id "Library:TQ2-5V-functional")
 		(at 97.79 99.06 0)
 		(mirror x)
 		(unit 3)
@@ -7312,7 +6082,7 @@
 			)
 		)
 		(property "Availability" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7321,7 +6091,7 @@
 			)
 		)
 		(property "Check_prices" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7330,7 +6100,7 @@
 			)
 		)
 		(property "Description_1" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7339,7 +6109,7 @@
 			)
 		)
 		(property "MANUFACTURER" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7348,7 +6118,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7357,7 +6127,7 @@
 			)
 		)
 		(property "MF" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7366,7 +6136,7 @@
 			)
 		)
 		(property "MP" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7375,7 +6145,7 @@
 			)
 		)
 		(property "Manufacturer" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7384,7 +6154,7 @@
 			)
 		)
 		(property "PARTREV" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7393,7 +6163,7 @@
 			)
 		)
 		(property "Package" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7402,7 +6172,7 @@
 			)
 		)
 		(property "Part Number" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7411,7 +6181,7 @@
 			)
 		)
 		(property "Price" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7420,7 +6190,7 @@
 			)
 		)
 		(property "STANDARD" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7429,7 +6199,7 @@
 			)
 		)
 		(property "Sim.Device" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7438,7 +6208,7 @@
 			)
 		)
 		(property "Sim.Pins" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7447,7 +6217,7 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7456,7 +6226,7 @@
 			)
 		)
 		(property "Specifications" ""
-			(at 97.79 99.06 0)
+			(at 97.79 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7464,19 +6234,29 @@
 				(hide yes)
 			)
 		)
-		(pin "16"
+		(property "cap-type" ""
+			(at 97.79 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 97.79 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
 			(uuid "fb161abc-dd46-4fa2-ae28-746dc38ba2a0")
-		)
-		(pin "6"
-			(uuid "ba2ae196-ab61-488c-8252-ac6d09e59a95")
-		)
-		(pin "5"
-			(uuid "3b93318a-ae1d-4e8e-82eb-990da0288f97")
 		)
 		(pin "9"
 			(uuid "c0d5380f-379a-4ca3-ad01-e57430ee1002")
 		)
-		(pin "9"
+		(pin "1"
 			(uuid "e13dffe8-b84f-4262-ac2f-1a60f308be48")
 		)
 		(pin "10"
@@ -7485,16 +6265,7 @@
 		(pin "4"
 			(uuid "191df2ed-4444-4bbd-8b14-edb5c33d4627")
 		)
-		(pin "16"
-			(uuid "33a2acb9-3c7f-4c23-b841-e7e9ef9ea88a")
-		)
-		(pin "9"
-			(uuid "d86bd3a6-5834-4066-8e40-27ef39f6bd91")
-		)
-		(pin "4"
-			(uuid "f6f67a1a-4206-497d-9928-38be668c800e")
-		)
-		(pin "6"
+		(pin "7"
 			(uuid "54aa7cac-9a79-4488-901a-d26233b00d2d")
 		)
 		(pin "8"
@@ -7504,13 +6275,10 @@
 			(uuid "79d11cb4-0e5e-44cd-8c1a-c6f8d6e15057")
 		)
 		(pin "6"
-			(uuid "a898afe1-d9c9-4177-84da-9a88e576f9b5")
+			(uuid "4024a7f8-3ee8-46d5-9849-2da13fa18e01")
 		)
-		(pin "9"
-			(uuid "f84df28f-e856-4865-9048-69fd0dfb2c62")
-		)
-		(pin "4"
-			(uuid "5a549dd8-6ab2-43ad-b04b-df1a24b60fda")
+		(pin "5"
+			(uuid "909d47fb-4a05-4e40-b6d6-47a3da98fd26")
 		)
 		(instances
 			(project "USB-SSB-txcvr"
@@ -7522,7 +6290,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:TQ2-5V")
+		(lib_id "Library:TQ2-5V-functional")
 		(at 96.52 53.34 270)
 		(mirror x)
 		(unit 1)
@@ -7729,20 +6497,24 @@
 				(hide yes)
 			)
 		)
-		(pin "16"
+		(property "cap-type" ""
+			(at 96.52 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 96.52 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
 			(uuid "ecc96afd-3837-4cc6-b235-8c740bd9ae74")
-		)
-		(pin "6"
-			(uuid "4bee619d-f402-4ec3-ab57-0f86f577541b")
-		)
-		(pin "5"
-			(uuid "34633f17-944a-457e-915d-8a433b2607c1")
-		)
-		(pin "9"
-			(uuid "ebb41309-975a-4675-989f-895a9e04c30f")
-		)
-		(pin "9"
-			(uuid "e13dffe8-b84f-4262-ac2f-1a60f308be4a")
 		)
 		(pin "10"
 			(uuid "e7223d24-d991-4b9b-8bbe-a67fbb67737d")
@@ -7750,17 +6522,11 @@
 		(pin "4"
 			(uuid "dc14f9e7-f44e-4250-8997-4b00fa9f0931")
 		)
-		(pin "16"
+		(pin "7"
 			(uuid "33a2acb9-3c7f-4c23-b841-e7e9ef9ea88c")
 		)
 		(pin "9"
 			(uuid "09703cbe-9066-4ae7-a5c3-2f95bb5afed4")
-		)
-		(pin "4"
-			(uuid "f6f67a1a-4206-497d-9928-38be668c8010")
-		)
-		(pin "6"
-			(uuid "54aa7cac-9a79-4488-901a-d26233b00d2f")
 		)
 		(pin "8"
 			(uuid "a4b5dee5-3c61-4463-b675-9edac2f485ee")
@@ -7768,14 +6534,14 @@
 		(pin "3"
 			(uuid "165fecc1-e455-406e-8645-e2cbcd29959a")
 		)
-		(pin "6"
-			(uuid "a898afe1-d9c9-4177-84da-9a88e576f9b7")
-		)
-		(pin "9"
+		(pin "1"
 			(uuid "f84df28f-e856-4865-9048-69fd0dfb2c64")
 		)
-		(pin "4"
-			(uuid "2fabc368-ace0-4b23-afb0-05615452ec77")
+		(pin "6"
+			(uuid "c3e1873c-9d51-4084-a78f-dd560f4059bc")
+		)
+		(pin "5"
+			(uuid "34094b45-b884-4e1b-9d69-4f1e6288af9d")
 		)
 		(instances
 			(project "USB-SSB-txcvr"
@@ -7854,8 +6620,7 @@
 		)
 	)
 	(symbol
-		(lib_name "TQ2-5V_1")
-		(lib_id "Library:TQ2-5V")
+		(lib_id "Library:TQ2-5V-functional")
 		(at 97.79 69.85 90)
 		(unit 2)
 		(exclude_from_sim no)
@@ -8061,28 +6826,32 @@
 				(hide yes)
 			)
 		)
-		(pin "16"
+		(property "cap-type" ""
+			(at 97.79 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 97.79 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
 			(uuid "fb161abc-dd46-4fa2-ae28-746dc38ba2a1")
 		)
-		(pin "6"
-			(uuid "ba2ae196-ab61-488c-8252-ac6d09e59a96")
-		)
-		(pin "5"
-			(uuid "3b93318a-ae1d-4e8e-82eb-990da0288f98")
-		)
-		(pin "9"
-			(uuid "d6e896aa-2524-47bb-bca5-3fd02a2388bb")
-		)
-		(pin "9"
+		(pin "1"
 			(uuid "e13dffe8-b84f-4262-ac2f-1a60f308be49")
 		)
 		(pin "10"
 			(uuid "e7223d24-d991-4b9b-8bbe-a67fbb67737c")
 		)
-		(pin "4"
-			(uuid "191df2ed-4444-4bbd-8b14-edb5c33d4628")
-		)
-		(pin "16"
+		(pin "7"
 			(uuid "ee8a857b-9a95-47c4-9eb3-356ebe429eff")
 		)
 		(pin "9"
@@ -8091,23 +6860,17 @@
 		(pin "4"
 			(uuid "085670ed-3f67-42d1-9e4b-4c43a5efd569")
 		)
-		(pin "6"
-			(uuid "67cc8497-0bfa-4530-9afa-e2a6d7690839")
-		)
 		(pin "8"
 			(uuid "5d1dd1da-62ff-4e69-8b0b-f152babd38c7")
 		)
 		(pin "3"
 			(uuid "79d11cb4-0e5e-44cd-8c1a-c6f8d6e15058")
 		)
+		(pin "5"
+			(uuid "392505c4-2271-4809-832c-aee7d0fe4f81")
+		)
 		(pin "6"
-			(uuid "4f6a80db-ea40-4b88-badf-8e7859081faf")
-		)
-		(pin "9"
-			(uuid "f84df28f-e856-4865-9048-69fd0dfb2c63")
-		)
-		(pin "4"
-			(uuid "5a549dd8-6ab2-43ad-b04b-df1a24b60fdb")
+			(uuid "3f223a45-2486-437b-8416-18fe74496bbc")
 		)
 		(instances
 			(project "USB-SSB-txcvr"

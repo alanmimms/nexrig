@@ -1,8 +1,8 @@
 # NexRig: Transmitter Architecture
 ## Envelope Elimination and Restoration with Digital Control
 
-**Document Version:** 1.0
-**Date:** October 2025
+**Document Version:** 1.0  
+**Date:** October 2025  
 **Supersedes:** Previous TX-ARCHITECTURE.md versions
 
 ---
@@ -26,37 +26,21 @@
 
 ## Introduction
 
-The NexRig transmitter represents some rethinking of amateur radio
-power amplifier design. Instead of traditional linear amplification
-with its inherent inefficiency, NexRig implements **Envelope
-Elimination and Restoration (EER)** - a technique that separates
-amplitude and phase modulation to improve efficiency while maintaining
-signal quality, moving these operations from the analog domain into
-the digital domain.
+The NexRig transmitter represents a fundamental rethinking of amateur radio power amplifier design. Instead of traditional linear amplification with its inherent inefficiency, NexRig implements **Envelope Elimination and Restoration (EER)** - a technique that separates amplitude and phase modulation to achieve remarkable efficiency while maintaining signal quality.
 
 ### Design Philosophy
 
 The transmitter design embraces several revolutionary principles:
 
-**Efficiency Through Switching**: Both the power amplifier and
-envelope modulator operate as switching circuits, achieving >80%
-efficiency compared to 25-50% for linear designs.
+**Efficiency Through Switching**: Both the power amplifier and envelope modulator operate as switching circuits, achieving >80% efficiency compared to 25-50% for linear designs.
 
-**Digital Control Throughout**: From envelope generation via DAC to
-phase modulation via FPGA NCO, digital control replaces analog
-modulation circuits.
+**Digital Control Throughout**: From envelope generation via DAC to phase modulation via FPGA NCO, digital control replaces analog modulation circuits.
 
-**Impedance Domain Optimization**: The transmitter operates at 200Ω
-internally for superior filter performance and reduced current stress,
-transforming to 50Ω only at the antenna interface.
+**Impedance Domain Optimization**: The transmitter operates at 200Ω internally for superior filter performance and reduced current stress, transforming to 50Ω only at the antenna interface.
 
-**Zero-Voltage Switching**: All relay switching occurs with power
-removed, extending relay life from 10⁵ to 10⁸+ operations.
+**Zero-Voltage Switching**: All relay switching occurs with power completely removed, extending relay life from 10⁵ to 10⁸+ operations.
 
-**Vector Measurement Integration**: The transceiver does full complex
-impedance measurement on the feed to the antenna, enabling
-deterministic antenna tuning rather than trial-and-error, real power
-output measurement, and simple VSWR display.
+**Vector Measurement Integration**: The transmitter includes provisions for full complex impedance measurement, enabling deterministic antenna tuning rather than trial-and-error.
 
 ---
 
@@ -68,22 +52,21 @@ output measurement, and simple VSWR display.
 graph LR
     A[Host PC<br/>I/Q Samples] --> B[STM32H753<br/>Polar Convert]
     B --> C[Envelope<br/>DAC 0-3.3V]
-    B --> D[Phase Data<br/>via I2S]
-    C --> E[Veer Buck/Boost<br/>Modulation]
+    B --> D[Phase Data<br/>via SPI]
+    C --> E[Veer Buck/Boost<br/>0-60V Tracking]
     D --> F[FPGA NCO<br/>Phase Mod]
-    F --> G[Gate Driver<br/>UCC27511A]
+    E --> G[PA Supply<br/>Modulation]
+    F --> H[Gate Driver<br/>UCC27511A]
     G --> I[Class-E PA<br/>IRFP250N]
-    E --> I
     H --> I
-	I --> J[72:200Ω<br/>Transform]
-    J --> PAtank[PA Tank<br/>Circuits]
-    PAtank --> TRrelay[Tx/Rx Relay]
-    TRrelay --> K[200Ω LPF<br/>Array]
+    I --> J[72:200Ω<br/>Transform]
+    J --> K[200Ω LPF<br/>Array]
+    K --> L[PA Tank<br/>Circuits]
     L --> M[Bruene<br/>Coupler]
     M --> N[Antenna<br/>Tuner]
     N --> O[200:50Ω<br/>Transform]
     O --> P[Antenna<br/>50W Output]
-
+    
     style E fill:#e3f2fd
     style I fill:#c8e6c9
     style K fill:#fff3e0
@@ -94,8 +77,7 @@ The transmitter separates the signal into two paths:
 1. **Amplitude Path**: Digital envelope → DAC → Veer modulator → PA supply voltage
 2. **Phase Path**: Digital phase → FPGA NCO → Gate driver → PA switching
 
-These paths recombine at the power amplifier to reconstruct the
-transmitted signal with high efficiency.
+These paths recombine at the power amplifier to reconstruct the transmitted signal with high efficiency.
 
 ---
 
@@ -103,8 +85,7 @@ transmitted signal with high efficiency.
 
 ### Theoretical Foundation
 
-EER, also known as the Kahn technique, decomposes any modulated signal
-into amplitude and phase components:
+EER, also known as the Kahn technique, decomposes any modulated signal into amplitude and phase components:
 
 ```
 RF_out(t) = A(t) × cos(ωt + φ(t))
@@ -115,9 +96,7 @@ Where:
 - ω = carrier frequency (2πf)
 ```
 
-Traditional linear amplifiers maintain constant supply voltage while
-varying current to create amplitude variations. This wastes power as
-heat during low-amplitude portions of the signal.
+Traditional linear amplifiers maintain constant supply voltage while varying current to create amplitude variations. This wastes power as heat during low-amplitude portions of the signal.
 
 EER instead:
 1. Varies the PA supply voltage to track the envelope
@@ -147,8 +126,7 @@ I/Q samples → magnitude = √(I² + Q²)
 
 ### Synchronization Requirements
 
-Critical to EER operation is precise time alignment between envelope
-and phase paths:
+Critical to EER operation is precise time alignment between envelope and phase paths:
 
 ```
 Envelope path delay: ~50μs (Veer response time)
@@ -166,8 +144,7 @@ Solution: Digital delay line in FPGA
 
 ### Design Requirements
 
-The envelope modulator must track audio-frequency amplitude variations
-while providing the full 0-60V range needed for 50W output:
+The envelope modulator must track audio-frequency amplitude variations while providing the full 0-60V range needed for 50W output:
 
 | Parameter | Requirement | Implementation |
 |-----------|------------|----------------|
@@ -223,8 +200,7 @@ Efficiency improvement:
 
 Critical for switching converter performance:
 
-1. **Power Loop Minimization**: Keep buck/boost power MOSFETs,
-   inductor, and output capacitor in tight loop
+1. **Power Loop Minimization**: Keep Q1-Q4 MOSFETs, inductor, and output capacitor in tight loop
 2. **Ground Plane**: Solid ground under entire converter
 3. **Gate Drive**: Short traces from controller to MOSFET gates
 4. **Thermal Relief**: Adequate copper for MOSFET heat dissipation
@@ -236,8 +212,7 @@ Critical for switching converter performance:
 
 ### NCO Architecture
 
-The FPGA implements a high-resolution numerically controlled
-oscillator:
+The FPGA implements a high-resolution numerically controlled oscillator:
 
 ```
 Components:
@@ -270,10 +245,10 @@ FCW = (14.2 × 10⁶ × 2³²) / 120 × 10⁶ = 508,559,958
 
 ### Phase Modulation Implementation
 
-Phase modulation updates arrive via I2S from STM32:
+Phase modulation updates arrive via SPI from STM32:
 
 ```
-I2S Protocol:
+SPI Protocol:
 - 16-bit phase offset value
 - 48 kHz update rate
 - Latency: <20μs
@@ -282,9 +257,6 @@ I2S Protocol:
 Phase resolution: 360°/65536 = 0.0055°
 More than adequate for any amateur mode
 ```
-
-The FPGA also supports a SPI interface for control and monitoring of
-NCOs and similar register values.
 
 ### Output Signal Generation
 
@@ -320,8 +292,7 @@ Harmonic content handled by:
 
 ### Design Principles
 
-Class-E operation achieves high efficiency through Zero Voltage
-Switching (ZVS):
+Class-E operation achieves high efficiency through Zero Voltage Switching (ZVS):
 
 ```
 Ideal Class-E conditions:
@@ -384,15 +355,15 @@ Why transformer coupling?
 Transformer specifications:
 - Core: Fair-Rite 2843000202 binocular
 - Primary: 3 turns bifilar #26 AWG
-- Secondary: 5 turns bifilar #26 AWG
+- Secondary: 3 turns bifilar #26 AWG
 - Coupling coefficient: >0.98
 - Leakage inductance: <50nH
 ```
 
 **Gate Circuit Components**:
 - Series resistor: 6.8Ω (dampens ringing)
-- Gate protection: 15V Zener diode (may be added)
-- Turn-off resistor: 1kΩ to ground (may be added)
+- Gate protection: 15V Zener diode
+- Turn-off resistor: 1kΩ to ground
 - Gate charge: 130nC at 10V
 
 ### Thermal Management
@@ -429,7 +400,7 @@ graph LR
     C --> D[Filters/Tuner<br/>200Ω]
     D --> E[4:1 Transformer]
     E --> F[Antenna<br/>50Ω]
-
+    
     style A fill:#e3f2fd
     style C fill:#c8e6c9
     style F fill:#fff3e0
@@ -488,8 +459,8 @@ Relay benefits:
 ```
 Specifications:
 - Core: FT140-43 or FT140-61
-- Primary: 3 turns #18 AWG (72Ω)
-- Secondary: 5 turns #18 AWG (200Ω)
+- Primary: 3 turns #16 AWG (72Ω)
+- Secondary: 5 turns #16 AWG (200Ω)
 - Turns ratio: 3:5 (impedance ratio 9:25 = 72:200)
 - Power handling: 100W continuous
 
@@ -500,8 +471,8 @@ Efficiency: >97% (low turns count minimizes loss)
 ```
 Specifications:
 - Core: FT140-43 or equivalent
-- Primary: 16 turns #18 AWG (200Ω)
-- Secondary: 8 turns #18 AWG (50Ω)
+- Primary: 4 turns #16 AWG (200Ω)
+- Secondary: 2 turns #16 AWG (50Ω)
 - Turns ratio: 2:1 (impedance ratio 4:1)
 - Insertion loss: <0.1 dB
 ```
@@ -559,67 +530,31 @@ Switching topology:
 - Input: Common to all filters
 - Output: Selected filter to antenna path
 - Unused filters: Terminated in 200Ω load
-- Always zero voltage switching (PA off)
 ```
 
 ### Band-Specific Designs
 
-The transmitter includes eight relay-switched low-pass filters
-optimized for the 200Ω impedance domain:
+| Band | Cutoff | L values | C values | -40dB point |
+|------|--------|----------|----------|-------------|
+| 160m | 3.0 MHz | 10.6, 16.9, 10.6μH | 265, 166, 265pF | 6 MHz |
+| 80m | 6.0 MHz | 5.3, 8.5, 5.3μH | 133, 83, 133pF | 12 MHz |
+| 40m | 11 MHz | 2.9, 4.6, 2.9μH | 72, 45, 72pF | 22 MHz |
+| 20m | 22 MHz | 1.45, 2.3, 1.45μH | 36, 23, 36pF | 44 MHz |
+| 10m | 45 MHz | 0.71, 1.13, 0.71μH | 18, 11, 18pF | 90 MHz |
 
-|Band|Frequency Range|L (Series)|C (Shunt 1)|C (Shunt 2)|C (Series)|Relay|
-|---|---|---|---|---|---|---|
-|**160m**|1.8-2.0 MHz|1.5µH|350pF|220pF|330pF|K1601|
-|**80m**|3.5-4.0 MHz|820nH|220pF|330pF|180pF|K1602|
-|**60m**|5.3-5.4 MHz|620nH|150pF|240pF|130pF|K1603|
-|**40m**|7.0-7.3 MHz|470nH|220pF|180pF|100pF|K1606|
-|**30m**|10.1-10.15 MHz|330nH|82pF|150pF|68pF|K1607|
-|**20m**|14.0-14.35 MHz|240nH|56pF|91pF|47pF|K1608|
-|**17/15m**|18.068-21.45 MHz|180nH|39pF|33pF|33pF|K1604|
-|**12/10m**|24.89-29.7 MHz|130nH|33pF|24pF|27pF|K1605|
+### Autotransformer Integration
 
-### Filter Topology
+Some filters incorporate autotransformer action for impedance matching:
 
-Each filter implements a modified pi-network configuration optimized
-for the 200Ω impedance domain:
+```
+Concept: Part of filter inductor becomes transformer
 
-![[Pasted image 20251028170813.png]]
-
-This topology provides:
-
-- Stopband attenuation: >40 dB at second harmonic
-- Passband insertion loss: <0.3 dB
-- Return loss: >20 dB in-band
-- Power handling: 100W continuous at 200Ω
-### Component Selection at 200Ω
-
-Operating at 200Ω rather than the traditional 50Ω provides significant
-component advantages:
-
-**Inductors**: Values are 4× larger than equivalent 50Ω designs,
-enabling higher Q factors and easier winding. The larger inductance
-values (240nH to 1.5µH) are practical to implement with air-core or
-toroidal inductors while maintaining excellent Q.
-
-**Capacitors**: Values are 4× smaller than 50Ω equivalents, allowing
-use of high-quality NP0/C0G ceramic capacitors throughout. The reduced
-capacitance requirements (24pF to 350pF) eliminate the need for mica
-or other expensive high-voltage capacitors.
-
-### Filter Switching Implementation
-
-**Relay Selection**: TQ2-5V DPDT reed relays provide reliable
-switching with minimal insertion loss. Both poles are paralleled to
-handle the 0.5A RMS current at 50W in the 200Ω domain.
-
-**Switching Architecture**: Each filter connects between common input
-and output buses. Unselected filters remain disconnected, preventing
-interaction and maintaining optimal stopband performance.
-
-**Zero-Voltage Switching Protocol**: Filter selection occurs only with
-Veer at 0V, ensuring no voltage or current through relay contacts
-during switching. This extends relay life beyond 10⁸ operations and
-eliminates hot-switching derating requirements.
+Example configuration:
+- Total inductor: 2.3μH (design value)
+- Tap point: 70% from ground
+- Impedance transformation: (0.7)² = 0.49 (2:1 ratio)
+- Converts 200Ω to 100Ω for certain tuner configurations
+```
 
 ---
 
@@ -666,7 +601,7 @@ graph TD
     I --> K[Calculate Γ]
     J --> K
     K --> L[Calculate Z]
-
+    
     style K fill:#e3f2fd
     style L fill:#c8e6c9
 ```
@@ -703,11 +638,11 @@ Example: Antenna measures 25 + j35Ω at 14.2 MHz
 2. Match resistance:
    R = 25Ω (after reactance cancelled)
    L-network: Shunt L = 265nH, Series C = 225pF
-
+   
 3. Set relays:
    - Select C_series = 320pF + 225pF = 545pF
    - Select L_shunt = 265nH
-
+   
 4. Verify:
    Final Z should be 50 + j0Ω (perfect match)
 ```
@@ -725,25 +660,23 @@ The 200Ω domain components serve both transmit and receive:
 ```mermaid
 graph LR
     subgraph TX Mode
-        A[PA Output] --> C[PA Tanks<br/>200Ω]
-	    C --> LPFs[LPFs<br/>200Ω]
-        LPFs --> bruene[Bruene Sampler]
-		bruene --> tuner[Antenna Tuner]
-    	tuner --> T20050[200:50 ohm]
-		T20050 --> D[Antenna]
+        A[PA Output] --> B[LPFs<br/>200Ω]
+        B --> C[PA Tanks<br/>200Ω]
+        C --> D[Antenna]
     end
-
+    
     subgraph RX Mode
-        E[Antenna] --> G[LPFs]
-        G --> H[Tx/Rx Relay]
-		H --> [Rx]
+        E[Antenna] --> F[PA Tanks<br/>as Preselector]
+        F --> G[LPFs<br/>as BPF]
+        G --> H[To RX]
     end
-
+    
     style B fill:#e3f2fd
     style F fill:#e3f2fd
 ```
 
 Benefits of sharing:
+- PA tanks provide RX preselection
 - TX filters provide RX band-limiting
 - Single set of components
 - Automatic RX protection during TX
@@ -758,10 +691,26 @@ Configuration:
 - RX position: Antenna → Filters → RX input
 - Switching time: 5ms maximum
 - Isolation: >60 dB at 30 MHz
-- Only zero voltage switching
 ```
 
 ### Zero-Voltage Switching Protocol
+
+```c
+// Conceptual switching sequence
+void switchToTransmit() {
+    // 1. Ensure Veer at 0V (no PA power)
+    setVeerVoltage(0);
+    delay_ms(5);  // Capacitor discharge
+    
+    // 2. Switch relay with zero voltage/current
+    setTxRxRelay(TX_MODE);
+    delay_ms(10);  // Mechanical settling
+    
+    // 3. Enable Veer tracking
+    enableVeerTracking();
+    // Power ramps up smoothly per envelope
+}
+```
 
 Zero-voltage switching benefits:
 - No contact arcing
@@ -873,7 +822,7 @@ Exceeds FCC requirements by >20 dB margin.
 
 ### Intermodulation Distortion
 
-**Two-Tone Design Predicted Results**:
+**Two-Tone Test Results**:
 
 ```
 Test conditions:
@@ -922,8 +871,7 @@ Practical: Limited by TCXO phase noise
 | FT8 | 50 Hz | Constant | 50 Hz | Yes |
 | RTTY | 250 Hz | Constant | 250 Hz | Yes |
 
-Veer's 5 kHz bandwidth limits wideband modes but covers all common
-amateur modes.
+Veer's 5 kHz bandwidth limits wideband modes but covers all common amateur modes.
 
 ---
 
@@ -955,7 +903,7 @@ Required thermal resistance:
 - At 7W: R_total = 65°C / 7W = 9.3°C/W
 
 Heatsink selection:
-- Small extruded aluminum
+- Small extruded aluminum 
 - 50mm × 50mm × 25mm typical
 - Natural convection adequate
 - Fan optional for continuous duty
@@ -1079,12 +1027,7 @@ All implementable without hardware changes:
 
 ## Conclusion
 
-The NexRig transmitter architecture demonstrates that amateur radio
-equipment can achieve commercial-grade performance through intelligent
-system design. The EER approach provides efficiency while maintaining
-excellent signal quality, digital software-defined flexibility, and
-the 200Ω impedance domain optimization reduces component stress while
-improving filter performance.
+The NexRig transmitter architecture demonstrates that amateur radio equipment can achieve commercial-grade performance through intelligent system design. The EER approach provides remarkable efficiency while maintaining excellent signal quality, and the 200Ω impedance domain optimization reduces component stress while improving filter performance.
 
 Key innovations include:
 
@@ -1094,24 +1037,16 @@ Key innovations include:
 4. **Vector impedance measurement** provides deterministic antenna tuning
 5. **Zero-voltage switching** extends relay life by 1000×
 
-The architecture's modularity, comprehensive monitoring, and
-software-defined flexibility create a platform that can evolve with
-changing amateur radio requirements while maintaining the reliability
-expected of RF power systems.
+The architecture's modularity, comprehensive monitoring, and software-defined flexibility create a platform that can evolve with changing amateur radio requirements while maintaining the reliability expected of RF power systems.
 
-Integration with the receiver path through shared components
-demonstrates elegant design reuse, while the separation of power and
-data paths ensures robust operation in diverse environments.
+Integration with the receiver path through shared components demonstrates elegant design reuse, while the separation of power and data paths ensures robust operation in diverse environments.
 
-This transmitter design proves that high efficiency, excellent
-spectral purity, and advanced features are achievable in an
-open-source platform, inviting continued innovation from the amateur
-radio community.
+This transmitter design proves that high efficiency, excellent spectral purity, and advanced features are achievable in an open-source platform, inviting continued innovation from the amateur radio community.
 
 ---
 
-**Document Revision**: 1.0
-**Last Updated**: October 2025
+**Document Revision**: 1.0  
+**Last Updated**: October 2025  
 **Related Documents**:
 - SYSTEM-OVERVIEW.md - System architecture and key innovations
 - RX-ARCHITECTURE.md - Receiver design details
