@@ -9,15 +9,15 @@ memory and RAM. This isn't overkill; real-time RF control, web
 serving, and DSP processing demand serious computational resources.
 
 The RF section covers all ten HF amateur bands from 160 meters down to
-10 meters, using PIN diode switching for band selection and
+10 meters, using relay and pHEMT FET switching for band selection and
 transmit/receive switching. Each band gets its own order-5 Chebyshev
-bandpass filter rated for the full 50-watt output power. The result
-is excellent harmonic suppression and band isolation without the
+bandpass filter rated for the full 50-watt output power. The result is
+excellent harmonic suppression and band isolation without the
 complexity of mechanical switching.
 
 ```mermaid
 graph LR
-    A[Antenna] --> B[PIN Diode T/R Switch]
+    A[Antenna] --> B[T/R Switch]
     B --> C[Band Selection Matrix]
     C --> D[160m Filter]
     C --> E[80m Filter]
@@ -630,9 +630,9 @@ development simplicity.
 ### Hardware Interface Abstractions
 
 The embedded software provides clean C++20 abstractions for all
-hardware interfaces. PIN diode switching, power amplifier control, and
-RF parameter adjustment all use object-oriented interfaces that hide
-hardware complexity from higher-level code.
+hardware interfaces. Relay and pHEMT FET switching, power amplifier
+control, and RF parameter adjustment all use object-oriented
+interfaces that hide hardware complexity from higher-level code.
 
 These abstractions enable rapid development and testing while
 maintaining the real-time performance requirements of RF operation.

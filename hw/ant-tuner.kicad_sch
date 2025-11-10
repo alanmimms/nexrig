@@ -150,52 +150,40 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Library:TQ2-5V-functional"
-			(pin_names
-				(hide yes)
-			)
+		(symbol "Library:G6S-2-functional"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "K1509"
-				(at 6.35 4.826 90)
+			(property "Reference" "K"
+				(at 6.35 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify right)
+					(justify left)
 				)
 			)
-			(property "Value" "TQ2-5V-functional"
-				(at 7.874 -5.842 0)
+			(property "Value" "G6S-2G"
+				(at 6.35 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify right)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6S-2G"
+				(at -16.256 -20.066 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
 					(hide yes)
 				)
 			)
-			(property "Footprint" "symbols:RELAY_TQ2_PAN"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
+			(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6s.pdf"
+				(at 2.032 -21.844 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -203,168 +191,8 @@
 					(hide yes)
 				)
 			)
-			(property "cap-type" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "r-power" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Availability" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Check_prices" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description_1" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "MANUFACTURER" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "MAXIMUM_PACKAGE_HEIGHT" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "MF" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "MP" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "PARTREV" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Package" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Part Number" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Price" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "STANDARD" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Sim.Device" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Sim.Pins" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "SnapEDA_Link" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Specifications" ""
-				(at 0 0 90)
+			(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-side Stable"
+				(at 2.032 -21.844 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -380,37 +208,45 @@
 					)
 				)
 			)
-			(symbol "TQ2-5V-functional_1_1"
+			(property "ki_keywords" "Miniature Relay Dual Pole DPDT Omron"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Relay*DPDT*Omron*G6S?2*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "G6S-2-functional_0_1"
 				(rectangle
-					(start -5.08 5.715)
-					(end 5.08 -4.445)
+					(start -3.175 5.08)
+					(end 3.175 -5.08)
 					(stroke
 						(width 0.254)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type background)
 					)
 				)
+			)
+			(symbol "G6S-2-functional_1_1"
 				(polyline
 					(pts
 						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
 					)
 					(stroke
 						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type outline)
@@ -422,19 +258,7 @@
 					)
 					(stroke
 						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
@@ -446,31 +270,7 @@
 					)
 					(stroke
 						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -5.08) (xy 0 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
@@ -482,19 +282,7 @@
 					)
 					(stroke
 						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
@@ -503,25 +291,7 @@
 				(pin passive line
 					(at -2.54 7.62 270)
 					(length 2.54)
-					(name "NC1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "T1"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -537,9 +307,9 @@
 					)
 				)
 				(pin passive line
-					(at 2.54 7.62 270)
+					(at 0 -7.62 90)
 					(length 2.54)
-					(name "NO1"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -554,38 +324,33 @@
 						)
 					)
 				)
+				(pin passive line
+					(at 2.54 7.62 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
-			(symbol "TQ2-5V-functional_2_1"
-				(rectangle
-					(start -5.08 5.715)
-					(end 5.08 -4.445)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
+			(symbol "G6S-2-functional_2_1"
 				(polyline
 					(pts
 						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
 					)
 					(stroke
 						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type outline)
@@ -597,19 +362,7 @@
 					)
 					(stroke
 						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
@@ -621,31 +374,7 @@
 					)
 					(stroke
 						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -5.08) (xy 0 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
@@ -657,19 +386,7 @@
 					)
 					(stroke
 						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
@@ -678,7 +395,25 @@
 				(pin passive line
 					(at -2.54 7.62 270)
 					(length 2.54)
-					(name "NC2"
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -694,9 +429,9 @@
 					)
 				)
 				(pin passive line
-					(at 0 -7.62 90)
+					(at 2.54 7.62 270)
 					(length 2.54)
-					(name "T2"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -711,43 +446,14 @@
 						)
 					)
 				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "NO2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 			)
-			(symbol "TQ2-5V-functional_3_1"
-				(rectangle
-					(start -5.08 5.08)
-					(end 5.08 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
+			(symbol "G6S-2-functional_3_1"
 				(rectangle
 					(start -3.175 1.905)
 					(end 3.175 -1.905)
 					(stroke
 						(width 0.254)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
@@ -759,7 +465,7 @@
 					)
 					(stroke
 						(width 0.254)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
@@ -771,7 +477,7 @@
 					)
 					(stroke
 						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
@@ -783,42 +489,24 @@
 					)
 					(stroke
 						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
 					)
 				)
 				(text "+"
-					(at 0.508 4.572 0)
+					(at 0.762 3.302 0)
 					(effects
 						(font
-							(size 0.635 0.635)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 -3.81 0)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
+							(size 1.27 1.27)
 						)
 					)
 				)
 				(pin passive line
 					(at 0 7.62 270)
 					(length 2.54)
-					(name "COIL+"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -836,32 +524,14 @@
 				(pin passive line
 					(at 0 -7.62 90)
 					(length 2.54)
-					(name "COIL-"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 7.62 -3.81 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
+					(number "12"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1184,36 +854,12 @@
 		(uuid "c886afd6-797f-4605-b463-3c4d0f9e22d5")
 	)
 	(no_connect
-		(at 129.54 49.53)
-		(uuid "0433bbbd-eb90-4b90-9234-a84966a9accc")
-	)
-	(no_connect
-		(at 147.32 49.53)
-		(uuid "54573acd-6cd8-4c4f-9b72-3248355b9978")
-	)
-	(no_connect
 		(at 71.12 129.54)
 		(uuid "7eff712d-ae91-4a66-a162-a62b7b34f980")
 	)
 	(no_connect
-		(at 146.05 49.53)
-		(uuid "8070cf53-a7ce-435f-9ec4-e78be896b4b6")
-	)
-	(no_connect
 		(at 86.36 132.08)
 		(uuid "a4a43f45-2543-401f-b83d-3d0a020e70a1")
-	)
-	(no_connect
-		(at 130.81 49.53)
-		(uuid "be74e1ad-9939-4771-b459-d59b9a37e925")
-	)
-	(no_connect
-		(at 114.3 49.53)
-		(uuid "c00241d7-0cf6-494b-9c7f-9451078f8911")
-	)
-	(no_connect
-		(at 162.56 49.53)
-		(uuid "dc3c10e3-57e0-4764-9d1f-46effdf50e6f")
 	)
 	(no_connect
 		(at 86.36 127)
@@ -1388,6 +1034,16 @@
 			(type default)
 		)
 		(uuid "4611330a-7f7d-4b87-a108-821b515565b8")
+	)
+	(wire
+		(pts
+			(xy 57.15 72.39) (xy 59.69 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "553fb753-fa2e-4e90-a538-77cdbc4ceee0")
 	)
 	(wire
 		(pts
@@ -1835,6 +1491,17 @@
 		)
 		(uuid "0df2c5a0-0a0b-4d84-9a0b-4bf63bb638e6")
 	)
+	(hierarchical_label "txRelay"
+		(shape output)
+		(at 57.15 72.39 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "17f88687-9056-487d-ab61-8a4e37881a15")
+	)
 	(hierarchical_label "rig"
 		(shape passive)
 		(at 27.94 60.96 180)
@@ -1900,25 +1567,33 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:TQ2-5V-functional")
+		(lib_id "Library:G6S-2-functional")
 		(at 78.74 129.54 270)
 		(unit 2)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3dccff03-a3b9-405b-bdac-c5d8bd2b68ff")
 		(property "Reference" "K701"
-			(at 79.121 121.92 90)
+			(at 78.232 124.968 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "TQ2-5V"
-			(at 72.136 121.666 0)
+		(property "Value" "G6S-2G"
+			(at 78.74 124.46 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6S-2G"
+			(at 58.674 113.284 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1927,8 +1602,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "symbols:RELAY_TQ2_PAN"
-			(at 78.74 129.54 0)
+		(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6s.pdf"
+			(at 56.896 131.572 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1936,186 +1611,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 78.74 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 78.74 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 78.74 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 78.74 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Availability" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 78.74 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 78.74 129.54 90)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-side Stable"
+			(at 56.896 131.572 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2126,7 +1623,7 @@
 		(pin "4"
 			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc68")
 		)
-		(pin "7"
+		(pin "12"
 			(uuid "49a26f8f-679e-427e-a05a-91824620af45")
 		)
 		(pin "10"
@@ -2134,9 +1631,6 @@
 		)
 		(pin "9"
 			(uuid "02a25233-78f0-4415-a075-6627c4b268fc")
-		)
-		(pin "2"
-			(uuid "7b1b2231-e437-4711-93fb-1e9b8886e117")
 		)
 		(pin "8"
 			(uuid "6a803493-29ee-4788-8163-0fb8d48eb26c")
@@ -2149,9 +1643,6 @@
 		)
 		(pin "5"
 			(uuid "1f899c8f-9cfc-48f7-8beb-7ebc8c63f6e3")
-		)
-		(pin "6"
-			(uuid "d0b5dc0a-c58d-4ddb-babb-f83e0b55b76e")
 		)
 		(instances
 			(project "USB-SSB-txcvr"
@@ -2230,7 +1721,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:TQ2-5V-functional")
+		(lib_id "Library:G6S-2-functional")
 		(at 121.92 45.72 0)
 		(unit 3)
 		(exclude_from_sim no)
@@ -2247,8 +1738,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TQ2-5V"
-			(at 114.046 52.324 0)
+		(property "Value" "G6S-2G"
+			(at 128.27 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2257,8 +1748,18 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "symbols:RELAY_TQ2_PAN"
-			(at 121.92 45.72 0)
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6S-2G"
+			(at 105.664 65.786 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6s.pdf"
+			(at 123.952 67.564 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2266,186 +1767,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 121.92 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 121.92 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 121.92 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 121.92 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Availability" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 121.92 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 121.92 45.72 90)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-side Stable"
+			(at 123.952 67.564 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2459,7 +1782,7 @@
 		(pin "8"
 			(uuid "6a803493-29ee-4788-8163-0fb8d48eb266")
 		)
-		(pin "2"
+		(pin "12"
 			(uuid "ee2f01bf-2546-4187-b5f4-968893655ec3")
 		)
 		(pin "9"
@@ -2474,14 +1797,8 @@
 		(pin "3"
 			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b90b")
 		)
-		(pin "7"
-			(uuid "feb90307-d18f-4435-9001-215fb23c7f1b")
-		)
 		(pin "5"
 			(uuid "0c0206c3-5a12-4125-9bad-b2016cf48e79")
-		)
-		(pin "6"
-			(uuid "b505dfac-163d-43e2-8ef2-f8d41710299a")
 		)
 		(instances
 			(project "USB-SSB-txcvr"
@@ -2560,25 +1877,33 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:TQ2-5V-functional")
+		(lib_id "Library:G6S-2-functional")
 		(at 92.71 101.6 270)
 		(unit 2)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "76ee2d12-d6d5-4294-a699-f1ea00ca095d")
 		(property "Reference" "K703"
-			(at 93.091 93.98 90)
+			(at 92.202 97.028 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "TQ2-5V"
-			(at 86.106 93.726 0)
+		(property "Value" "G6S-2G"
+			(at 92.71 96.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6S-2G"
+			(at 72.644 85.344 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2587,8 +1912,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "symbols:RELAY_TQ2_PAN"
-			(at 92.71 101.6 0)
+		(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6s.pdf"
+			(at 70.866 103.632 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2596,186 +1921,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 92.71 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 92.71 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 92.71 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 92.71 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Availability" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 92.71 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 92.71 101.6 90)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-side Stable"
+			(at 70.866 103.632 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2786,16 +1933,13 @@
 		(pin "4"
 			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc63")
 		)
-		(pin "7"
-			(uuid "49a26f8f-679e-427e-a05a-91824620af40")
-		)
 		(pin "10"
 			(uuid "c18d961c-44a5-49c2-8902-4f7eea657374")
 		)
 		(pin "9"
 			(uuid "02a25233-78f0-4415-a075-6627c4b268f7")
 		)
-		(pin "2"
+		(pin "12"
 			(uuid "7b1b2231-e437-4711-93fb-1e9b8886e112")
 		)
 		(pin "1"
@@ -2806,9 +1950,6 @@
 		)
 		(pin "3"
 			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b90c")
-		)
-		(pin "6"
-			(uuid "626a4b42-a56a-4cb6-9acd-60fa82f24716")
 		)
 		(pin "5"
 			(uuid "47d454a1-1980-4f27-9661-c0fd32a25aff")
@@ -2823,7 +1964,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:TQ2-5V-functional")
+		(lib_id "Library:G6S-2-functional")
 		(at 154.94 45.72 0)
 		(unit 3)
 		(exclude_from_sim no)
@@ -2840,8 +1981,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TQ2-5V"
-			(at 147.066 52.324 0)
+		(property "Value" "G6S-2G"
+			(at 161.29 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2850,8 +1991,18 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "symbols:RELAY_TQ2_PAN"
-			(at 154.94 45.72 0)
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6S-2G"
+			(at 138.684 65.786 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6s.pdf"
+			(at 156.972 67.564 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2859,186 +2010,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 154.94 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 154.94 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 154.94 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 154.94 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Availability" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 154.94 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 154.94 45.72 90)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-side Stable"
+			(at 156.972 67.564 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3049,17 +2022,11 @@
 		(pin "4"
 			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc67")
 		)
-		(pin "2"
-			(uuid "49a26f8f-679e-427e-a05a-91824620af44")
-		)
 		(pin "10"
 			(uuid "45cc63c2-72d9-4061-84e5-106b06916d27")
 		)
 		(pin "9"
 			(uuid "02a25233-78f0-4415-a075-6627c4b268fb")
-		)
-		(pin "7"
-			(uuid "7b1b2231-e437-4711-93fb-1e9b8886e116")
 		)
 		(pin "8"
 			(uuid "6a803493-29ee-4788-8163-0fb8d48eb26b")
@@ -3070,7 +2037,7 @@
 		(pin "3"
 			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b910")
 		)
-		(pin "6"
+		(pin "12"
 			(uuid "f26868d7-60ef-4b30-baf4-4de22d4d8404")
 		)
 		(pin "5"
@@ -3086,7 +2053,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:TQ2-5V-functional")
+		(lib_id "Library:G6S-2-functional")
 		(at 46.99 63.5 90)
 		(mirror x)
 		(unit 1)
@@ -3094,18 +2061,26 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "849bd35e-0104-4867-bf6e-666762bf9de2")
 		(property "Reference" "K702"
-			(at 46.609 55.88 90)
+			(at 46.482 58.928 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "TQ2-5V"
-			(at 53.594 55.626 0)
+		(property "Value" "G6S-2G"
+			(at 46.99 58.42 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6S-2G"
+			(at 67.056 47.244 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3114,8 +2089,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "symbols:RELAY_TQ2_PAN"
-			(at 46.99 63.5 0)
+		(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6s.pdf"
+			(at 68.834 65.532 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3123,186 +2098,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 46.99 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 46.99 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 46.99 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 46.99 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Availability" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 46.99 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 46.99 63.5 90)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-side Stable"
+			(at 68.834 65.532 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3313,16 +2110,13 @@
 		(pin "4"
 			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc64")
 		)
-		(pin "7"
-			(uuid "49a26f8f-679e-427e-a05a-91824620af41")
-		)
 		(pin "10"
 			(uuid "06f87ed8-5564-4e5c-93c4-c643d67ec0bb")
 		)
 		(pin "8"
 			(uuid "6a803493-29ee-4788-8163-0fb8d48eb268")
 		)
-		(pin "2"
+		(pin "12"
 			(uuid "ee2f01bf-2546-4187-b5f4-968893655ec5")
 		)
 		(pin "9"
@@ -3333,9 +2127,6 @@
 		)
 		(pin "3"
 			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b90d")
-		)
-		(pin "6"
-			(uuid "d8dbcc48-0746-4f64-baec-6c089ae84b3a")
 		)
 		(pin "5"
 			(uuid "c16223fb-7004-421e-a2e7-50ace3b28fc2")
@@ -3350,25 +2141,33 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:TQ2-5V-functional")
+		(lib_id "Library:G6S-2-functional")
 		(at 48.26 101.6 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "8b969890-a0c4-44b5-9385-f43b4b395d1c")
 		(property "Reference" "K703"
-			(at 47.879 93.98 90)
+			(at 47.752 97.028 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "TQ2-5V"
-			(at 54.864 109.474 0)
+		(property "Value" "G6S-2G"
+			(at 48.26 96.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6S-2G"
+			(at 68.326 117.856 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3377,8 +2176,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "symbols:RELAY_TQ2_PAN"
-			(at 48.26 101.6 0)
+		(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6s.pdf"
+			(at 70.104 99.568 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3386,8 +2185,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 48.26 101.6 0)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-side Stable"
+			(at 70.104 99.568 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3395,185 +2194,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 48.26 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 48.26 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 48.26 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Availability" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 48.26 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
+		(pin "12"
 			(uuid "49a26f8f-679e-427e-a05a-91824620af42")
 		)
 		(pin "10"
@@ -3591,17 +2212,11 @@
 		(pin "8"
 			(uuid "6a803493-29ee-4788-8163-0fb8d48eb269")
 		)
-		(pin "7"
-			(uuid "ee2f01bf-2546-4187-b5f4-968893655ec6")
-		)
 		(pin "3"
 			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b90e")
 		)
 		(pin "5"
 			(uuid "ead19e23-e97e-4200-b324-1f39a646c9a8")
-		)
-		(pin "6"
-			(uuid "4ba5a3ab-be46-492a-8460-64109115d691")
 		)
 		(instances
 			(project "USB-SSB-txcvr"
@@ -3970,25 +2585,33 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:TQ2-5V-functional")
+		(lib_id "Library:G6S-2-functional")
 		(at 92.71 63.5 270)
 		(unit 2)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "dd8e6eae-6c59-4b09-8e1e-3fd195c69a1d")
 		(property "Reference" "K702"
-			(at 93.091 55.88 90)
+			(at 92.202 58.928 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "TQ2-5V"
-			(at 86.106 55.626 0)
+		(property "Value" "G6S-2G"
+			(at 92.71 58.42 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6S-2G"
+			(at 72.644 47.244 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3997,8 +2620,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "symbols:RELAY_TQ2_PAN"
-			(at 92.71 63.5 0)
+		(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6s.pdf"
+			(at 70.866 65.532 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4006,186 +2629,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 92.71 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 92.71 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 92.71 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 92.71 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Availability" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 92.71 63.5 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 92.71 63.5 90)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-side Stable"
+			(at 70.866 65.532 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4199,13 +2644,10 @@
 		(pin "9"
 			(uuid "02a25233-78f0-4415-a075-6627c4b268fa")
 		)
-		(pin "7"
-			(uuid "7b1b2231-e437-4711-93fb-1e9b8886e115")
-		)
 		(pin "1"
 			(uuid "2e5ffcec-1540-455b-a390-24b668b886d8")
 		)
-		(pin "2"
+		(pin "12"
 			(uuid "19d3c8a7-7c52-4941-83f6-65931b0d2eae")
 		)
 		(pin "4"
@@ -4216,9 +2658,6 @@
 		)
 		(pin "3"
 			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b90f")
-		)
-		(pin "6"
-			(uuid "271b577d-245d-4fc7-923e-e383681d9371")
 		)
 		(pin "5"
 			(uuid "c88ea3cd-4791-4928-a661-912560df119a")
@@ -4233,25 +2672,33 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:TQ2-5V-functional")
+		(lib_id "Library:G6S-2-functional")
 		(at 44.45 123.19 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "e12130a2-bb71-4bbd-b8af-92a9150d2928")
 		(property "Reference" "K701"
-			(at 44.831 115.57 90)
+			(at 43.942 118.618 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "TQ2-5V"
-			(at 37.846 115.316 0)
+		(property "Value" "G6S-2G"
+			(at 44.45 118.11 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6S-2G"
+			(at 24.384 106.934 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4260,8 +2707,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "symbols:RELAY_TQ2_PAN"
-			(at 44.45 123.19 0)
+		(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6s.pdf"
+			(at 22.606 125.222 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4269,186 +2716,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 44.45 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 44.45 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 44.45 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 44.45 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Availability" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 44.45 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 44.45 123.19 90)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-side Stable"
+			(at 22.606 125.222 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4459,7 +2728,7 @@
 		(pin "4"
 			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc68")
 		)
-		(pin "7"
+		(pin "12"
 			(uuid "49a26f8f-679e-427e-a05a-91824620af45")
 		)
 		(pin "10"
@@ -4467,9 +2736,6 @@
 		)
 		(pin "9"
 			(uuid "02a25233-78f0-4415-a075-6627c4b268fc")
-		)
-		(pin "2"
-			(uuid "7b1b2231-e437-4711-93fb-1e9b8886e117")
 		)
 		(pin "8"
 			(uuid "6a803493-29ee-4788-8163-0fb8d48eb26c")
@@ -4483,9 +2749,6 @@
 		(pin "5"
 			(uuid "1f899c8f-9cfc-48f7-8beb-7ebc8c63f6e3")
 		)
-		(pin "6"
-			(uuid "d0b5dc0a-c58d-4ddb-babb-f83e0b55b76e")
-		)
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64"
@@ -4496,7 +2759,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:TQ2-5V-functional")
+		(lib_id "Library:G6S-2-functional")
 		(at 138.43 45.72 0)
 		(unit 3)
 		(exclude_from_sim no)
@@ -4513,8 +2776,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TQ2-5V"
-			(at 130.556 52.324 0)
+		(property "Value" "G6S-2G"
+			(at 144.78 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4523,8 +2786,18 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "symbols:RELAY_TQ2_PAN"
-			(at 138.43 45.72 0)
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6S-2G"
+			(at 122.174 65.786 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6s.pdf"
+			(at 140.462 67.564 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4532,186 +2805,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 138.43 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 138.43 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 138.43 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 138.43 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Availability" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 138.43 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 138.43 45.72 90)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-side Stable"
+			(at 140.462 67.564 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4728,14 +2823,11 @@
 		(pin "1"
 			(uuid "02a25233-78f0-4415-a075-6627c4b268fd")
 		)
-		(pin "7"
+		(pin "12"
 			(uuid "7b1b2231-e437-4711-93fb-1e9b8886e118")
 		)
 		(pin "9"
 			(uuid "2e5ffcec-1540-455b-a390-24b668b886db")
-		)
-		(pin "2"
-			(uuid "19d3c8a7-7c52-4941-83f6-65931b0d2eb1")
 		)
 		(pin "8"
 			(uuid "6a803493-29ee-4788-8163-0fb8d48eb26d")
@@ -4745,9 +2837,6 @@
 		)
 		(pin "5"
 			(uuid "2a9b53b0-b41a-4441-afdb-a04ec479a0b8")
-		)
-		(pin "6"
-			(uuid "bda8dec4-fecf-459d-8070-0642e16a1d6c")
 		)
 		(instances
 			(project "USB-SSB-txcvr"
@@ -4861,6 +2950,16 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(pin "txRelay" output
+			(at 59.69 72.39 180)
+			(uuid "40b3501d-d160-4cc5-84ce-db371ca8d708")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances

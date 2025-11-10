@@ -13434,6 +13434,94 @@
 		)
 	)
 	(symbol
+		(lib_id "Amplifier_Operational:OPA1692xDGK")
+		(at 127 152.4 0)
+		(unit 3)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7116844b-bd5e-4cc5-8c51-5ee234dc9cd3")
+		(property "Reference" "U301"
+			(at 125.73 151.1299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "OPA1692xDGK"
+			(at 125.73 153.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:VSSOP-8_3x3mm_P0.65mm"
+			(at 127 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/opa1692.pdf"
+			(at 127 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual SoundPlus Low Power, Low Noise & Low Distortion Audio Operational Amplifiers, VSSOP-8"
+			(at 127 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "189e3092-8330-4601-8484-9abd7ce59e1e")
+		)
+		(pin "8"
+			(uuid "59d959f6-434c-466f-acc6-ccfe36d8ba1c")
+		)
+		(pin "5"
+			(uuid "0b084c77-4995-4052-819a-14c624816203")
+		)
+		(pin "1"
+			(uuid "7e192608-aeea-424b-a3ae-192cbc7aeda5")
+		)
+		(pin "6"
+			(uuid "ddc7ce77-5fde-481b-9a79-457d3cd76927")
+		)
+		(pin "7"
+			(uuid "177cfb7a-05c0-4112-a72e-c1613f90c2a0")
+		)
+		(pin "2"
+			(uuid "187b401c-fb93-4b41-bd8f-228153fb6058")
+		)
+		(pin "3"
+			(uuid "4aad34ff-09e5-46b1-b0b1-cc7c22512898")
+		)
+		(instances
+			(project ""
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f"
+					(reference "U301")
+					(unit 3)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 33.02 105.41 0)
 		(unit 1)
@@ -15724,94 +15812,6 @@
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f"
 					(reference "U301")
 					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Amplifier_Operational:OPA1692xDGK")
-		(at 127 152.4 0)
-		(unit 3)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b4e1f8fd-9c28-4603-b7c5-018b5c1d2f69")
-		(property "Reference" "U301"
-			(at 125.73 151.1299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "OPA1692xDGK"
-			(at 125.73 153.6699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_SO:VSSOP-8_3x3mm_P0.65mm"
-			(at 127 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/opa1692.pdf"
-			(at 127 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Dual SoundPlus Low Power, Low Noise & Low Distortion Audio Operational Amplifiers, VSSOP-8"
-			(at 127 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "4"
-			(uuid "189e3092-8330-4601-8484-9abd7ce59e1e")
-		)
-		(pin "8"
-			(uuid "59d959f6-434c-466f-acc6-ccfe36d8ba1c")
-		)
-		(pin "5"
-			(uuid "0b084c77-4995-4052-819a-14c624816203")
-		)
-		(pin "1"
-			(uuid "7e192608-aeea-424b-a3ae-192cbc7aeda5")
-		)
-		(pin "6"
-			(uuid "ddc7ce77-5fde-481b-9a79-457d3cd76927")
-		)
-		(pin "7"
-			(uuid "177cfb7a-05c0-4112-a72e-c1613f90c2a0")
-		)
-		(pin "2"
-			(uuid "187b401c-fb93-4b41-bd8f-228153fb6058")
-		)
-		(pin "3"
-			(uuid "4aad34ff-09e5-46b1-b0b1-cc7c22512898")
-		)
-		(instances
-			(project ""
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f"
-					(reference "U301")
-					(unit 3)
 				)
 			)
 		)
