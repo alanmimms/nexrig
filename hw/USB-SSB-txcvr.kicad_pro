@@ -505,7 +505,7 @@
         "line_style": 0,
         "name": "GND",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgb(34, 95, 23)",
         "wire_width": 12
       },
@@ -514,7 +514,7 @@
         "line_style": 0,
         "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
+        "priority": 3,
         "schematic_color": "rgb(255, 49, 109)",
         "wire_width": 12
       },
@@ -523,7 +523,7 @@
         "line_style": 0,
         "name": "PowerRF",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgb(255, 142, 74)",
         "wire_width": 12
       },
@@ -532,7 +532,7 @@
         "line_style": 0,
         "name": "diff75",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 4,
+        "priority": 5,
         "schematic_color": "rgb(51, 78, 255)",
         "wire_width": 6
       },
@@ -541,9 +541,15 @@
         "line_style": 0,
         "name": "diff90",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 3,
+        "priority": 4,
         "schematic_color": "rgb(72, 52, 255)",
         "wire_width": 6
+      },
+      {
+        "name": "kelvin",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgb(39, 179, 255)"
       }
     ],
     "meta": {
@@ -842,6 +848,12 @@
       "Net-(D2210-K)": [
         "PowerRF"
       ],
+      "Net-(IC2001-DRVSET)": [
+        "Power"
+      ],
+      "Net-(IC2001-VIN)": [
+        "Power"
+      ],
       "Net-(J2301-RD+)": [
         "diff75"
       ],
@@ -891,6 +903,9 @@
         "GND"
       ],
       "Net-(Q1904-D)": [
+        "Power"
+      ],
+      "Net-(Q2001-S-Pad1)": [
         "Power"
       ],
       "Net-(Q2002-D)": [
