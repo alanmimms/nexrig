@@ -2099,7 +2099,7 @@
 	)
 	(wire
 		(pts
-			(xy 186.69 102.87) (xy 176.53 102.87)
+			(xy 176.53 102.87) (xy 198.12 102.87)
 		)
 		(stroke
 			(width 0)
@@ -2319,6 +2319,16 @@
 	)
 	(wire
 		(pts
+			(xy 198.12 72.39) (xy 198.12 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50279982-6d7a-4e99-8333-e45ef7c31282")
+	)
+	(wire
+		(pts
 			(xy 167.64 73.66) (xy 167.64 74.93)
 		)
 		(stroke
@@ -2347,6 +2357,16 @@
 		)
 		(uuid "56047cc8-a2aa-4247-a9f3-6e4498ad6801")
 	)
+	(bus
+		(pts
+			(xy 200.66 76.2) (xy 200.66 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5683a7bf-e7c1-4c4b-8c7a-db08b5e8617c")
+	)
 	(wire
 		(pts
 			(xy 167.64 64.77) (xy 167.64 66.04)
@@ -2366,16 +2386,6 @@
 			(type default)
 		)
 		(uuid "588c62ae-afd0-4312-8dcf-36da6322ce76")
-	)
-	(wire
-		(pts
-			(xy 190.5 63.5) (xy 186.69 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5d2b59e5-6ad8-4c9a-9087-f81509beb09c")
 	)
 	(wire
 		(pts
@@ -2547,6 +2557,16 @@
 		)
 		(uuid "af7c036c-1ead-4182-b4cb-1316388dedfb")
 	)
+	(bus
+		(pts
+			(xy 128.27 62.23) (xy 128.27 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0dcf7c3-2b99-4227-8d99-a6e2e38182d3")
+	)
 	(wire
 		(pts
 			(xy 257.81 50.8) (xy 259.08 50.8)
@@ -2566,6 +2586,16 @@
 			(type default)
 		)
 		(uuid "bd2e190a-3223-4f71-9db9-def91d437d0f")
+	)
+	(bus
+		(pts
+			(xy 36.83 113.03) (xy 40.64 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c003d719-028c-4fea-864c-41315bf57878")
 	)
 	(wire
 		(pts
@@ -2666,16 +2696,6 @@
 			(type default)
 		)
 		(uuid "dbc56569-6366-43ac-8254-a30404edb0cf")
-	)
-	(wire
-		(pts
-			(xy 186.69 63.5) (xy 186.69 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dedd8936-33b6-4d1b-81da-11e84742aa5e")
 	)
 	(wire
 		(pts
@@ -2818,6 +2838,28 @@
 		)
 		(uuid "22642daf-8529-4bfa-9ab2-bd1df7ac52f1")
 	)
+	(hierarchical_label "Ctrl{Ctrl}"
+		(shape bidirectional)
+		(at 128.27 62.23 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4c742de0-1049-47b4-9de2-8bf3d5b70d52")
+	)
+	(hierarchical_label "Ctrl{Ctrl}"
+		(shape bidirectional)
+		(at 36.83 113.03 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "544fe512-d3b8-4d95-ba08-6448b75f84fa")
+	)
 	(hierarchical_label "PAQ+"
 		(shape input)
 		(at 45.72 54.61 180)
@@ -2850,6 +2892,17 @@
 			(justify left)
 		)
 		(uuid "925b2736-24df-4859-8273-a34a49f460b2")
+	)
+	(hierarchical_label "Ctrl{Ctrl}"
+		(shape bidirectional)
+		(at 200.66 76.2 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c64986a3-b5d7-4285-808a-e32660f18d6a")
 	)
 	(hierarchical_label "PAI-"
 		(shape input)
@@ -6346,6 +6399,16 @@
 				(justify right)
 			)
 		)
+		(pin "Ctrl{Ctrl}" bidirectional
+			(at 128.27 58.42 270)
+			(uuid "d9151a13-57fc-4bf8-aecf-7cb9acc0ebba")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b"
@@ -6356,7 +6419,7 @@
 	)
 	(sheet
 		(at 190.5 46.99)
-		(size 12.7 19.05)
+		(size 12.7 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -6380,7 +6443,7 @@
 			)
 		)
 		(property "Sheetfile" "ant-tuner.kicad_sch"
-			(at 190.5 66.6246 0)
+			(at 190.5 72.9746 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6430,8 +6493,18 @@
 			)
 		)
 		(pin "txRelay" output
-			(at 190.5 63.5 180)
+			(at 198.12 72.39 270)
 			(uuid "7f43c2bf-8fc9-4336-8ab8-163a7af4ea85")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Ctrl{Ctrl}" bidirectional
+			(at 200.66 72.39 270)
+			(uuid "038e4563-44a1-49cb-b659-8c7865d76e29")
 			(effects
 				(font
 					(size 1.27 1.27)

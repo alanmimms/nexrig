@@ -937,7 +937,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 77.47) (xy 138.43 53.34)
+			(xy 138.43 73.66) (xy 138.43 53.34)
 		)
 		(stroke
 			(width 0)
@@ -947,7 +947,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 81.28) (xy 154.94 81.28)
+			(xy 77.47 77.47) (xy 154.94 77.47)
 		)
 		(stroke
 			(width 0)
@@ -964,6 +964,16 @@
 			(type default)
 		)
 		(uuid "1b58aa42-0249-4c5c-adb6-ac2368ab39b2")
+	)
+	(bus
+		(pts
+			(xy 26.67 149.86) (xy 30.48 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d88cd2f-eccc-4493-8df1-6347ca0882a1")
 	)
 	(wire
 		(pts
@@ -1007,7 +1017,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 77.47) (xy 138.43 77.47)
+			(xy 77.47 73.66) (xy 138.43 73.66)
 		)
 		(stroke
 			(width 0)
@@ -1064,6 +1074,16 @@
 			(type default)
 		)
 		(uuid "5b34b3b7-dc71-4ebc-b527-31aef93d21a9")
+	)
+	(bus
+		(pts
+			(xy 55.88 106.68) (xy 59.69 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5bbfe5ca-a7fe-4748-bd68-4b2348db7e29")
 	)
 	(wire
 		(pts
@@ -1157,7 +1177,7 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 69.85) (xy 80.01 97.79)
+			(xy 80.01 80.01) (xy 80.01 97.79)
 		)
 		(stroke
 			(width 0)
@@ -1197,7 +1217,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 74.93) (xy 121.92 74.93)
+			(xy 77.47 71.12) (xy 121.92 71.12)
 		)
 		(stroke
 			(width 0)
@@ -1235,6 +1255,16 @@
 		)
 		(uuid "aa57500e-94b8-40b7-a612-459938ea4291")
 	)
+	(bus
+		(pts
+			(xy 55.88 82.55) (xy 59.69 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "abe7944f-69bf-4853-92bf-8ced72058f33")
+	)
 	(wire
 		(pts
 			(xy 77.47 63.5) (xy 85.09 63.5)
@@ -1247,7 +1277,7 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 81.28) (xy 154.94 53.34)
+			(xy 154.94 77.47) (xy 154.94 53.34)
 		)
 		(stroke
 			(width 0)
@@ -1317,7 +1347,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 69.85) (xy 80.01 69.85)
+			(xy 77.47 80.01) (xy 80.01 80.01)
 		)
 		(stroke
 			(width 0)
@@ -1327,7 +1357,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 74.93) (xy 121.92 53.34)
+			(xy 121.92 71.12) (xy 121.92 53.34)
 		)
 		(stroke
 			(width 0)
@@ -1480,6 +1510,17 @@
 			"AElFTkSuQmCC"
 		)
 	)
+	(hierarchical_label "Ctrl{Ctrl}"
+		(shape bidirectional)
+		(at 26.67 149.86 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "05e7e2fb-0f32-4cce-b1d3-5aff6f948b9f")
+	)
 	(hierarchical_label "serOut"
 		(shape output)
 		(at 78.74 105.41 0)
@@ -1502,6 +1543,17 @@
 		)
 		(uuid "17f88687-9056-487d-ab61-8a4e37881a15")
 	)
+	(hierarchical_label "Ctrl{Ctrl}"
+		(shape bidirectional)
+		(at 55.88 106.68 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "22e4572e-4795-4613-a152-f8fc568749e8")
+	)
 	(hierarchical_label "rig"
 		(shape passive)
 		(at 27.94 60.96 180)
@@ -1523,6 +1575,17 @@
 			(justify left)
 		)
 		(uuid "6491d583-c998-4dec-9964-8f60f9e3d33d")
+	)
+	(hierarchical_label "Ctrl{Ctrl}"
+		(shape bidirectional)
+		(at 55.88 82.55 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9ebeee63-0c1f-4364-86aa-be37f4caee4f")
 	)
 	(hierarchical_label "serIn"
 		(shape input)
@@ -2973,7 +3036,7 @@
 			)
 		)
 		(pin "serOut" output
-			(at 77.47 69.85 0)
+			(at 77.47 80.01 0)
 			(uuid "5f519202-70ca-4ba2-8e06-5032db9ab661")
 			(effects
 				(font
@@ -2993,7 +3056,7 @@
 			)
 		)
 		(pin "config1" output
-			(at 77.47 74.93 0)
+			(at 77.47 71.12 0)
 			(uuid "c96adc86-6014-48d2-a1b4-f48d7941b3e8")
 			(effects
 				(font
@@ -3003,7 +3066,7 @@
 			)
 		)
 		(pin "config2" output
-			(at 77.47 77.47 0)
+			(at 77.47 73.66 0)
 			(uuid "7ae10fa4-7237-412e-ad8a-47b495d2a660")
 			(effects
 				(font
@@ -3033,7 +3096,7 @@
 			)
 		)
 		(pin "bypass" output
-			(at 77.47 81.28 0)
+			(at 77.47 77.47 0)
 			(uuid "5c429883-87ad-4473-a7b8-50454d3e7c57")
 			(effects
 				(font
@@ -3052,6 +3115,16 @@
 				(justify left)
 			)
 		)
+		(pin "Ctrl{Ctrl}" bidirectional
+			(at 59.69 82.55 180)
+			(uuid "dbd148ad-d55e-46d5-a7e8-56e0f7be10f6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64"
@@ -3062,7 +3135,7 @@
 	)
 	(sheet
 		(at 59.69 96.52)
-		(size 17.78 10.16)
+		(size 17.78 12.7)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -3086,7 +3159,7 @@
 			)
 		)
 		(property "Sheetfile" "tuner-inductors.kicad_sch"
-			(at 59.69 107.2646 0)
+			(at 59.69 109.8046 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3133,6 +3206,16 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(pin "Ctrl{Ctrl}" bidirectional
+			(at 59.69 106.68 180)
+			(uuid "4966ce4a-c673-4e3a-96a1-ae9b53f37e2f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances

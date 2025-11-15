@@ -3421,6 +3421,16 @@
 		)
 		(uuid "c2241e5a-faeb-496a-89c1-28b904902960")
 	)
+	(bus
+		(pts
+			(xy 27.94 74.93) (xy 31.75 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2e2322f-a4ec-4d51-953b-5140a5c9f044")
+	)
 	(wire
 		(pts
 			(xy 223.52 66.04) (xy 222.25 66.04)
@@ -3823,6 +3833,17 @@
 			(justify left)
 		)
 		(uuid "a56c45a1-bcf7-4440-970a-9d8c458c73ad")
+	)
+	(hierarchical_label "Ctrl{Ctrl}"
+		(shape bidirectional)
+		(at 27.94 74.93 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ad2fb77a-4bd0-40cc-b0d2-c9acdefed2b0")
 	)
 	(hierarchical_label "FPGA1V2enable"
 		(shape input)
@@ -18407,6 +18428,16 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(pin "Ctrl{Ctrl}" bidirectional
+			(at 31.75 74.93 180)
+			(uuid "6e6cb614-ec2b-4792-a6ec-44248e2ae0de")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances

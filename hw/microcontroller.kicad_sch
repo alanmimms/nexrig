@@ -10696,6 +10696,10 @@
 		(uuid "3a8b409e-18b6-42d1-ab5d-c8b946367fdf")
 	)
 	(no_connect
+		(at 77.47 116.84)
+		(uuid "3c9a9771-7cfc-4809-b530-836a18c9dd15")
+	)
+	(no_connect
 		(at 35.56 48.26)
 		(uuid "437005b7-2b02-4b1f-9ea9-e105988e5bbc")
 	)
@@ -10760,12 +10764,20 @@
 		(uuid "97a61e9c-10f6-4341-af45-01a47411cf7e")
 	)
 	(no_connect
+		(at 186.69 92.71)
+		(uuid "9c6b5e02-6b54-48ba-b6ab-5c1172c00fa0")
+	)
+	(no_connect
 		(at 35.56 101.6)
 		(uuid "9ea95991-a140-462c-95e7-19c106150713")
 	)
 	(no_connect
 		(at 35.56 60.96)
 		(uuid "a5b77593-de3f-4998-81f1-3d082395a2ec")
+	)
+	(no_connect
+		(at 77.47 73.66)
+		(uuid "a6939e88-16d9-44a7-99e8-b94f8bbdfaee")
 	)
 	(no_connect
 		(at 35.56 81.28)
@@ -12247,16 +12259,6 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 116.84) (xy 78.74 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "71a0aecd-6a7c-4b3b-9e2e-5c3b65559714")
-	)
-	(wire
-		(pts
 			(xy 118.11 106.68) (xy 120.65 106.68)
 		)
 		(stroke
@@ -12434,16 +12436,6 @@
 			(type default)
 		)
 		(uuid "7f7231c3-a295-486d-ab5a-5d332e075c16")
-	)
-	(wire
-		(pts
-			(xy 186.69 92.71) (xy 187.96 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7fd22883-7861-47af-8775-fcd2e75a44c0")
 	)
 	(wire
 		(pts
@@ -13047,16 +13039,6 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 73.66) (xy 78.74 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b9727e7b-f3c0-4a12-8f12-602a2a7fcdd5")
-	)
-	(wire
-		(pts
 			(xy 228.6 31.75) (xy 228.6 29.21)
 		)
 		(stroke
@@ -13504,6 +13486,16 @@
 			(type default)
 		)
 		(uuid "e5d68b0a-1981-4390-a6c7-4cf555d09ce3")
+	)
+	(bus
+		(pts
+			(xy 26.67 123.19) (xy 30.48 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6b0c652-1265-4003-8277-9249f1cf4afd")
 	)
 	(wire
 		(pts
@@ -14345,16 +14337,6 @@
 		)
 		(uuid "c3ab6383-1368-4a2f-856b-46014ea650b7")
 	)
-	(label "Ctrl.nTxRelay"
-		(at 187.96 92.71 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c6650731-ba03-4b0f-a237-4d72e02effce")
-	)
 	(label "dispDC"
 		(at 90.17 181.61 0)
 		(effects
@@ -14579,17 +14561,6 @@
 			)
 		)
 	)
-	(hierarchical_label "TxRelay"
-		(shape output)
-		(at 78.74 73.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "05e293ff-e148-4a60-b585-1fdf8044f68a")
-	)
 	(hierarchical_label "STM32clock"
 		(shape input)
 		(at 78.74 38.1 0)
@@ -14634,6 +14605,17 @@
 		)
 		(uuid "5cb9f7b0-7b5c-49d9-bcb2-4207014e2f3d")
 	)
+	(hierarchical_label "Ctrl{Ctrl}"
+		(shape bidirectional)
+		(at 26.67 123.19 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c565529d-ddc4-4d87-acb4-883240d4e047")
+	)
 	(hierarchical_label "TxPGOOD"
 		(shape input)
 		(at 78.74 101.6 0)
@@ -14644,17 +14626,6 @@
 			(justify left)
 		)
 		(uuid "ce41e00e-b7eb-4c67-8d97-74ec642d8c4b")
-	)
-	(hierarchical_label "RxQSK"
-		(shape output)
-		(at 78.74 116.84 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "cfcbd69d-88ae-442a-a8eb-f8221d35d970")
 	)
 	(hierarchical_label "TxEnable"
 		(shape output)

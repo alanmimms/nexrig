@@ -54,6 +54,26 @@
 	)
 	(attr smd)
 	(fp_line
+		(start -2.05 3.35)
+		(end -4.15 0)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.Cu")
+		(uuid "ee821322-9fba-44c0-9223-b359dcdcb00c")
+	)
+	(fp_line
+		(start 2.05 3.35)
+		(end 4.15 0)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "F.Cu")
+		(uuid "0c4d967c-255f-478c-a4d4-b46bc0e7ca00")
+	)
+	(fp_line
 		(start -6.6 0)
 		(end -6.6 0)
 		(stroke
@@ -293,7 +313,19 @@
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(uuid "9cac05af-d070-484a-aec9-2837ed589064")
 	)
-	(pad "2" smd rect
+	(pad "2" smd circle
+		(at -2.05 3.35)
+		(size 1 1)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "642099b7-cbf2-435b-ab19-f3737d06c13b")
+	)
+	(pad "3" smd circle
+		(at 2.05 3.35 180)
+		(size 1 1)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "5fd63199-50df-44d2-a23f-fee7fcff840f")
+	)
+	(pad "4" smd rect
 		(at 4.15 0)
 		(size 2.7 6.2)
 		(layers "F.Cu" "F.Mask" "F.Paste")
