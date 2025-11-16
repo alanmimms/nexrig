@@ -4107,12 +4107,6 @@
 		(uuid "d29c06d3-d5cb-4397-92d6-0688538c03bc")
 	)
 	(junction
-		(at 190.5 63.5)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d386b9a6-4077-4e6f-a3b1-ce7fe0061ba2")
-	)
-	(junction
 		(at 64.77 74.93)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4135,12 +4129,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ed4b3e77-64b8-44c2-bf80-982edce7da2e")
-	)
-	(junction
-		(at 190.5 95.25)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ef9afa17-9c48-4fb4-9d0a-83695e39015a")
 	)
 	(junction
 		(at 165.1 49.53)
@@ -4483,16 +4471,6 @@
 			(type default)
 		)
 		(uuid "256cb63e-c270-40ff-be87-9e0a49875354")
-	)
-	(wire
-		(pts
-			(xy 190.5 63.5) (xy 190.5 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "25e116b9-5989-4ec2-b113-cea98981347a")
 	)
 	(wire
 		(pts
@@ -5276,16 +5254,6 @@
 	)
 	(wire
 		(pts
-			(xy 190.5 63.5) (xy 195.58 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a4e158d9-5fe2-46e8-9f25-8bbac5816a98")
-	)
-	(wire
-		(pts
 			(xy 190.5 102.87) (xy 193.04 102.87)
 		)
 		(stroke
@@ -5776,7 +5744,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 63.5) (xy 190.5 63.5)
+			(xy 189.23 63.5) (xy 195.58 63.5)
 		)
 		(stroke
 			(width 0)
@@ -8277,7 +8245,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 96.8248 68.58 0)
 			(effects
 				(font
@@ -8527,6 +8495,22 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 97.79 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 97.79 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -13128,7 +13112,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 106.9848 68.58 0)
 			(effects
 				(font
@@ -13378,6 +13362,22 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 107.95 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 107.95 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"

@@ -38,8 +38,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 0.58,
-          "width": 0.58
+          "height": 0.3,
+          "width": 0.22
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -241,6 +241,10 @@
         {
           "diameter": 0.0,
           "drill": 0.0
+        },
+        {
+          "diameter": 2.0,
+          "drill": 1.25
         }
       ],
       "zones_allow_external_fillets": false
@@ -511,47 +515,57 @@
       },
       {
         "bus_width": 12,
+        "clearance": 0.2,
         "line_style": 0,
         "name": "GND",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 4,
+        "priority": 10,
         "schematic_color": "rgb(34, 95, 23)",
+        "track_width": 0.3,
         "wire_width": 12
       },
       {
-        "bus_width": 12,
-        "clearance": 0.5,
+        "bus_width": 8,
+        "clearance": 0.2,
         "line_style": 0,
         "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 6,
-        "schematic_color": "rgb(255, 49, 109)",
-        "track_width": 0.3,
-        "via_diameter": 0.6,
-        "via_drill": 0.3,
-        "wire_width": 12
+        "priority": 12,
+        "schematic_color": "rgb(79, 122, 21)",
+        "track_width": 0.2,
+        "via_diameter": 0.3,
+        "via_drill": 0.15,
+        "wire_width": 8
+      },
+      {
+        "bus_width": 39,
+        "name": "PowerH",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 5,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "wire_width": 39
       },
       {
         "bus_width": 12,
         "line_style": 0,
         "name": "PowerRF",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 5,
+        "priority": 11,
         "schematic_color": "rgb(255, 142, 74)",
         "wire_width": 12
       },
       {
         "name": "Rail-low-power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
-        "schematic_color": "rgb(255, 11, 212)"
+        "priority": 8,
+        "schematic_color": "rgb(79, 122, 21)"
       },
       {
         "bus_width": 12,
         "line_style": 0,
         "name": "diff75",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 8,
+        "priority": 14,
         "schematic_color": "rgb(51, 78, 255)",
         "wire_width": 6
       },
@@ -560,7 +574,7 @@
         "line_style": 0,
         "name": "diff90",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 7,
+        "priority": 13,
         "schematic_color": "rgb(72, 52, 255)",
         "wire_width": 6
       },
@@ -568,14 +582,14 @@
         "clearance": 0.125,
         "name": "fine",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 7,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2
       },
       {
         "name": "kelvin",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 3,
+        "priority": 9,
         "schematic_color": "rgb(39, 179, 255)",
         "track_width": 0.1
       },
@@ -583,9 +597,47 @@
         "clearance": 0.125,
         "name": "power-lite",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 6,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2
+      },
+      {
+        "clearance": 0.35,
+        "name": "pwr200",
+        "pcb_color": "rgb(138, 0, 255)",
+        "priority": 1,
+        "schematic_color": "rgb(255, 84, 0)",
+        "track_width": 0.35,
+        "wire_width": 10
+      },
+      {
+        "name": "pwr50",
+        "pcb_color": "rgb(255, 0, 57)",
+        "priority": 0,
+        "schematic_color": "rgb(255, 2, 0)",
+        "wire_width": 20
+      },
+      {
+        "name": "rf200",
+        "pcb_color": "rgb(162, 255, 16)",
+        "priority": 3,
+        "schematic_color": "rgb(81, 137, 25)",
+        "track_width": 0.1
+      },
+      {
+        "name": "rf50",
+        "pcb_color": "rgb(0, 255, 1)",
+        "priority": 4,
+        "schematic_color": "rgb(40, 102, 25)",
+        "track_width": 0.16
+      },
+      {
+        "clearance": 0.5,
+        "name": "rf800",
+        "pcb_color": "rgb(225, 255, 40)",
+        "priority": 2,
+        "schematic_color": "rgb(114, 141, 23)",
+        "track_width": 0.1
       }
     ],
     "meta": {
@@ -599,6 +651,12 @@
       "+2.7V": [
         "Power"
       ],
+      "+5V": [
+        "pwr200"
+      ],
+      "+5VA": [
+        "rf50"
+      ],
       "+SDCARDVDD": [
         "Power"
       ],
@@ -608,41 +666,266 @@
       "/Antenna Tuner, TR Relay/AntTx": [
         "PowerRF"
       ],
+      "/FPGA/Ctrl.audioReset": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.bruene": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.enFPGASPIVdd": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.enFPGAVpp": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.enable5V": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.enable6V": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.nTxRelay": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdBCLK": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdData": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdMCLK": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdMOSI": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdNSS": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh0a": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh0b": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh0c": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh0d": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh1a": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh1b": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh1c": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh1d": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh2a": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh2b": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh2c": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdPh2d": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdSCK": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.qsdWCLK": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.switchMOSI": [
+        "pwr200",
+        "rf50"
+      ],
+      "/FPGA/Ctrl.switchRCK": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.switchSCK": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.tmpSCL": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.tmpSDA": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.txBCLK": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.txData": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.txMCLK": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.txWCLK": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.usbPOK2": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.usbPOK3": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.usbReset": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl.usbnALERT": [
+        "rf50"
+      ],
+      "/FPGA/Ctrl{Ctrl}": [
+        "rf50"
+      ],
       "/Power/Tx EER Envelope Buck-Boost/PA_SENSE": [
         "Power"
       ],
       "/Power/Tx EER Envelope Buck-Boost/SW1": [
-        "Power"
+        "PowerH"
       ],
       "/Power/Tx EER Envelope Buck-Boost/SW2": [
-        "Power"
+        "PowerH"
       ],
       "/Power/VBUSsw": [
         "Power"
       ],
+      "/Rx Front End/Clipper, Attenuator, Preselector/Ctrl.atten12dB": [
+        "rf200"
+      ],
+      "/Rx Front End/Clipper, Attenuator, Preselector/Ctrl.atten24dB": [
+        "rf200"
+      ],
+      "/Rx Front End/Clipper, Attenuator, Preselector/Ctrl.atten3dB": [
+        "rf200"
+      ],
+      "/Rx Front End/Clipper, Attenuator, Preselector/Ctrl.atten6dB": [
+        "rf200"
+      ],
+      "/Rx Front End/Clipper, Attenuator, Preselector/RxZ200": [
+        "rf200"
+      ],
+      "/Rx Front End/Clipper, Attenuator, Preselector/Tpad 12/in": [
+        "rf200"
+      ],
+      "/Rx Front End/Clipper, Attenuator, Preselector/Tpad 12/out": [
+        "rf200"
+      ],
+      "/Rx Front End/Clipper, Attenuator, Preselector/Tpad 3/in": [
+        "rf200"
+      ],
+      "/Rx Front End/Clipper, Attenuator, Preselector/Tpad 3/out": [
+        "rf200"
+      ],
+      "/Rx Front End/Clipper, Attenuator, Preselector/rxPreselOut": [
+        "rf800"
+      ],
+      "/Rx Front End/Ctrl.breune": [
+        "rf50"
+      ],
+      "/Rx Front End/QSD0/rfIn": [
+        "rf50"
+      ],
+      "/Rx Front End/QSD1/rfIn": [
+        "rf50"
+      ],
+      "/Rx Front End/QSD2/rfIn": [
+        "rf50"
+      ],
+      "/Rx Front End/RxI0n": [
+        "rf50"
+      ],
+      "/Rx Front End/RxI0p": [
+        "rf50"
+      ],
+      "/Rx Front End/RxI1n": [
+        "rf50"
+      ],
+      "/Rx Front End/RxI1p": [
+        "rf50"
+      ],
+      "/Rx Front End/RxI2n": [
+        "rf50"
+      ],
+      "/Rx Front End/RxI2p": [
+        "rf50"
+      ],
+      "/Rx Front End/RxQ0n": [
+        "rf50"
+      ],
+      "/Rx Front End/RxQ0p": [
+        "rf50"
+      ],
+      "/Rx Front End/RxQ1n": [
+        "rf50"
+      ],
+      "/Rx Front End/RxQ1p": [
+        "rf50"
+      ],
+      "/Rx Front End/RxQ2n": [
+        "rf50"
+      ],
+      "/Rx Front End/RxQ2p": [
+        "rf50"
+      ],
+      "/Rx Front End/RxZ200": [
+        "rf200"
+      ],
+      "/Rx Front End/VREF1": [
+        "rf50"
+      ],
+      "/Rx Front End/VREF2": [
+        "rf50"
+      ],
+      "/Rx Front End/VREF3": [
+        "rf50"
+      ],
+      "/Rx Front End/nBruene": [
+        "rf50"
+      ],
+      "/Rx Front End/txFwd": [
+        "pwr200",
+        "rf50"
+      ],
+      "/Rx Front End/txRev": [
+        "pwr200",
+        "rf50"
+      ],
       "/Tx Chain/Antenna Tuner/Tuner Capacitors/Ccold": [
-        "PowerRF"
+        "pwr200"
       ],
       "/Tx Chain/Antenna Tuner/Tuner Capacitors/Chot": [
-        "PowerRF"
+        "pwr200"
       ],
       "/Tx Chain/Antenna Tuner/Tuner Inductors/Lcold": [
-        "PowerRF"
+        "pwr200"
       ],
       "/Tx Chain/Antenna Tuner/Tuner Inductors/Lhot": [
-        "PowerRF"
+        "pwr200"
       ],
       "/Tx Chain/Antenna Tuner/ant": [
-        "PowerRF"
+        "pwr200"
       ],
       "/Tx Chain/Antenna Tuner/rig": [
-        "PowerRF"
+        "pwr200"
+      ],
+      "/Tx Chain/Antenna Tuner/txRelay": [
+        "pwr200"
       ],
       "/Tx Chain/Bin Select PA Tanks/PAdrain": [
         "PowerRF"
       ],
       "/Tx Chain/H-bridge-PA/PA200": [
-        "PowerRF"
+        "pwr200"
       ],
       "/Tx Chain/PA Tank/PA200tx": [
         "PowerRF"
@@ -654,10 +937,16 @@
         "PowerRF"
       ],
       "/Tx Chain/Tx LPFs/PA200tx": [
-        "PowerRF"
+        "pwr200"
       ],
       "/Tx Chain/Tx LPFs/TxOut": [
-        "PowerRF"
+        "pwr200"
+      ],
+      "/Tx Chain/Tx LPFs/serOut": [
+        "pwr200"
+      ],
+      "/Tx Chain/tunerSerOut": [
+        "pwr200"
       ],
       "/USB/C-USBDN": [
         "diff90"
@@ -669,7 +958,10 @@
         "Power"
       ],
       "GND": [
-        "Power"
+        "pwr200",
+        "rf200",
+        "rf50",
+        "rf800"
       ],
       "Net-(C1401-Pad1)": [
         "PowerRF"
@@ -749,6 +1041,66 @@
       "Net-(C1538-Pad2)": [
         "PowerRF"
       ],
+      "Net-(C1605-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1606-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1607-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1608-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1609-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1610-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1611-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1612-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1613-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1614-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1620-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1621-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1622-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1625-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1627-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1630-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1631-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1632-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1633-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C1634-Pad1)": [
+        "pwr200"
+      ],
       "Net-(C2001-Pad1)": [
         "PowerRF"
       ],
@@ -779,11 +1131,65 @@
       "Net-(C2036-Pad2)": [
         "PowerRF"
       ],
+      "Net-(C2110-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C2110-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C2113-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C2113-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C2114-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C2114-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C2116-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C2116-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C2117-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C2117-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C2118-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C2118-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C2119-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C2119-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C2120-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C2120-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C2121-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C2121-Pad2)": [
+        "pwr200"
+      ],
       "Net-(C2201-Pad2)": [
         "PowerRF"
       ],
       "Net-(C502-Pad1)": [
-        "PowerRF"
+        "pwr50"
       ],
       "Net-(C504-Pad1)": [
         "PowerRF"
@@ -903,16 +1309,82 @@
         "diff75"
       ],
       "Net-(J501-In)": [
-        "PowerRF"
+        "pwr50"
       ],
       "Net-(J701-In)": [
         "PowerRF"
+      ],
+      "Net-(K1701-Pad4)": [
+        "pwr200"
+      ],
+      "Net-(K1701-Pad9)": [
+        "pwr200"
+      ],
+      "Net-(K1702-Pad4)": [
+        "pwr200"
+      ],
+      "Net-(K1702-Pad9)": [
+        "pwr200"
+      ],
+      "Net-(K1703-Pad4)": [
+        "pwr200"
+      ],
+      "Net-(K1703-Pad9)": [
+        "pwr200"
+      ],
+      "Net-(K1704-Pad4)": [
+        "pwr200"
+      ],
+      "Net-(K1704-Pad9)": [
+        "pwr200"
+      ],
+      "Net-(K1705-Pad4)": [
+        "pwr200"
+      ],
+      "Net-(K1705-Pad9)": [
+        "pwr200"
+      ],
+      "Net-(K1706-Pad4)": [
+        "pwr200"
+      ],
+      "Net-(K1706-Pad9)": [
+        "pwr200"
+      ],
+      "Net-(K1707-Pad4)": [
+        "pwr200"
+      ],
+      "Net-(K1707-Pad9)": [
+        "pwr200"
+      ],
+      "Net-(K1708-Pad4)": [
+        "pwr200"
+      ],
+      "Net-(K1708-Pad9)": [
+        "pwr200"
       ],
       "Net-(K501-1-NO1)": [
         "PowerRF"
       ],
       "Net-(K501-1-T1)": [
         "PowerRF"
+      ],
+      "Net-(K501-Pad3)": [
+        "pwr200"
+      ],
+      "Net-(L1601-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(L1602-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(L1608-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(L1614-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(L1617-Pad2)": [
+        "pwr200"
       ],
       "Net-(L2001-Pad1)": [
         "Power"
@@ -928,6 +1400,9 @@
       ],
       "Net-(L503-Pad3)": [
         "PowerRF"
+      ],
+      "Net-(NT2002-Pad2)": [
+        "PowerH"
       ],
       "Net-(Q1802-S-Pad1)": [
         "GND"
@@ -950,14 +1425,62 @@
       "Net-(Q2004-D)": [
         "Power"
       ],
+      "Net-(Q2304-D)": [
+        "PowerH"
+      ],
+      "Net-(Q2306-D)": [
+        "PowerH"
+      ],
+      "Net-(R1002-Pad1)": [
+        "rf50"
+      ],
+      "Net-(R1102-Pad1)": [
+        "rf50"
+      ],
+      "Net-(R502-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(R504-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(R802-Pad1)": [
+        "rf50"
+      ],
+      "Net-(R902-Pad1)": [
+        "rf50"
+      ],
+      "Net-(T301-OUT1A)": [
+        "rf50"
+      ],
+      "Net-(T301-OUT1B)": [
+        "rf50"
+      ],
+      "Net-(U1001-J2)": [
+        "rf50"
+      ],
+      "Net-(U1001-J3)": [
+        "rf50"
+      ],
       "Net-(U1001-SW)": [
         "Power"
+      ],
+      "Net-(U1002-J2)": [
+        "rf50"
       ],
       "Net-(U1004-SW)": [
         "Power"
       ],
       "Net-(U1005-SW)": [
         "Power"
+      ],
+      "Net-(U1101-J2)": [
+        "rf50"
+      ],
+      "Net-(U1101-J3)": [
+        "rf50"
+      ],
+      "Net-(U1102-J2)": [
+        "rf50"
       ],
       "Net-(U1104-SW)": [
         "Power"
@@ -1163,6 +1686,12 @@
       "Net-(U302-OUT)": [
         "Power"
       ],
+      "Net-(U303-J2)": [
+        "rf50"
+      ],
+      "Net-(U304-J2)": [
+        "rf50"
+      ],
       "Net-(U601-4-VCCPLL)": [
         "Power"
       ],
@@ -1178,8 +1707,77 @@
       "Net-(U7710-SW)": [
         "Power"
       ],
+      "Net-(U801-J2)": [
+        "rf50"
+      ],
+      "Net-(U801-J3)": [
+        "rf50"
+      ],
+      "Net-(U802-J2)": [
+        "rf50"
+      ],
+      "Net-(U901-J2)": [
+        "rf50"
+      ],
+      "Net-(U901-J3)": [
+        "rf50"
+      ],
+      "Net-(U902-J2)": [
+        "rf50"
+      ],
       "Veer": [
         "PowerRF"
+      ],
+      "unconnected-(K1701-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K1702-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K1703-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K1704-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K1705-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K1706-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K1707-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K1708-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2101-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2102-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2103-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2104-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2105-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2106-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2107-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2108-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2109-Pad3)": [
+        "pwr200"
       ]
     },
     "netclass_patterns": [
@@ -1196,28 +1794,8 @@
         "pattern": "+5V"
       },
       {
-        "netclass": "Power",
-        "pattern": "-5V"
-      },
-      {
-        "netclass": "Power",
+        "netclass": "PowerH",
         "pattern": "VBUS"
-      },
-      {
-        "netclass": "diff90",
-        "pattern": "*USBDP"
-      },
-      {
-        "netclass": "diff90",
-        "pattern": "*USBDN"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "+1.8V"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/DACACD/AVDD"
       },
       {
         "netclass": "Rail-low-power",
@@ -1225,183 +1803,31 @@
       },
       {
         "netclass": "Power",
-        "pattern": "/microcontroller/VDD33USB"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/USB/VBUS_LV"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/USB/C-USBVBUS"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/USB/VBUSsw"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/Rx Front End/LNAVDD"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/Rx Front End/LNAVDDOUT"
-      },
-      {
-        "netclass": "Power",
         "pattern": "+6V"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/microcontroller/VREF"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "+15V"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "1.2V"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/Tx Chain/VCCPLL"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "2.5V"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "3.3V"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/Tx Chain/VDD1V2"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "+12V"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/Power/1V2_UNSW"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/Power/+1.2V"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "+1.2V"
       },
       {
         "netclass": "Power",
         "pattern": "FPGA1V2"
       },
       {
-        "netclass": "Power",
-        "pattern": "VPP_2V5"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/Tx Chain/VPP_2V5"
-      },
-      {
-        "netclass": "Power",
+        "netclass": "PowerH",
         "pattern": "Veer"
-      },
-      {
-        "netclass": "GND",
-        "pattern": "GND"
-      },
-      {
-        "netclass": "GND",
-        "pattern": "+12V"
-      },
-      {
-        "netclass": "diff90",
-        "pattern": "EthTx*"
-      },
-      {
-        "netclass": "diff90",
-        "pattern": "EthRx*"
-      },
-      {
-        "netclass": "diff90",
-        "pattern": "/microcontroller/Ethernet/EthTx+"
-      },
-      {
-        "netclass": "diff90",
-        "pattern": "/microcontroller/Ethernet/EthTx-"
-      },
-      {
-        "netclass": "diff90",
-        "pattern": "/microcontroller/Ethernet/EthRx+"
-      },
-      {
-        "netclass": "diff90",
-        "pattern": "/microcontroller/Ethernet/EthRx-"
-      },
-      {
-        "netclass": "diff90",
-        "pattern": "/USB/C-USBD-"
-      },
-      {
-        "netclass": "diff90",
-        "pattern": "/USB/C-USBD+"
-      },
-      {
-        "netclass": "diff75",
-        "pattern": "/microcontroller/Ethernet/EthRx-"
-      },
-      {
-        "netclass": "diff75",
-        "pattern": "/microcontroller/Ethernet/EthRx+"
-      },
-      {
-        "netclass": "diff75",
-        "pattern": "/microcontroller/Ethernet/EthTx-"
-      },
-      {
-        "netclass": "diff75",
-        "pattern": "/microcontroller/Ethernet/EthTx+"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "+1.2VPP"
       },
       {
         "netclass": "Rail-low-power",
         "pattern": "+5VA"
       },
       {
-        "netclass": "Power",
-        "pattern": "+2.5VPP"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "+3.3VFPGAIO"
-      },
-      {
-        "netclass": "fine",
-        "pattern": "/qsd/rfIn"
-      },
-      {
-        "netclass": "fine",
-        "pattern": "/Rx Front End/QSD0/rfIn"
-      },
-      {
-        "netclass": "fine",
-        "pattern": "/Rx Front End/QSD*/rfIn"
-      },
-      {
-        "netclass": "fine",
-        "pattern": "/Rx Front End/Ctrl.qsdPh*"
-      },
-      {
         "netclass": "power-lite",
         "pattern": "+6V"
+      },
+      {
+        "netclass": "fine",
+        "pattern": "/*/Ctrl.*"
+      },
+      {
+        "netclass": "GND",
+        "pattern": "GND"
       }
     ]
   },

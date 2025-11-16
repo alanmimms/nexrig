@@ -2450,6 +2450,12 @@
 		(uuid "013f933b-d3a6-4a03-9ff0-7d675d4b568e")
 	)
 	(junction
+		(at 129.54 90.17)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "09fdc462-110b-4a3d-9410-366028e00db0")
+	)
+	(junction
 		(at 138.43 173.99)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2834,6 +2840,12 @@
 		(uuid "f4684def-e575-4dad-ba1e-b40df5aa5cec")
 	)
 	(junction
+		(at 129.54 173.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f53d56c5-65fd-41c8-8421-330f56a0d07d")
+	)
+	(junction
 		(at 134.62 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3040,6 +3052,16 @@
 			(type default)
 		)
 		(uuid "116b9d9c-5027-4c9e-aa2e-2eaf47a55af5")
+	)
+	(wire
+		(pts
+			(xy 129.54 90.17) (xy 129.54 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "128e91d4-c193-421b-815c-1df992da55ac")
 	)
 	(wire
 		(pts
@@ -4353,6 +4375,16 @@
 	)
 	(wire
 		(pts
+			(xy 129.54 173.99) (xy 129.54 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c1659771-3862-42e7-87cf-f2d443729bb3")
+	)
+	(wire
+		(pts
 			(xy 133.35 58.42) (xy 132.08 58.42)
 		)
 		(stroke
@@ -4955,6 +4987,99 @@
 			(justify left)
 		)
 		(uuid "ca283d27-70d5-415d-a951-06148ceb5395")
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape diamond)
+		(at 96.52 149.86 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "018fec0d-30c9-4019-a2f6-81ae4252e908")
+		(property "Netclass" "PowerH"
+			(at 97.7265 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Component Class" ""
+			(at -30.48 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape diamond)
+		(at 100.33 66.04 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4266ab0b-3f82-45f2-8ed6-4ec67b34fd5a")
+		(property "Netclass" "PowerH"
+			(at 101.5365 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Component Class" ""
+			(at -26.67 -29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape diamond)
+		(at 179.07 95.25 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bc2b77bc-a89c-4fa7-bfec-1e63737f9d04")
+		(property "Netclass" "pwr200"
+			(at 180.2765 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Component Class" ""
+			(at -13.97 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -7041,6 +7166,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 129.54 91.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7409c62d-47c5-4903-82d8-bd2098079de7")
+		(property "Reference" "#PWR02318"
+			(at 129.54 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 129.286 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 129.54 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 129.54 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 129.54 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "96e06abe-0557-48c8-bfab-b09b518105c0")
+		)
+		(instances
+			(project "USB-SSB-txcvr"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/5d704c47-67fd-4097-8f87-0a826a7bb92d"
+					(reference "#PWR02318")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Library:IGB110S101XTMA1")
 		(at 127 167.64 0)
 		(unit 1)
@@ -8681,6 +8872,72 @@
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/5d704c47-67fd-4097-8f87-0a826a7bb92d"
 					(reference "#PWR02317")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 129.54 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ef42d5aa-a9ee-4088-90f9-64ff4a6a0a99")
+		(property "Reference" "#PWR02319"
+			(at 129.54 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 129.286 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 129.54 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 129.54 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 129.54 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c1a642b8-2dde-40c1-a87f-004c58aa57d5")
+		)
+		(instances
+			(project "USB-SSB-txcvr"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/5d704c47-67fd-4097-8f87-0a826a7bb92d"
+					(reference "#PWR02319")
 					(unit 1)
 				)
 			)

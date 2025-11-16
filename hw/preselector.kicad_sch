@@ -2659,26 +2659,6 @@
 		)
 		(uuid "5f616570-2069-427e-ae61-a52a88a163d0")
 	)
-	(text "Note this is Z=800 ohm domain."
-		(exclude_from_sim no)
-		(at 198.12 15.494 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "71049a20-38e9-4da4-b354-46c3311b561a")
-	)
-	(text "Note this is Z=200 ohm domain."
-		(exclude_from_sim no)
-		(at 75.438 13.97 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "b977cdd3-aea6-43f6-9dce-589d4b7a1160")
-	)
 	(junction
 		(at 200.66 161.29)
 		(diameter 0)
@@ -7703,6 +7683,68 @@
 			(justify right)
 		)
 		(uuid "f898dbf8-df4b-4653-a0d2-62cc7aa54940")
+	)
+	(rule_area
+		(polyline
+			(pts
+				(xy 262.255 121.92) (xy 257.81 130.81) (xy 185.42 130.81) (xy 179.07 129.54) (xy 80.3274 129.54)
+				(xy 80.01 121.92)
+			)
+			(stroke
+				(width 0)
+				(type dash)
+			)
+			(fill
+				(type none)
+			)
+			(uuid ae0cbe03-7006-4e01-97f9-17a0ae32bddc)
+		)
+	)
+	(rule_area
+		(polyline
+			(pts
+				(xy 248.92 60.96) (xy 243.84 67.945) (xy 180.975 68.58) (xy 175.26 69.85) (xy 151.13 69.85) (xy 150.495 62.23)
+			)
+			(stroke
+				(width 0)
+				(type dash)
+			)
+			(fill
+				(type none)
+			)
+			(uuid fd98a3d0-8af7-4c8f-a4e4-809e2cf03653)
+		)
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape diamond)
+		(at 170.18 38.1 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c1983266-6f12-418d-8aff-b7625b8e3ec8")
+		(property "Netclass" "rf800"
+			(at 171.3865 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Component Class" ""
+			(at 180.34 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Library:74LVC2G04")
