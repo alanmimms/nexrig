@@ -4070,192 +4070,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "ECS-2033-250-BN:ECS-2033-250-BN"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "Y201"
-				(at 15.24 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "ECS-2033-250-BN"
-				(at 15.24 3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "ECS2033250BN"
-				(at 34.29 -94.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 34.29 -194.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Description" "Standard Clock Oscillators ECS-2033,OSC XO 25.000MHZ HCMOS SMD,3.3V, 50ppm,-40 C 85 C,13mA,Surface Mount,0.098\" L x 0.079\" W (2.50mm x 2.00mm),0.035\" (0.90mm)"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Height" "1"
-				(at 34.29 -394.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "520-2033-250-BN"
-				(at 34.29 -494.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/ECS/ECS-2033-250-BN?qs=94V4QatVK%252BfP3OkXXmWhpg%3D%3D"
-				(at 34.29 -594.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "ECS"
-				(at 34.29 -694.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "ECS-2033-250-BN"
-				(at 34.29 -794.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(symbol "ECS-2033-250-BN_1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 25.4 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "VDD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "TRI-STATE"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 30.48 0 180)
-					(length 5.08)
-					(name "OUTPUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 30.48 -2.54 180)
-					(length 5.08)
-					(name "GROUND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "STM32H753ZIT6_1"
 			(pin_names
 				(offset 0.254)
@@ -10253,7 +10067,7 @@
 		)
 	)
 	(bus_alias "FPGA"
-		(members "NSS" "CLK" "MISO" "MOSI" "RESET")
+		(members "NSS" "SCK" "MISO" "MOSI" "RESET")
 	)
 	(text "DEBUG"
 		(exclude_from_sim no)
@@ -10266,16 +10080,6 @@
 			)
 		)
 		(uuid "a77dd1ce-a8c6-4115-9ae7-8701e5afa4fe")
-	)
-	(text "Startup 10ms"
-		(exclude_from_sim no)
-		(at 45.466 147.066 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "b34fa570-9a2a-498e-8c9c-3aa63f3a69d8")
 	)
 	(text "ST7789V\n135x240\nLCD"
 		(exclude_from_sim no)
@@ -10360,12 +10164,6 @@
 		(uuid "390143cc-a9f3-4a02-8310-c0ea827acb71")
 	)
 	(junction
-		(at 20.32 139.7)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "397acf57-5a21-4dc8-aac6-58df7e4fb793")
-	)
-	(junction
 		(at 223.52 123.19)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -10376,18 +10174,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "42c7ad61-a69c-4fd5-8c6e-7a5dc10b995e")
-	)
-	(junction
-		(at 27.94 167.64)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "448f44c0-4e24-4372-a74f-466ab21483a5")
-	)
-	(junction
-		(at 34.29 167.64)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "45263710-2f15-4826-bf6b-cd7b2798fa46")
 	)
 	(junction
 		(at 185.42 123.19)
@@ -10436,12 +10222,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6879aba6-845f-4293-aad9-c1a46549ea3a")
-	)
-	(junction
-		(at 53.34 167.64)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6dc3f13d-3356-4e0f-aa53-1180b97f9d88")
 	)
 	(junction
 		(at 228.6 29.21)
@@ -10498,22 +10278,10 @@
 		(uuid "8d767760-196c-4c67-b795-9ea12b0dee13")
 	)
 	(junction
-		(at 20.32 142.24)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "94cbdd14-e9b9-4fe0-b2eb-e88dff58b745")
-	)
-	(junction
 		(at 231.14 135.89)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "989016bc-8206-4dd3-978b-0afa478fb00e")
-	)
-	(junction
-		(at 40.64 167.64)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "995f83dc-12f7-4333-ba53-62e5f47ca8f4")
 	)
 	(junction
 		(at 193.04 135.89)
@@ -10606,12 +10374,6 @@
 		(uuid "c7996d42-03da-4776-9ae7-71d9655f83fb")
 	)
 	(junction
-		(at 46.99 167.64)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d04dcca3-bd5a-4a26-94fd-740b1998d9cd")
-	)
-	(junction
 		(at 228.6 67.31)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -10642,6 +10404,12 @@
 		(uuid "f13c4aaf-a0d5-4268-a79c-cbf25bd17d25")
 	)
 	(junction
+		(at 21.59 167.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f148990b-34ef-46b0-a0fe-4d199d264b03")
+	)
+	(junction
 		(at 208.28 135.89)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -10658,6 +10426,10 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fd2393e0-7305-43fa-b041-12bc22de542c")
+	)
+	(no_connect
+		(at 158.75 167.64)
+		(uuid "01b53c24-a2c3-472f-8c3b-449b2d4b115e")
 	)
 	(no_connect
 		(at 35.56 109.22)
@@ -10680,6 +10452,10 @@
 		(uuid "21446b09-30e4-4cdd-b723-2a2971b0d1e2")
 	)
 	(no_connect
+		(at 77.47 104.14)
+		(uuid "24f0668a-43d4-4274-9bb3-b3a359a9f077")
+	)
+	(no_connect
 		(at 35.56 58.42)
 		(uuid "302fb86e-729d-4fe6-b7bc-21142b3dbf66")
 	)
@@ -10690,10 +10466,6 @@
 	(no_connect
 		(at 77.47 63.5)
 		(uuid "3a8aa006-aa27-4448-b8e0-3e99c7d1ff26")
-	)
-	(no_connect
-		(at 77.47 104.14)
-		(uuid "3a8b409e-18b6-42d1-ab5d-c8b946367fdf")
 	)
 	(no_connect
 		(at 77.47 116.84)
@@ -10808,12 +10580,12 @@
 		(uuid "cf035d6f-f047-42dd-959a-d7054e3df6cc")
 	)
 	(no_connect
-		(at 152.4 31.75)
-		(uuid "e51b7f95-1aaf-4e7a-a824-4f30f7fc21de")
+		(at 35.56 83.82)
+		(uuid "d0bdf190-faea-48a5-92b4-6957c8dce10f")
 	)
 	(no_connect
-		(at 152.4 36.83)
-		(uuid "e990fd0a-dfa3-429b-b7e5-05d0e75c93e4")
+		(at 152.4 31.75)
+		(uuid "e51b7f95-1aaf-4e7a-a824-4f30f7fc21de")
 	)
 	(no_connect
 		(at 35.56 76.2)
@@ -10832,16 +10604,6 @@
 			(type default)
 		)
 		(uuid "00e8b7c6-fa4d-433b-ba4b-e6b9446cba7f")
-	)
-	(wire
-		(pts
-			(xy 20.32 142.24) (xy 20.32 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "00f525e7-a67a-4845-8798-bd6e6ca18a70")
 	)
 	(wire
 		(pts
@@ -10915,16 +10677,6 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 167.64) (xy 53.34 173.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "05214a82-a7c8-4fe5-a1e2-a348242b6a4b")
-	)
-	(wire
-		(pts
 			(xy 193.04 123.19) (xy 185.42 123.19)
 		)
 		(stroke
@@ -10932,16 +10684,6 @@
 			(type default)
 		)
 		(uuid "06c9c13c-94e7-4937-856f-d6d177ba0d68")
-	)
-	(wire
-		(pts
-			(xy 46.99 181.61) (xy 46.99 182.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "07fe1a04-a408-4db6-aa01-ae80a73dbc99")
 	)
 	(wire
 		(pts
@@ -11055,16 +10797,6 @@
 	)
 	(wire
 		(pts
-			(xy 20.32 142.24) (xy 20.32 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0ee307e0-2610-48d3-9404-2432cc136aac")
-	)
-	(wire
-		(pts
 			(xy 231.14 69.85) (xy 228.6 69.85)
 		)
 		(stroke
@@ -11135,16 +10867,6 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 173.99) (xy 46.99 167.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "131903c0-a5cf-40ca-83a7-0b3f6a9453d8")
-	)
-	(wire
-		(pts
 			(xy 165.1 121.92) (xy 165.1 123.19)
 		)
 		(stroke
@@ -11205,16 +10927,6 @@
 	)
 	(wire
 		(pts
-			(xy 20.32 153.67) (xy 20.32 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1bbd5110-03dc-440c-b703-710b26f73896")
-	)
-	(wire
-		(pts
 			(xy 86.36 179.07) (xy 90.17 179.07)
 		)
 		(stroke
@@ -11255,16 +10967,6 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 167.64) (xy 34.29 167.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1f0a8f5b-bab6-4e2c-b9d5-dddb9a041005")
-	)
-	(wire
-		(pts
 			(xy 222.25 153.67) (xy 222.25 152.4)
 		)
 		(stroke
@@ -11285,16 +10987,6 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 142.24) (xy 30.48 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "24254a55-9203-4eb2-8092-e8ca95e8aeea")
-	)
-	(wire
-		(pts
 			(xy 199.39 153.67) (xy 205.74 153.67)
 		)
 		(stroke
@@ -11302,16 +10994,6 @@
 			(type default)
 		)
 		(uuid "251780ac-406a-4081-b104-bc12e02d81e1")
-	)
-	(wire
-		(pts
-			(xy 60.96 139.7) (xy 62.23 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "25cb3975-058e-46a3-9dab-45176a6246a6")
 	)
 	(wire
 		(pts
@@ -11465,16 +11147,6 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 139.7) (xy 71.12 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "31ceeda0-b508-4a1e-9068-bfabb942d695")
-	)
-	(wire
-		(pts
 			(xy 228.6 41.91) (xy 228.6 39.37)
 		)
 		(stroke
@@ -11482,16 +11154,6 @@
 			(type default)
 		)
 		(uuid "32b509aa-2c8f-48a5-8b30-403a8fda896c")
-	)
-	(wire
-		(pts
-			(xy 40.64 181.61) (xy 40.64 182.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "335622df-0999-4a0d-b118-e9829dd69920")
 	)
 	(wire
 		(pts
@@ -11525,16 +11187,6 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 167.64) (xy 40.64 167.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "37651e0a-3a29-4514-8a59-eb8470e652c9")
-	)
-	(wire
-		(pts
 			(xy 151.13 62.23) (xy 152.4 62.23)
 		)
 		(stroke
@@ -11565,16 +11217,6 @@
 	)
 	(wire
 		(pts
-			(xy 21.59 142.24) (xy 20.32 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "391f9ea7-bec9-4f6e-8898-8321461f3557")
-	)
-	(wire
-		(pts
 			(xy 187.96 34.29) (xy 186.69 34.29)
 		)
 		(stroke
@@ -11585,26 +11227,6 @@
 	)
 	(wire
 		(pts
-			(xy 20.32 139.7) (xy 30.48 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3aa7ce2f-e273-4dcd-9e2c-bf6296b73e94")
-	)
-	(wire
-		(pts
-			(xy 196.85 107.95) (xy 186.69 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3b72f755-8c9d-4c01-a3cd-475f4896f2c4")
-	)
-	(wire
-		(pts
 			(xy 231.14 74.93) (xy 228.6 74.93)
 		)
 		(stroke
@@ -11612,6 +11234,16 @@
 			(type default)
 		)
 		(uuid "3b91f994-8e64-4400-ac61-6f28b533d929")
+	)
+	(wire
+		(pts
+			(xy 187.96 107.95) (xy 186.69 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3c6f225f-c3f8-4a63-a2ba-08ef8c601255")
 	)
 	(wire
 		(pts
@@ -11682,16 +11314,6 @@
 			(type default)
 		)
 		(uuid "41008d94-b80b-40a9-8d1d-bc4d4f29f053")
-	)
-	(wire
-		(pts
-			(xy 20.32 137.16) (xy 20.32 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "41114c56-0136-489f-a8f2-43dec099363b")
 	)
 	(wire
 		(pts
@@ -11795,13 +11417,13 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 181.61) (xy 53.34 182.88)
+			(xy 21.59 167.64) (xy 27.94 167.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "489765af-9bcc-45c4-90d8-aad0eea3b80f")
+		(uuid "48e1c567-c276-4495-954d-111f2d3b0ad5")
 	)
 	(wire
 		(pts
@@ -11935,16 +11557,6 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 167.64) (xy 34.29 173.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "53b6480e-b058-46c7-80ba-be8eaf9866bd")
-	)
-	(wire
-		(pts
 			(xy 97.79 58.42) (xy 97.79 59.69)
 		)
 		(stroke
@@ -12022,26 +11634,6 @@
 			(type default)
 		)
 		(uuid "5b04aa0b-5806-49ca-a7ec-7d8b55923865")
-	)
-	(wire
-		(pts
-			(xy 60.96 142.24) (xy 62.23 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5b44b2fd-500f-40a4-86d8-06c043539836")
-	)
-	(wire
-		(pts
-			(xy 21.59 167.64) (xy 27.94 167.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5bb75332-cbea-4b00-b0a4-0b4074b3a941")
 	)
 	(wire
 		(pts
@@ -12175,16 +11767,6 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 167.64) (xy 27.94 167.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "69de8afd-803f-467e-9300-0fa0f0076984")
-	)
-	(wire
-		(pts
 			(xy 151.13 52.07) (xy 152.4 52.07)
 		)
 		(stroke
@@ -12192,6 +11774,16 @@
 			(type default)
 		)
 		(uuid "69f6c4bc-2fdc-4ca6-93b6-339d0c7dc9b6")
+	)
+	(wire
+		(pts
+			(xy 31.75 25.4) (xy 31.75 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a2dfcb1-2ba9-47b6-bae8-f04dfad32189")
 	)
 	(wire
 		(pts
@@ -12282,16 +11874,6 @@
 			(type default)
 		)
 		(uuid "749b3b82-57fd-4083-b995-904c88f97de4")
-	)
-	(wire
-		(pts
-			(xy 196.85 105.41) (xy 186.69 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "754289c2-e1ea-4f5c-b2a5-f1e4c3bfa938")
 	)
 	(wire
 		(pts
@@ -12585,16 +12167,6 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 181.61) (xy 34.29 182.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "87c8f2ed-b94f-4ac7-8200-e8df3e56cbc5")
-	)
-	(wire
-		(pts
 			(xy 231.14 67.31) (xy 228.6 67.31)
 		)
 		(stroke
@@ -12632,16 +12204,6 @@
 			(type default)
 		)
 		(uuid "92710a95-6438-4927-8488-c18e5d64b969")
-	)
-	(wire
-		(pts
-			(xy 34.29 83.82) (xy 35.56 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "94a2d087-7edf-41a7-9e3a-9b7f092012b6")
 	)
 	(wire
 		(pts
@@ -12755,16 +12317,6 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 167.64) (xy 46.99 167.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9ffe2c73-7879-4d23-9a04-7bea616fdea4")
-	)
-	(wire
-		(pts
 			(xy 259.08 163.83) (xy 259.08 165.1)
 		)
 		(stroke
@@ -12782,16 +12334,6 @@
 			(type default)
 		)
 		(uuid "a065ed33-8f65-4516-9728-a4b927b429df")
-	)
-	(wire
-		(pts
-			(xy 62.23 142.24) (xy 62.23 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a1ff8c24-3aaf-4497-919d-f383cca46ba4")
 	)
 	(wire
 		(pts
@@ -13093,6 +12635,16 @@
 		)
 		(uuid "c00f2014-dacd-4211-b21a-25ffb3b9c9d7")
 	)
+	(bus
+		(pts
+			(xy 26.67 127) (xy 30.48 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0adaf6a-b970-41f0-b6fb-357e0d7d9584")
+	)
 	(wire
 		(pts
 			(xy 86.36 171.45) (xy 90.17 171.45)
@@ -13112,6 +12664,16 @@
 			(type default)
 		)
 		(uuid "c161e978-01ff-4090-a740-9d97f711fe2e")
+	)
+	(wire
+		(pts
+			(xy 187.96 105.41) (xy 186.69 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c1ec2c91-9a4b-4219-a228-038428bb98c4")
 	)
 	(wire
 		(pts
@@ -13195,16 +12757,6 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 167.64) (xy 40.64 173.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ce336055-7a7f-46c9-8ccd-08216690935c")
-	)
-	(wire
-		(pts
 			(xy 228.6 26.67) (xy 231.14 26.67)
 		)
 		(stroke
@@ -13212,6 +12764,16 @@
 			(type default)
 		)
 		(uuid "cf2545bf-c6b1-44e9-9076-4ce30a2c52be")
+	)
+	(wire
+		(pts
+			(xy 31.75 30.48) (xy 35.56 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cf680b7b-774c-4b54-9c28-ee374d283edf")
 	)
 	(wire
 		(pts
@@ -13763,7 +13325,7 @@
 		)
 		(uuid "0e12d00e-1735-4173-bd20-61c43edf7208")
 	)
-	(label "TxPh.SCK"
+	(label "FPGA.SCK"
 		(at 78.74 111.76 0)
 		(effects
 			(font
@@ -13782,16 +13344,6 @@
 			(justify left bottom)
 		)
 		(uuid "1c522c05-a151-4384-a3aa-78607c60a5f4")
-	)
-	(label "Ctrl.rxSCL"
-		(at 34.29 182.88 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "2507ade8-30a0-4f79-855d-cc9718580e28")
 	)
 	(label "SWO"
 		(at 34.29 45.72 180)
@@ -13903,16 +13455,6 @@
 		)
 		(uuid "48d26399-56e4-49e7-a144-41c37e12d148")
 	)
-	(label "Ctrl.data1"
-		(at 34.29 83.82 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "4bcf2625-7094-48f8-ba8e-d1683efa7918")
-	)
 	(label "Ctrl.switchMOSI"
 		(at 78.74 93.98 0)
 		(effects
@@ -13933,7 +13475,7 @@
 		)
 		(uuid "5089ca78-eea3-42a2-b0d1-2e370f7974d5")
 	)
-	(label "TxPh.MISO"
+	(label "FPGA.MISO"
 		(at 78.74 114.3 0)
 		(effects
 			(font
@@ -13962,16 +13504,6 @@
 			(justify right bottom)
 		)
 		(uuid "5356e83c-b18c-476c-997a-1ade96d522cc")
-	)
-	(label "Ctrl.rxSDA"
-		(at 40.64 182.88 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "58f825b8-d133-4622-b873-5a58c8079897")
 	)
 	(label "SWCL"
 		(at 78.74 78.74 0)
@@ -14013,6 +13545,16 @@
 		)
 		(uuid "653f2b22-0388-46c4-b2b7-beb0714deb56")
 	)
+	(label "Ctrl.enFPGASPIVdd"
+		(at 152.4 36.83 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6e090520-1e7a-4ad3-acc7-84ccaef79e87")
+	)
 	(label "EthTXD1"
 		(at 187.96 100.33 0)
 		(effects
@@ -14042,16 +13584,6 @@
 			(justify right bottom)
 		)
 		(uuid "752c8cb0-13f6-450f-a26b-8c1959a8020d")
-	)
-	(label "Ctrl.txSDA"
-		(at 53.34 182.88 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "785686fd-87ee-4d4a-8fed-e0a0591a4bc8")
 	)
 	(label "EthCLK"
 		(at 78.74 45.72 0)
@@ -14102,16 +13634,6 @@
 			(justify left bottom)
 		)
 		(uuid "885ea23e-8a0b-4b94-904f-8801b535e15d")
-	)
-	(label "CPUCLK"
-		(at 71.12 139.7 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "8ac5f57a-582c-44d7-bcaf-e77e72d60f8e")
 	)
 	(label "Ctrl.tmpSDA"
 		(at 34.29 55.88 180)
@@ -14273,16 +13795,6 @@
 		)
 		(uuid "b61d658f-8c27-45e3-8fd7-44fe88f77f78")
 	)
-	(label "Ctrl.txSCL"
-		(at 46.99 182.88 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "b6261f82-f116-4304-8a56-3a5fa1194d1d")
-	)
 	(label "VREF"
 		(at 228.6 54.61 180)
 		(effects
@@ -14433,7 +13945,7 @@
 		)
 		(uuid "e88b3c0a-506b-4667-82f9-17b2cf65c4c7")
 	)
-	(label "TxPh.NSS"
+	(label "FPGA.NSS"
 		(at 78.74 81.28 0)
 		(effects
 			(font
@@ -14483,7 +13995,7 @@
 		)
 		(uuid "f9ddf81c-c5a5-4043-9bd0-708b88ccfde9")
 	)
-	(label "TxPh.MOSI"
+	(label "FPGA.MOSI"
 		(at 34.29 43.18 180)
 		(effects
 			(font
@@ -14621,6 +14133,17 @@
 		)
 		(uuid "5cb9f7b0-7b5c-49d9-bcb2-4207014e2f3d")
 	)
+	(hierarchical_label "FPGA{FPGA}"
+		(shape bidirectional)
+		(at 26.67 127 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "89a873e4-7ebb-4492-b9a6-90811a1c7f76")
+	)
 	(hierarchical_label "Ctrl{Ctrl}"
 		(shape bidirectional)
 		(at 26.67 123.19 180)
@@ -14666,357 +14189,6 @@
 		(uuid "fccef0a7-4c26-4e08-bace-6a4837c9cd89")
 	)
 	(symbol
-		(lib_id "ECS-2033-250-BN:ECS-2033-250-BN")
-		(at 30.48 139.7 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "04db98bb-4fd0-49fa-a947-62f12c998604")
-		(property "Reference" "Y201"
-			(at 45.72 133.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ECS-2033-250-BN"
-			(at 45.72 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "symbols:ECS2033250BN"
-			(at 64.77 234.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 64.77 334.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Description" "Standard Clock Oscillators ECS-2033,OSC XO 25.000MHZ HCMOS SMD,3.3V, 50ppm,-40 C 85 C,13mA,Surface Mount,0.098\" L x 0.079\" W (2.50mm x 2.00mm),0.035\" (0.90mm)"
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "1"
-			(at 64.77 534.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "520-2033-250-BN"
-			(at 64.77 634.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/ECS/ECS-2033-250-BN?qs=94V4QatVK%252BfP3OkXXmWhpg%3D%3D"
-			(at 64.77 734.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "ECS"
-			(at 64.77 834.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "ECS-2033-250-BN"
-			(at 64.77 934.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Availability" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser-part-number" ""
-			(at 30.48 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "0b9b88a0-82b2-409f-887d-b8b6841c4ef2")
-		)
-		(pin "4"
-			(uuid "a69357f8-6fc5-413f-8260-c7caa78ebc14")
-		)
-		(pin "3"
-			(uuid "ed383de0-3e48-438f-b0c7-e51385e63ea6")
-		)
-		(pin "1"
-			(uuid "ebb65164-29cd-4566-b8d8-4933e6cd7699")
-		)
-		(instances
-			(project ""
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "Y201")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint_Alt")
 		(at 187.96 72.39 270)
 		(unit 1)
@@ -15025,7 +14197,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "06bad4f7-666d-4770-bdeb-0084ff8535db")
-		(property "Reference" "TP202"
+		(property "Reference" "PG202"
 			(at 193.04 71.1199 90)
 			(effects
 				(font
@@ -15044,7 +14216,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
 			(at 187.96 77.47 0)
 			(effects
 				(font
@@ -15318,7 +14490,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP202")
+					(reference "PG202")
 					(unit 1)
 				)
 			)
@@ -15326,15 +14498,15 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 53.34 167.64 0)
+		(at 21.59 167.64 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "07e6b09a-ef5c-4e9b-a081-089b4e9ecddb")
-		(property "Reference" "#PWR0204"
-			(at 53.34 171.45 0)
+		(property "Reference" "#PWR0202"
+			(at 21.59 171.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15343,7 +14515,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 53.34 162.56 0)
+			(at 21.59 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15351,7 +14523,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 53.34 167.64 0)
+			(at 21.59 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15360,7 +14532,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 53.34 167.64 0)
+			(at 21.59 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15369,7 +14541,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 53.34 167.64 0)
+			(at 21.59 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15383,7 +14555,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0204")
+					(reference "#PWR0202")
 					(unit 1)
 				)
 			)
@@ -15399,7 +14571,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0843a282-d886-4e2b-b601-8d61da6d23a8")
-		(property "Reference" "#PWR0214"
+		(property "Reference" "#PWR0212"
 			(at 146.05 186.69 0)
 			(effects
 				(font
@@ -15451,7 +14623,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0214")
+					(reference "#PWR0212")
 					(unit 1)
 				)
 			)
@@ -15467,7 +14639,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "09c66c73-e8c5-4d30-a8ba-7c98f7a0211c")
-		(property "Reference" "#PWR0225"
+		(property "Reference" "#PWR0223"
 			(at 226.06 45.72 0)
 			(effects
 				(font
@@ -15518,7 +14690,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0225")
+					(reference "#PWR0223")
 					(unit 1)
 				)
 			)
@@ -15533,7 +14705,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0e7bd172-8d99-4783-af6a-9c49e40f2776")
-		(property "Reference" "TP209"
+		(property "Reference" "PG209"
 			(at 193.04 88.8999 90)
 			(effects
 				(font
@@ -15552,7 +14724,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
 			(at 187.96 95.25 0)
 			(effects
 				(font
@@ -15826,7 +14998,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP209")
+					(reference "PG209")
 					(unit 1)
 				)
 			)
@@ -16164,298 +15336,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_US")
-		(at 46.99 177.8 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "131855c1-1785-4180-9e21-747f94223aa7")
-		(property "Reference" "R207"
-			(at 48.26 172.974 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 45.72 172.974 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 48.006 178.054 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 46.99 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 46.99 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Availability" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser-part-number" ""
-			(at 46.99 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "46af0e69-9469-4eb4-93f7-568e9bb2a8d2")
-		)
-		(pin "1"
-			(uuid "4a8ded31-f4f8-4957-aab6-3b62c6c82d15")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "R207")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 90.17 190.5 0)
 		(unit 1)
@@ -16465,7 +15345,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "138f2668-32cb-495f-953c-8e3c74e77d0e")
-		(property "Reference" "#PWR0209"
+		(property "Reference" "#PWR0207"
 			(at 90.17 196.85 0)
 			(effects
 				(font
@@ -16517,7 +15397,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0209")
+					(reference "#PWR0207")
 					(unit 1)
 				)
 			)
@@ -16533,7 +15413,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "141e22a5-2c86-4696-87c3-7cce2d3d5397")
-		(property "Reference" "C222"
+		(property "Reference" "C221"
 			(at 242.316 126.746 90)
 			(effects
 				(font
@@ -16818,7 +15698,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C222")
+					(reference "C221")
 					(unit 1)
 				)
 			)
@@ -16834,7 +15714,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "15aef1fe-2bac-49e2-9c81-3122b930fe65")
-		(property "Reference" "#PWR0231"
+		(property "Reference" "#PWR0229"
 			(at 259.08 171.45 0)
 			(effects
 				(font
@@ -16886,7 +15766,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0231")
+					(reference "#PWR0229")
 					(unit 1)
 				)
 			)
@@ -16902,7 +15782,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1abd65ea-0a31-4bdb-8a21-99ba80b346c9")
-		(property "Reference" "#PWR0207"
+		(property "Reference" "#PWR0205"
 			(at 78.74 38.1 0)
 			(effects
 				(font
@@ -16954,299 +15834,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0207")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 34.29 177.8 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1aec4e99-a735-4a2d-846f-0952c491a228")
-		(property "Reference" "R205"
-			(at 35.56 172.974 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 33.02 172.974 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 35.306 178.054 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 34.29 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 34.29 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Availability" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser-part-number" ""
-			(at 34.29 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "54f36a88-57fa-4803-9151-982714330749")
-		)
-		(pin "1"
-			(uuid "1654dc36-054d-43e3-9ebe-ae23da14ca44")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "R205")
+					(reference "#PWR0205")
 					(unit 1)
 				)
 			)
@@ -17262,7 +15850,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1ce56399-fb4f-45ea-97fe-b5c9ba7136e3")
-		(property "Reference" "C225"
+		(property "Reference" "C224"
 			(at 255.016 154.686 90)
 			(effects
 				(font
@@ -17547,7 +16135,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C225")
+					(reference "C224")
 					(unit 1)
 				)
 			)
@@ -17562,7 +16150,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1d2bf47f-01e9-4b19-9ef5-9936b89d1ace")
-		(property "Reference" "#PWR0226"
+		(property "Reference" "#PWR0224"
 			(at 227.33 110.49 0)
 			(effects
 				(font
@@ -17612,75 +16200,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0226")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 62.23 143.51 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1d3128dc-3bf3-4d66-8856-598094dcca4b")
-		(property "Reference" "#PWR0205"
-			(at 62.23 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 62.2301 147.32 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 62.23 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 62.23 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 62.23 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "da77ea27-6c5b-4c5e-ad2a-a0b8514f6b53")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0205")
+					(reference "#PWR0224")
 					(unit 1)
 				)
 			)
@@ -17696,7 +16216,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "24db0465-8a6b-4347-9b54-8a80caf49506")
-		(property "Reference" "#PWR0212"
+		(property "Reference" "#PWR0210"
 			(at 104.14 190.5 0)
 			(effects
 				(font
@@ -17746,7 +16266,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0212")
+					(reference "#PWR0210")
 					(unit 1)
 				)
 			)
@@ -18046,307 +16566,6 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 20.32 149.86 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2ea069f9-92c9-41ab-a496-0316df6981ca")
-		(property "Reference" "C201"
-			(at 23.368 147.828 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100nF"
-			(at 23.368 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 19.3548 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" "X7R"
-			(at 22.606 151.892 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Availability" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser-part-number" ""
-			(at 20.32 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "18ea644a-e7e3-447a-af7a-12723f9c2491")
-		)
-		(pin "1"
-			(uuid "e494e1de-cbf6-4285-abf5-29b857187b2b")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C201")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
 		(at 218.44 104.14 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -18354,7 +16573,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "317e84a7-8fe5-4384-b375-dda20fb7206b")
-		(property "Reference" "C215"
+		(property "Reference" "C214"
 			(at 221.234 102.108 0)
 			(effects
 				(font
@@ -18639,7 +16858,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C215")
+					(reference "C214")
 					(unit 1)
 				)
 			)
@@ -18655,7 +16874,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "32fd38b3-c102-49ea-87ae-e71854938579")
-		(property "Reference" "C212"
+		(property "Reference" "C211"
 			(at 204.216 126.746 90)
 			(effects
 				(font
@@ -18940,7 +17159,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C212")
+					(reference "C211")
 					(unit 1)
 				)
 			)
@@ -18956,7 +17175,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "35065c43-05ba-4f58-85d9-d9359cab11e0")
-		(property "Reference" "#PWR0220"
+		(property "Reference" "#PWR0218"
 			(at 218.44 116.84 0)
 			(effects
 				(font
@@ -19007,7 +17226,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0220")
+					(reference "#PWR0218")
 					(unit 1)
 				)
 			)
@@ -19022,7 +17241,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "36f58c28-b8fe-423d-8d32-3bb8eddaf51e")
-		(property "Reference" "TP204"
+		(property "Reference" "PG204"
 			(at 193.04 76.1999 90)
 			(effects
 				(font
@@ -19041,7 +17260,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
 			(at 187.96 82.55 0)
 			(effects
 				(font
@@ -19315,7 +17534,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP204")
+					(reference "PG204")
 					(unit 1)
 				)
 			)
@@ -19331,7 +17550,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3875da5b-337c-45d3-82e8-5cd6d1c863b5")
-		(property "Reference" "#PWR0208"
+		(property "Reference" "#PWR0206"
 			(at 88.9 167.64 0)
 			(effects
 				(font
@@ -19381,299 +17600,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0208")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 66.04 139.7 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3f2bf562-d2ab-408b-9299-b5498e81ec2c")
-		(property "Reference" "R209"
-			(at 65.532 141.478 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100"
-			(at 63.246 138.176 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 66.294 138.684 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 66.04 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 66.04 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Availability" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser-part-number" ""
-			(at 66.04 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "9fbcab7b-74b0-431b-a3b0-6343e712dda8")
-		)
-		(pin "1"
-			(uuid "d977cfb3-e246-4a00-8664-44c9463f6eba")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "R209")
+					(reference "#PWR0206")
 					(unit 1)
 				)
 			)
@@ -19681,15 +17608,15 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint_Alt")
-		(at 196.85 107.95 270)
+		(at 187.96 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "3f54fc5d-5dba-48f8-bb74-2da3c45fe4f0")
-		(property "Reference" "TP211"
-			(at 201.93 106.6799 90)
+		(property "Reference" "PG211"
+			(at 193.04 106.6799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19699,7 +17626,7 @@
 			)
 		)
 		(property "Value" "PG15"
-			(at 200.914 107.95 90)
+			(at 192.024 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19707,8 +17634,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm"
-			(at 196.85 113.03 0)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 187.96 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19717,7 +17644,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 196.85 113.03 0)
+			(at 187.96 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19726,7 +17653,7 @@
 			)
 		)
 		(property "Description" "test point (alternative shape)"
-			(at 196.85 107.95 0)
+			(at 187.96 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19735,7 +17662,7 @@
 			)
 		)
 		(property "cap-type" ""
-			(at 196.85 107.95 0)
+			(at 187.96 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19743,7 +17670,7 @@
 			)
 		)
 		(property "r-power" ""
-			(at 196.85 107.95 0)
+			(at 187.96 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19751,7 +17678,7 @@
 			)
 		)
 		(property "DigiKey_Part_Number" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19760,7 +17687,7 @@
 			)
 		)
 		(property "Display" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19769,7 +17696,7 @@
 			)
 		)
 		(property "Display 2" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19778,7 +17705,7 @@
 			)
 		)
 		(property "Mfg" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19787,7 +17714,7 @@
 			)
 		)
 		(property "MfgPart" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19796,7 +17723,7 @@
 			)
 		)
 		(property "Sim.Params" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19805,7 +17732,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19814,7 +17741,7 @@
 			)
 		)
 		(property "Availability" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19823,7 +17750,7 @@
 			)
 		)
 		(property "Check_prices" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19832,7 +17759,7 @@
 			)
 		)
 		(property "Description_1" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19841,7 +17768,7 @@
 			)
 		)
 		(property "MANUFACTURER" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19850,7 +17777,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19859,7 +17786,7 @@
 			)
 		)
 		(property "MF" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19868,7 +17795,7 @@
 			)
 		)
 		(property "MP" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19877,7 +17804,7 @@
 			)
 		)
 		(property "Manufacturer" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19886,7 +17813,7 @@
 			)
 		)
 		(property "PARTREV" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19895,7 +17822,7 @@
 			)
 		)
 		(property "Package" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19904,7 +17831,7 @@
 			)
 		)
 		(property "Part Number" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19913,7 +17840,7 @@
 			)
 		)
 		(property "Price" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19922,7 +17849,7 @@
 			)
 		)
 		(property "STANDARD" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19931,7 +17858,7 @@
 			)
 		)
 		(property "Sim.Device" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19940,7 +17867,7 @@
 			)
 		)
 		(property "Sim.Pins" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19949,7 +17876,7 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19958,7 +17885,7 @@
 			)
 		)
 		(property "Specifications" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19967,7 +17894,7 @@
 			)
 		)
 		(property "Mouser-part-number" ""
-			(at 196.85 107.95 90)
+			(at 187.96 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19981,7 +17908,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP211")
+					(reference "PG211")
 					(unit 1)
 				)
 			)
@@ -19996,7 +17923,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "40ff2f77-267b-4b8f-ad8d-8f5ba34169a5")
-		(property "Reference" "C211"
+		(property "Reference" "C210"
 			(at 209.55 163.068 90)
 			(effects
 				(font
@@ -20281,7 +18208,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C211")
+					(reference "C210")
 					(unit 1)
 				)
 			)
@@ -20297,7 +18224,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4219929d-b256-4eef-a586-c7894ae04a0a")
-		(property "Reference" "#PWR0210"
+		(property "Reference" "#PWR0208"
 			(at 97.79 77.47 0)
 			(effects
 				(font
@@ -20349,299 +18276,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0210")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 25.4 142.24 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "436ce500-ddec-4cbb-8f60-5cebb83c4295")
-		(property "Reference" "R203"
-			(at 24.892 144.018 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 22.606 140.716 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 25.654 141.224 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 25.4 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 25.4 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Availability" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser-part-number" ""
-			(at 25.4 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "1a0593be-2851-41ad-9146-a707335c1421")
-		)
-		(pin "1"
-			(uuid "bb6e2d39-7af1-48e0-aedc-26d95657e5b7")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "R203")
+					(reference "#PWR0208")
 					(unit 1)
 				)
 			)
@@ -20657,7 +18292,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "43c8f985-74fd-4d50-8d8c-cc545f155547")
-		(property "Reference" "C202"
+		(property "Reference" "C201"
 			(at 92.71 163.83 90)
 			(effects
 				(font
@@ -20943,7 +18578,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C202")
+					(reference "C201")
 					(unit 1)
 				)
 			)
@@ -20959,7 +18594,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4e7c7573-b09f-4c5a-9c08-88a887a2db6d")
-		(property "Reference" "C221"
+		(property "Reference" "C220"
 			(at 234.696 126.746 90)
 			(effects
 				(font
@@ -21244,7 +18879,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C221")
+					(reference "C220")
 					(unit 1)
 				)
 			)
@@ -21259,7 +18894,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4fba5985-457f-46c3-bab6-3c0f9fdefc36")
-		(property "Reference" "#PWR0223"
+		(property "Reference" "#PWR0221"
 			(at 222.25 171.45 0)
 			(effects
 				(font
@@ -21310,7 +18945,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0223")
+					(reference "#PWR0221")
 					(unit 1)
 				)
 			)
@@ -21326,7 +18961,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4fe90b24-763d-4cd3-8a15-8ce2d0b00046")
-		(property "Reference" "C204"
+		(property "Reference" "C203"
 			(at 153.416 126.746 90)
 			(effects
 				(font
@@ -21611,7 +19246,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C204")
+					(reference "C203")
 					(unit 1)
 				)
 			)
@@ -21627,7 +19262,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "509dbaa1-46b3-4c52-86a9-3ba9bed30d01")
-		(property "Reference" "#PWR0228"
+		(property "Reference" "#PWR0226"
 			(at 254 125.73 0)
 			(effects
 				(font
@@ -21677,7 +19312,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0228")
+					(reference "#PWR0226")
 					(unit 1)
 				)
 			)
@@ -21692,7 +19327,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "50f33a38-4af0-404b-8911-f5e51997f4c6")
-		(property "Reference" "TP207"
+		(property "Reference" "PG207"
 			(at 193.04 83.8199 90)
 			(effects
 				(font
@@ -21711,7 +19346,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
 			(at 187.96 90.17 0)
 			(effects
 				(font
@@ -21985,7 +19620,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP207")
+					(reference "PG207")
 					(unit 1)
 				)
 			)
@@ -22000,7 +19635,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5210b5c6-b60b-420b-b31c-548b7fbb9043")
-		(property "Reference" "#PWR0213"
+		(property "Reference" "#PWR0211"
 			(at 146.05 149.86 0)
 			(effects
 				(font
@@ -22050,7 +19685,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0213")
+					(reference "#PWR0211")
 					(unit 1)
 				)
 			)
@@ -22065,7 +19700,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "57845db4-bd54-4d43-b1ed-9835ccd71b16")
-		(property "Reference" "#PWR0229"
+		(property "Reference" "#PWR0227"
 			(at 254 143.51 0)
 			(effects
 				(font
@@ -22116,7 +19751,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0229")
+					(reference "#PWR0227")
 					(unit 1)
 				)
 			)
@@ -22132,7 +19767,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "57bb8217-d8c4-4bb2-8f30-37b2507000ff")
-		(property "Reference" "C206"
+		(property "Reference" "C205"
 			(at 173.736 126.746 90)
 			(effects
 				(font
@@ -22417,7 +20052,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C206")
+					(reference "C205")
 					(unit 1)
 				)
 			)
@@ -22433,7 +20068,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "59baab54-0b97-41e8-974f-8671527430c3")
-		(property "Reference" "#PWR0217"
+		(property "Reference" "#PWR0215"
 			(at 199.39 171.45 0)
 			(effects
 				(font
@@ -22484,7 +20119,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0217")
+					(reference "#PWR0215")
 					(unit 1)
 				)
 			)
@@ -22492,15 +20127,15 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint_Alt")
-		(at 196.85 105.41 270)
+		(at 187.96 105.41 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "5d66cf8e-8ef7-45c4-b965-5e5f5ef02ab6")
-		(property "Reference" "TP210"
-			(at 201.93 104.1399 90)
+		(property "Reference" "PG210"
+			(at 193.04 104.1399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22510,7 +20145,7 @@
 			)
 		)
 		(property "Value" "PG14"
-			(at 200.914 105.41 90)
+			(at 192.024 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22518,8 +20153,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm"
-			(at 196.85 110.49 0)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 187.96 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22528,7 +20163,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 196.85 110.49 0)
+			(at 187.96 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22537,7 +20172,7 @@
 			)
 		)
 		(property "Description" "test point (alternative shape)"
-			(at 196.85 105.41 0)
+			(at 187.96 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22546,7 +20181,7 @@
 			)
 		)
 		(property "cap-type" ""
-			(at 196.85 105.41 0)
+			(at 187.96 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22554,7 +20189,7 @@
 			)
 		)
 		(property "r-power" ""
-			(at 196.85 105.41 0)
+			(at 187.96 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22562,7 +20197,7 @@
 			)
 		)
 		(property "DigiKey_Part_Number" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22571,7 +20206,7 @@
 			)
 		)
 		(property "Display" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22580,7 +20215,7 @@
 			)
 		)
 		(property "Display 2" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22589,7 +20224,7 @@
 			)
 		)
 		(property "Mfg" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22598,7 +20233,7 @@
 			)
 		)
 		(property "MfgPart" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22607,7 +20242,7 @@
 			)
 		)
 		(property "Sim.Params" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22616,7 +20251,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22625,7 +20260,7 @@
 			)
 		)
 		(property "Availability" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22634,7 +20269,7 @@
 			)
 		)
 		(property "Check_prices" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22643,7 +20278,7 @@
 			)
 		)
 		(property "Description_1" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22652,7 +20287,7 @@
 			)
 		)
 		(property "MANUFACTURER" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22661,7 +20296,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22670,7 +20305,7 @@
 			)
 		)
 		(property "MF" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22679,7 +20314,7 @@
 			)
 		)
 		(property "MP" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22688,7 +20323,7 @@
 			)
 		)
 		(property "Manufacturer" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22697,7 +20332,7 @@
 			)
 		)
 		(property "PARTREV" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22706,7 +20341,7 @@
 			)
 		)
 		(property "Package" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22715,7 +20350,7 @@
 			)
 		)
 		(property "Part Number" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22724,7 +20359,7 @@
 			)
 		)
 		(property "Price" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22733,7 +20368,7 @@
 			)
 		)
 		(property "STANDARD" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22742,7 +20377,7 @@
 			)
 		)
 		(property "Sim.Device" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22751,7 +20386,7 @@
 			)
 		)
 		(property "Sim.Pins" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22760,7 +20395,7 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22769,7 +20404,7 @@
 			)
 		)
 		(property "Specifications" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22778,7 +20413,7 @@
 			)
 		)
 		(property "Mouser-part-number" ""
-			(at 196.85 105.41 90)
+			(at 187.96 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22792,7 +20427,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP210")
+					(reference "PG210")
 					(unit 1)
 				)
 			)
@@ -22807,7 +20442,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "606298c8-0f3e-4c16-b464-b7423706397d")
-		(property "Reference" "C216"
+		(property "Reference" "C215"
 			(at 219.456 156.464 0)
 			(effects
 				(font
@@ -23092,7 +20727,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C216")
+					(reference "C215")
 					(unit 1)
 				)
 			)
@@ -23107,7 +20742,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6345ea2f-2093-44ae-9c36-b06ba55a66d0")
-		(property "Reference" "R204"
+		(property "Reference" "R203"
 			(at 29.21 172.974 90)
 			(effects
 				(font
@@ -23384,7 +21019,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "R204")
+					(reference "R203")
 					(unit 1)
 				)
 			)
@@ -23400,7 +21035,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6573162d-cf30-4c5f-b3a5-bd96790d36c8")
-		(property "Reference" "C213"
+		(property "Reference" "C212"
 			(at 210.566 102.108 0)
 			(effects
 				(font
@@ -23685,7 +21320,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C213")
+					(reference "C212")
 					(unit 1)
 				)
 			)
@@ -23700,7 +21335,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6bdd3cc2-d29f-4f0c-83f2-8e41541a638b")
-		(property "Reference" "TP206"
+		(property "Reference" "PG206"
 			(at 193.04 81.2799 90)
 			(effects
 				(font
@@ -23719,7 +21354,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
 			(at 187.96 87.63 0)
 			(effects
 				(font
@@ -23993,7 +21628,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP206")
+					(reference "PG206")
 					(unit 1)
 				)
 			)
@@ -24009,7 +21644,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6d4d5329-f730-4679-b15f-d7ce4fa31ee4")
-		(property "Reference" "C210"
+		(property "Reference" "C209"
 			(at 196.596 126.746 90)
 			(effects
 				(font
@@ -24294,7 +21929,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C210")
+					(reference "C209")
 					(unit 1)
 				)
 			)
@@ -24310,7 +21945,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6e42b237-88f5-4e9d-9bb6-b0e56cce09a1")
-		(property "Reference" "C208"
+		(property "Reference" "C207"
 			(at 188.976 126.746 90)
 			(effects
 				(font
@@ -24595,7 +22230,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C208")
+					(reference "C207")
 					(unit 1)
 				)
 			)
@@ -24610,7 +22245,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6f93e9dc-4f25-49d2-be01-786912ad8faa")
-		(property "Reference" "#PWR0221"
+		(property "Reference" "#PWR0219"
 			(at 220.98 62.23 0)
 			(effects
 				(font
@@ -24660,7 +22295,7 @@
 		(instances
 			(project ""
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0221")
+					(reference "#PWR0219")
 					(unit 1)
 				)
 			)
@@ -24676,7 +22311,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "71542e67-6eee-44ba-821d-23910fbe57bc")
-		(property "Reference" "#PWR0216"
+		(property "Reference" "#PWR0214"
 			(at 165.1 143.51 0)
 			(effects
 				(font
@@ -24728,7 +22363,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0216")
+					(reference "#PWR0214")
 					(unit 1)
 				)
 			)
@@ -24743,7 +22378,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "758efc64-2c24-495c-be16-745ca6c8ebfc")
-		(property "Reference" "TP201"
+		(property "Reference" "PG201"
 			(at 193.04 68.5799 90)
 			(effects
 				(font
@@ -24762,7 +22397,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
 			(at 187.96 74.93 0)
 			(effects
 				(font
@@ -25036,7 +22671,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP201")
+					(reference "PG201")
 					(unit 1)
 				)
 			)
@@ -25052,7 +22687,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "76b1cf19-f972-45d6-accc-e2cd150d8d15")
-		(property "Reference" "#PWR0218"
+		(property "Reference" "#PWR0216"
 			(at 205.74 171.45 0)
 			(effects
 				(font
@@ -25103,7 +22738,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0218")
+					(reference "#PWR0216")
 					(unit 1)
 				)
 			)
@@ -25841,7 +23476,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "772ae8b3-2018-46e6-9767-657e90859153")
-		(property "Reference" "#PWR0215"
+		(property "Reference" "#PWR0213"
 			(at 165.1 125.73 0)
 			(effects
 				(font
@@ -25891,7 +23526,73 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0215")
+					(reference "#PWR0213")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 31.75 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7f216759-06c4-417c-8e09-2516f36d9c7f")
+		(property "Reference" "#PWR0203"
+			(at 31.75 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 31.75 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 31.75 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 31.75 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 31.75 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c72fe826-2492-4172-b93e-a5c61b79bb22")
+		)
+		(instances
+			(project "USB-SSB-txcvr"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
+					(reference "#PWR0203")
 					(unit 1)
 				)
 			)
@@ -25907,7 +23608,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "83612860-812e-4a9e-b0cb-0a609161c6af")
-		(property "Reference" "C205"
+		(property "Reference" "C204"
 			(at 161.036 126.746 90)
 			(effects
 				(font
@@ -26192,7 +23893,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C205")
+					(reference "C204")
 					(unit 1)
 				)
 			)
@@ -26208,7 +23909,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "89e5cfd5-4cbc-486a-9c89-35a604d2dfcb")
-		(property "Reference" "C224"
+		(property "Reference" "C223"
 			(at 249.936 126.746 90)
 			(effects
 				(font
@@ -26493,7 +24194,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C224")
+					(reference "C223")
 					(unit 1)
 				)
 			)
@@ -26508,7 +24209,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8ff4fccc-4e7b-477c-a6fa-d2d83242ad45")
-		(property "Reference" "R210"
+		(property "Reference" "R204"
 			(at 99.06 67.818 90)
 			(effects
 				(font
@@ -26785,7 +24486,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "R210")
+					(reference "R204")
 					(unit 1)
 				)
 			)
@@ -26800,7 +24501,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9402b0b3-1de6-4918-8ae2-e3a0920e0631")
-		(property "Reference" "TP205"
+		(property "Reference" "PG205"
 			(at 193.04 78.7399 90)
 			(effects
 				(font
@@ -26819,7 +24520,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
 			(at 187.96 85.09 0)
 			(effects
 				(font
@@ -27093,7 +24794,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP205")
+					(reference "PG205")
 					(unit 1)
 				)
 			)
@@ -27177,7 +24878,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9bdf4089-c8bb-4b87-b5b0-56b88589bba1")
-		(property "Reference" "#PWR0211"
+		(property "Reference" "#PWR0209"
 			(at 101.6 172.72 0)
 			(effects
 				(font
@@ -27229,7 +24930,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0211")
+					(reference "#PWR0209")
 					(unit 1)
 				)
 			)
@@ -27245,7 +24946,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9d751819-b945-4021-9986-89dccb2b6cc5")
-		(property "Reference" "C209"
+		(property "Reference" "C208"
 			(at 195.58 162.306 90)
 			(effects
 				(font
@@ -27530,7 +25231,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C209")
+					(reference "C208")
 					(unit 1)
 				)
 			)
@@ -28268,7 +25969,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a39b2a2e-4a94-4aeb-a58c-ce57149dda27")
-		(property "Reference" "C220"
+		(property "Reference" "C219"
 			(at 235.204 156.464 0)
 			(effects
 				(font
@@ -28553,7 +26254,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C220")
+					(reference "C219")
 					(unit 1)
 				)
 			)
@@ -28569,7 +26270,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a7d040ad-9f2c-421b-a388-6824a13e0f61")
-		(property "Reference" "#PWR0230"
+		(property "Reference" "#PWR0228"
 			(at 259.08 153.67 0)
 			(effects
 				(font
@@ -28619,7 +26320,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0230")
+					(reference "#PWR0228")
 					(unit 1)
 				)
 			)
@@ -28634,7 +26335,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b2084801-06dc-4059-abb6-0ea5e5b0a4be")
-		(property "Reference" "#PWR0227"
+		(property "Reference" "#PWR0225"
 			(at 227.33 124.46 0)
 			(effects
 				(font
@@ -28685,7 +26386,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0227")
+					(reference "#PWR0225")
 					(unit 1)
 				)
 			)
@@ -28701,7 +26402,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b341addf-4228-4fdc-81d6-47109acb81f3")
-		(property "Reference" "#PWR0224"
+		(property "Reference" "#PWR0222"
 			(at 224.79 78.74 0)
 			(effects
 				(font
@@ -28751,7 +26452,7 @@
 		(instances
 			(project ""
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0224")
+					(reference "#PWR0222")
 					(unit 1)
 				)
 			)
@@ -28767,7 +26468,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b5693ab3-49ab-488d-9501-2f2dae5ed8c9")
-		(property "Reference" "C219"
+		(property "Reference" "C218"
 			(at 227.076 126.746 90)
 			(effects
 				(font
@@ -29052,7 +26753,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C219")
+					(reference "C218")
 					(unit 1)
 				)
 			)
@@ -29068,7 +26769,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "be8ed8c6-25ec-4fc4-8694-b7776996c56a")
-		(property "Reference" "#PWR0219"
+		(property "Reference" "#PWR0217"
 			(at 213.36 116.84 0)
 			(effects
 				(font
@@ -29119,7 +26820,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0219")
+					(reference "#PWR0217")
 					(unit 1)
 				)
 			)
@@ -29407,7 +27108,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bf9fb0dd-71b5-4db4-b7f2-086ed8f4bfbc")
-		(property "Reference" "C214"
+		(property "Reference" "C213"
 			(at 211.836 126.746 90)
 			(effects
 				(font
@@ -29692,7 +27393,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C214")
+					(reference "C213")
 					(unit 1)
 				)
 			)
@@ -29708,7 +27409,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c0175508-0174-4fc6-b55d-312d55645ee7")
-		(property "Reference" "C218"
+		(property "Reference" "C217"
 			(at 230.124 110.744 0)
 			(effects
 				(font
@@ -29993,299 +27694,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C218")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 40.64 177.8 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c02d4eed-fd0a-4310-b196-9ae018248943")
-		(property "Reference" "R206"
-			(at 41.91 172.974 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 39.37 172.974 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 41.656 178.054 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 40.64 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 40.64 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Availability" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser-part-number" ""
-			(at 40.64 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2fa212df-0411-467b-bf7c-f57eadbe9c1b")
-		)
-		(pin "1"
-			(uuid "545bcc4f-92b5-4f74-a290-885a6d8cd633")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "R206")
+					(reference "C217")
 					(unit 1)
 				)
 			)
@@ -30300,7 +27709,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c2d27ae3-182a-4e6f-8ee6-234249513f85")
-		(property "Reference" "TP203"
+		(property "Reference" "PG203"
 			(at 193.04 73.6599 90)
 			(effects
 				(font
@@ -30319,7 +27728,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
 			(at 187.96 80.01 0)
 			(effects
 				(font
@@ -30593,73 +28002,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP203")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 20.32 137.16 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cf205859-885a-4f59-a0e3-f6f27cc5265e")
-		(property "Reference" "#PWR0202"
-			(at 20.32 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 20.32 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 20.32 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 20.32 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 20.32 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2feaa7b3-1eb5-40fb-927e-211c5b9da9a7")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0202")
+					(reference "PG203")
 					(unit 1)
 				)
 			)
@@ -30674,7 +28017,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d88d0ec8-d137-4c52-84f8-40fedc973b99")
-		(property "Reference" "#PWR0222"
+		(property "Reference" "#PWR0220"
 			(at 222.25 156.21 0)
 			(effects
 				(font
@@ -30724,7 +28067,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0222")
+					(reference "#PWR0220")
 					(unit 1)
 				)
 			)
@@ -30740,7 +28083,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "da3be0f5-d109-488f-a6e4-174af71345fa")
-		(property "Reference" "C217"
+		(property "Reference" "C216"
 			(at 219.456 126.746 90)
 			(effects
 				(font
@@ -31025,299 +28368,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C217")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 53.34 177.8 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e3e0218d-99b5-4194-a8b7-2076d6c9f7f8")
-		(property "Reference" "R208"
-			(at 54.61 172.974 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 52.07 172.974 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 54.356 178.054 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 53.34 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 53.34 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Availability" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser-part-number" ""
-			(at 53.34 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "c1cabb45-3295-4994-882c-65a4bb481a6f")
-		)
-		(pin "1"
-			(uuid "d9d765b1-f297-4321-8537-89ca95eadaf2")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "R208")
+					(reference "C216")
 					(unit 1)
 				)
 			)
@@ -31333,7 +28384,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e7f97eb7-cff7-404f-989f-63cb50091c46")
-		(property "Reference" "C207"
+		(property "Reference" "C206"
 			(at 181.356 126.746 90)
 			(effects
 				(font
@@ -31618,7 +28669,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C207")
+					(reference "C206")
 					(unit 1)
 				)
 			)
@@ -31634,7 +28685,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f4497e25-a604-4882-9259-af4e87183296")
-		(property "Reference" "C203"
+		(property "Reference" "C202"
 			(at 145.796 126.746 90)
 			(effects
 				(font
@@ -31919,7 +28970,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C203")
+					(reference "C202")
 					(unit 1)
 				)
 			)
@@ -31935,7 +28986,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f7103061-b813-4143-82a8-351c91e1e56c")
-		(property "Reference" "#PWR0206"
+		(property "Reference" "#PWR0204"
 			(at 62.23 181.61 0)
 			(effects
 				(font
@@ -31987,7 +29038,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0206")
+					(reference "#PWR0204")
 					(unit 1)
 				)
 			)
@@ -32714,92 +29765,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 20.32 154.94 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f7952781-c95f-4ef8-b432-409b3feef86d")
-		(property "Reference" "#PWR0203"
-			(at 20.32 161.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 20.3201 158.75 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 20.32 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 20.32 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 20.32 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 20.32 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "r-power" ""
-			(at 20.32 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b1ae2181-8cbb-4ca4-8b93-7e3c05cad4be")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0203")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_US")
 		(at 21.59 177.8 0)
 		(unit 1)
@@ -33101,7 +30066,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fb415c26-c332-4156-a95f-4c96e577099a")
-		(property "Reference" "C223"
+		(property "Reference" "C222"
 			(at 247.396 154.686 90)
 			(effects
 				(font
@@ -33386,7 +30351,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "C223")
+					(reference "C222")
 					(unit 1)
 				)
 			)
@@ -33401,7 +30366,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fe563a02-c6c6-4216-9374-e0a310dcdd63")
-		(property "Reference" "TP208"
+		(property "Reference" "PG208"
 			(at 193.04 86.3599 90)
 			(effects
 				(font
@@ -33420,7 +30385,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
 			(at 187.96 92.71 0)
 			(effects
 				(font
@@ -33694,7 +30659,7 @@
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "TP208")
+					(reference "PG208")
 					(unit 1)
 				)
 			)

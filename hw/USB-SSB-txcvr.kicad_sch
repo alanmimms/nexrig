@@ -306,7 +306,7 @@
 			"tmpSDA" "qsdPh0a" "qsdPh0b" "qsdPh0c" "qsdPh0d" "qsdPh1a" "qsdPh1b" "qsdPh1c"
 			"qsdPh1d" "qsdPh2a" "qsdPh2b" "qsdPh2c" "qsdPh2d" "bruene" "txData" "txBCLK"
 			"txMCLK" "txWCLK" "usbReset" "usbPOK2" "usbPOK3" "usbnALERT" "enable6V"
-			"enFPGASPIVdd" "enFPGAVpp" "nTxRelay"
+			"enFPGASPIVdd" "enFPGAVpp" "nTxRelay" "enFPGAIOVdd" "audioSCL" "audioSDA"
 		)
 	)
 	(junction
@@ -396,6 +396,16 @@
 			(type default)
 		)
 		(uuid "7864b781-d4d2-49a1-b811-d3bc3f2e1b05")
+	)
+	(bus
+		(pts
+			(xy 173.99 67.31) (xy 189.23 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "79e10f31-2e2e-4ea7-a1df-05fd35d9138e")
 	)
 	(wire
 		(pts
@@ -1502,6 +1512,16 @@
 				(justify right)
 			)
 		)
+		(pin "FPGA{FPGA}" bidirectional
+			(at 173.99 67.31 0)
+			(uuid "01557079-a379-4bc5-8c44-643fcf33c563")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "USB-SSB-txcvr"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
@@ -1741,6 +1761,16 @@
 		(pin "Ctrl{Ctrl}" bidirectional
 			(at 189.23 62.23 180)
 			(uuid "21273660-aaab-4b0d-8623-f956f7d05251")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "FPGA{FPGA}" bidirectional
+			(at 189.23 67.31 180)
+			(uuid "298e468f-bb9f-4565-bc88-5330ee31658b")
 			(effects
 				(font
 					(size 1.27 1.27)

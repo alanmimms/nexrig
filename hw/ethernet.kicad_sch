@@ -4029,6 +4029,12 @@
 		(uuid "72fa902f-c359-4ea7-9e20-8345b02d5e17")
 	)
 	(junction
+		(at 165.1 54.61)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "74824137-51b9-40cf-b9cd-0ed3c281d70f")
+	)
+	(junction
 		(at 144.78 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5124,7 +5130,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 49.53) (xy 165.1 63.5)
+			(xy 165.1 49.53) (xy 165.1 54.61)
 		)
 		(stroke
 			(width 0)
@@ -5554,6 +5560,16 @@
 	)
 	(wire
 		(pts
+			(xy 165.1 54.61) (xy 165.1 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0a1005f-e01b-43ce-b3b5-6bb9e62c7b41")
+	)
+	(wire
+		(pts
 			(xy 99.06 90.17) (xy 100.33 90.17)
 		)
 		(stroke
@@ -5834,6 +5850,16 @@
 	)
 	(wire
 		(pts
+			(xy 165.1 54.61) (xy 166.37 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fb8a20dc-084d-4adf-9d5f-89d42e9dc30e")
+	)
+	(wire
+		(pts
 			(xy 74.93 105.41) (xy 100.33 105.41)
 		)
 		(stroke
@@ -5921,6 +5947,16 @@
 			(justify left bottom)
 		)
 		(uuid "8f6066a4-1537-4564-84a7-230d703d5ace")
+	)
+	(label "EthVDDA"
+		(at 166.37 54.61 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "92ec7bd4-6b22-4049-8c55-9819acc141f9")
 	)
 	(label "LEDYA"
 		(at 257.81 102.87 0)
@@ -6052,38 +6088,6 @@
 			(justify right)
 		)
 		(uuid "fa01e675-56f3-4855-86ed-645ffc9e42cc")
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 154.94 49.53 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "61178c0e-8923-46ba-be13-8c04099fa701")
-		(property "Netclass" "Power"
-			(at 155.6385 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Component Class" ""
-			(at 7.62 -2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
 	)
 	(netclass_flag ""
 		(length 2.54)
