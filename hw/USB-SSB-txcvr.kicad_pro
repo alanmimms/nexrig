@@ -139,8 +139,8 @@
         "min_groove_width": 0.0,
         "min_hole_clearance": 0.2,
         "min_hole_to_hole": 0.2,
-        "min_microvia_diameter": 0.25,
-        "min_microvia_drill": 0.2,
+        "min_microvia_diameter": 0.0,
+        "min_microvia_drill": 0.0,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
         "min_text_height": 0.8,
@@ -505,7 +505,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -523,7 +523,6 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.2,
         "line_style": 0,
         "name": "GND",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
@@ -534,7 +533,6 @@
       },
       {
         "bus_width": 8,
-        "clearance": 0.2,
         "line_style": 0,
         "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
@@ -547,14 +545,17 @@
       },
       {
         "bus_width": 39,
+        "clearance": 0.2,
         "name": "PowerH",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 5,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.3,
         "wire_width": 39
       },
       {
         "bus_width": 12,
+        "clearance": 0.2,
         "line_style": 0,
         "name": "PowerRF",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
@@ -587,7 +588,6 @@
         "wire_width": 6
       },
       {
-        "clearance": 0.125,
         "name": "fine",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 7,
@@ -602,7 +602,6 @@
         "track_width": 0.1
       },
       {
-        "clearance": 0.125,
         "name": "power-lite",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 6,
@@ -610,19 +609,21 @@
         "track_width": 0.2
       },
       {
-        "clearance": 0.35,
+        "clearance": 0.2,
         "name": "pwr200",
         "pcb_color": "rgb(138, 0, 255)",
         "priority": 1,
         "schematic_color": "rgb(255, 84, 0)",
-        "track_width": 0.35,
+        "track_width": 0.2,
         "wire_width": 10
       },
       {
+        "clearance": 0.2,
         "name": "pwr50",
         "pcb_color": "rgb(255, 0, 57)",
         "priority": 0,
         "schematic_color": "rgb(255, 2, 0)",
+        "track_width": 0.3,
         "wire_width": 20
       },
       {
@@ -640,7 +641,6 @@
         "track_width": 0.16
       },
       {
-        "clearance": 0.5,
         "name": "rf800",
         "pcb_color": "rgb(225, 255, 40)",
         "priority": 2,
@@ -1918,6 +1918,10 @@
       {
         "netclass": "power-lite",
         "pattern": "EthVDDA"
+      },
+      {
+        "netclass": "Rail-low-power",
+        "pattern": "/FPGA/VPP2V5"
       }
     ]
   },
