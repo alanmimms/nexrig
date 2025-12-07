@@ -10069,6 +10069,16 @@
 	(bus_alias "FPGA"
 		(members "NSS" "SCK" "MISO" "MOSI" "RESET")
 	)
+	(text "TODO:\n* Add measurement of VUSBPD and +12V rail."
+		(exclude_from_sim no)
+		(at 87.376 141.224 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+		)
+		(uuid "24939036-9dbd-464b-ac6e-a58c191e3820")
+	)
 	(text "DEBUG"
 		(exclude_from_sim no)
 		(at 136.652 178.054 0)
@@ -10542,10 +10552,6 @@
 		(uuid "93006782-b0f4-413c-a97a-7872369a4d70")
 	)
 	(no_connect
-		(at 152.4 29.21)
-		(uuid "954e5862-16d1-468b-b617-4688eca4537a")
-	)
-	(no_connect
 		(at 77.47 27.94)
 		(uuid "97a61e9c-10f6-4341-af45-01a47411cf7e")
 	)
@@ -10556,6 +10562,10 @@
 	(no_connect
 		(at 35.56 101.6)
 		(uuid "9ea95991-a140-462c-95e7-19c106150713")
+	)
+	(no_connect
+		(at 187.96 29.21)
+		(uuid "9fe22b93-927a-4640-8061-81de1e8f7bce")
 	)
 	(no_connect
 		(at 35.56 60.96)
@@ -10572,10 +10582,6 @@
 	(no_connect
 		(at 35.56 114.3)
 		(uuid "b09e3346-01d0-4311-a77a-237561c916ce")
-	)
-	(no_connect
-		(at 152.4 34.29)
-		(uuid "b1bb38e4-83dc-409d-bc33-05dcaa11e6ef")
 	)
 	(no_connect
 		(at 35.56 71.12)
@@ -10600,10 +10606,6 @@
 	(no_connect
 		(at 35.56 83.82)
 		(uuid "d0bdf190-faea-48a5-92b4-6957c8dce10f")
-	)
-	(no_connect
-		(at 152.4 31.75)
-		(uuid "e51b7f95-1aaf-4e7a-a824-4f30f7fc21de")
 	)
 	(no_connect
 		(at 35.56 76.2)
@@ -10885,6 +10887,16 @@
 	)
 	(wire
 		(pts
+			(xy 151.13 59.69) (xy 152.4 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12d471e3-16d0-4d51-a8fa-b360beac0b27")
+	)
+	(wire
+		(pts
 			(xy 238.76 134.62) (xy 238.76 135.89)
 		)
 		(stroke
@@ -11125,6 +11137,16 @@
 	)
 	(wire
 		(pts
+			(xy 151.13 29.21) (xy 152.4 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2b6c44f2-f8a9-4d3e-8917-8111f63a2e54")
+	)
+	(wire
+		(pts
 			(xy 151.13 41.91) (xy 152.4 41.91)
 		)
 		(stroke
@@ -11202,16 +11224,6 @@
 			(type default)
 		)
 		(uuid "34726c25-1a4a-401a-97d8-f1c4614583ab")
-	)
-	(wire
-		(pts
-			(xy 224.79 76.2) (xy 228.6 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "368f2860-f74b-412b-ab32-496475eb40b4")
 	)
 	(wire
 		(pts
@@ -11662,6 +11674,16 @@
 			(type default)
 		)
 		(uuid "5b04aa0b-5806-49ca-a7ec-7d8b55923865")
+	)
+	(wire
+		(pts
+			(xy 151.13 31.75) (xy 152.4 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5cc539cd-4201-4da4-8d7b-d9c8d5527bc4")
 	)
 	(wire
 		(pts
@@ -12625,6 +12647,16 @@
 	)
 	(wire
 		(pts
+			(xy 151.13 34.29) (xy 152.4 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b530ed1d-8444-4b27-8e3b-6c0d8012942c")
+	)
+	(wire
+		(pts
 			(xy 186.69 64.77) (xy 187.96 64.77)
 		)
 		(stroke
@@ -12945,6 +12977,16 @@
 	)
 	(wire
 		(pts
+			(xy 151.13 36.83) (xy 152.4 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d61ef37d-ffd5-4d12-8497-727dede6f6d2")
+	)
+	(wire
+		(pts
 			(xy 218.44 107.95) (xy 218.44 110.49)
 		)
 		(stroke
@@ -13035,6 +13077,16 @@
 	)
 	(wire
 		(pts
+			(xy 222.25 76.2) (xy 222.25 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd8d75c5-1a08-4abd-aa54-210e98adf356")
+	)
+	(wire
+		(pts
 			(xy 223.52 135.89) (xy 215.9 135.89)
 		)
 		(stroke
@@ -13072,16 +13124,6 @@
 			(type default)
 		)
 		(uuid "e0551801-e105-4fea-8d23-b72e2579b6c4")
-	)
-	(wire
-		(pts
-			(xy 151.13 59.69) (xy 152.4 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e24787dc-b374-4d6b-b454-04b7d2d2a139")
 	)
 	(wire
 		(pts
@@ -13255,6 +13297,16 @@
 	)
 	(wire
 		(pts
+			(xy 222.25 76.2) (xy 228.6 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eefd4eaf-d07c-4707-bba4-a82e027538f7")
+	)
+	(wire
+		(pts
 			(xy 215.9 127) (xy 215.9 123.19)
 		)
 		(stroke
@@ -13272,16 +13324,6 @@
 			(type default)
 		)
 		(uuid "f0e677a2-b232-43fe-b70a-2ebcf81b3850")
-	)
-	(wire
-		(pts
-			(xy 224.79 74.93) (xy 224.79 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f18c9164-c413-4d0e-9dec-dc163c7a0d47")
 	)
 	(wire
 		(pts
@@ -13573,6 +13615,16 @@
 		)
 		(uuid "48d26399-56e4-49e7-a144-41c37e12d148")
 	)
+	(label "Ctrl.enableFPGA1V2"
+		(at 151.13 39.37 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4b954e9f-e1ff-4efe-95f3-dead5c873ad6")
+	)
 	(label "Ctrl.switchMOSI"
 		(at 78.74 93.98 0)
 		(effects
@@ -13663,16 +13715,6 @@
 		)
 		(uuid "653f2b22-0388-46c4-b2b7-beb0714deb56")
 	)
-	(label "Ctrl.enFPGASPIVdd"
-		(at 152.4 36.83 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "6e090520-1e7a-4ad3-acc7-84ccaef79e87")
-	)
 	(label "EthTXD1"
 		(at 187.96 100.33 0)
 		(effects
@@ -13683,15 +13725,25 @@
 		)
 		(uuid "6fb2bb04-454b-4181-8054-af770c1338a3")
 	)
-	(label "Ctrl.enFPGAVpp"
-		(at 151.13 39.37 180)
+	(label "Ctrl.enable5VA"
+		(at 151.13 36.83 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "73ba1ef2-eda8-402e-ad99-796667a835fb")
+		(uuid "70af7a2e-335e-4f3d-a1f5-69889e4c2360")
+	)
+	(label "Ctrl.enable3VA"
+		(at 151.13 34.29 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "73f08501-3d40-4f30-bd7c-667e80481256")
 	)
 	(label "Ctrl.switchSCK"
 		(at 34.29 63.5 180)
@@ -13773,6 +13825,16 @@
 		)
 		(uuid "91385b8e-6766-4fd7-89df-53070636b033")
 	)
+	(label "Ctrl.enable3V3"
+		(at 151.13 29.21 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "91de1567-0561-4498-a9eb-b6eb252f26a9")
+	)
 	(label "Ctrl.bruene"
 		(at 78.74 106.68 0)
 		(effects
@@ -13853,18 +13915,18 @@
 		)
 		(uuid "a69129bf-80d9-43fc-87d2-2cff2c382a0b")
 	)
-	(label "Ctrl.enFPGAIOVdd"
-		(at 151.13 41.91 180)
+	(label "Ctrl.enable5V"
+		(at 151.13 31.75 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "a6e2003c-401e-428e-8626-863103d03d16")
+		(uuid "ac3cf850-d0b9-4bfe-a225-52cb33876537")
 	)
 	(label "Ctrl.enable6V"
-		(at 151.13 59.69 180)
+		(at 151.13 26.67 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13933,8 +13995,8 @@
 		)
 		(uuid "ba5e13a6-b962-4b78-877a-b471de5a7589")
 	)
-	(label "Ctrl.switchRCK"
-		(at 151.13 26.67 180)
+	(label "Ctrl.enableFPGAIO"
+		(at 151.13 41.91 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13982,6 +14044,16 @@
 			(justify right bottom)
 		)
 		(uuid "c3ab6383-1368-4a2f-856b-46014ea650b7")
+	)
+	(label "Ctrl.switchRCK"
+		(at 151.13 59.69 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "def63689-409a-47ec-ac6e-238d21602e36")
 	)
 	(label "dispDC"
 		(at 90.17 181.61 0)
@@ -14305,17 +14377,6 @@
 		)
 		(uuid "dfea166e-d9cb-485e-8a55-a7b5f5e75e05")
 	)
-	(hierarchical_label "FPGA1V2enable"
-		(shape output)
-		(at 187.96 29.21 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "fccef0a7-4c26-4e08-bace-6a4837c9cd89")
-	)
 	(symbol
 		(lib_id "Connector:TestPoint_Alt")
 		(at 187.96 72.39 270)
@@ -14616,7 +14677,7 @@
 			(uuid "7cb2263d-dcd2-49fa-92a2-df0fae1aec5e")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "PG202")
 					(unit 1)
@@ -14681,7 +14742,7 @@
 			(uuid "cda6a555-8d26-4e88-9214-5249a47b490e")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0202")
 					(unit 1)
@@ -14749,9 +14810,91 @@
 			(uuid "12496019-7007-4fe2-b160-39299ff566c1")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0213")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 222.25 152.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "088d0e30-2264-4e82-af60-483cf0f3fdcf")
+		(property "Reference" "#PWR0221"
+			(at 222.25 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V-ON"
+			(at 222.25 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 222.25 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 222.25 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Always on +3.3V rail"
+			(at 222.25 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 222.25 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 222.25 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "72132ec9-6891-43b9-9d66-937754a35dd6")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
+					(reference "#PWR0221")
 					(unit 1)
 				)
 			)
@@ -14816,7 +14959,7 @@
 			(uuid "ca1f1fe8-da8f-4248-9e92-b96932059d1e")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0224")
 					(unit 1)
@@ -14884,7 +15027,7 @@
 			(uuid "a85c1fae-f0ae-4503-8f95-3aaa65558707")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0211")
 					(unit 1)
@@ -15192,7 +15335,7 @@
 			(uuid "6c017696-06db-4267-a879-cbc043e99e3e")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "PG209")
 					(unit 1)
@@ -15591,7 +15734,7 @@
 			(uuid "07d4d331-96f8-4ea0-97b0-c523c2cd6162")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0207")
 					(unit 1)
@@ -15892,7 +16035,7 @@
 			(uuid "ee0a2425-c017-4462-be43-f87ac55b0b68")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C222")
 					(unit 1)
@@ -15960,7 +16103,7 @@
 			(uuid "3ad3bf55-ee8d-4d44-9101-47dd7130f667")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0230")
 					(unit 1)
@@ -16028,7 +16171,7 @@
 			(uuid "6a3db019-214c-4861-b733-e7ea9b9e4454")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0205")
 					(unit 1)
@@ -16320,7 +16463,7 @@
 			(uuid "2a66965b-901d-48e7-9114-1713c574c6a6")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "R205")
 					(unit 1)
@@ -16621,7 +16764,7 @@
 			(uuid "ccac2bcd-68ed-4162-b153-6014230180c3")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C225")
 					(unit 1)
@@ -16686,7 +16829,7 @@
 			(uuid "6385e324-9790-4837-b1d4-122762d9fd45")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0225")
 					(unit 1)
@@ -16752,7 +16895,7 @@
 			(uuid "20526fd1-421a-4cc0-a59b-aa54053d9c1a")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0210")
 					(unit 1)
@@ -17044,7 +17187,7 @@
 			(uuid "7a2a703f-2192-4aa6-90ee-0bd06a9f10f9")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "R201")
 					(unit 1)
@@ -17344,7 +17487,7 @@
 			(uuid "7ce8741c-6f21-47f8-bbd4-b66752ab253a")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C215")
 					(unit 1)
@@ -17645,7 +17788,7 @@
 			(uuid "011df36c-b26d-440b-ae7b-e14114402ae7")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C212")
 					(unit 1)
@@ -17712,7 +17855,7 @@
 			(uuid "9511f658-7314-48c8-9aef-93de35c80719")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0219")
 					(unit 1)
@@ -18020,7 +18163,7 @@
 			(uuid "c1e93afe-b1ca-419e-ae86-af449c5c9062")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "PG204")
 					(unit 1)
@@ -18086,7 +18229,7 @@
 			(uuid "e5588104-f419-4328-af48-3116a8fc8481")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0206")
 					(unit 1)
@@ -18394,7 +18537,7 @@
 			(uuid "05d79199-1132-44b3-b9d7-636d72f9b135")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "PG211")
 					(unit 1)
@@ -18694,7 +18837,7 @@
 			(uuid "a3b1fd41-c829-41cb-b2b5-4e2e571de1fc")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C211")
 					(unit 1)
@@ -18762,7 +18905,7 @@
 			(uuid "e9a41540-f051-45bf-8a54-850f24e47db5")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0208")
 					(unit 1)
@@ -19064,7 +19207,7 @@
 			(uuid "549ddde9-2ae5-432c-943c-3e5620c3909a")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C201")
 					(unit 1)
@@ -19365,9 +19508,91 @@
 			(uuid "af1834d7-05c0-41ab-9d30-156cb8d68057")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C221")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 31.75 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4eacdf37-2ce8-40fe-9424-ee684cdba6a4")
+		(property "Reference" "#PWR0231"
+			(at 31.75 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V-ON"
+			(at 31.75 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 31.75 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 31.75 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Always on +3.3V rail"
+			(at 31.75 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 31.75 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 31.75 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b0c33d5d-c922-4d05-a85f-9bdefd63a13e")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
+					(reference "#PWR0231")
 					(unit 1)
 				)
 			)
@@ -19431,7 +19656,7 @@
 			(uuid "dde32df8-879d-4284-8981-a0d60c913ef4")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0222")
 					(unit 1)
@@ -19732,75 +19957,9 @@
 			(uuid "2e3f6643-f099-4feb-a50a-b1d152c909a2")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C204")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 254 121.92 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "509dbaa1-46b3-4c52-86a9-3ba9bed30d01")
-		(property "Reference" "#PWR0227"
-			(at 254 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 254 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 254 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 254 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 254 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "10df1ee2-d3d8-4b6d-9d8f-d43f95261a4b")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0227")
 					(unit 1)
 				)
 			)
@@ -20106,74 +20265,9 @@
 			(uuid "c104d4eb-a09e-4630-bb9f-907fb4e98759")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "PG207")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 146.05 146.05 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5210b5c6-b60b-420b-b31c-548b7fbb9043")
-		(property "Reference" "#PWR0212"
-			(at 146.05 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 146.05 142.494 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 146.05 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 146.05 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 146.05 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8b265492-6497-4629-9e26-395c7382ec8b")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0212")
 					(unit 1)
 				)
 			)
@@ -20237,7 +20331,7 @@
 			(uuid "ae476511-e325-4142-8ae9-b0e21d21193a")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0228")
 					(unit 1)
@@ -20538,7 +20632,7 @@
 			(uuid "04be634a-d8e3-413b-9a72-793bbe19fbfb")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C206")
 					(unit 1)
@@ -20605,7 +20699,7 @@
 			(uuid "b431dd98-957d-421f-8b9e-fe9a10199282")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0216")
 					(unit 1)
@@ -20913,9 +21007,91 @@
 			(uuid "25bb3116-d757-4bb6-aea0-6ef7842156ff")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "PG210")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 222.25 73.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5e73e63c-1071-498e-8b16-d1019515e86c")
+		(property "Reference" "#PWR0203"
+			(at 222.25 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V-ON"
+			(at 222.25 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 222.25 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 222.25 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Always on +3.3V rail"
+			(at 222.25 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 222.25 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 222.25 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2ffd9c2e-3386-4d6f-b19a-b9241aafb7e9")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
+					(reference "#PWR0203")
 					(unit 1)
 				)
 			)
@@ -21213,7 +21389,7 @@
 			(uuid "486c16f2-5bf9-45af-8b2a-d51c5160f7e7")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C216")
 					(unit 1)
@@ -21505,7 +21681,7 @@
 			(uuid "500cf818-ef7d-47d6-9e2c-d889004171c6")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "R203")
 					(unit 1)
@@ -21806,7 +21982,7 @@
 			(uuid "886fb570-3443-4d65-a92a-3b394f6300d4")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C213")
 					(unit 1)
@@ -22114,7 +22290,7 @@
 			(uuid "2b2649bf-27fd-4571-afe9-585cb68664d0")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "PG206")
 					(unit 1)
@@ -22415,7 +22591,7 @@
 			(uuid "9823d838-0b2c-41f5-a57b-52fe13e31328")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C210")
 					(unit 1)
@@ -22716,7 +22892,7 @@
 			(uuid "a4b202e5-d747-4c0e-a707-0aea5bded676")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C208")
 					(unit 1)
@@ -22849,7 +23025,7 @@
 			(uuid "d4592a50-fcb1-40b6-a920-511a5a802154")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0215")
 					(unit 1)
@@ -23157,7 +23333,7 @@
 			(uuid "8e3eb26d-8c49-4472-b993-7e31b1e4839a")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "PG201")
 					(unit 1)
@@ -23224,7 +23400,7 @@
 			(uuid "be9dc5a1-e6b7-414b-9d37-51bea9119598")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0217")
 					(unit 1)
@@ -23946,142 +24122,10 @@
 			(uuid "d1b1ab58-d7c5-4fcf-b844-ef7721ede47a")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "U201")
 					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 165.1 121.92 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "772ae8b3-2018-46e6-9767-657e90859153")
-		(property "Reference" "#PWR0214"
-			(at 165.1 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 165.1 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 165.1 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 165.1 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 165.1 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "341033e2-4f24-4d54-b066-7fec9ff66dbc")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0214")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 31.75 25.4 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7f216759-06c4-417c-8e09-2516f36d9c7f")
-		(property "Reference" "#PWR0203"
-			(at 31.75 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 31.75 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 31.75 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 31.75 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 31.75 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c72fe826-2492-4172-b93e-a5c61b79bb22")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0203")
-					(unit 1)
 				)
 			)
 		)
@@ -24379,7 +24423,7 @@
 			(uuid "8455c4ba-3ae0-4fab-adbf-8044faa29c8b")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C205")
 					(unit 1)
@@ -24680,7 +24724,7 @@
 			(uuid "bb6e9c36-beb3-4d38-b69e-08df745e6e6a")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C224")
 					(unit 1)
@@ -24972,7 +25016,7 @@
 			(uuid "98b8ac8c-625c-4ae1-a002-53ae0f3de4a7")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "R206")
 					(unit 1)
@@ -25280,7 +25324,7 @@
 			(uuid "53d21696-c398-48ac-8de4-1c904f7ebe4a")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "PG205")
 					(unit 1)
@@ -25348,7 +25392,7 @@
 			(uuid "039c1c82-f05f-4e2c-a7b6-427a97e209be")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0201")
 					(unit 1)
@@ -25416,7 +25460,7 @@
 			(uuid "302da6f1-533b-4852-bf1c-28a95f1e99b5")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0209")
 					(unit 1)
@@ -25717,7 +25761,7 @@
 			(uuid "fd3fc8a1-fa47-465e-aa3b-f2162ca990e9")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C209")
 					(unit 1)
@@ -26439,7 +26483,7 @@
 			(uuid "8411f852-3e24-4eec-8431-543dcc5c3a70")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "U201")
 					(unit 3)
@@ -26740,7 +26784,7 @@
 			(uuid "0262032c-b27c-4c0c-b18d-02a381467be1")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C220")
 					(unit 1)
@@ -26806,7 +26850,7 @@
 			(uuid "1eb4df4a-148d-490f-b1dc-f4763570bd16")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0229")
 					(unit 1)
@@ -26872,75 +26916,9 @@
 			(uuid "a07b98ba-9989-4bd2-b4b8-bbdb5a1f589e")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0226")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 224.79 74.93 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b341addf-4228-4fdc-81d6-47109acb81f3")
-		(property "Reference" "#PWR0223"
-			(at 224.79 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 224.79 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 224.79 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 224.79 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 224.79 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9da8e135-ee82-4755-a8e9-59638e0eec86")
-		)
-		(instances
-			(project ""
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0223")
 					(unit 1)
 				)
 			)
@@ -27239,9 +27217,91 @@
 			(uuid "2c179112-a728-4342-bd5b-a9f9f79816a6")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C219")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 146.05 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b6cc4ff6-4c74-4524-97de-0c7b33845cc9")
+		(property "Reference" "#PWR0212"
+			(at 146.05 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V-ON"
+			(at 146.05 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 146.05 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 146.05 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Always on +3.3V rail"
+			(at 146.05 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 146.05 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 146.05 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "db547efc-0135-48a9-a3e6-da40a8a7b64c")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
+					(reference "#PWR0212")
 					(unit 1)
 				)
 			)
@@ -27306,7 +27366,7 @@
 			(uuid "1a673cb3-6c45-4b30-8486-f26d7a67b0b4")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0218")
 					(unit 1)
@@ -27879,7 +27939,7 @@
 			(uuid "abdd5afd-5a40-4182-8492-8bd05479dfaf")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C214")
 					(unit 1)
@@ -28180,7 +28240,7 @@
 			(uuid "a5f88b85-abd8-4cf8-bbf9-7eab282e2a9c")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C218")
 					(unit 1)
@@ -28488,7 +28548,7 @@
 			(uuid "8216f2a6-9d84-4968-aa6c-f10cb004c7a1")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "PG203")
 					(unit 1)
@@ -28780,74 +28840,9 @@
 			(uuid "9127906d-5d40-4de9-8055-2b34489d2812")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "R204")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 222.25 152.4 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d88d0ec8-d137-4c52-84f8-40fedc973b99")
-		(property "Reference" "#PWR0221"
-			(at 222.25 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 221.742 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 222.25 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 222.25 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 222.25 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e2cc94ba-eb59-4d95-860a-0a7978022031")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
-					(reference "#PWR0221")
 					(unit 1)
 				)
 			)
@@ -29146,7 +29141,7 @@
 			(uuid "687bdfb3-7ed7-47e7-8eb2-80fd3d316d21")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C217")
 					(unit 1)
@@ -29448,7 +29443,7 @@
 			(uuid "4f30ee79-b3be-4bb3-9d1e-b67aaa9d98d6")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C202")
 					(unit 1)
@@ -29749,7 +29744,7 @@
 			(uuid "34d99a25-c2aa-4d6d-b4a9-d020dffd3be2")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C207")
 					(unit 1)
@@ -30050,9 +30045,91 @@
 			(uuid "a56f95a0-2c4c-423d-91ea-f2f5e636548c")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C203")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 254 121.92 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f4b2deca-b837-4e8b-aaa2-6bda7ae08711")
+		(property "Reference" "#PWR0227"
+			(at 254 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V-ON"
+			(at 254 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 254 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Always on +3.3V rail"
+			(at 254 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 254 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 254 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "901b3e3a-347d-4286-9758-519b4c127d77")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
+					(reference "#PWR0227")
 					(unit 1)
 				)
 			)
@@ -30118,7 +30195,7 @@
 			(uuid "4c5cd9d8-dd78-4a84-8a6c-ca3b9dd0d5b6")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "#PWR0204")
 					(unit 1)
@@ -30134,7 +30211,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "f748803a-3daf-46d7-9c81-2f8ce1e6e8d7")
 		(property "Reference" "U201"
 			(at 56.515 15.24 0)
@@ -30153,7 +30229,7 @@
 			)
 		)
 		(property "Footprint" "Package_QFP:LQFP-144_20x20mm_P0.5mm"
-			(at 56.515 20.32 0)
+			(at 61.468 21.082 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30838,7 +30914,7 @@
 			(uuid "8d52847b-154b-433d-9f42-b28ec9260de7")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "U201")
 					(unit 1)
@@ -31130,7 +31206,7 @@
 			(uuid "cea69a6c-510e-4392-85f6-182771429a8d")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "R202")
 					(unit 1)
@@ -31431,7 +31507,7 @@
 			(uuid "9402896f-6f09-46b4-ac3e-611c7f521669")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "C223")
 					(unit 1)
@@ -31739,9 +31815,91 @@
 			(uuid "011a7987-c86c-48ea-af88-9eff8c832904")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(reference "PG208")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 165.1 121.92 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ffc91373-e14d-40fe-b3d1-14d0d88cda22")
+		(property "Reference" "#PWR0214"
+			(at 165.1 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V-ON"
+			(at 165.1 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 165.1 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 165.1 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Always on +3.3V rail"
+			(at 165.1 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 165.1 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 165.1 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "45bcc37d-fbda-4dd5-9b89-2103fb5ba732")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
+					(reference "#PWR0214")
 					(unit 1)
 				)
 			)
@@ -31873,7 +32031,7 @@
 			)
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/c32f5700-dc71-4705-afb9-ca83a93b0543"
 					(page "24")
 				)

@@ -3387,12 +3387,6 @@
 		(uuid "cb0cbf5c-35d4-4d89-a373-15f1fcfb3ab9")
 	)
 	(junction
-		(at 57.15 175.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d416d8dc-741f-4cbf-a589-365c99ce440a")
-	)
-	(junction
 		(at 77.47 186.69)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3482,7 +3476,7 @@
 	)
 	(bus
 		(pts
-			(xy 24.13 96.52) (xy 27.94 96.52)
+			(xy 29.21 96.52) (xy 33.02 96.52)
 		)
 		(stroke
 			(width 0)
@@ -3712,7 +3706,7 @@
 	)
 	(bus
 		(pts
-			(xy 24.13 100.33) (xy 27.94 100.33)
+			(xy 29.21 100.33) (xy 33.02 100.33)
 		)
 		(stroke
 			(width 0)
@@ -3779,6 +3773,16 @@
 			(type default)
 		)
 		(uuid "46ff2493-1505-4cf0-af75-83b8351fd92d")
+	)
+	(wire
+		(pts
+			(xy 64.77 177.8) (xy 67.31 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "481031fd-7129-4853-b14a-b77985ee7a20")
 	)
 	(wire
 		(pts
@@ -4252,6 +4256,16 @@
 	)
 	(wire
 		(pts
+			(xy 64.77 172.72) (xy 64.77 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa5154cf-212c-41dd-a725-15887798be01")
+	)
+	(wire
+		(pts
 			(xy 91.44 175.26) (xy 97.79 175.26)
 		)
 		(stroke
@@ -4279,16 +4293,6 @@
 			(type default)
 		)
 		(uuid "b0cde329-8305-47b6-97fd-f3967b6171ad")
-	)
-	(wire
-		(pts
-			(xy 58.42 177.8) (xy 57.15 177.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b0d97aa0-d499-43e1-86d7-c2eb94eedcd0")
 	)
 	(wire
 		(pts
@@ -4359,16 +4363,6 @@
 			(type default)
 		)
 		(uuid "c38e4c65-f2af-450a-8195-2bda1c911413")
-	)
-	(wire
-		(pts
-			(xy 57.15 175.26) (xy 57.15 177.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c49f3cfa-0342-4195-8c07-4fffd15032b4")
 	)
 	(wire
 		(pts
@@ -4472,16 +4466,6 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 177.8) (xy 67.31 177.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d699c660-6317-4fa1-a2eb-578a8d76a4da")
-	)
-	(wire
-		(pts
 			(xy 87.63 184.15) (xy 87.63 186.69)
 		)
 		(stroke
@@ -4489,16 +4473,6 @@
 			(type default)
 		)
 		(uuid "d722ab87-8255-414e-b96b-f0bb88ff8ba5")
-	)
-	(wire
-		(pts
-			(xy 52.07 175.26) (xy 57.15 175.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d7375de1-7339-4b83-abbb-e9d40e81e1ac")
 	)
 	(wire
 		(pts
@@ -4622,7 +4596,7 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 175.26) (xy 67.31 175.26)
+			(xy 52.07 175.26) (xy 67.31 175.26)
 		)
 		(stroke
 			(width 0)
@@ -4800,6 +4774,16 @@
 		)
 		(uuid "4b58184e-5391-41aa-8037-db52830218de")
 	)
+	(label "Ctrl.enFPGA1V2"
+		(at 64.77 172.72 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "692b3ac9-2e4f-43c5-b2cf-3943c6b18a6f")
+	)
 	(label "Ctrl.qsdPh2b"
 		(at 200.66 64.77 0)
 		(effects
@@ -4820,16 +4804,6 @@
 		)
 		(uuid "6c1c08aa-db77-4fb1-8463-268b1190ad28")
 	)
-	(label "Ctrl.enFPGAVpp"
-		(at 64.77 106.68 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8434d4ea-802a-48b5-9e9a-74be9a7917bc")
-	)
 	(label "Ctrl.qsdPh2d"
 		(at 200.66 69.85 0)
 		(effects
@@ -4839,16 +4813,6 @@
 			(justify left bottom)
 		)
 		(uuid "8de95451-05cd-4ef7-ab99-ced75d4a69bd")
-	)
-	(label "Ctrl.enFPGASPIVdd"
-		(at 66.04 104.14 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "91f1b669-254e-4d01-a32b-d81a3471de83")
 	)
 	(label "Ctrl.qsdPh1a"
 		(at 200.66 62.23 0)
@@ -4869,16 +4833,6 @@
 			(justify right bottom)
 		)
 		(uuid "a47d21e7-a1f8-4958-bca3-856bf56e7b7f")
-	)
-	(label "Ctrl.enFPGAIOVdd"
-		(at 64.77 109.22 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a58806d4-2dad-4460-95eb-60a82a8c86ca")
 	)
 	(label "Ctrl.txBCLK"
 		(at 218.44 146.05 0)
@@ -4930,7 +4884,7 @@
 		)
 		(uuid "b57fb36f-a1e2-4b2f-a2ca-2a73d38e4467")
 	)
-	(label "Ctrl.enFPGAIOVdd"
+	(label "Ctrl.enFPGAIO"
 		(at 45.72 121.92 180)
 		(effects
 			(font
@@ -5014,7 +4968,7 @@
 	)
 	(hierarchical_label "Ctrl{Ctrl}"
 		(shape bidirectional)
-		(at 24.13 96.52 180)
+		(at 29.21 96.52 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5047,7 +5001,7 @@
 	)
 	(hierarchical_label "FPGA{FPGA}"
 		(shape bidirectional)
-		(at 24.13 100.33 180)
+		(at 29.21 100.33 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5168,7 +5122,7 @@
 			(uuid "1e4d7f11-0bc0-4376-ad2d-cb955505d0d3")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0603")
 					(unit 1)
@@ -5234,7 +5188,7 @@
 			(uuid "47ebaa29-79da-4fa7-86b2-4985543273fb")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0602")
 					(unit 1)
@@ -5316,7 +5270,7 @@
 			(uuid "412ff83d-3d8b-4bf1-b5d2-18c40de14b89")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0617")
 					(unit 1)
@@ -5610,7 +5564,7 @@
 			(uuid "3ca83799-c997-433e-83f2-fc724c8c9d49")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C601")
 					(unit 1)
@@ -5911,7 +5865,7 @@
 			(uuid "af63168d-079d-48d3-bf1b-e03174e932c6")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C606")
 					(unit 1)
@@ -6346,7 +6300,7 @@
 			(uuid "eec0f6f4-1586-428f-99f6-6ba346a661c4")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "U602")
 					(unit 3)
@@ -6780,7 +6734,7 @@
 			(uuid "ca8f828c-a4e8-43a0-8fc0-740b1a4a26f2")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "U602")
 					(unit 2)
@@ -7083,7 +7037,7 @@
 			(uuid "62a45aa7-51de-4a1d-a0ab-cdebd21e7750")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "X601")
 					(unit 1)
@@ -7149,7 +7103,7 @@
 			(uuid "40e2c0a2-97ee-41ab-a2ad-dddb21a89745")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0612")
 					(unit 1)
@@ -7216,7 +7170,7 @@
 			(uuid "76036b46-693d-4928-bb99-98d87ed7b89b")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0607")
 					(unit 1)
@@ -7526,7 +7480,7 @@
 			(uuid "21c370b0-d2be-4828-8247-ca387678da0c")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C604")
 					(unit 1)
@@ -7827,7 +7781,7 @@
 			(uuid "d4ca2c68-2462-4aed-bdfc-cf984085c95e")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C613")
 					(unit 1)
@@ -7893,7 +7847,7 @@
 			(uuid "96052b24-a0bc-4cf7-ae55-d2165b74bb21")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0618")
 					(unit 1)
@@ -7975,7 +7929,7 @@
 			(uuid "5f28ea49-1204-4c1a-b450-a6f221de3413")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0616")
 					(unit 1)
@@ -8276,7 +8230,7 @@
 			(uuid "5f7b082b-be08-4644-8cd9-aaac6b4944ca")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C605")
 					(unit 1)
@@ -8342,7 +8296,7 @@
 			(uuid "35ff1caa-0d30-4fa8-9ab6-bd52a155d58c")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0604")
 					(unit 1)
@@ -8778,7 +8732,7 @@
 			(uuid "eec0f6f4-1586-428f-99f6-6ba346a661c6")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "U602")
 					(unit 1)
@@ -9079,7 +9033,7 @@
 			(uuid "e4b04b26-55a0-49e8-9d5b-29f805c2a204")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C609")
 					(unit 1)
@@ -9145,7 +9099,7 @@
 			(uuid "0cd5a754-4eb7-44bf-888a-65e21bfda053")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0614")
 					(unit 1)
@@ -9496,7 +9450,7 @@
 			(uuid "f76a3889-40f1-463a-8d29-27f53882af19")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "Y601")
 					(unit 1)
@@ -9797,7 +9751,7 @@
 			(uuid "a1390f76-72c9-447c-b3c2-1fff4250c6b6")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C614")
 					(unit 1)
@@ -9864,7 +9818,7 @@
 			(uuid "e3e9ace0-3e3c-4ae0-b373-e56e1cfa83f4")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0613")
 					(unit 1)
@@ -10164,7 +10118,7 @@
 			(uuid "3a3baffb-eda4-4041-ba54-63c28ec2403b")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C607")
 					(unit 1)
@@ -10464,7 +10418,7 @@
 			(uuid "cd5cd4fe-700a-47b0-abf3-502b2eb2787c")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C608")
 					(unit 1)
@@ -10530,7 +10484,7 @@
 			(uuid "9ca2125c-8ba1-480e-bfba-7c13369c3498")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0601")
 					(unit 1)
@@ -10611,7 +10565,7 @@
 			(uuid "59f757e1-aa43-4b03-8f37-cb383e02ab2c")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0606")
 					(unit 1)
@@ -10912,7 +10866,7 @@
 			(uuid "02fe0ad9-3d38-42fc-87e8-8647b4d736d7")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C610")
 					(unit 1)
@@ -11213,7 +11167,7 @@
 			(uuid "7a5873aa-ed1d-4118-8540-c7c38fb25f73")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C615")
 					(unit 1)
@@ -11508,7 +11462,7 @@
 			(uuid "14510db9-789c-4c3e-bf1b-47389f290cdf")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C602")
 					(unit 1)
@@ -11819,7 +11773,7 @@
 			(uuid "80c94a21-ef12-48a0-9719-7de49ba3c6b8")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C603")
 					(unit 1)
@@ -12137,7 +12091,7 @@
 			(uuid "2d1b3b0b-ed47-40fb-a62f-166f6597e71f")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "U601")
 					(unit 1)
@@ -12203,7 +12157,7 @@
 			(uuid "dbea4cb7-1ad5-476e-a044-4a236de51591")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0608")
 					(unit 1)
@@ -12498,7 +12452,7 @@
 			(uuid "948eae23-1aa3-4adc-9f2f-931a542fe245")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "R602")
 					(unit 1)
@@ -12933,7 +12887,7 @@
 			(uuid "eec0f6f4-1586-428f-99f6-6ba346a661c7")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "U602")
 					(unit 4)
@@ -13234,302 +13188,9 @@
 			(uuid "33704bde-f3fa-442a-8fcf-f8988f3b1c7a")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C612")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 62.23 177.8 90)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "bfc7ee9c-a9b3-42d0-be92-0d87b5ca9438")
-		(property "Reference" "R601"
-			(at 60.452 179.832 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0"
-			(at 65.278 179.832 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 62.484 178.816 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 62.23 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 62.23 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Availability" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser-part-number" ""
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b75254db-fa8e-4d95-b71a-86d6d0ad1128")
-		)
-		(pin "2"
-			(uuid "dbdc7b45-704e-4b29-bfbe-2164c15b8a55")
-		)
-		(instances
-			(project "USB-SSB-txcvr"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
-					(reference "R601")
 					(unit 1)
 				)
 			)
@@ -13593,7 +13254,7 @@
 			(uuid "f85b814d-5aaf-4f91-9533-810894c4680f")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0610")
 					(unit 1)
@@ -13659,7 +13320,7 @@
 			(uuid "4beebe19-dedb-459e-a562-9a5732e2059f")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0615")
 					(unit 1)
@@ -13741,7 +13402,7 @@
 			(uuid "0a7022ee-9a13-4ee8-8f35-c02863b92adc")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0609")
 					(unit 1)
@@ -13807,7 +13468,7 @@
 			(uuid "c25ca240-e561-44b0-8d17-bfcdfe147d20")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0605")
 					(unit 1)
@@ -13872,7 +13533,7 @@
 			(uuid "6b01c106-01c0-4879-b6e4-47d58f365b95")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "#PWR0611")
 					(unit 1)
@@ -14173,7 +13834,7 @@
 			(uuid "e94d98c7-036a-497a-b2aa-40ba59c74d33")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641"
 					(reference "C611")
 					(unit 1)

@@ -306,7 +306,8 @@
 			"tmpSDA" "qsdPh0a" "qsdPh0b" "qsdPh0c" "qsdPh0d" "qsdPh1a" "qsdPh1b" "qsdPh1c"
 			"qsdPh1d" "qsdPh2a" "qsdPh2b" "qsdPh2c" "qsdPh2d" "bruene" "txData" "txBCLK"
 			"txMCLK" "txWCLK" "usbReset" "usbPOK2" "usbPOK3" "usbnALERT" "enable6V"
-			"enFPGASPIVdd" "enFPGAVpp" "nTxRelay" "enFPGAIOVdd" "audioSCL" "audioSDA"
+			"enable3VA" "enable5VA" "nTxRelay" "enable3V3" "audioSCL" "audioSDA" "enableFPGA1V2"
+			"enableFPGAIO"
 		)
 	)
 	(junction
@@ -587,16 +588,6 @@
 		)
 		(uuid "e9b1a2c8-a5f0-4494-ba60-32234315205a")
 	)
-	(wire
-		(pts
-			(xy 173.99 99.06) (xy 189.23 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f2dd8e8f-fde3-4c1a-a053-cf185169b0d3")
-	)
 	(symbol
 		(lib_id "Mechanical:Fiducial")
 		(at 67.31 181.61 0)
@@ -653,7 +644,7 @@
 			)
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(reference "FID102")
 					(unit 1)
@@ -717,7 +708,7 @@
 			)
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(reference "FID103")
 					(unit 1)
@@ -915,7 +906,7 @@
 			(uuid "07a7a370-d879-4d5d-897e-887cb7667ff5")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(reference "#PWR0103")
 					(unit 1)
@@ -982,7 +973,7 @@
 			(uuid "528abb8e-4371-483d-93fd-36f9a6571c98")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(reference "#PWR0102")
 					(unit 1)
@@ -1049,7 +1040,7 @@
 			(uuid "d0f972d6-13ce-4183-be5b-6347b16a6af8")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(reference "#PWR0104")
 					(unit 1)
@@ -1116,7 +1107,7 @@
 			(uuid "847bc892-389e-4de3-ab6e-2f097d9d35ab")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(reference "MH102")
 					(unit 1)
@@ -1183,7 +1174,7 @@
 			(uuid "2025d27e-6575-4e02-972b-bb25352b0317")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(reference "MH103")
 					(unit 1)
@@ -1317,7 +1308,7 @@
 			(uuid "f9cb73c7-0ae1-4366-a9db-559aa863c9c8")
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(reference "MH104")
 					(unit 1)
@@ -1400,7 +1391,7 @@
 			)
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(page "3")
 				)
@@ -1523,7 +1514,7 @@
 			)
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(page "6")
 				)
@@ -1646,7 +1637,7 @@
 			)
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(page "5")
 				)
@@ -1738,16 +1729,6 @@
 				(justify left)
 			)
 		)
-		(pin "FPGA1V2enable" output
-			(at 189.23 99.06 180)
-			(uuid "4769f232-7303-46fb-93c5-375e95561655")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "scaledEERVdd" input
 			(at 189.23 101.6 180)
 			(uuid "094fe206-2484-4368-9cec-5c22a7cb930f")
@@ -1779,7 +1760,7 @@
 			)
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(page "2")
 				)
@@ -1851,16 +1832,6 @@
 				(justify right)
 			)
 		)
-		(pin "FPGA1V2enable" input
-			(at 173.99 99.06 0)
-			(uuid "f555efa2-aca6-4292-ad4a-31a0f9c8dea6")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 		(pin "scaledEERVdd" output
 			(at 173.99 101.6 0)
 			(uuid "8668b6bd-b05d-404b-afdb-b91e4925e009")
@@ -1882,7 +1853,7 @@
 			)
 		)
 		(instances
-			(project "USB-SSB-txcvr"
+			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
 					(page "18")
 				)

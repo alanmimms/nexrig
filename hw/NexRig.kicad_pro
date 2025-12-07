@@ -498,7 +498,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "USB-SSB-txcvr.kicad_pro",
+    "filename": "NexRig.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -532,7 +532,7 @@
         "wire_width": 12
       },
       {
-        "bus_width": 8,
+        "bus_width": 20,
         "line_style": 0,
         "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
@@ -541,17 +541,17 @@
         "track_width": 0.2,
         "via_diameter": 0.3,
         "via_drill": 0.15,
-        "wire_width": 8
+        "wire_width": 20
       },
       {
-        "bus_width": 39,
+        "bus_width": 20,
         "clearance": 0.2,
         "name": "PowerH",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 5,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.3,
-        "wire_width": 39
+        "wire_width": 20
       },
       {
         "bus_width": 12,
@@ -623,7 +623,7 @@
         "pcb_color": "rgb(255, 0, 57)",
         "priority": 0,
         "schematic_color": "rgb(255, 2, 0)",
-        "track_width": 0.3,
+        "track_width": 0.16,
         "wire_width": 20
       },
       {
@@ -631,7 +631,7 @@
         "pcb_color": "rgb(162, 255, 16)",
         "priority": 3,
         "schematic_color": "rgb(81, 137, 25)",
-        "track_width": 0.1
+        "track_width": 0.4
       },
       {
         "name": "rf50",
@@ -645,7 +645,7 @@
         "pcb_color": "rgb(225, 255, 40)",
         "priority": 2,
         "schematic_color": "rgb(114, 141, 23)",
-        "track_width": 0.1
+        "track_width": 0.2
       }
     ],
     "meta": {
@@ -1108,6 +1108,15 @@
       ],
       "Net-(C1634-Pad1)": [
         "pwr200"
+      ],
+      "Net-(C1805-Pad1)": [
+        "Power"
+      ],
+      "Net-(C1817-Pad1)": [
+        "Power"
+      ],
+      "Net-(C1818-Pad1)": [
+        "Power"
       ],
       "Net-(C2001-Pad1)": [
         "PowerRF"
@@ -1607,10 +1616,16 @@
       "Net-(U1801-OUT)": [
         "Power"
       ],
+      "Net-(U1801-SW)": [
+        "Power"
+      ],
       "Net-(U1801-VDD1A)": [
         "Power"
       ],
       "Net-(U1801-VDDCR)": [
+        "Power"
+      ],
+      "Net-(U1802-OUT)": [
         "Power"
       ],
       "Net-(U1802-VCC)": [
@@ -1632,6 +1647,12 @@
         "Power"
       ],
       "Net-(U1805-CB)": [
+        "Power"
+      ],
+      "Net-(U1805-OUT)": [
+        "Power"
+      ],
+      "Net-(U1806-OUT)": [
         "Power"
       ],
       "Net-(U1901-VDD1A)": [
@@ -1928,6 +1949,14 @@
       {
         "netclass": "Rail-low-power",
         "pattern": "/FPGA/VPP2V5"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+12V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "VUSBPD"
       }
     ]
   },
@@ -2245,7 +2274,7 @@
           "show": false
         }
       ],
-      "filter_string": "k",
+      "filter_string": "r",
       "group_symbols": true,
       "include_excluded_from_bom": false,
       "name": "",
@@ -2297,7 +2326,7 @@
         "version": 0
       },
       "model_mode": 4,
-      "workbook_filename": "USB-SSB-txcvr.wbk"
+      "workbook_filename": "NexRig.wbk"
     },
     "page_layout_descr_file": "qsd.kicad_wsd",
     "plot_directory": "",
@@ -2395,6 +2424,10 @@
     [
       "5d704c47-67fd-4097-8f87-0a826a7bb92d",
       "H-bridge-PA"
+    ],
+    [
+      "b06410ec-4c8e-4291-9691-3a63bcaba95c",
+      "Power Priority"
     ],
     [
       "acc2372a-588f-45d7-a9dc-955cac4e7364",
