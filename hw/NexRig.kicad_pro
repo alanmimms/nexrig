@@ -41,11 +41,11 @@
           "height": 0.341594,
           "width": 0.341594
         },
-        "silk_line_width": 0.1,
+        "silk_line_width": 0.15,
         "silk_text_italic": false,
-        "silk_text_size_h": 1.0,
-        "silk_text_size_v": 1.0,
-        "silk_text_thickness": 0.1,
+        "silk_text_size_h": 0.8,
+        "silk_text_size_v": 0.8,
+        "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
           "min_clearance": 0.1
@@ -526,7 +526,7 @@
         "line_style": 0,
         "name": "GND",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 10,
+        "priority": 9,
         "schematic_color": "rgb(34, 95, 23)",
         "track_width": 0.3,
         "wire_width": 12
@@ -536,7 +536,7 @@
         "line_style": 0,
         "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 12,
+        "priority": 11,
         "schematic_color": "rgb(79, 122, 21)",
         "track_width": 0.2,
         "via_diameter": 0.3,
@@ -548,7 +548,7 @@
         "clearance": 0.2,
         "name": "PowerH",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 5,
+        "priority": 4,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.3,
         "wire_width": 20
@@ -559,14 +559,14 @@
         "line_style": 0,
         "name": "PowerRF",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 11,
+        "priority": 10,
         "schematic_color": "rgb(255, 142, 74)",
         "wire_width": 12
       },
       {
         "name": "Rail-low-power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 8,
+        "priority": 7,
         "schematic_color": "rgb(79, 122, 21)"
       },
       {
@@ -574,7 +574,7 @@
         "line_style": 0,
         "name": "diff75",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 14,
+        "priority": 13,
         "schematic_color": "rgb(51, 78, 255)",
         "wire_width": 6
       },
@@ -583,28 +583,28 @@
         "line_style": 0,
         "name": "diff90",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 13,
+        "priority": 12,
         "schematic_color": "rgb(72, 52, 255)",
         "wire_width": 6
       },
       {
         "name": "fine",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 7,
+        "priority": 6,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2
       },
       {
         "name": "kelvin",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 9,
+        "priority": 8,
         "schematic_color": "rgb(39, 179, 255)",
         "track_width": 0.1
       },
       {
         "name": "power-lite",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 6,
+        "priority": 5,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2
       },
@@ -629,23 +629,16 @@
       {
         "name": "rf200",
         "pcb_color": "rgb(162, 255, 16)",
-        "priority": 3,
+        "priority": 2,
         "schematic_color": "rgb(81, 137, 25)",
         "track_width": 0.4
       },
       {
         "name": "rf50",
         "pcb_color": "rgb(0, 255, 1)",
-        "priority": 4,
+        "priority": 3,
         "schematic_color": "rgb(40, 102, 25)",
         "track_width": 0.16
-      },
-      {
-        "name": "rf800",
-        "pcb_color": "rgb(225, 255, 40)",
-        "priority": 2,
-        "schematic_color": "rgb(114, 141, 23)",
-        "track_width": 0.2
       }
     ],
     "meta": {
@@ -819,6 +812,9 @@
       "/Rx Front End/Clipper, Attenuator, Preselector/Ctrl.atten6dB": [
         "rf200"
       ],
+      "/Rx Front End/Clipper, Attenuator, Preselector/RF deck/RFDeckIn": [
+        "rf200"
+      ],
       "/Rx Front End/Clipper, Attenuator, Preselector/RxZ200": [
         "rf200"
       ],
@@ -888,6 +884,18 @@
       "/Rx Front End/RxZ200": [
         "rf200"
       ],
+      "/Rx Front End/Tpad 12/in": [
+        "rf200"
+      ],
+      "/Rx Front End/Tpad 12/out": [
+        "rf200"
+      ],
+      "/Rx Front End/Tpad 24/in": [
+        "rf200"
+      ],
+      "/Rx Front End/Tpad 3/in": [
+        "rf200"
+      ],
       "/Rx Front End/VREF1": [
         "rf50"
       ],
@@ -899,6 +907,9 @@
       ],
       "/Rx Front End/nBruene": [
         "rf50"
+      ],
+      "/Rx Front End/rf200atten": [
+        "rf200"
       ],
       "/Rx Front End/rxPreselOut": [
         "rf800"
@@ -1115,10 +1126,19 @@
       "Net-(C1805-Pad1)": [
         "Power"
       ],
+      "Net-(C1808-Pad1)": [
+        "Power"
+      ],
+      "Net-(C1810-Pad1)": [
+        "Power"
+      ],
       "Net-(C1817-Pad1)": [
         "Power"
       ],
       "Net-(C1818-Pad1)": [
+        "Power"
+      ],
+      "Net-(C1820-Pad1)": [
         "Power"
       ],
       "Net-(C2001-Pad1)": [
@@ -1208,6 +1228,12 @@
       "Net-(C2201-Pad2)": [
         "PowerRF"
       ],
+      "Net-(C308-Pad1)": [
+        "rf50"
+      ],
+      "Net-(C309-Pad1)": [
+        "rf50"
+      ],
       "Net-(C502-Pad1)": [
         "pwr50"
       ],
@@ -1220,7 +1246,16 @@
       "Net-(C506-Pad1)": [
         "PowerRF"
       ],
+      "Net-(C7733-Pad1)": [
+        "rf50"
+      ],
+      "Net-(C7734-Pad1)": [
+        "rf50"
+      ],
       "Net-(C7743-Pad1)": [
+        "pwr50"
+      ],
+      "Net-(C7754-Pad1)": [
         "pwr50"
       ],
       "Net-(C7765-Pad1)": [
@@ -1298,6 +1333,21 @@
       "Net-(C7849-Pad1)": [
         "pwr200"
       ],
+      "Net-(C7850-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7851-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7852-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7853-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7854-Pad1)": [
+        "pwr200"
+      ],
       "Net-(C7855-Pad1)": [
         "pwr200"
       ],
@@ -1308,10 +1358,19 @@
         "pwr200"
       ],
       "Net-(C7860-Pad1)": [
-        "Power"
+        "pwr200"
+      ],
+      "Net-(C7861-Pad1)": [
+        "pwr200"
       ],
       "Net-(C7862-Pad1)": [
-        "Power"
+        "pwr200"
+      ],
+      "Net-(C7863-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7864-Pad1)": [
+        "pwr200"
       ],
       "Net-(C7865-Pad1)": [
         "pwr200"
@@ -1328,8 +1387,29 @@
       "Net-(C7869-Pad1)": [
         "pwr200"
       ],
+      "Net-(C7870-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7871-Pad1)": [
+        "pwr200"
+      ],
       "Net-(C7872-Pad1)": [
-        "Power"
+        "pwr200"
+      ],
+      "Net-(C7873-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7874-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7875-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7876-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7877-Pad1)": [
+        "pwr200"
       ],
       "Net-(C7882-Pad1)": [
         "Power"
@@ -1337,7 +1417,25 @@
       "Net-(C7884-Pad1)": [
         "Power"
       ],
+      "Net-(C7887-Pad1)": [
+        "Power"
+      ],
+      "Net-(C7889-Pad1)": [
+        "Power"
+      ],
+      "Net-(C7890-Pad1)": [
+        "Power"
+      ],
+      "Net-(C7892-Pad1)": [
+        "Power"
+      ],
       "Net-(C7894-Pad1)": [
+        "Power"
+      ],
+      "Net-(C7899-Pad1)": [
+        "Power"
+      ],
+      "Net-(C7902-Pad1)": [
         "Power"
       ],
       "Net-(C7909-Pad1)": [
@@ -1446,6 +1544,60 @@
         "pwr200"
       ],
       "Net-(C7941-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C7942-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7942-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C7943-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7943-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C7944-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7944-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C7945-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7945-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C7946-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7946-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C7947-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7947-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C7948-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7948-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C7949-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7949-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C7950-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7950-Pad2)": [
         "pwr200"
       ],
       "Net-(D1501-A-Pad1)": [
@@ -1580,10 +1732,16 @@
       "Net-(K1701-Pad4)": [
         "pwr200"
       ],
+      "Net-(K1701-Pad6)": [
+        "pwr200"
+      ],
       "Net-(K1701-Pad9)": [
         "pwr200"
       ],
       "Net-(K1702-Pad4)": [
+        "pwr200"
+      ],
+      "Net-(K1702-Pad6)": [
         "pwr200"
       ],
       "Net-(K1702-Pad9)": [
@@ -1592,10 +1750,16 @@
       "Net-(K1703-Pad4)": [
         "pwr200"
       ],
+      "Net-(K1703-Pad6)": [
+        "pwr200"
+      ],
       "Net-(K1703-Pad9)": [
         "pwr200"
       ],
       "Net-(K1704-Pad4)": [
+        "pwr200"
+      ],
+      "Net-(K1704-Pad6)": [
         "pwr200"
       ],
       "Net-(K1704-Pad9)": [
@@ -1604,10 +1768,16 @@
       "Net-(K1705-Pad4)": [
         "pwr200"
       ],
+      "Net-(K1705-Pad6)": [
+        "pwr200"
+      ],
       "Net-(K1705-Pad9)": [
         "pwr200"
       ],
       "Net-(K1706-Pad4)": [
+        "pwr200"
+      ],
+      "Net-(K1706-Pad6)": [
         "pwr200"
       ],
       "Net-(K1706-Pad9)": [
@@ -1718,13 +1888,22 @@
       "Net-(L7702-Pad2)": [
         "pwr200"
       ],
+      "Net-(L7705-Pad1)": [
+        "pwr200"
+      ],
       "Net-(L7706-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(L7706-Pad2)": [
         "pwr200"
       ],
       "Net-(L7707-Pad2)": [
         "pwr200"
       ],
       "Net-(L7708-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(L7712-Pad1)": [
         "pwr200"
       ],
       "Net-(L7713-Pad1)": [
@@ -1736,7 +1915,13 @@
       "Net-(L7717-Pad2)": [
         "pwr200"
       ],
+      "Net-(L7718-Pad2)": [
+        "pwr200"
+      ],
       "Net-(L7719-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(L7721-Pad2)": [
         "pwr200"
       ],
       "Net-(L7722-Pad2)": [
@@ -1790,6 +1975,18 @@
       "Net-(R1102-Pad1)": [
         "rf50"
       ],
+      "Net-(R1903-Pad1)": [
+        "rf200"
+      ],
+      "Net-(R2203-Pad1)": [
+        "rf200"
+      ],
+      "Net-(R2503-Pad1)": [
+        "rf200"
+      ],
+      "Net-(R2603-Pad1)": [
+        "rf200"
+      ],
       "Net-(R502-Pad1)": [
         "pwr200"
       ],
@@ -1829,6 +2026,30 @@
       "Net-(R7775-Pad1)": [
         "rf200"
       ],
+      "Net-(R7801-Pad1)": [
+        "rf200"
+      ],
+      "Net-(R7802-Pad1)": [
+        "rf200"
+      ],
+      "Net-(R7839-Pad1)": [
+        "rf200"
+      ],
+      "Net-(R7840-Pad1)": [
+        "rf200"
+      ],
+      "Net-(R7875-Pad1)": [
+        "rf200"
+      ],
+      "Net-(R7876-Pad1)": [
+        "rf200"
+      ],
+      "Net-(R7882-Pad1)": [
+        "rf200"
+      ],
+      "Net-(R7883-Pad1)": [
+        "rf200"
+      ],
       "Net-(R801-Pad1)": [
         "rf50"
       ],
@@ -1847,8 +2068,8 @@
       "Net-(T301-OUT1B)": [
         "rf50"
       ],
-      "Net-(T7705-IN+)": [
-        "rf800"
+      "Net-(T7701-OUT1A)": [
+        "rf50"
       ],
       "Net-(U1001-J2)": [
         "rf50"
@@ -1895,6 +2116,9 @@
       "Net-(U1202-COM4)": [
         "fine"
       ],
+      "Net-(U1202-NO1)": [
+        "rf50"
+      ],
       "Net-(U1204-SW)": [
         "Power"
       ],
@@ -1916,6 +2140,9 @@
       "Net-(U1302-COM4)": [
         "fine"
       ],
+      "Net-(U1302-NO1)": [
+        "rf50"
+      ],
       "Net-(U1402-COM1)": [
         "fine"
       ],
@@ -1928,17 +2155,59 @@
       "Net-(U1402-COM4)": [
         "fine"
       ],
+      "Net-(U1402-NO1)": [
+        "rf50"
+      ],
       "Net-(U1501-OUT)": [
         "Power"
       ],
+      "Net-(U1503-J1)": [
+        "rf200"
+      ],
       "Net-(U1505-CB)": [
         "Power"
+      ],
+      "Net-(U1505-J1)": [
+        "rf200"
       ],
       "Net-(U1505-SW)": [
         "Power"
       ],
       "Net-(U1506-CB)": [
         "Power"
+      ],
+      "Net-(U1506-J1)": [
+        "rf200"
+      ],
+      "Net-(U1507-J1)": [
+        "rf200"
+      ],
+      "Net-(U1508-J1)": [
+        "rf200"
+      ],
+      "Net-(U1509-J1)": [
+        "rf200"
+      ],
+      "Net-(U1510-J1)": [
+        "rf200"
+      ],
+      "Net-(U1511-J1)": [
+        "rf200"
+      ],
+      "Net-(U1512-J1)": [
+        "rf200"
+      ],
+      "Net-(U1513-J1)": [
+        "rf200"
+      ],
+      "Net-(U1514-J1)": [
+        "rf200"
+      ],
+      "Net-(U1515-J1)": [
+        "rf200"
+      ],
+      "Net-(U1515-J3)": [
+        "rf200"
       ],
       "Net-(U1601-OUT)": [
         "Power"
@@ -1991,6 +2260,9 @@
       "Net-(U1802-OUT)": [
         "Power"
       ],
+      "Net-(U1802-SW)": [
+        "Power"
+      ],
       "Net-(U1802-VCC)": [
         "Power"
       ],
@@ -1998,6 +2270,9 @@
         "Power"
       ],
       "Net-(U1803-CB)": [
+        "Power"
+      ],
+      "Net-(U1803-OUT)": [
         "Power"
       ],
       "Net-(U1803-SW)": [
@@ -2015,8 +2290,20 @@
       "Net-(U1805-OUT)": [
         "Power"
       ],
+      "Net-(U1805-SW)": [
+        "Power"
+      ],
       "Net-(U1806-OUT)": [
         "Power"
+      ],
+      "Net-(U1807-OUT)": [
+        "Power"
+      ],
+      "Net-(U1901-J2)": [
+        "rf200"
+      ],
+      "Net-(U1901-J3)": [
+        "rf200"
       ],
       "Net-(U1901-VDD1A)": [
         "Power"
@@ -2026,6 +2313,9 @@
       ],
       "Net-(U1901-VREG_1V2)": [
         "Power"
+      ],
+      "Net-(U1902-J2)": [
+        "rf200"
       ],
       "Net-(U1902-VCC)": [
         "Power"
@@ -2063,11 +2353,20 @@
       "Net-(U2201-4-VCCPLL)": [
         "Power"
       ],
+      "Net-(U2201-J2)": [
+        "rf200"
+      ],
+      "Net-(U2201-J3)": [
+        "rf200"
+      ],
       "Net-(U2201-VDD1A)": [
         "Power"
       ],
       "Net-(U2201-VDDCR)": [
         "Power"
+      ],
+      "Net-(U2202-J2)": [
+        "rf200"
       ],
       "Net-(U2301-HS_DAP)": [
         "PowerH"
@@ -2090,6 +2389,24 @@
       "Net-(U2401-VDDCR)": [
         "Power"
       ],
+      "Net-(U2501-J2)": [
+        "rf200"
+      ],
+      "Net-(U2501-J3)": [
+        "rf200"
+      ],
+      "Net-(U2502-J2)": [
+        "rf200"
+      ],
+      "Net-(U2601-J2)": [
+        "rf200"
+      ],
+      "Net-(U2601-J3)": [
+        "rf200"
+      ],
+      "Net-(U2602-J2)": [
+        "rf200"
+      ],
       "Net-(U301-OUT)": [
         "Power"
       ],
@@ -2103,6 +2420,12 @@
         "rf50"
       ],
       "Net-(U304-J2)": [
+        "rf50"
+      ],
+      "Net-(U305-J2)": [
+        "rf50"
+      ],
+      "Net-(U306-J2)": [
         "rf50"
       ],
       "Net-(U405-J1)": [
@@ -2177,6 +2500,15 @@
       "Net-(U602-4-VCCPLL)": [
         "Power"
       ],
+      "Net-(U7705-J2)": [
+        "rf50"
+      ],
+      "Net-(U7706-J2)": [
+        "rf50"
+      ],
+      "Net-(U7707-J2)": [
+        "rf50"
+      ],
       "Net-(U7708-4-VCCPLL)": [
         "Power"
       ],
@@ -2187,6 +2519,9 @@
         "rf200"
       ],
       "Net-(U7709-SW)": [
+        "Power"
+      ],
+      "Net-(U7710-4-VCCPLL)": [
         "Power"
       ],
       "Net-(U7710-J2)": [
@@ -2206,6 +2541,9 @@
       ],
       "Net-(U7712-J2)": [
         "rf200"
+      ],
+      "Net-(U7712-NO1)": [
+        "rf50"
       ],
       "Net-(U7713-J1)": [
         "rf800"
@@ -2234,6 +2572,9 @@
       "Net-(U7716-J2)": [
         "rf200"
       ],
+      "Net-(U7716-NO1)": [
+        "rf50"
+      ],
       "Net-(U7717-J1)": [
         "rf800"
       ],
@@ -2258,6 +2599,9 @@
       "Net-(U7720-J1)": [
         "rf800"
       ],
+      "Net-(U7720-NO1)": [
+        "rf50"
+      ],
       "Net-(U7721-J1)": [
         "rf800"
       ],
@@ -2280,7 +2624,7 @@
         "rf800"
       ],
       "Net-(U7725-J1)": [
-        "rf800"
+        "rf200"
       ],
       "Net-(U7726-COM1)": [
         "fine"
@@ -2298,19 +2642,28 @@
         "rf800"
       ],
       "Net-(U7727-J1)": [
-        "rf800"
+        "rf200"
       ],
       "Net-(U7728-J1)": [
-        "rf800"
+        "rf200"
       ],
       "Net-(U7729-J1)": [
-        "rf800"
+        "rf200"
+      ],
+      "Net-(U7730-J1)": [
+        "rf200"
       ],
       "Net-(U7731-4-VCCPLL)": [
         "Power"
       ],
+      "Net-(U7731-J1)": [
+        "rf200"
+      ],
       "Net-(U7731-SW)": [
         "Power"
+      ],
+      "Net-(U7732-J1)": [
+        "rf200"
       ],
       "Net-(U7732-J2)": [
         "rf200"
@@ -2321,11 +2674,17 @@
       "Net-(U7732-SW)": [
         "Power"
       ],
+      "Net-(U7733-J1)": [
+        "rf200"
+      ],
       "Net-(U7733-J2)": [
         "rf200"
       ],
       "Net-(U7733-OUT)": [
         "Power"
+      ],
+      "Net-(U7734-J1)": [
+        "rf200"
       ],
       "Net-(U7734-J2)": [
         "rf200"
@@ -2333,11 +2692,17 @@
       "Net-(U7734-J3)": [
         "rf200"
       ],
+      "Net-(U7735-J1)": [
+        "rf200"
+      ],
       "Net-(U7735-J2)": [
         "rf200"
       ],
       "Net-(U7735-SW)": [
         "Power"
+      ],
+      "Net-(U7736-J1)": [
+        "rf200"
       ],
       "Net-(U7736-J2)": [
         "rf200"
@@ -2348,7 +2713,13 @@
       "Net-(U7736-OUT)": [
         "Power"
       ],
+      "Net-(U7737-J1)": [
+        "rf200"
+      ],
       "Net-(U7737-J2)": [
+        "rf200"
+      ],
+      "Net-(U7737-J3)": [
         "rf200"
       ],
       "Net-(U7737-OUT)": [
@@ -2363,6 +2734,9 @@
       "Net-(U7739-J2)": [
         "rf200"
       ],
+      "Net-(U7740-SW)": [
+        "Power"
+      ],
       "Net-(U7741-COM1)": [
         "fine"
       ],
@@ -2375,11 +2749,20 @@
       "Net-(U7741-COM4)": [
         "fine"
       ],
+      "Net-(U7741-SW)": [
+        "Power"
+      ],
+      "Net-(U7742-OUT)": [
+        "Power"
+      ],
       "Net-(U7743-VREG_1V2)": [
         "Power"
       ],
       "Net-(U7744-HS_DAP)": [
         "PowerH"
+      ],
+      "Net-(U7744-SW)": [
+        "Power"
       ],
       "Net-(U7745-COM1)": [
         "fine"
@@ -2396,6 +2779,21 @@
       "Net-(U7745-HS_DAP)": [
         "PowerH"
       ],
+      "Net-(U7745-OUT)": [
+        "Power"
+      ],
+      "Net-(U7746-OUT)": [
+        "Power"
+      ],
+      "Net-(U7747-J2)": [
+        "rf200"
+      ],
+      "Net-(U7747-J3)": [
+        "rf200"
+      ],
+      "Net-(U7748-J2)": [
+        "rf200"
+      ],
       "Net-(U7749-COM1)": [
         "fine"
       ],
@@ -2409,31 +2807,49 @@
         "fine"
       ],
       "Net-(U7751-J1)": [
-        "rf800"
+        "rf200"
       ],
       "Net-(U7752-J1)": [
-        "rf800"
+        "rf200"
       ],
       "Net-(U7753-J1)": [
-        "rf800"
+        "rf200"
       ],
       "Net-(U7754-SW)": [
         "Power"
       ],
+      "Net-(U7754-VREG_1V2)": [
+        "Power"
+      ],
       "Net-(U7755-J1)": [
-        "rf800"
+        "rf200"
+      ],
+      "Net-(U7755-J2)": [
+        "rf200"
+      ],
+      "Net-(U7755-J3)": [
+        "rf200"
       ],
       "Net-(U7755-SW)": [
         "Power"
       ],
       "Net-(U7756-J1)": [
-        "rf800"
+        "rf200"
+      ],
+      "Net-(U7756-J2)": [
+        "rf200"
       ],
       "Net-(U7756-OUT)": [
         "Power"
       ],
+      "Net-(U7757-HS_DAP)": [
+        "PowerH"
+      ],
       "Net-(U7757-J1)": [
-        "rf800"
+        "rf200"
+      ],
+      "Net-(U7758-HS_DAP)": [
+        "PowerH"
       ],
       "Net-(U7758-SW)": [
         "Power"
@@ -2442,31 +2858,52 @@
         "Power"
       ],
       "Net-(U7759-J1)": [
-        "rf800"
+        "rf200"
       ],
       "Net-(U7759-OUT)": [
         "Power"
       ],
       "Net-(U7760-J1)": [
-        "rf800"
+        "rf200"
       ],
       "Net-(U7760-OUT)": [
         "Power"
       ],
+      "Net-(U7760-VDDCR)": [
+        "Power"
+      ],
       "Net-(U7761-J1)": [
-        "rf800"
+        "rf200"
       ],
       "Net-(U7762-J1)": [
-        "rf800"
+        "rf200"
+      ],
+      "Net-(U7762-J2)": [
+        "rf200"
+      ],
+      "Net-(U7762-J3)": [
+        "rf200"
       ],
       "Net-(U7763-J1)": [
-        "rf800"
+        "rf200"
+      ],
+      "Net-(U7763-J2)": [
+        "rf200"
+      ],
+      "Net-(U7764-J2)": [
+        "rf200"
+      ],
+      "Net-(U7764-J3)": [
+        "rf200"
       ],
       "Net-(U7765-J1)": [
-        "rf800"
+        "rf200"
+      ],
+      "Net-(U7765-J2)": [
+        "rf200"
       ],
       "Net-(U7765-J3)": [
-        "rf800"
+        "rf200"
       ],
       "Net-(U7765-VREG_1V2)": [
         "Power"
@@ -2477,17 +2914,8 @@
       "Net-(U7767-HS_DAP)": [
         "PowerH"
       ],
-      "Net-(U7767-J1)": [
-        "rf800"
-      ],
-      "Net-(U7769-J1)": [
-        "rf800"
-      ],
       "Net-(U7769-VDDCR)": [
         "Power"
-      ],
-      "Net-(U7771-J1)": [
-        "rf800"
       ],
       "Net-(U7776-J1)": [
         "rf800"
@@ -2564,49 +2992,97 @@
       "unconnected-(K1701-Pad3)": [
         "pwr200"
       ],
+      "unconnected-(K1701-Pad5)": [
+        "pwr200"
+      ],
       "unconnected-(K1702-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K1702-Pad5)": [
         "pwr200"
       ],
       "unconnected-(K1703-Pad3)": [
         "pwr200"
       ],
+      "unconnected-(K1703-Pad5)": [
+        "pwr200"
+      ],
       "unconnected-(K1704-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K1704-Pad5)": [
         "pwr200"
       ],
       "unconnected-(K1705-Pad3)": [
         "pwr200"
       ],
+      "unconnected-(K1705-Pad5)": [
+        "pwr200"
+      ],
       "unconnected-(K1706-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K1706-Pad5)": [
         "pwr200"
       ],
       "unconnected-(K1707-Pad3)": [
         "pwr200"
       ],
+      "unconnected-(K1707-Pad5)": [
+        "pwr200"
+      ],
       "unconnected-(K1708-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2101-Pad2)": [
         "pwr200"
       ],
       "unconnected-(K2101-Pad3)": [
         "pwr200"
       ],
+      "unconnected-(K2102-Pad2)": [
+        "pwr200"
+      ],
       "unconnected-(K2102-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2103-Pad2)": [
         "pwr200"
       ],
       "unconnected-(K2103-Pad3)": [
         "pwr200"
       ],
+      "unconnected-(K2104-Pad2)": [
+        "pwr200"
+      ],
       "unconnected-(K2104-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2105-Pad2)": [
         "pwr200"
       ],
       "unconnected-(K2105-Pad3)": [
         "pwr200"
       ],
+      "unconnected-(K2106-Pad2)": [
+        "pwr200"
+      ],
       "unconnected-(K2106-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2107-Pad2)": [
         "pwr200"
       ],
       "unconnected-(K2107-Pad3)": [
         "pwr200"
       ],
+      "unconnected-(K2108-Pad2)": [
+        "pwr200"
+      ],
       "unconnected-(K2108-Pad3)": [
+        "pwr200"
+      ],
+      "unconnected-(K2109-Pad2)": [
         "pwr200"
       ],
       "unconnected-(K2109-Pad3)": [
@@ -2768,6 +3244,34 @@
       {
         "netclass": "rf200",
         "pattern": "/Rx Front End/RxZ200"
+      },
+      {
+        "netclass": "rf200",
+        "pattern": "/Rx Front End/Clipper, Attenuator, Preselector/RF deck/RFDeckIn"
+      },
+      {
+        "netclass": "rf50",
+        "pattern": "/Rx Front End/qsd0"
+      },
+      {
+        "netclass": "rf50",
+        "pattern": "/Rx Front End/qsd1"
+      },
+      {
+        "netclass": "rf50",
+        "pattern": "/Rx Front End/qsd2"
+      },
+      {
+        "netclass": "rf50",
+        "pattern": "/Rx Front End/QSD0/rfIn"
+      },
+      {
+        "netclass": "rf50",
+        "pattern": "/Rx Front End/txFwd"
+      },
+      {
+        "netclass": "rf50",
+        "pattern": "/Rx Front End/txRev"
       }
     ]
   },
@@ -2800,7 +3304,7 @@
     },
     "bom_presets": [],
     "bom_settings": {
-      "exclude_dnp": false,
+      "exclude_dnp": true,
       "fields_ordered": [
         {
           "group_by": true,
@@ -2932,7 +3436,7 @@
           "group_by": false,
           "label": "Part Number",
           "name": "Part Number",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
@@ -3058,7 +3562,7 @@
           "group_by": false,
           "label": "Core",
           "name": "Core",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
@@ -3083,9 +3587,15 @@
           "label": "Mouser-part-number",
           "name": "Mouser-part-number",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "NOTE",
+          "name": "NOTE",
+          "show": false
         }
       ],
-      "filter_string": "c",
+      "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": false,
       "name": "",
@@ -3165,10 +3675,6 @@
       "Rx Front End"
     ],
     [
-      "07084359-e357-43be-bf88-86367e12e534",
-      "Clipper, Attenuator, Preselector"
-    ],
-    [
       "2406d03c-531b-4eaf-8b4b-4b266b9d0f2b",
       "Tx Chain"
     ],
@@ -3179,22 +3685,6 @@
     [
       "99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64",
       "Antenna Tuner"
-    ],
-    [
-      "fe3f480c-996c-4fed-905b-c8c4e1f16100",
-      "Tpad 6"
-    ],
-    [
-      "8a2aa1ea-077b-4d5d-a54a-f68982047be1",
-      "Tpad 12"
-    ],
-    [
-      "a18704dc-e7aa-4773-83e8-c100394af824",
-      "Tpad 24"
-    ],
-    [
-      "ac626139-d448-40f2-b9d3-fd3289a58cf3",
-      "Tpad 3"
     ],
     [
       "f0576e51-08ef-46e9-b901-7c65fd3b885d",
@@ -3209,6 +3699,10 @@
       "QSD0"
     ],
     [
+      "4791d531-dc86-4dad-a3f8-522417f410d3",
+      "Rx Preselector"
+    ],
+    [
       "68c6aea8-2c0e-4c22-ac79-c15238cdeec2",
       "Tx LPFs"
     ],
@@ -3219,6 +3713,10 @@
     [
       "cbf7569b-90aa-4e1a-84a7-d4153f6242b6",
       "Power"
+    ],
+    [
+      "00580834-a893-4f64-96cc-eed31636bfe9",
+      "Tpad 3"
     ],
     [
       "54f6e4b0-17dc-4350-a926-dbfbd6a508b6",
@@ -3233,6 +3731,10 @@
       "USB-PD"
     ],
     [
+      "a3931169-68de-4e8b-813d-ff6ffed62146",
+      "Tpad 6"
+    ],
+    [
       "5d704c47-67fd-4097-8f87-0a826a7bb92d",
       "H-bridge-PA"
     ],
@@ -3241,12 +3743,16 @@
       "Power Priority"
     ],
     [
-      "bf135010-40b2-40b3-bee2-b5dc5bda8f85",
-      "RF deck"
-    ],
-    [
       "acc2372a-588f-45d7-a9dc-955cac4e7364",
       "Ethernet"
+    ],
+    [
+      "d4b536b3-8496-4c97-8d52-85d67c75a967",
+      "Tpad 12"
+    ],
+    [
+      "9d22ac7c-7c0b-45c3-a875-a3a1935f96cc",
+      "Tpad 24"
     ]
   ],
   "text_variables": {
