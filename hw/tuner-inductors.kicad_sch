@@ -1062,20 +1062,433 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Library:TLC6C598PW"
+		(symbol "Library:TPIC6C595PWR"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "U"
-				(at 1.016 -11.43 0)
+				(at 1.524 14.478 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left top)
 				)
 			)
-			(property "Value" ""
+			(property "Value" "TPIC6C595PWR"
+				(at 1.524 11.938 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "SOP65P640X120-16N"
+				(at 31.75 -94.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/gpn/TPIC6C595"
+				(at 31.75 -194.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "8-bit shift register"
 				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Height" "1.2"
+				(at 31.75 -394.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" "595-TPIC6C595PWR"
+				(at 31.75 -494.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPIC6C595PWR?qs=ojKcPFmCWSVdhc9n6AZZLA%3D%3D"
+				(at 31.75 -594.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "Texas Instruments"
+				(at 31.75 -694.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "TPIC6C595PWR"
+				(at 31.75 -794.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(symbol "TPIC6C595PWR_1_1"
+				(rectangle
+					(start -12.7 10.16)
+					(end 12.7 -12.7)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -17.78 7.62 0)
+					(length 5.08)
+					(name "~{G}"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -17.78 5.08 0)
+					(length 5.08)
+					(name "~{CLR}"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -17.78 0 0)
+					(length 5.08)
+					(name "RCK"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -17.78 -2.54 0)
+					(length 5.08)
+					(name "SRCK"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -17.78 -7.62 0)
+					(length 5.08)
+					(name "SER_IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -17.78 -10.16 0)
+					(length 5.08)
+					(name "SER_OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 15.24 270)
+					(length 5.08)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -17.78 90)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 17.78 7.62 180)
+					(length 5.08)
+					(name "DRAIN0"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 17.78 5.08 180)
+					(length 5.08)
+					(name "DRAIN1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 17.78 2.54 180)
+					(length 5.08)
+					(name "DRAIN2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 17.78 0 180)
+					(length 5.08)
+					(name "DRAIN3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 17.78 -2.54 180)
+					(length 5.08)
+					(name "DRAIN4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 17.78 -5.08 180)
+					(length 5.08)
+					(name "DRAIN5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 17.78 -7.62 180)
+					(length 5.08)
+					(name "DRAIN6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 17.78 -10.16 180)
+					(length 5.08)
+					(name "DRAIN7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+3.3V"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "+3.3V"
+				(at 0 3.556 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1100,7 +1513,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "Power symbol creates a global label with name \"+3.3V\""
 				(at 0 0 0)
 				(effects
 					(font
@@ -1109,130 +1522,58 @@
 					(hide yes)
 				)
 			)
-			(symbol "TLC6C598PW_1_1"
-				(rectangle
-					(start -12.7 12.7)
-					(end 12.7 -10.16)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+3.3V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
 					(stroke
-						(width 0.254)
+						(width 0)
 						(type default)
 					)
 					(fill
-						(type background)
+						(type none)
 					)
 				)
-				(pin passive line
-					(at -17.78 10.16 0)
-					(length 5.08)
-					(name "~{G}"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
 					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
-				(pin passive line
-					(at -17.78 7.62 0)
-					(length 5.08)
-					(name "~{CLR}"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
 					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
-				(pin passive line
-					(at -17.78 2.54 0)
-					(length 5.08)
-					(name "RCK"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -17.78 0 0)
-					(length 5.08)
-					(name "SRCK"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "15"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -17.78 -5.08 0)
-					(length 5.08)
-					(name "SER_IN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -17.78 -7.62 0)
-					(length 5.08)
-					(name "SER_OUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 17.78 270)
-					(length 5.08)
-					(name "VCC"
+			)
+			(symbol "+3.3V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1240,168 +1581,6 @@
 						)
 					)
 					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -15.24 90)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 17.78 10.16 180)
-					(length 5.08)
-					(name "DRAIN0"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 17.78 7.62 180)
-					(length 5.08)
-					(name "DRAIN1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 17.78 5.08 180)
-					(length 5.08)
-					(name "DRAIN2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 17.78 2.54 180)
-					(length 5.08)
-					(name "DRAIN3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 17.78 0 180)
-					(length 5.08)
-					(name "DRAIN4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "11"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 17.78 -2.54 180)
-					(length 5.08)
-					(name "DRAIN5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "12"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 17.78 -5.08 180)
-					(length 5.08)
-					(name "DRAIN6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "13"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 17.78 -7.62 180)
-					(length 5.08)
-					(name "DRAIN7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "14"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1852,12 +2031,6 @@
 		(uuid "62bf72bb-a108-42d8-99d3-b9b8daaf0cd7")
 	)
 	(junction
-		(at 74.93 93.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6e315c3b-7a7c-4ee2-9fde-398c56b83942")
-	)
-	(junction
 		(at 133.35 148.59)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1874,6 +2047,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8c66edf1-a87f-4c94-ae54-25657ba1e978")
+	)
+	(junction
+		(at 74.93 96.52)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "92105eec-5290-43ac-8e35-f746101bbc47")
 	)
 	(junction
 		(at 133.35 113.03)
@@ -1930,8 +2109,120 @@
 		(uuid "eb4e25f1-0bce-4023-9ba0-583a41298ce4")
 	)
 	(no_connect
+		(at 190.5 152.4)
+		(uuid "02d201a6-802e-401d-b609-9128878c055d")
+	)
+	(no_connect
+		(at 213.36 137.16)
+		(uuid "03afe2c3-3ebd-42eb-8e16-f246cf78a568")
+	)
+	(no_connect
+		(at 138.43 147.32)
+		(uuid "1a721af0-a937-4a5c-8223-9e9532af4b55")
+	)
+	(no_connect
+		(at 203.2 137.16)
+		(uuid "25c30c31-56b1-4463-8d85-5ed0ad3a4908")
+	)
+	(no_connect
+		(at 223.52 137.16)
+		(uuid "26169cad-d772-4c43-aebd-23efa772f689")
+	)
+	(no_connect
+		(at 182.88 137.16)
+		(uuid "2bc9675d-886e-4788-a1c1-05aed80cf26f")
+	)
+	(no_connect
+		(at 170.18 137.16)
+		(uuid "31185a4f-afbf-4dca-9b20-e014a2a9a8b5")
+	)
+	(no_connect
+		(at 210.82 152.4)
+		(uuid "3168cf98-185f-4f0f-96e7-644eb166ca60")
+	)
+	(no_connect
+		(at 180.34 152.4)
+		(uuid "32093e39-53bf-4393-9db0-3b6c6e22329f")
+	)
+	(no_connect
+		(at 138.43 76.2)
+		(uuid "42059c95-16d8-406d-87ad-052b5afcfe31")
+	)
+	(no_connect
+		(at 138.43 58.42)
+		(uuid "58535ef1-630e-426c-b57e-46c033f64916")
+	)
+	(no_connect
+		(at 220.98 152.4)
+		(uuid "74ad693d-c2a8-4b31-8e4b-943d5cbfa720")
+	)
+	(no_connect
+		(at 200.66 152.4)
+		(uuid "75399aa0-e659-40cc-b0c8-bd50826ec12f")
+	)
+	(no_connect
+		(at 234.95 152.4)
+		(uuid "81adc4cc-b499-4ad6-9ebb-17695d0faa38")
+	)
+	(no_connect
+		(at 229.87 152.4)
+		(uuid "8d8723a8-e04a-4496-8ff0-ccbd1074eb53")
+	)
+	(no_connect
+		(at 172.72 152.4)
+		(uuid "a32ba543-d689-4705-8ffb-42559df15f2b")
+	)
+	(no_connect
+		(at 226.06 152.4)
+		(uuid "b7a37875-247a-44c5-bc7b-66684a59a1dc")
+	)
+	(no_connect
+		(at 138.43 129.54)
+		(uuid "c4793549-e906-4a6c-9a26-6ddd030f7c74")
+	)
+	(no_connect
+		(at 232.41 137.16)
+		(uuid "cd9a3c96-bf1a-4d80-acae-d5ae43a85ecc")
+	)
+	(no_connect
+		(at 195.58 152.4)
+		(uuid "d20883e6-f4fc-463a-a755-a588cc7acced")
+	)
+	(no_connect
+		(at 167.64 152.4)
+		(uuid "d37f1c9a-f318-4e8d-a042-4f460af9ee14")
+	)
+	(no_connect
+		(at 138.43 165.1)
+		(uuid "d56445f3-dd36-48f9-8065-38d2f400af29")
+	)
+	(no_connect
+		(at 138.43 93.98)
+		(uuid "df3372cf-af09-417d-903a-c82fae00e8d8")
+	)
+	(no_connect
+		(at 138.43 111.76)
+		(uuid "e1fc26bf-9e46-4477-86f8-33303481b589")
+	)
+	(no_connect
+		(at 205.74 152.4)
+		(uuid "f60f0cd1-321d-4c4c-a38c-762072e433ec")
+	)
+	(no_connect
+		(at 215.9 152.4)
+		(uuid "fd0c5a71-d645-4349-a4f8-5264abb71633")
+	)
+	(no_connect
 		(at 57.15 124.46)
 		(uuid "fd2fb21b-86ca-4efd-ba7a-11dfe749417a")
+	)
+	(no_connect
+		(at 185.42 152.4)
+		(uuid "fe3e7d93-74fa-49b9-a1aa-1fc81ef581da")
+	)
+	(no_connect
+		(at 193.04 137.16)
+		(uuid "ff0bdb66-5deb-4cbc-9027-a4912ce6f6d9")
 	)
 	(wire
 		(pts
@@ -1973,16 +2264,6 @@
 		)
 		(uuid "032ac736-84ab-430b-b497-c2c7405bf945")
 	)
-	(wire
-		(pts
-			(xy 74.93 90.17) (xy 74.93 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0356a625-ccd6-4fbe-87e8-c69b08ff9284")
-	)
 	(bus
 		(pts
 			(xy 38.1 24.13) (xy 41.91 24.13)
@@ -2005,6 +2286,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 96.52) (xy 74.93 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "10013379-90cc-45d0-b94c-46e9151f5780")
+	)
+	(wire
+		(pts
 			(xy 50.8 82.55) (xy 46.99 82.55)
 		)
 		(stroke
@@ -2012,6 +2303,16 @@
 			(type default)
 		)
 		(uuid "108652ba-920f-4bc4-8c58-ff1e0372393c")
+	)
+	(wire
+		(pts
+			(xy 74.93 96.52) (xy 76.2 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "114327f8-adec-4d7a-8271-6b18930ac679")
 	)
 	(wire
 		(pts
@@ -2195,16 +2496,6 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 93.98) (xy 85.09 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "39ac0aaf-18ff-41fa-9afb-9657bcf15639")
-	)
-	(wire
-		(pts
 			(xy 133.35 58.42) (xy 133.35 59.69)
 		)
 		(stroke
@@ -2305,6 +2596,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 95.25) (xy 74.93 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "532dd02d-73a3-410a-ae26-e3b995f6dc16")
+	)
+	(wire
+		(pts
 			(xy 30.48 125.73) (xy 30.48 142.24)
 		)
 		(stroke
@@ -2322,6 +2623,16 @@
 			(type default)
 		)
 		(uuid "558bd521-7ddd-46f7-9684-9764c08b5b6a")
+	)
+	(wire
+		(pts
+			(xy 85.09 96.52) (xy 85.09 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5902106e-c5ff-4a66-94ec-8df8954dbb92")
 	)
 	(wire
 		(pts
@@ -2445,16 +2756,6 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 93.98) (xy 76.2 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "703c6a69-a88c-4fc6-bc8d-40db8268fb40")
-	)
-	(wire
-		(pts
 			(xy 30.48 109.22) (xy 30.48 125.73)
 		)
 		(stroke
@@ -2462,16 +2763,6 @@
 			(type default)
 		)
 		(uuid "726ffd6a-c544-4bdd-9ea8-98bed34d2ebe")
-	)
-	(wire
-		(pts
-			(xy 83.82 93.98) (xy 85.09 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "733752e1-8456-431d-ab2e-814fce890c67")
 	)
 	(wire
 		(pts
@@ -2765,16 +3056,6 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 93.98) (xy 74.93 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "beb8e673-dea7-4c6f-96ed-a51fd7359788")
-	)
-	(wire
-		(pts
 			(xy 128.27 88.9) (xy 128.27 95.25)
 		)
 		(stroke
@@ -2902,6 +3183,16 @@
 			(type default)
 		)
 		(uuid "de8aa701-8264-4270-aff0-f92754c1a03f")
+	)
+	(wire
+		(pts
+			(xy 83.82 96.52) (xy 85.09 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e26f5909-a066-47f0-9347-34892174d8bf")
 	)
 	(wire
 		(pts
@@ -4190,73 +4481,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 85.09 95.25 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "09d51e1e-c192-4130-8fed-da2e3a2eb8b8")
-		(property "Reference" "#PWR01707"
-			(at 85.09 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 85.09 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 85.09 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 85.09 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "06d74843-3cc2-4246-8135-6358944a03c8")
-		)
-		(instances
-			(project "NexRig"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
-					(reference "#PWR01707")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 43.18 95.25 0)
 		(mirror y)
 		(unit 1)
@@ -4393,6 +4617,105 @@
 	)
 	(symbol
 		(lib_id "Library:G2RL-2-functional")
+		(at 213.36 144.78 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "148b0833-366b-496e-84fc-09773d8b789b")
+		(property "Reference" "K1705"
+			(at 217.17 154.686 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "G2RL-2"
+			(at 219.71 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Library:Relay_DPDT_Omron_G2RL-2"
+			(at 197.104 124.714 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g2rl.pdf"
+			(at 215.392 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 8A Signal Loads, Single-side Stable"
+			(at 215.392 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser-part-number" ""
+			(at 213.36 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc67")
+		)
+		(pin "2"
+			(uuid "3740ca4e-9e40-4c9e-acaa-3e4dd8fdfe13")
+		)
+		(pin "7"
+			(uuid "1696e328-f25c-4995-8674-cf9fe9f760f2")
+		)
+		(pin "6"
+			(uuid "e406d806-3470-4e2a-a9dd-5916d1351ba5")
+		)
+		(pin "1"
+			(uuid "e01cfa1d-f3de-4f35-a1ba-42df11dade02")
+		)
+		(pin "8"
+			(uuid "90556fa1-db77-41a9-9e96-77626a077a52")
+		)
+		(pin "3"
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b911")
+		)
+		(pin "5"
+			(uuid "9fb1c8f1-3f82-4011-8df0-07d5b023d2bd")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
+					(reference "K1705")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Library:G2RL-2-functional")
 		(at 135.89 68.58 0)
 		(mirror x)
 		(unit 2)
@@ -4402,7 +4725,7 @@
 		(dnp no)
 		(uuid "150c9d52-8089-4c64-8b19-49731b2d8032")
 		(property "Reference" "K1706"
-			(at 131.064 73.406 90)
+			(at 140.462 73.406 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5033,7 +5356,7 @@
 		(dnp no)
 		(uuid "169a10e0-fce6-4acf-be01-3d35fed80c7c")
 		(property "Reference" "K1703"
-			(at 132.08 127.254 90)
+			(at 141.478 127.254 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5117,325 +5440,6 @@
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
 					(reference "K1703")
 					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 80.01 93.98 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1bb2db50-4faf-4a4b-9e33-e75f09a4b55b")
-		(property "Reference" "C1704"
-			(at 77.724 92.964 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "100nF"
-			(at 82.804 93.218 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 76.2 94.9452 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" "X7R"
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DigiKey_Part_Number" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Display 2" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mfg" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MfgPart" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Availability" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser-part-number" ""
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "working-voltage" "50V"
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "fe09a531-9c1e-4bd2-8b36-b826dd885bd4")
-		)
-		(pin "1"
-			(uuid "2ebb3b43-7cda-47c2-a479-e1fe14507378")
-		)
-		(instances
-			(project "NexRig"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
-					(reference "C1704")
-					(unit 1)
 				)
 			)
 		)
@@ -5806,6 +5810,255 @@
 	)
 	(symbol
 		(lib_id "Library:G2RL-2-functional")
+		(at 203.2 144.78 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2ebc84c6-0519-4613-8ef9-9fa953afb3d0")
+		(property "Reference" "K1704"
+			(at 207.01 154.686 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "G2RL-2"
+			(at 200.406 131.318 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Library:Relay_DPDT_Omron_G2RL-2"
+			(at 186.944 124.714 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g2rl.pdf"
+			(at 205.232 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 8A Signal Loads, Single-side Stable"
+			(at 205.232 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser-part-number" ""
+			(at 203.2 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc63")
+		)
+		(pin "2"
+			(uuid "814e5dfb-3f65-4bad-bdd3-3cc73d279d1d")
+		)
+		(pin "7"
+			(uuid "1696e328-f25c-4995-8674-cf9fe9f760ee")
+		)
+		(pin "6"
+			(uuid "400a83cf-8005-4b33-8aec-f82aa8d078cd")
+		)
+		(pin "1"
+			(uuid "2be2a08a-c276-4fe7-a237-38e69e25c682")
+		)
+		(pin "8"
+			(uuid "dbc40214-2a4e-43a2-97a3-4ab2e4de1658")
+		)
+		(pin "3"
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b90d")
+		)
+		(pin "5"
+			(uuid "c01b0411-d7a1-4f7d-9c45-6d872add4065")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
+					(reference "K1704")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 85.09 97.79 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "42bd9ff3-a627-4d94-a4d4-39358b33842f")
+		(property "Reference" "#PWR07752"
+			(at 85.09 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 85.09 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 85.09 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 85.09 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dd624f60-a96a-422d-bbaa-553cb09b37bc")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
+					(reference "#PWR07752")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 95.25 104.14 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4aa5d01b-a37c-497f-8eaa-11429917664f")
+		(property "Reference" "#PWR07753"
+			(at 95.25 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 94.996 100.838 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 95.25 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 95.25 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 95.25 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 95.25 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 95.25 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c68566ee-80cb-42a6-8c4d-be603e5b7bbd")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
+					(reference "#PWR07753")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Library:G2RL-2-functional")
 		(at 135.89 157.48 0)
 		(mirror x)
 		(unit 2)
@@ -5815,7 +6068,7 @@
 		(dnp no)
 		(uuid "4c72c51e-adbd-492f-96b5-c0954735b45d")
 		(property "Reference" "K1701"
-			(at 131.826 162.052 90)
+			(at 141.224 162.052 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6178,7 +6431,7 @@
 		(dnp no)
 		(uuid "5396d710-116f-4d30-885e-26eee77eb8d1")
 		(property "Reference" "K1702"
-			(at 131.826 144.272 90)
+			(at 141.224 144.272 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6268,6 +6521,560 @@
 	)
 	(symbol
 		(lib_id "Library:G2RL-2-functional")
+		(at 193.04 144.78 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5437bad3-205c-486d-b9d5-3ba2058aaf30")
+		(property "Reference" "K1703"
+			(at 196.85 154.686 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "G2RL-2"
+			(at 190.5 131.826 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Library:Relay_DPDT_Omron_G2RL-2"
+			(at 176.784 124.714 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g2rl.pdf"
+			(at 195.072 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 8A Signal Loads, Single-side Stable"
+			(at 195.072 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser-part-number" ""
+			(at 193.04 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "1696e328-f25c-4995-8674-cf9fe9f760f1")
+		)
+		(pin "8"
+			(uuid "c02059fa-6efd-49c6-8651-981eed007800")
+		)
+		(pin "6"
+			(uuid "7a226fba-f2a9-416d-bc1f-b438279c6d97")
+		)
+		(pin "1"
+			(uuid "b9ce6d2b-838d-4f54-a71b-efc27b019374")
+		)
+		(pin "7"
+			(uuid "4ba277da-4c29-4d5b-bca2-f71c561bd868")
+		)
+		(pin "4"
+			(uuid "ad3a9920-a363-4d1c-9c4d-b1cf06f78573")
+		)
+		(pin "3"
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b910")
+		)
+		(pin "5"
+			(uuid "5402f535-d128-4573-8591-90a45202cf8a")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
+					(reference "K1703")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 80.01 96.52 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "55844c9c-f413-465a-9c87-bb94a41634ff")
+		(property "Reference" "C7720"
+			(at 78.7399 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "100nF"
+			(at 81.2799 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 83.82 97.4852 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Availability" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description_1" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MP" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Package" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Specifications" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser-part-number" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "working-voltage" "10V"
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 80.01 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b4ef874e-0502-44d7-8641-0f619c51bc6e")
+		)
+		(pin "1"
+			(uuid "28d2197d-aafa-42f8-a892-7b1541525da3")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
+					(reference "C7720")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Library:G2RL-2-functional")
+		(at 232.41 144.78 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "583a7b33-8904-4094-8cc8-91b723716954")
+		(property "Reference" "K1707"
+			(at 236.22 154.686 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "G2RL-2"
+			(at 238.76 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Library:Relay_DPDT_Omron_G2RL-2"
+			(at 216.154 124.714 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g2rl.pdf"
+			(at 234.442 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 8A Signal Loads, Single-side Stable"
+			(at 234.442 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser-part-number" ""
+			(at 232.41 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "fdfc2cd1-5392-42f2-87e5-691c358f1818")
+		)
+		(pin "7"
+			(uuid "8afe0509-bf82-4f17-bfed-44acfbd48084")
+		)
+		(pin "6"
+			(uuid "1696e328-f25c-4995-8674-cf9fe9f760f8")
+		)
+		(pin "2"
+			(uuid "dc0e724e-81dc-45ef-9c54-8b6824a60777")
+		)
+		(pin "1"
+			(uuid "1d967ac7-ea08-4d81-a867-06d2bdd34e73")
+		)
+		(pin "8"
+			(uuid "54c82341-e208-4fa7-9d79-557e7789b5c7")
+		)
+		(pin "3"
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b917")
+		)
+		(pin "5"
+			(uuid "9ab69c85-36f6-468c-935c-3a25f214973f")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
+					(reference "K1707")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Library:G2RL-2-functional")
+		(at 182.88 144.78 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "58fcd409-c34e-476b-b816-48d0dc0d4dee")
+		(property "Reference" "K1702"
+			(at 186.69 154.686 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "G2RL-2"
+			(at 180.34 131.826 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Library:Relay_DPDT_Omron_G2RL-2"
+			(at 166.624 124.714 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g2rl.pdf"
+			(at 184.912 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 8A Signal Loads, Single-side Stable"
+			(at 184.912 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser-part-number" ""
+			(at 182.88 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc65")
+		)
+		(pin "6"
+			(uuid "abb86f9d-4132-4532-9b2c-18e918f5b090")
+		)
+		(pin "2"
+			(uuid "1696e328-f25c-4995-8674-cf9fe9f760f3")
+		)
+		(pin "7"
+			(uuid "b3b29533-8996-49ff-ab4f-32844b8158c7")
+		)
+		(pin "1"
+			(uuid "93019a08-65a1-49d6-927d-8cc581d84ee4")
+		)
+		(pin "8"
+			(uuid "10de1c40-4cce-4dca-bee1-6e19c169e25b")
+		)
+		(pin "3"
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b912")
+		)
+		(pin "5"
+			(uuid "73fcf927-368f-4738-808c-db0b62b97846")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
+					(reference "K1702")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Library:G2RL-2-functional")
 		(at 135.89 86.36 0)
 		(mirror x)
 		(unit 2)
@@ -6277,7 +7084,7 @@
 		(dnp no)
 		(uuid "66cb5fa4-daef-4d7b-a1b2-64b4c4bb019d")
 		(property "Reference" "K1705"
-			(at 131.572 90.932 90)
+			(at 140.97 90.932 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6333,28 +7140,28 @@
 			)
 		)
 		(pin "4"
-			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc67")
+			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc68")
 		)
 		(pin "2"
-			(uuid "3740ca4e-9e40-4c9e-acaa-3e4dd8fdfe13")
+			(uuid "3740ca4e-9e40-4c9e-acaa-3e4dd8fdfe14")
 		)
 		(pin "7"
-			(uuid "1696e328-f25c-4995-8674-cf9fe9f760f2")
+			(uuid "1696e328-f25c-4995-8674-cf9fe9f760f4")
 		)
 		(pin "6"
-			(uuid "e406d806-3470-4e2a-a9dd-5916d1351ba5")
+			(uuid "e406d806-3470-4e2a-a9dd-5916d1351ba6")
 		)
 		(pin "1"
-			(uuid "e01cfa1d-f3de-4f35-a1ba-42df11dade02")
+			(uuid "e01cfa1d-f3de-4f35-a1ba-42df11dade03")
 		)
 		(pin "8"
-			(uuid "90556fa1-db77-41a9-9e96-77626a077a52")
+			(uuid "90556fa1-db77-41a9-9e96-77626a077a53")
 		)
 		(pin "3"
-			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b911")
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b913")
 		)
 		(pin "5"
-			(uuid "9fb1c8f1-3f82-4011-8df0-07d5b023d2bd")
+			(uuid "9fb1c8f1-3f82-4011-8df0-07d5b023d2be")
 		)
 		(instances
 			(project "NexRig"
@@ -6366,36 +7173,53 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:TLC6C598PW")
-		(at 74.93 116.84 0)
+		(lib_id "Library:TPIC6C595PWR")
+		(at 74.93 114.3 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "67c892ad-7e60-4d80-ada9-d8d53d304684")
+		(uuid "696616c7-f14a-4da5-af3b-d5c7d1ab4d3a")
 		(property "Reference" "U1701"
-			(at 72.7867 99.06 0)
+			(at 66.294 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "TLC6C598PW"
-			(at 72.7867 101.6 0)
+		(property "Value" "TPIC6C595PWR"
+			(at 66.294 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
-			(at 74.93 116.84 0)
+		(property "Footprint" "SOP65P640X120-16N"
+			(at 43.18 209.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/gpn/TPIC6C595"
+			(at 43.18 309.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "8-bit shift register"
+			(at 74.93 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6403,249 +7227,103 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.ti.com/lit/gpn/tlc6c598"
-			(at 74.93 116.84 0)
+		(property "Height" "1.2"
+			(at 43.18 509.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Description" "8-bit Shift Register LED driver"
-			(at 74.93 116.84 0)
+		(property "Mouser Part Number" "595-TPIC6C595PWR"
+			(at 43.18 609.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "cap-type" ""
-			(at 74.93 116.84 0)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPIC6C595PWR?qs=ojKcPFmCWSVdhc9n6AZZLA%3D%3D"
+			(at 43.18 709.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-			)
-		)
-		(property "r-power" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Availability" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Check_prices" ""
-			(at 74.93 116.84 0)
+		(property "Manufacturer_Name" "Texas Instruments"
+			(at 43.18 809.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Description_1" ""
-			(at 74.93 116.84 0)
+		(property "Manufacturer_Part_Number" "TPIC6C595PWR"
+			(at 43.18 909.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
-		)
-		(property "MANUFACTURER" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part Number" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Specifications" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser-part-number" ""
-			(at 74.93 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "6"
-			(uuid "fd65a6df-6632-469d-82a4-ee13d31ecb3a")
-		)
-		(pin "1"
-			(uuid "d5b65e46-9639-4d53-ac4b-7f0bd852a27f")
-		)
-		(pin "13"
-			(uuid "0bea9afc-864f-462c-8f08-ec8d8a03cfb7")
-		)
-		(pin "9"
-			(uuid "eb17da41-e18d-4e3b-9410-b64afe329f3f")
-		)
-		(pin "7"
-			(uuid "c78766c0-8573-437f-ab8e-8dc4bbe14c28")
-		)
-		(pin "4"
-			(uuid "30d539a2-20d3-497f-8046-7f22de421c6e")
 		)
 		(pin "10"
-			(uuid "c373340f-188a-4539-9e25-a2e703a7b32e")
+			(uuid "465cbd3a-18d9-4a91-8801-1f3f2927ecbf")
 		)
-		(pin "8"
-			(uuid "07af92a4-d6cf-4834-a234-8a72769c55b1")
-		)
-		(pin "2"
-			(uuid "69a9d7f9-857d-414e-b376-7f2eafd6f930")
-		)
-		(pin "16"
-			(uuid "f1a08377-30b3-4324-a54a-08776e18c40d")
-		)
-		(pin "15"
-			(uuid "21ed2b38-6499-4019-94e0-ce779a53f969")
+		(pin "6"
+			(uuid "733a53af-3bf6-4bdd-9605-a33b503a8ddd")
 		)
 		(pin "11"
-			(uuid "e90883d2-a06e-4d32-a4a4-e54d927d83eb")
+			(uuid "93373b99-d24e-43e6-b53e-a6addcc21de3")
 		)
-		(pin "3"
-			(uuid "51eec7f4-7405-4dd5-b159-4f6554de898a")
+		(pin "16"
+			(uuid "6b9b8dd2-b727-43a7-9d4f-e6766bd232a0")
 		)
-		(pin "14"
-			(uuid "23eb4b6d-ed5e-45d4-8f68-9c9c062f3b58")
-		)
-		(pin "12"
-			(uuid "616cf5c8-8f0c-4d99-84dd-70ef0ba7889f")
+		(pin "2"
+			(uuid "c3c902f6-4304-463c-b35b-71a13a9ad5d3")
 		)
 		(pin "5"
-			(uuid "4573dc5c-91b7-47cd-b5c4-82e5bef0f28f")
+			(uuid "f99fd276-3397-4527-9cfc-ca8dcfb87822")
+		)
+		(pin "13"
+			(uuid "20c4ed9d-3a61-4a8b-afab-46762d779f53")
+		)
+		(pin "7"
+			(uuid "9570f228-7a75-49f1-a284-fd7bae082b72")
+		)
+		(pin "15"
+			(uuid "49adb600-534d-4f16-88f6-07cbde6921ec")
+		)
+		(pin "12"
+			(uuid "fd5e0984-3198-4815-8ab8-76815ddd715e")
+		)
+		(pin "4"
+			(uuid "2afa72a2-6a72-40f2-9526-4ee5d816ce4b")
+		)
+		(pin "1"
+			(uuid "70def299-3890-41e8-870c-52048f4ba8ad")
+		)
+		(pin "3"
+			(uuid "ceb7634f-0353-408f-b2cd-f50784911cce")
+		)
+		(pin "8"
+			(uuid "d8d496b8-d7be-438a-b697-28d14b91daa5")
+		)
+		(pin "9"
+			(uuid "68076f5a-8d7b-4970-b14e-dece10fbc33d")
+		)
+		(pin "14"
+			(uuid "180b286b-e21a-4988-8be5-7b5472bb95f9")
 		)
 		(instances
 			(project "NexRig"
@@ -7172,6 +7850,88 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 74.93 95.25 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7a11cdec-eade-4228-9c1c-10542069b52d")
+		(property "Reference" "#PWR07751"
+			(at 74.93 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 74.676 91.948 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 74.93 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 74.93 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 74.93 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "cap-type" ""
+			(at 74.93 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "r-power" ""
+			(at 74.93 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9ddf92fd-c0a6-49f6-8ea7-3cba5f104f74")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
+					(reference "#PWR07751")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Library:G2RL-2-functional")
 		(at 39.37 49.53 90)
 		(mirror x)
@@ -7286,88 +8046,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 95.25 104.14 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "83b7c88a-f2c6-44f3-a946-54e1df30ca21")
-		(property "Reference" "#PWR01708"
-			(at 95.25 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 95.25 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 95.25 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 95.25 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 95.25 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "cap-type" ""
-			(at 95.25 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "r-power" ""
-			(at 95.25 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "279e84db-9696-4b7f-9aa8-6c6c6918455b")
-		)
-		(instances
-			(project "NexRig"
-				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
-					(reference "#PWR01708")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Library:G2RL-2-functional")
 		(at 135.89 50.8 0)
 		(mirror x)
@@ -7378,7 +8056,7 @@
 		(dnp no)
 		(uuid "83ea98e2-4452-4c55-96ab-9b89195c7de8")
 		(property "Reference" "K1707"
-			(at 131.318 54.61 90)
+			(at 140.716 54.61 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7434,28 +8112,28 @@
 			)
 		)
 		(pin "4"
-			(uuid "fdfc2cd1-5392-42f2-87e5-691c358f1818")
+			(uuid "fdfc2cd1-5392-42f2-87e5-691c358f1819")
 		)
 		(pin "7"
-			(uuid "8afe0509-bf82-4f17-bfed-44acfbd48084")
+			(uuid "8afe0509-bf82-4f17-bfed-44acfbd48085")
 		)
 		(pin "6"
-			(uuid "1696e328-f25c-4995-8674-cf9fe9f760f8")
+			(uuid "1696e328-f25c-4995-8674-cf9fe9f760f9")
 		)
 		(pin "2"
-			(uuid "dc0e724e-81dc-45ef-9c54-8b6824a60777")
+			(uuid "dc0e724e-81dc-45ef-9c54-8b6824a60778")
 		)
 		(pin "1"
-			(uuid "1d967ac7-ea08-4d81-a867-06d2bdd34e73")
+			(uuid "1d967ac7-ea08-4d81-a867-06d2bdd34e74")
 		)
 		(pin "8"
-			(uuid "54c82341-e208-4fa7-9d79-557e7789b5c7")
+			(uuid "54c82341-e208-4fa7-9d79-557e7789b5c8")
 		)
 		(pin "3"
-			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b917")
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b918")
 		)
 		(pin "5"
-			(uuid "9ab69c85-36f6-468c-935c-3a25f214973f")
+			(uuid "9ab69c85-36f6-468c-935c-3a25f2149740")
 		)
 		(instances
 			(project "NexRig"
@@ -7733,17 +8411,46 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 74.93 90.17 0)
-		(mirror y)
+		(lib_id "Library:G2RL-2-functional")
+		(at 172.72 144.78 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8b45c1bb-75a3-411a-8332-f8dfec05ca80")
-		(property "Reference" "#PWR01705"
-			(at 74.93 93.98 0)
+		(uuid "8c176712-f5a9-48a1-af29-94ab8bf203ad")
+		(property "Reference" "K1701"
+			(at 176.53 154.686 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "G2RL-2"
+			(at 170.18 131.826 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Library:Relay_DPDT_Omron_G2RL-2"
+			(at 156.464 124.714 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g2rl.pdf"
+			(at 174.752 122.936 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7751,16 +8458,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3.3V"
-			(at 74.93 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 74.93 90.17 0)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 8A Signal Loads, Single-side Stable"
+			(at 174.752 122.936 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7768,17 +8467,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 74.93 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 74.93 90.17 0)
+		(property "Mouser-part-number" ""
+			(at 172.72 144.78 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7787,7 +8477,7 @@
 			)
 		)
 		(property "cap-type" ""
-			(at 74.93 90.17 0)
+			(at 172.72 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7795,20 +8485,41 @@
 			)
 		)
 		(property "r-power" ""
-			(at 74.93 90.17 0)
+			(at 172.72 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
+		(pin "4"
+			(uuid "455b003d-ddbd-48d3-ab8f-3c915e057a65")
+		)
+		(pin "6"
+			(uuid "6f35f760-0edb-4eb7-afc6-46d7942a0c3d")
+		)
+		(pin "2"
+			(uuid "1696e328-f25c-4995-8674-cf9fe9f760eb")
+		)
+		(pin "7"
+			(uuid "02a25233-78f0-4415-a075-6627c4b268f6")
+		)
 		(pin "1"
-			(uuid "21b3692a-2989-4027-ab81-75c8b9de20c9")
+			(uuid "3d9f8c26-bdda-48f9-afec-b3ba752cb600")
+		)
+		(pin "8"
+			(uuid "7eaf3934-89b0-46de-a45e-fd7c36b51651")
+		)
+		(pin "3"
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b914")
+		)
+		(pin "5"
+			(uuid "c1aa9da6-60d2-4492-a344-c2ee9e08ddd7")
 		)
 		(instances
 			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
-					(reference "#PWR01705")
+					(reference "K1701")
 					(unit 1)
 				)
 			)
@@ -7880,7 +8591,7 @@
 			)
 		)
 		(pin "4"
-			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc68")
+			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc69")
 		)
 		(pin "2"
 			(uuid "49a26f8f-679e-427e-a05a-91824620af42")
@@ -7898,7 +8609,7 @@
 			(uuid "6a803493-29ee-4788-8163-0fb8d48eb26e")
 		)
 		(pin "3"
-			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b913")
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b919")
 		)
 		(pin "5"
 			(uuid "243cbd3a-24ed-4300-83da-359e5ea260ec")
@@ -8006,6 +8717,105 @@
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
 					(reference "K1703")
 					(unit 3)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Library:G2RL-2-functional")
+		(at 223.52 144.78 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "aa5be90f-603b-423e-9390-a18e82f7c5b9")
+		(property "Reference" "K1706"
+			(at 227.33 154.686 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "G2RL-2"
+			(at 229.87 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Library:Relay_DPDT_Omron_G2RL-2"
+			(at 207.264 124.714 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g2rl.pdf"
+			(at 225.552 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Compact, Industry-Standard 2-pole relay, designed to switch 8A Signal Loads, Single-side Stable"
+			(at 225.552 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser-part-number" ""
+			(at 223.52 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc6c")
+		)
+		(pin "2"
+			(uuid "87ecb180-aa87-4b10-810e-10485f49f928")
+		)
+		(pin "7"
+			(uuid "1696e328-f25c-4995-8674-cf9fe9f760f6")
+		)
+		(pin "6"
+			(uuid "c3445da6-0f94-4b53-855e-182e2d07c741")
+		)
+		(pin "1"
+			(uuid "1d967ac7-ea08-4d81-a867-06d2bdd34e75")
+		)
+		(pin "8"
+			(uuid "388dc03c-adf6-4452-b540-9c9118b69f0e")
+		)
+		(pin "3"
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b91a")
+		)
+		(pin "5"
+			(uuid "bd57b89f-8877-4720-a3a1-b6efc0e50aac")
+		)
+		(instances
+			(project "NexRig"
+				(path "/8ae46c04-d01a-4756-8774-512b694bfaff/2406d03c-531b-4eaf-8b4b-4b266b9d0f2b/99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64/99065376-3804-4997-bf5b-41fcd6e501f1"
+					(reference "K1706")
+					(unit 1)
 				)
 			)
 		)
@@ -8836,7 +9646,7 @@
 		(dnp no)
 		(uuid "e21caa20-83a0-40a2-b65c-4b6b0e3b3306")
 		(property "Reference" "K1704"
-			(at 131.826 109.22 90)
+			(at 141.224 109.22 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8892,28 +9702,28 @@
 			)
 		)
 		(pin "4"
-			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc63")
+			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc66")
 		)
 		(pin "2"
-			(uuid "814e5dfb-3f65-4bad-bdd3-3cc73d279d1d")
+			(uuid "814e5dfb-3f65-4bad-bdd3-3cc73d279d1e")
 		)
 		(pin "7"
-			(uuid "1696e328-f25c-4995-8674-cf9fe9f760ee")
+			(uuid "1696e328-f25c-4995-8674-cf9fe9f760f7")
 		)
 		(pin "6"
-			(uuid "400a83cf-8005-4b33-8aec-f82aa8d078cd")
+			(uuid "400a83cf-8005-4b33-8aec-f82aa8d078ce")
 		)
 		(pin "1"
-			(uuid "2be2a08a-c276-4fe7-a237-38e69e25c682")
+			(uuid "2be2a08a-c276-4fe7-a237-38e69e25c683")
 		)
 		(pin "8"
-			(uuid "dbc40214-2a4e-43a2-97a3-4ab2e4de1658")
+			(uuid "dbc40214-2a4e-43a2-97a3-4ab2e4de1659")
 		)
 		(pin "3"
-			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b90d")
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b91b")
 		)
 		(pin "5"
-			(uuid "c01b0411-d7a1-4f7d-9c45-6d872add4065")
+			(uuid "c01b0411-d7a1-4f7d-9c45-6d872add4066")
 		)
 		(instances
 			(project "NexRig"
@@ -9256,7 +10066,7 @@
 			)
 		)
 		(pin "4"
-			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc69")
+			(uuid "255b24fa-d6d5-461e-b6f7-da3197c6dc6d")
 		)
 		(pin "7"
 			(uuid "f3f5cc8f-15c0-48b8-9c3f-7a0be1c65710")
@@ -9271,7 +10081,7 @@
 			(uuid "6a803493-29ee-4788-8163-0fb8d48eb26f")
 		)
 		(pin "3"
-			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b914")
+			(uuid "d3d21a39-df5a-4702-a0c9-c643f5c2b91c")
 		)
 		(pin "5"
 			(uuid "1b47a97e-327a-4388-8a00-1bc1e40c147f")
