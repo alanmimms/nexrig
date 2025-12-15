@@ -949,8 +949,17 @@
       "/Tx Chain/Antenna Tuner/txRelay": [
         "pwr200"
       ],
+      "/Tx Chain/Base L GaN FET Bridge/out": [
+        "PowerH"
+      ],
+      "/Tx Chain/Base R GaN FET Bridge/out": [
+        "PowerH"
+      ],
       "/Tx Chain/Bin Select PA Tanks/PAdrain": [
         "PowerRF"
+      ],
+      "/Tx Chain/H-bridge-PA/GaN FET Bridge/out": [
+        "PowerH"
       ],
       "/Tx Chain/H-bridge-PA/PA200": [
         "pwr200"
@@ -966,6 +975,12 @@
       ],
       "/Tx Chain/PA200tx": [
         "pwr200"
+      ],
+      "/Tx Chain/Peak L GaN FET Bridge/out": [
+        "PowerH"
+      ],
+      "/Tx Chain/Peak R GaN FET Bridge/out": [
+        "PowerH"
       ],
       "/Tx Chain/Tx LPFs/PA200tx": [
         "pwr200"
@@ -1276,6 +1291,9 @@
       "Net-(C7755-Pad1)": [
         "pwr50"
       ],
+      "Net-(C7761-Pad1)": [
+        "pwr50"
+      ],
       "Net-(C7765-Pad1)": [
         "pwr50"
       ],
@@ -1480,6 +1498,9 @@
       "Net-(C7902-Pad1)": [
         "Power"
       ],
+      "Net-(C7904-Pad1)": [
+        "Power"
+      ],
       "Net-(C7909-Pad1)": [
         "pwr200"
       ],
@@ -1543,6 +1564,12 @@
       "Net-(C7930-Pad2)": [
         "pwr200"
       ],
+      "Net-(C7932-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7932-Pad2)": [
+        "pwr200"
+      ],
       "Net-(C7933-Pad1)": [
         "pwr200"
       ],
@@ -1553,6 +1580,12 @@
         "pwr200"
       ],
       "Net-(C7934-Pad2)": [
+        "pwr200"
+      ],
+      "Net-(C7935-Pad1)": [
+        "pwr200"
+      ],
+      "Net-(C7935-Pad2)": [
         "pwr200"
       ],
       "Net-(C7936-Pad1)": [
@@ -1739,6 +1772,9 @@
         "Power"
       ],
       "Net-(D7725-K_1)": [
+        "Power"
+      ],
+      "Net-(D7728-K_1)": [
         "Power"
       ],
       "Net-(IC2001-DRVSET)": [
@@ -2623,6 +2659,9 @@
       "Net-(U7711-J3)": [
         "rf200"
       ],
+      "Net-(U7712-4-VCCPLL)": [
+        "Power"
+      ],
       "Net-(U7712-J1)": [
         "rf800"
       ],
@@ -2689,6 +2728,9 @@
       "Net-(U7719-J1)": [
         "rf800"
       ],
+      "Net-(U7719-NO1)": [
+        "rf50"
+      ],
       "Net-(U7720-J1)": [
         "rf800"
       ],
@@ -2716,6 +2758,9 @@
       "Net-(U7722-J1)": [
         "rf800"
       ],
+      "Net-(U7723-NO1)": [
+        "rf50"
+      ],
       "Net-(U7724-J1)": [
         "rf800"
       ],
@@ -2739,6 +2784,9 @@
       ],
       "Net-(U7727-J1)": [
         "rf200"
+      ],
+      "Net-(U7727-NO1)": [
+        "rf50"
       ],
       "Net-(U7728-J1)": [
         "rf200"
@@ -2830,7 +2878,13 @@
       "Net-(U7738-J3)": [
         "rf200"
       ],
+      "Net-(U7739-J1)": [
+        "rf200"
+      ],
       "Net-(U7739-J2)": [
+        "rf200"
+      ],
+      "Net-(U7740-J1)": [
         "rf200"
       ],
       "Net-(U7740-SW)": [
@@ -2848,14 +2902,23 @@
       "Net-(U7741-COM4)": [
         "fine"
       ],
+      "Net-(U7741-J1)": [
+        "rf200"
+      ],
       "Net-(U7741-SW)": [
         "Power"
+      ],
+      "Net-(U7742-J1)": [
+        "rf200"
       ],
       "Net-(U7742-OUT)": [
         "Power"
       ],
       "Net-(U7742-SW)": [
         "Power"
+      ],
+      "Net-(U7743-J1)": [
+        "rf200"
       ],
       "Net-(U7743-SW)": [
         "Power"
@@ -2865,6 +2928,12 @@
       ],
       "Net-(U7744-HS_DAP)": [
         "PowerH"
+      ],
+      "Net-(U7744-J1)": [
+        "rf200"
+      ],
+      "Net-(U7744-J3)": [
+        "rf200"
       ],
       "Net-(U7744-OUT)": [
         "Power"
@@ -2905,10 +2974,16 @@
       "Net-(U7747-OUT)": [
         "Power"
       ],
+      "Net-(U7747-SW)": [
+        "Power"
+      ],
       "Net-(U7748-J2)": [
         "rf200"
       ],
       "Net-(U7748-OUT)": [
+        "Power"
+      ],
+      "Net-(U7748-SW)": [
         "Power"
       ],
       "Net-(U7749-COM1)": [
@@ -2929,16 +3004,34 @@
       "Net-(U7749-J3)": [
         "rf200"
       ],
+      "Net-(U7749-OUT)": [
+        "Power"
+      ],
       "Net-(U7750-J2)": [
         "rf200"
       ],
       "Net-(U7751-J1)": [
         "rf200"
       ],
+      "Net-(U7751-SW)": [
+        "Power"
+      ],
       "Net-(U7752-J1)": [
         "rf200"
       ],
+      "Net-(U7752-OUT)": [
+        "Power"
+      ],
       "Net-(U7753-J1)": [
+        "rf200"
+      ],
+      "Net-(U7753-OUT)": [
+        "Power"
+      ],
+      "Net-(U7754-J2)": [
+        "rf200"
+      ],
+      "Net-(U7754-J3)": [
         "rf200"
       ],
       "Net-(U7754-SW)": [
@@ -2998,6 +3091,9 @@
       "Net-(U7759-OUT)": [
         "Power"
       ],
+      "Net-(U7759-VREG_1V2)": [
+        "Power"
+      ],
       "Net-(U7760-J1)": [
         "rf200"
       ],
@@ -3008,6 +3104,12 @@
         "Power"
       ],
       "Net-(U7761-J1)": [
+        "rf200"
+      ],
+      "Net-(U7761-J2)": [
+        "rf200"
+      ],
+      "Net-(U7761-J3)": [
         "rf200"
       ],
       "Net-(U7761-VDDCR)": [
@@ -3030,6 +3132,9 @@
       ],
       "Net-(U7763-J3)": [
         "rf200"
+      ],
+      "Net-(U7763-VDDCR)": [
+        "Power"
       ],
       "Net-(U7764-J2)": [
         "rf200"
@@ -3057,6 +3162,15 @@
       ],
       "Net-(U7767-HS_DAP)": [
         "PowerH"
+      ],
+      "Net-(U7767-J2)": [
+        "rf200"
+      ],
+      "Net-(U7767-J3)": [
+        "rf200"
+      ],
+      "Net-(U7768-J2)": [
+        "rf200"
       ],
       "Net-(U7769-VDDCR)": [
         "Power"
@@ -3416,6 +3530,66 @@
       {
         "netclass": "rf50",
         "pattern": "/Rx Front End/txRev"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/Tx LPFs/Pb200tx"
+      },
+      {
+        "netclass": "rf200",
+        "pattern": "/Tx Chain/Tx LPFs/TxOut"
+      },
+      {
+        "netclass": "rf200",
+        "pattern": "/Tx Chain/Tx LPFs/PA200tx"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/Tx LPFs/PA200tx"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/Tx LPFs/TxOut"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/Tx LPFs/A"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/Tx LPFs/B"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/Antenna Tuner/rig"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/Antenna Tuner/ant"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/H-bridge-PA/PA200"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Rx Front End/RxZ200"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/Antenna Tuner/Ccold"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/Antenna Tuner/Chot"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/lpfB"
+      },
+      {
+        "netclass": "pwr200",
+        "pattern": "/Tx Chain/PA200"
       }
     ]
   },
@@ -3819,6 +3993,10 @@
       "Rx Front End"
     ],
     [
+      "6ce03651-f057-4235-8f75-fcf089f69ab0",
+      "Base L GaN FET Bridge"
+    ],
+    [
       "2406d03c-531b-4eaf-8b4b-4b266b9d0f2b",
       "Tx Chain"
     ],
@@ -3829,6 +4007,18 @@
     [
       "99bbdde6-e23e-4e3f-9a6c-8b2d863ddc64",
       "Antenna Tuner"
+    ],
+    [
+      "ef5d453f-448c-49aa-bac8-225d20161384",
+      "Base R GaN FET Bridge"
+    ],
+    [
+      "9948d6d9-3586-4697-88eb-e7a443fa62ed",
+      "Peak L GaN FET Bridge"
+    ],
+    [
+      "3af74d15-f820-46d0-8a0f-6b410556b39e",
+      "Peak R GaN FET Bridge"
     ],
     [
       "f0576e51-08ef-46e9-b901-7c65fd3b885d",
@@ -3877,10 +4067,6 @@
     [
       "a3931169-68de-4e8b-813d-ff6ffed62146",
       "Tpad 6"
-    ],
-    [
-      "5d704c47-67fd-4097-8f87-0a826a7bb92d",
-      "H-bridge-PA"
     ],
     [
       "b06410ec-4c8e-4291-9691-3a63bcaba95c",
