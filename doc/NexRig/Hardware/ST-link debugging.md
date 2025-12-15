@@ -1,1 +1,0 @@
-https://hackaday.io/project/179054-custom-st-link-v20-v21-v30
