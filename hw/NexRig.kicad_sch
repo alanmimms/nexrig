@@ -306,8 +306,8 @@
 			"tmpSDA" "qsdPh0a" "qsdPh0b" "qsdPh0c" "qsdPh0d" "qsdPh1a" "qsdPh1b" "qsdPh1c"
 			"qsdPh1d" "qsdPh2a" "qsdPh2b" "qsdPh2c" "qsdPh2d" "bruene" "txData" "txBCLK"
 			"txMCLK" "txWCLK" "usbReset" "usbPOK2" "usbPOK3" "usbnALERT" "enable6V"
-			"enable3VA" "enable5VA" "nTxRelay" "enable3V3" "audioSCL" "audioSDA" "enableFPGA1V2"
-			"enableFPGAIO" "mon12V"
+			"enable3VA" "enable5VA" "nTxRelay" "enable3V3" "audioSCL" "audioSDA" "enableFPGAVCORE"
+			"mon12V"
 		)
 	)
 	(text "TODO:\n* Go through all capacitors and verify proper\n  dielectric type, working voltage, footprint,\n  part number, manufacturer.\n"
@@ -323,22 +323,22 @@
 		(uuid "288c6b18-6386-4501-b333-bad95651a5a1")
 	)
 	(junction
-		(at 158.75 62.23)
+		(at 137.16 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c96dfa2d-3a75-4f48-a32d-9dd76c56735c")
-	)
-	(junction
-		(at 137.16 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "caea05fa-470f-4957-a2fa-1192cd29b9b6")
+		(uuid "7a357952-fb4d-4389-a129-5ca1b87f9acf")
 	)
 	(junction
 		(at 137.16 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f0971ae5-7ab5-424c-a4b5-254f1d353d6d")
+	)
+	(junction
+		(at 158.75 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f447472b-20eb-4f63-aabe-8dfe04c85919")
 	)
 	(wire
 		(pts
@@ -352,13 +352,23 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 72.39) (xy 146.05 72.39)
+			(xy 83.82 45.72) (xy 83.82 72.39)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0afd200a-77d5-4a3c-b61b-5daf7aac2007")
+		(uuid "06835de6-c415-43a7-9491-7bdc1bae02d0")
+	)
+	(wire
+		(pts
+			(xy 81.28 45.72) (xy 81.28 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "071d47f6-1e91-44ae-8c9c-60204c1e74b0")
 	)
 	(wire
 		(pts
@@ -372,16 +382,6 @@
 	)
 	(wire
 		(pts
-			(xy 173.99 71.12) (xy 189.23 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "33edda79-aa1f-4ea0-8b4a-1453964a529e")
-	)
-	(wire
-		(pts
 			(xy 73.66 163.83) (xy 73.66 165.1)
 		)
 		(stroke
@@ -392,13 +392,43 @@
 	)
 	(bus
 		(pts
-			(xy 137.16 46.99) (xy 158.75 46.99)
+			(xy 137.16 43.18) (xy 137.16 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "426c8f1e-f55b-4da7-bee6-844f5e5be0fe")
+	)
+	(wire
+		(pts
+			(xy 86.36 45.72) (xy 86.36 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b466392-7b2d-43d3-a566-a24bc0812909")
+	)
+	(bus
+		(pts
+			(xy 137.16 43.18) (xy 158.75 43.18)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "5737d371-4309-46bb-a44c-00e2cb94c195")
+	)
+	(bus
+		(pts
+			(xy 158.75 43.18) (xy 158.75 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5f06ab90-52e1-4e20-84c3-e3aed1bf4971")
 	)
 	(wire
 		(pts
@@ -410,16 +440,6 @@
 		)
 		(uuid "672fb834-5f90-4ade-9da9-96438e7567d3")
 	)
-	(wire
-		(pts
-			(xy 106.68 69.85) (xy 146.05 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7864b781-d4d2-49a1-b811-d3bc3f2e1b05")
-	)
 	(bus
 		(pts
 			(xy 173.99 67.31) (xy 189.23 67.31)
@@ -430,45 +450,15 @@
 		)
 		(uuid "79e10f31-2e2e-4ea7-a1df-05fd35d9138e")
 	)
-	(wire
-		(pts
-			(xy 95.25 67.31) (xy 95.25 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "85ce38a6-da04-4eea-b8a9-a0e0bd05e919")
-	)
-	(wire
-		(pts
-			(xy 173.99 74.93) (xy 189.23 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "932a2570-d19e-4464-a1ed-2d9b20a66f46")
-	)
-	(wire
-		(pts
-			(xy 106.68 77.47) (xy 146.05 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9541dd8b-ae67-4883-82ef-4b0e4b4d7b44")
-	)
 	(bus
 		(pts
-			(xy 189.23 62.23) (xy 158.75 62.23)
+			(xy 106.68 78.74) (xy 146.05 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "954b8153-b25f-446d-a356-3da3d20a66ff")
+		(uuid "8fea98a6-8f25-449b-b5b1-8b35e26655ae")
 	)
 	(wire
 		(pts
@@ -479,16 +469,6 @@
 			(type default)
 		)
 		(uuid "9dd759f6-a2f7-490f-ab69-d48371d5dca8")
-	)
-	(wire
-		(pts
-			(xy 106.68 74.93) (xy 146.05 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9dddbec3-7a35-4e73-acce-f2fb2b41bb8f")
 	)
 	(wire
 		(pts
@@ -509,16 +489,6 @@
 			(type default)
 		)
 		(uuid "a48ec57f-948b-4198-8b5e-12d2f18607ce")
-	)
-	(wire
-		(pts
-			(xy 97.79 59.69) (xy 97.79 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a7b22eb6-d124-4e87-80f7-4ddd5c89c67c")
 	)
 	(wire
 		(pts
@@ -560,45 +530,25 @@
 		)
 		(uuid "d0739c86-7928-4dd9-bbe9-523fab68039c")
 	)
-	(wire
+	(bus
 		(pts
-			(xy 87.63 59.69) (xy 87.63 67.31)
+			(xy 158.75 43.18) (xy 189.23 43.18)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d1263c73-803a-41b9-8563-18a2a7e82696")
+		(uuid "d4da4c4a-7e57-4738-aca2-e1b8bb8fea2f")
 	)
 	(bus
 		(pts
-			(xy 158.75 62.23) (xy 158.75 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d30d35a9-1303-431c-bf08-261846c9dfad")
-	)
-	(bus
-		(pts
-			(xy 116.84 46.99) (xy 137.16 46.99)
+			(xy 116.84 43.18) (xy 137.16 43.18)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "e16c2637-0180-47d8-907d-4f238ac4ffb7")
-	)
-	(bus
-		(pts
-			(xy 137.16 93.98) (xy 137.16 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e3880fe9-3af4-4ddd-951d-9ce054ce41ec")
 	)
 	(wire
 		(pts
@@ -609,16 +559,6 @@
 			(type default)
 		)
 		(uuid "e5bf4725-2747-4e32-b885-ce341398bd4f")
-	)
-	(bus
-		(pts
-			(xy 158.75 46.99) (xy 158.75 62.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e9b1a2c8-a5f0-4494-ba60-32234315205a")
 	)
 	(symbol
 		(lib_id "Mechanical:Fiducial")
@@ -1349,7 +1289,7 @@
 		)
 	)
 	(sheet
-		(at 78.74 41.91)
+		(at 78.74 27.94)
 		(size 38.1 17.78)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1364,7 +1304,7 @@
 		)
 		(uuid "0ee31834-a2c3-474b-9f7c-c9b4f3cadb3f")
 		(property "Sheetname" "Rx Front End"
-			(at 78.994 40.894 0)
+			(at 78.994 26.924 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1373,7 +1313,7 @@
 			)
 		)
 		(property "Sheetfile" "rx-signal-chain.kicad_sch"
-			(at 113.3606 63.5 90)
+			(at 113.3606 49.53 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1383,7 +1323,7 @@
 			)
 		)
 		(pin "RxZ200" input
-			(at 87.63 59.69 270)
+			(at 81.28 45.72 270)
 			(uuid "8b617ee0-f87b-4fee-abc6-b2db07eaf836")
 			(effects
 				(font
@@ -1393,7 +1333,7 @@
 			)
 		)
 		(pin "txFwd" input
-			(at 95.25 59.69 270)
+			(at 83.82 45.72 270)
 			(uuid "b63838b7-a397-47ef-bf97-c71fcee1d46c")
 			(effects
 				(font
@@ -1403,7 +1343,7 @@
 			)
 		)
 		(pin "txRev" input
-			(at 97.79 59.69 270)
+			(at 86.36 45.72 270)
 			(uuid "127505a4-eb89-4ae7-a454-af95c9959a06")
 			(effects
 				(font
@@ -1413,7 +1353,7 @@
 			)
 		)
 		(pin "Ctrl{Ctrl}" bidirectional
-			(at 116.84 46.99 0)
+			(at 116.84 43.18 0)
 			(uuid "90a10ece-7df0-4e9e-8344-a8bb52bb4825")
 			(effects
 				(font
@@ -1431,8 +1371,8 @@
 		)
 	)
 	(sheet
-		(at 146.05 66.04)
-		(size 27.94 15.24)
+		(at 146.05 59.69)
+		(size 27.94 21.59)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -1447,7 +1387,7 @@
 		)
 		(uuid "18e3a9cf-6c9a-40ce-8c7f-a4f543fd7641")
 		(property "Sheetname" "FPGA"
-			(at 146.05 65.3284 0)
+			(at 146.05 58.9784 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1465,68 +1405,8 @@
 				(hide yes)
 			)
 		)
-		(pin "STM32clock" output
-			(at 173.99 71.12 0)
-			(uuid "9a68e341-80d5-416c-bfe5-d8fc1d3e608c")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "CDONE" output
-			(at 173.99 74.93 0)
-			(uuid "f3a35052-31ac-4e8a-b3c6-62bbd2a40d06")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PAI+" output
-			(at 146.05 69.85 180)
-			(uuid "7ab7ea23-949e-4b41-a8d4-d23aef145963")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "PAI-" output
-			(at 146.05 72.39 180)
-			(uuid "de346e67-97eb-43dc-be45-a392aa29ad5b")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "PAQ+" output
-			(at 146.05 74.93 180)
-			(uuid "010f9e73-dd4a-4e51-a757-c580e52f971a")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "PAQ-" output
-			(at 146.05 77.47 180)
-			(uuid "eaa43f84-a42e-4a64-bd49-43b8785df146")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "Ctrl{Ctrl}" bidirectional
-			(at 158.75 66.04 90)
+			(at 158.75 59.69 90)
 			(uuid "a0cbde6c-5b53-4df1-b4cf-f11ea90b1809")
 			(effects
 				(font
@@ -1545,6 +1425,16 @@
 				(justify right)
 			)
 		)
+		(pin "TxDrive{TxDrive}" output
+			(at 146.05 78.74 180)
+			(uuid "1ebc5ddf-2550-4d39-b838-13d558b5516b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 		(instances
 			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
@@ -1554,13 +1444,12 @@
 		)
 	)
 	(sheet
-		(at 78.74 67.31)
-		(size 27.94 38.1)
+		(at 78.74 72.39)
+		(size 27.94 33.02)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
 			(type solid)
@@ -1570,7 +1459,7 @@
 		)
 		(uuid "2406d03c-531b-4eaf-8b4b-4b266b9d0f2b")
 		(property "Sheetname" "Tx Chain"
-			(at 78.74 66.5984 0)
+			(at 97.79 72.136 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1589,7 +1478,7 @@
 			)
 		)
 		(pin "RxZ200" output
-			(at 87.63 67.31 90)
+			(at 81.28 72.39 90)
 			(uuid "817e73ee-8033-4448-85cf-18e95beeca99")
 			(effects
 				(font
@@ -1599,7 +1488,7 @@
 			)
 		)
 		(pin "txFwd" output
-			(at 95.25 67.31 90)
+			(at 83.82 72.39 90)
 			(uuid "180df20e-3025-4002-b361-adfa2459171d")
 			(effects
 				(font
@@ -1609,48 +1498,8 @@
 			)
 		)
 		(pin "txRev" output
-			(at 97.79 67.31 90)
+			(at 86.36 72.39 90)
 			(uuid "392727d3-ae92-42fc-9b7c-83506467de06")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PAI+" input
-			(at 106.68 69.85 0)
-			(uuid "34fd6ab4-24d2-4884-a693-94c0d50565ba")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PAI-" input
-			(at 106.68 72.39 0)
-			(uuid "53ae62e3-228e-41b9-86c9-257fb3016494")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PAQ+" input
-			(at 106.68 74.93 0)
-			(uuid "1ff91a15-3060-4bf0-a858-37b60270320d")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PAQ-" input
-			(at 106.68 77.47 0)
-			(uuid "5dfc3759-90de-400a-a849-538fd7c0a52e")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1668,6 +1517,16 @@
 				(justify right)
 			)
 		)
+		(pin "TxDrive{TxDrive}" input
+			(at 106.68 78.74 0)
+			(uuid "f4ce28c7-2b97-4627-8029-4b3812bc4bc4")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "NexRig"
 				(path "/8ae46c04-d01a-4756-8774-512b694bfaff"
@@ -1677,8 +1536,8 @@
 		)
 	)
 	(sheet
-		(at 189.23 58.42)
-		(size 49.53 48.26)
+		(at 189.23 29.21)
+		(size 33.02 77.47)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -1693,7 +1552,7 @@
 		)
 		(uuid "c32f5700-dc71-4705-afb9-ca83a93b0543")
 		(property "Sheetname" "microcontroller"
-			(at 189.23 57.7084 0)
+			(at 189.23 28.4984 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1731,29 +1590,9 @@
 				(justify left)
 			)
 		)
-		(pin "STM32clock" input
-			(at 189.23 71.12 180)
-			(uuid "e854f716-da84-47cc-a51e-255ae1ef1c84")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "TxEnable" output
 			(at 189.23 91.44 180)
 			(uuid "6475710a-5511-4c0e-bc9d-5a3557991338")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "CDONE" input
-			(at 189.23 74.93 180)
-			(uuid "6706bdb1-cff5-4f0b-94bd-a4032d74c7c8")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1772,7 +1611,7 @@
 			)
 		)
 		(pin "Ctrl{Ctrl}" bidirectional
-			(at 189.23 62.23 180)
+			(at 189.23 43.18 180)
 			(uuid "21273660-aaab-4b0d-8623-f956f7d05251")
 			(effects
 				(font
