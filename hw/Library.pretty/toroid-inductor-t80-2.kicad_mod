@@ -1,0 +1,116 @@
+(footprint "toroid-inductor-t80-2"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "L_Toroid, Vertical series, Radial, pin pitch=5.08mm, length*width=10*5mm^2")
+	(tags "L_Toroid Vertical series Radial pin pitch 5.08mm  length 10mm width 5mm")
+	(property "Reference" "REF**"
+		(at 0.05 -6.2 0)
+		(layer "F.SilkS")
+		(uuid "bcf8cce1-14df-4f4e-b618-fad5d7595c81")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "toroid-inductor-t80-2"
+		(at 0 7.33 0)
+		(layer "F.Fab")
+		(uuid "9337819c-601a-494e-984c-0cf49ce485de")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9bb767b1-2cf5-4012-8e3d-63703fe860bf")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "bd5f9dd2-e33c-49fc-8fa4-05bd38fd8f10")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -10.65 -5.25)
+		(end 10.65 3.95)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "cd5d5968-6f47-47a6-9db7-2beed0fa8715")
+	)
+	(fp_rect
+		(start -10.1 -3.175)
+		(end 10.1 3.175)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "2cf518ac-2a6c-4412-9fa7-34caf4e3bb09")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0.05 0.05 0)
+		(layer "F.Fab")
+		(uuid "27e668a5-68af-4151-b60c-36bf2da11d1e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at -5.83 -4.05)
+		(size 2 2)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "dc0eebdb-b8c6-453e-9da0-a1dd27f3d3c3")
+	)
+	(pad "2" thru_hole circle
+		(at 6.27 -4.05)
+		(size 2 2)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "dcddbd2a-b547-439b-9450-c5026d989bfb")
+	)
+	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Inductor_THT.3dshapes/L_Toroid_Vertical_L10.0mm_W5.0mm_P5.08mm.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

@@ -1,0 +1,212 @@
+(footprint "Rshunt-YAGEO-PU3921"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "4-Wire Shunt, SMD 4026, https://www.isabellenhuette.de/fileadmin/Daten/Praezisionswiderstaende/Datenblaetter/BVR.PDF")
+	(tags "kelvin-connection")
+	(property "Reference" "REF**"
+		(at 0 -4.5 0)
+		(layer "F.SilkS")
+		(uuid "af921c66-804f-4e11-990f-5b81b206ee94")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Rshunt-YAGEO-PU3921"
+		(at 0 4.699 0)
+		(layer "F.Fab")
+		(uuid "95bef731-1750-46e4-bae7-2b988b5673ce")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "fb4ce631-0144-42ac-9d2a-61f61012817e")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d661561e-6748-48a0-9524-ad030e49b0be")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Net Tie Pad Groups" "1,2; 3,4"
+		(at 0 0 0)
+		(layer "F.Cu")
+		(hide yes)
+		(uuid "9ce56908-1cfa-4ef7-93cb-233760801420")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Keywords" "net-tie"
+		(at 0 0 0)
+		(layer "Cmts.User")
+		(hide yes)
+		(uuid "86cc0222-70ce-4210-b6a2-360516f01167")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -0.6 0)
+		(end -1.55 0)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.Cu")
+		(uuid "179357e3-b476-4269-a1bd-4e2a36b740e6")
+	)
+	(fp_line
+		(start 0.65 0)
+		(end 1.75 0)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.Cu")
+		(uuid "f4ab518c-8aee-4c4f-aacc-e0ff221ae5a9")
+	)
+	(fp_line
+		(start -4.5 2.2)
+		(end -4.5 2.5)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "b9b5c5ef-596e-42b3-b119-de4d7bc207ce")
+	)
+	(fp_line
+		(start -2.5 -3.5)
+		(end 2.5 -3.5)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "8a69db6f-b1a4-4c36-9b61-b9461d169f24")
+	)
+	(fp_line
+		(start -2.4 3.5)
+		(end 2.4 3.5)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "99f12e82-bb7f-497e-93eb-411e5f8243fc")
+	)
+	(fp_line
+		(start 4.55 2.2)
+		(end 4.55 2.5)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "b984126b-1d1d-428a-ae94-3d7fcb024cd8")
+	)
+	(fp_rect
+		(start -4.6 -3.7)
+		(end 4.65 3.65)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "eccb655f-cafe-4b4d-9ac7-992537bd997c")
+	)
+	(fp_rect
+		(start -4.4 -3.3375)
+		(end 4.45 3.3375)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "1ed5fdb2-e55d-4f50-8bb3-9a19aa3818bb")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "26847034-bba7-4f6a-8257-9179050aaccd")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -2.8 0)
+		(size 2.75 6.2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "8cfbe9f2-dbd4-46bc-86f3-4ea1d4698cc0")
+	)
+	(pad "2" smd circle
+		(at -0.6 0)
+		(size 1 1)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "2ab0f381-bcc1-4721-be70-36674bcfde2e")
+	)
+	(pad "3" smd circle
+		(at 0.6 0)
+		(size 1 1)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "ed6c7d10-ffd8-44f1-a80d-1d630645df1c")
+	)
+	(pad "4" smd rect
+		(at 2.8 0)
+		(size 2.75 6.2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "77148445-fa79-41a0-96d0-a0d6c9545eee")
+	)
+	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_Shunt_Isabellenhuette_BVR4026.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

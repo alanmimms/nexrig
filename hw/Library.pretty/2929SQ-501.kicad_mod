@@ -1,0 +1,105 @@
+(footprint "2929SQ-501"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "Coilcraft 2929SQ-501")
+	(property "Reference" "REF**"
+		(at 0 -6 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "19f8b731-f8e9-4bb8-8590-8472ed03dde6")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "Untitled_1"
+		(at 2.25 0.7 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "cb3d86a5-8c73-4dda-be71-a0140c83fc7c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.coilcraft.com/getmedia/a4eed406-a97e-4630-9d8e-771bb470867f/1515sq.pdf"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "64623ee1-63e3-4b25-bbb7-0f0cf70eaf49")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Coilcraft square air core 500nH"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d38943f0-aa84-4990-b1f1-e1d59b0594a5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_rect
+		(start -7 -3.745)
+		(end 7 3.745)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "72ccb165-677d-460f-9503-3c6151c975d0")
+	)
+	(fp_rect
+		(start -8 -4.745)
+		(end 8 4.745)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "35ed5f1c-e60b-40da-a4b3-8dda3f1cb93c")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "ddc9078a-12d6-4558-ac46-23a2d3c97e06")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -6.605 0)
+		(size 2.29 8.26)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "645223bf-b3fb-40f6-b5a2-0bc144ae6518")
+	)
+	(pad "2" smd rect
+		(at 6.605 0)
+		(size 2.29 8.26)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "872f0568-f81f-4fe5-bfb8-6e897008f39a")
+	)
+	(embedded_fonts no)
+)
