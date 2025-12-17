@@ -1,6 +1,7 @@
 /**
  * I/Q Stream Generator
  * Generates mock I/Q data simulating various RF signals
+ * Now includes TX injection for loopback testing
  */
 
 export class IqStreamGenerator {
@@ -8,6 +9,10 @@ export class IqStreamGenerator {
     this.sampleRate = 96000; // I/Q sample rate
     this.phase = 0;
     this.time = 0;
+    
+    // TX injection support
+    this.injectedTxSignal = null;
+    this.txInjectionIndex = 0;
     
     // Signal sources for baseband simulation (±48kHz range)
     this.signals = [
@@ -70,6 +75,51 @@ export class IqStreamGenerator {
     };
   }
   
+  /**
+   * Inject TX signal for loopback testing
+   * @param {Object} txData - Contains amplitude and phase arrays from TX processor
+   * @param {number} frequencyOffset - Frequency offset from center for display
+   */
+  injectTxSignal(txData, frequencyOffset) {
+    console.log(`Injecting TX signal at ${frequencyOffset} Hz offset with ${txData.amplitude.length} samples`);
+    
+    // Convert polar (amplitude/phase) back to I/Q
+    const numSamples = txData.amplitude.length;
+    const iqData = {
+      i: new Float32Array(numSamples),
+      q: new Float32Array(numSamples)
+    };
+    
+    for (let i = 0; i < numSamples; i++) {
+      // Dequantize from hardware format
+      const amp = txData.amplitude[i] / 4095.0; // From 12-bit DAC range
+      const phi = (txData.phase[i] / 65535.0) * 2 * Math.PI; // From 16-bit NCO range
+      
+      // Convert to I/Q
+      iqData.i[i] = amp * Math.cos(phi);
+      iqData.q[i] = amp * Math.sin(phi);
+    }
+    
+    // Store as injected signal
+    this.injectedTxSignal = {
+      iqData: iqData,
+      frequency: frequencyOffset || 0,
+      sampleIndex: 0,
+      originalSampleRate: txData.sampleRate || 48000,
+      active: true
+    };
+    
+    this.txInjectionIndex = 0;
+  }
+  
+  /**
+   * Clear injected TX signal
+   */
+  clearInjectedTx() {
+    this.injectedTxSignal = null;
+    this.txInjectionIndex = 0;
+  }
+  
   generateIqSamples(numSamples) {
     // Use regular arrays that will serialize properly
     const iArray = [];
@@ -90,6 +140,40 @@ export class IqStreamGenerator {
       const noiseLevel = 0.001;
       iSample += (Math.random() - 0.5) * noiseLevel;
       qSample += (Math.random() - 0.5) * noiseLevel;
+      
+      // Add injected TX signal if active
+      if (this.injectedTxSignal && this.injectedTxSignal.active) {
+        const tx = this.injectedTxSignal;
+        
+        // Handle sample rate conversion (48kHz TX to 96kHz I/Q)
+        const resampleRatio = this.sampleRate / tx.originalSampleRate;
+        const txIndex = Math.floor(this.txInjectionIndex / resampleRatio);
+        
+        if (txIndex < tx.iqData.i.length) {
+          // Add frequency shift to place TX signal at desired offset
+          const t = this.time + n * dt;
+          const shiftPhase = 2 * Math.PI * tx.frequency * t;
+          const cosShift = Math.cos(shiftPhase);
+          const sinShift = Math.sin(shiftPhase);
+          
+          // Frequency shift the TX signal
+          const txI = tx.iqData.i[txIndex];
+          const txQ = tx.iqData.q[txIndex];
+          
+          const shiftedI = txI * cosShift - txQ * sinShift;
+          const shiftedQ = txI * sinShift + txQ * cosShift;
+          
+          // Mix TX signal stronger than background signals
+          iSample += shiftedI * 0.8;
+          qSample += shiftedQ * 0.8;
+          
+          this.txInjectionIndex++;
+        } else {
+          // TX playback complete
+          tx.active = false;
+          console.log('TX injection complete');
+        }
+      }
       
       // Add each signal
       for (const signal of this.signals) {
@@ -292,5 +376,7 @@ export class IqStreamGenerator {
   clearSignals() {
     // Keep only the first few permanent signals
     this.signals = this.signals.slice(0, 3);
+    // Also clear any injected TX
+    this.clearInjectedTx();
   }
 }

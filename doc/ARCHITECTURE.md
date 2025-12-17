@@ -49,7 +49,7 @@ The transmit path uses envelope elimination and restoration (EER)
 architecture, where a tracking buck/boost converter modulates the
 power amplifier's supply voltage to create amplitude modulation, while
 an FPGA-based numerically controlled oscillator (NCO) handles phase
-modulation.
+for a transmitter that is built on "polar modulation".
 
 This EER approach achieves high efficiency even with complex
 modulation schemes by eliminating the traditional linear amplifier's
@@ -115,6 +115,10 @@ status information. I/Q samples flow at 96 kS/s with 24-bit
 resolution, while audio input to the transmitter uses 48 kS/s 8-bit
 amplitude and phase samples. The total bandwidth requirement of
 approximately 5.4 Mbps fits comfortably within USB 2.0 capacity.
+
+For control and data, the messaging uses
+[CBOR](https://github.com/intel/tinycbor) to provide a modicum of
+version forward/backward compatibility.
 
 ### RF Signal Processing
 

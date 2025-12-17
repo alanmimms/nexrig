@@ -75,36 +75,48 @@ class NexRigApplication {
       loadingText.textContent = details ? `${message} ${details}` : message;
     }
   }
-  
+
+
   async initializeWebSocket() {
     return new Promise((resolve, reject) => {
       this.websocket = new WebSocket(this.wsUrl);
       
+      // Set binary type for CBOR
+      this.websocket.binaryType = 'arraybuffer';
+      
       this.websocket.onopen = () => {
-        console.log('WebSocket connected');
-        // I/Q stream starts automatically from server (like real radio hardware)
-        resolve();
+	console.log('WebSocket connected');
+	
+	// Initialize CBOR protocol if available
+	if (window.cborProtocol) {
+          window.cborProtocol.initialize(this.websocket);
+	}
+	
+	resolve();
       };
       
       this.websocket.onerror = (error) => {
-        console.error('WebSocket error:', error);
-        reject(new Error('WebSocket connection failed'));
+	console.error('WebSocket error:', error);
+	reject(new Error('WebSocket connection failed'));
       };
       
-      this.websocket.onmessage = (event) => {
-        try {
-          const data = JSON.parse(event.data);
-          this.handleWebSocketMessage(data);
-        } catch (e) {
-          console.error('Failed to parse WebSocket message:', e);
-        }
-      };
+      // Note: onmessage is now handled by cborProtocol if available
+      if (!window.cborProtocol) {
+	this.websocket.onmessage = (event) => {
+          try {
+            const data = JSON.parse(event.data);
+            this.handleWebSocketMessage(data);
+          } catch (e) {
+            console.error('Failed to parse WebSocket message:', e);
+          }
+	};
+      }
       
       this.websocket.onclose = () => {
-        console.log('WebSocket disconnected');
-        this.connected = false;
-        // Attempt to reconnect
-        setTimeout(() => this.initializeWebSocket(), 2000);
+	console.log('WebSocket disconnected');
+	this.connected = false;
+	// Attempt to reconnect
+	setTimeout(() => this.initializeWebSocket(), 2000);
       };
     });
   }
