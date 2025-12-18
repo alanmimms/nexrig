@@ -1,13 +1,13 @@
-(footprint "Coilcraft-uni10"
+(footprint "T68-toroid-1-rolling-tire"
 	(version 20241229)
 	(generator "pcbnew")
 	(generator_version "9.0")
 	(layer "F.Cu")
-	(property "Reference" "REF**"
-		(at 0 -7 0)
+	(property "Reference" "L**"
+		(at 0 -0.5 0)
 		(unlocked yes)
 		(layer "F.SilkS")
-		(uuid "8338a1ee-fc75-4d55-9d82-f36bbc2b9889")
+		(uuid "3f17eddb-7d36-4b0e-afe2-41fbbe13500d")
 		(effects
 			(font
 				(size 1 1)
@@ -15,11 +15,11 @@
 			)
 		)
 	)
-	(property "Value" "Coilcraft-uni10"
+	(property "Value" "T68-toroid-1-rolling-tire"
 		(at 0 1 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "a04b6413-28a3-4667-bfcb-f6d1500a3fc4")
+		(uuid "5c27b954-d549-4013-baee-30217cf46cd1")
 		(effects
 			(font
 				(size 1 1)
@@ -32,7 +32,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "f0c3574f-adc8-481e-b8ad-a1da04be7927")
+		(uuid "26f04bd7-6ada-4ea5-bd3e-31cc5af8d89a")
 		(effects
 			(font
 				(size 1 1)
@@ -40,12 +40,12 @@
 			)
 		)
 	)
-	(property "Description" ""
+	(property "Description" "T68 toroid in rolling tire orientation one winding"
 		(at 0 0 0)
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "f8aa58e8-7cad-495f-9396-058e55b23502")
+		(uuid "51960c70-6014-4604-8007-2c23435db380")
 		(effects
 			(font
 				(size 1 1)
@@ -55,32 +55,32 @@
 	)
 	(attr through_hole)
 	(fp_rect
-		(start -4.825 -4.825)
-		(end 4.825 4.825)
+		(start -8.75 -2.5)
+		(end 8.75 2.5)
 		(stroke
 			(width 0.1)
 			(type solid)
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "eea6f889-1948-4d5c-bd77-62df1602412b")
+		(uuid "c9d9c1e4-d92c-4bc1-bf75-2716693f8c94")
 	)
 	(fp_rect
-		(start -5.5 -5.5)
-		(end 5.5 5.5)
+		(start -10 -5)
+		(end 10 5)
 		(stroke
-			(width 0.1)
+			(width 0.05)
 			(type solid)
 		)
 		(fill no)
-		(layer "F.Fab")
-		(uuid "5546f2be-cc97-4a13-a25c-79c65d73bdd9")
+		(layer "F.CrtYd")
+		(uuid "069d241c-d497-4672-aca8-fc81019fc277")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 0 2.5 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "ef549e26-71f7-4b3a-b86b-531cc41ecdda")
+		(uuid "f7f2c753-e9d1-4fc8-bde9-287dd1442b98")
 		(effects
 			(font
 				(size 1 1)
@@ -89,20 +89,20 @@
 		)
 	)
 	(pad "1" thru_hole circle
-		(at -3.505 -3.505)
-		(size 2.54 2.54)
-		(drill 1.3)
+		(at 0 -3.5)
+		(size 2 2)
+		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "f98deb36-3e20-4a0d-81d6-c2bddb35a0b0")
+		(uuid "7df3d7f3-2e33-4daf-bfa3-e5f37e4bc647")
 	)
 	(pad "2" thru_hole circle
-		(at 3.505 3.505)
-		(size 2.54 2.54)
-		(drill 1.3)
+		(at 0 3.5)
+		(size 2 2)
+		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "f4ebbf25-bc52-4aea-80d4-d91983c0ffda")
+		(uuid "d738bcfd-8694-4537-a005-ca56d7c596bc")
 	)
 	(embedded_fonts no)
 )

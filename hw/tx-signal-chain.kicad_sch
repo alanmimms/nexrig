@@ -4403,7 +4403,7 @@
 	)
 	(text "200 ohm domain"
 		(exclude_from_sim no)
-		(at 160.02 16.51 0)
+		(at 169.926 16.51 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -4799,7 +4799,7 @@
 	)
 	(polyline
 		(pts
-			(xy 143.51 16.51) (xy 125.73 16.51)
+			(xy 152.4 16.51) (xy 125.73 16.51)
 		)
 		(stroke
 			(width 0)
@@ -4826,16 +4826,6 @@
 			(type default)
 		)
 		(uuid "26abb307-87f6-441d-bf8b-6449ea78a0b5")
-	)
-	(polyline
-		(pts
-			(xy 176.53 16.51) (xy 180.34 16.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2839a434-cc53-49c7-a921-109b74072083")
 	)
 	(wire
 		(pts
@@ -4869,7 +4859,7 @@
 	)
 	(polyline
 		(pts
-			(xy 180.34 16.51) (xy 195.58 16.51)
+			(xy 186.69 16.51) (xy 233.68 16.51)
 		)
 		(stroke
 			(width 0)
@@ -5959,7 +5949,7 @@
 	)
 	(polyline
 		(pts
-			(xy 195.58 16.51) (xy 195.58 19.05)
+			(xy 233.68 16.51) (xy 233.68 19.05)
 		)
 		(stroke
 			(width 0)
@@ -6334,10 +6324,26 @@
 		)
 		(uuid "c64986a3-b5d7-4285-808a-e32660f18d6a")
 	)
+	(rule_area
+		(polyline
+			(pts
+				(xy 250.19 129.54) (xy 250.19 114.3) (xy 179.07 114.3) (xy 179.07 132.08) (xy 190.5 132.08) (xy 190.5 127)
+				(xy 200.66 127) (xy 200.66 139.7) (xy 233.68 139.7) (xy 238.76 134.62) (xy 238.76 129.54)
+			)
+			(stroke
+				(width 0)
+				(type dash)
+			)
+			(fill
+				(type none)
+			)
+			(uuid d939bd70-e5c0-4ba8-9787-a21c482e1cb8)
+		)
+	)
 	(netclass_flag ""
 		(length 2.54)
 		(shape round)
-		(at 229.87 125.73 0)
+		(at 179.07 118.11 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6346,7 +6352,7 @@
 		)
 		(uuid "8752a387-c2db-4a1d-83f2-367bb46f5520")
 		(property "Netclass" "pwr50"
-			(at 229.87 122.428 0)
+			(at 175.768 118.11 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6355,39 +6361,7 @@
 			)
 		)
 		(property "Component Class" ""
-			(at 190.5 163.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 194.31 125.73 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "af7a55e1-6daa-4af1-bbe1-07cd9aba0409")
-		(property "Netclass" "pwr50"
-			(at 194.31 122.428 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Component Class" ""
-			(at 154.94 163.83 0)
+			(at 217.17 157.48 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7693,7 +7667,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "Bruene coupler"
 			(at 124.46 127 0)
 			(effects
 				(font
@@ -7701,7 +7675,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Library:2xFT140-stacked-bruene"
+		(property "Footprint" "BN-43-7051-1P-1S-CT"
 			(at 124.46 127 0)
 			(effects
 				(font
@@ -7719,7 +7693,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Fair-Rite BN-43-7051: primary=1t #18AWG, secondary=32t #30AWG center tapped"
 			(at 124.46 127 0)
 			(effects
 				(font

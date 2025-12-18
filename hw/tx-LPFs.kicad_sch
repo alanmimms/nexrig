@@ -1433,12 +1433,6 @@
 		(uuid "ae580d4b-e41d-4cef-b6df-829cc95260dc")
 	)
 	(junction
-		(at 133.35 102.87)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b0707d83-441a-41c6-bc3b-85b9c15fd586")
-	)
-	(junction
 		(at 111.76 71.12)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1685,16 +1679,6 @@
 			(type default)
 		)
 		(uuid "2fc7c660-e663-471a-97f6-50d57fc7172e")
-	)
-	(wire
-		(pts
-			(xy 133.35 102.87) (xy 134.62 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "30719002-21fd-4e24-a73b-fde5dd1839d6")
 	)
 	(wire
 		(pts
@@ -2636,16 +2620,6 @@
 		)
 		(uuid "ffff15ae-a25d-4009-9acc-18852db66c83")
 	)
-	(label "ser2"
-		(at 105.41 187.96 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0575c709-fd72-4c3e-95cb-2bbf45c2db1f")
-	)
 	(label "enMidA"
 		(at 59.69 82.55 270)
 		(effects
@@ -2822,6 +2796,17 @@
 			(justify left)
 		)
 		(uuid "84eea6c2-7696-4c2c-8c74-cb9bcc85c979")
+	)
+	(hierarchical_label "serIn"
+		(shape input)
+		(at 105.41 187.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a95ad84a-7f23-435f-9096-257816792445")
 	)
 	(hierarchical_label "Ctrl{Ctrl}"
 		(shape bidirectional)
@@ -3477,7 +3462,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "12t #14AWG on 0.5in close wound."
+		(property "Description" "16t #22AWG on T68-6 core."
 			(at 105.41 102.87 0)
 			(effects
 				(font
@@ -7397,7 +7382,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "12t #14AWG on 0.5in close wound."
+		(property "Description" "16t #22AWG on T68-6 core."
 			(at 87.63 102.87 0)
 			(effects
 				(font

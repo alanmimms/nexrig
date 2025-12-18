@@ -1,0 +1,108 @@
+(footprint "T50-toroid-1-rolling-tire"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "L**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "3f17eddb-7d36-4b0e-afe2-41fbbe13500d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "T50-toroid-1-rolling-tire"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "5c27b954-d549-4013-baee-30217cf46cd1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "26f04bd7-6ada-4ea5-bd3e-31cc5af8d89a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "T68 toroid in rolling tire orientation one winding"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "51960c70-6014-4604-8007-2c23435db380")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -7 -2.5)
+		(end 7 2.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "c9d9c1e4-d92c-4bc1-bf75-2716693f8c94")
+	)
+	(fp_rect
+		(start -7.5 -4.5)
+		(end 7.5 4.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "069d241c-d497-4672-aca8-fc81019fc277")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "f7f2c753-e9d1-4fc8-bde9-287dd1442b98")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 0 -3.5)
+		(size 2 2)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "7df3d7f3-2e33-4daf-bfa3-e5f37e4bc647")
+	)
+	(pad "2" thru_hole circle
+		(at 0 3.5)
+		(size 2 2)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "d738bcfd-8694-4537-a005-ca56d7c596bc")
+	)
+	(embedded_fonts no)
+)
