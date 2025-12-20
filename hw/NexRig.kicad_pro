@@ -14,8 +14,8 @@
         "copper_text_thickness": 0.3,
         "copper_text_upright": false,
         "courtyard_line_width": 0.05,
-        "dimension_precision": 4,
-        "dimension_units": 3,
+        "dimension_precision": 3,
+        "dimension_units": 2,
         "dimensions": {
           "arrow_length": 1270000,
           "extension_offset": 500000,
@@ -1834,6 +1834,9 @@
         "Power"
       ],
       "Net-(D7728-K_1)": [
+        "Power"
+      ],
+      "Net-(D7729-K_1)": [
         "Power"
       ],
       "Net-(IC2001-DRVSET)": [
@@ -4080,14 +4083,20 @@
           "label": "NOTE",
           "name": "NOTE",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "label",
+          "name": "label",
+          "show": false
         }
       ],
-      "filter_string": "",
+      "filter_string": "c",
       "group_symbols": true,
       "include_excluded_from_bom": false,
       "name": "",
       "sort_asc": true,
-      "sort_field": "Reference"
+      "sort_field": "Value"
     },
     "connection_grid_size": 50.0,
     "drawing": {

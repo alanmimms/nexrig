@@ -1,0 +1,108 @@
+(footprint "Anderson-114555P2-staple"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "ST**"
+		(at -3.49 -2.39 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "ed99442b-ef98-4bd6-a3c8-c0aeffb1b524")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "Anderson-114555P2-staple"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "c8de4b28-5b51-4518-85f8-f6dcb95d3a3b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.mouser.com/datasheet/3/881/1/DS-PP1545.pdf"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "29d55eda-1fc2-442d-bcf8-fb173e6867c5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Anderson 1x2 short PCB mounting staple for PowerPole right angle contact and housing"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b818c8de-b912-4361-97b2-a8527f42b596")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -0.5 -6)
+		(end 0.5 6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "2e1594fe-264f-48b3-b30f-c0bdb2c10cc1")
+	)
+	(fp_rect
+		(start -1.5 -8.5)
+		(end 1.5 8.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "f37a7637-6f86-490a-b3f8-737eb06fbeb7")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "7c233624-f470-4ab8-858c-b8b87adb0c8e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 0 -7.25)
+		(size 2.54 2.54)
+		(drill 1.3)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "40a2040d-eebb-493d-ba1c-c82bef73175f")
+	)
+	(pad "2" thru_hole circle
+		(at 0 7.25)
+		(size 2.54 2.54)
+		(drill 1.3)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "a498742b-504a-4a7b-9603-3e36bfc9a556")
+	)
+	(embedded_fonts no)
+)

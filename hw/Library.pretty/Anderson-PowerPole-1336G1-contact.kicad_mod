@@ -1,0 +1,150 @@
+(footprint "Anderson-PowerPole-1336G1-contact"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "J**"
+		(at 0 2 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "70b81e81-09da-4da0-943f-5c201156fcb8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "1336G1"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "3597bde9-67c6-4f17-8ab3-93bfcfc9bfe5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.mouser.com/datasheet/3/881/1/DS-PP1545.pdf"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f1b0393d-9c9f-414a-bcaa-2496527315d9")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Anderson PowerPole 1336G1 contact"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2707e422-d7a3-4199-a9ce-478a99d52328")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -7.9 -28.6)
+		(end 0 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "8b58c7f3-5730-4ce3-9bc5-8617a5cdb89b")
+	)
+	(fp_rect
+		(start 0 -28.6)
+		(end 7.9 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "00801928-33be-468b-ac12-dc1ad7cb5c73")
+	)
+	(fp_text user "+"
+		(at 6 1.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "2fb59af1-a01f-408b-8d25-5ff3c8dbb9f6")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "GND"
+		(at -8.5 1.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "cb12c360-ac2f-4488-9db1-155a0656db58")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "32ccdc3a-6042-42f2-8fb0-ca740d62d98f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 3.95 0)
+		(size 3.1 3.1)
+		(drill 1.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "17022456-70b8-4990-908a-5f3e7258059a")
+	)
+	(pad "2" thru_hole circle
+		(at 3.95 -5.1)
+		(size 3.1 3.1)
+		(drill 1.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "d71c95d4-03cd-41b9-8341-b20f10792389")
+	)
+	(pad "3" thru_hole circle
+		(at -3.95 0)
+		(size 3.1 3.1)
+		(drill 1.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "5de1d74d-2c46-4797-b070-29f0d23808cd")
+	)
+	(pad "4" thru_hole circle
+		(at -3.95 -5.1)
+		(size 3.1 3.1)
+		(drill 1.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "44715454-ec60-4883-b236-4181bb90cc39")
+	)
+	(embedded_fonts no)
+)
